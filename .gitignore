@@ -1,0 +1,15 @@
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+debug_json_error.txt
+debug_repaired_json.txt
+output/temp.html
+
+.env
+.env.*

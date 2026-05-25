@@ -1,0 +1,1905 @@
+{
+"issue": {
+"newspaper_name": "CHATGPT HABER",
+"date": "25.05.2026",
+"day": "Pazartesi",
+"issue_number": "20260525",
+"language": "tr",
+"page_count": 16
+},
+"editorial_policy": {
+"tone": "neutral",
+"clickbait": false,
+"propaganda": false,
+"minimum_sources_for_major_news": 2,
+"anti_hallucination": true
+},
+"pages": [
+{
+"page_number": 1,
+"section": "front_page",
+"template": "front_page.html",
+"css": "frontpage.css",
+"headline": {
+"title": "CHP krizi piyasaların gölgesinde",
+"subtitle": "Mahkeme kararı, polis müdahalesi ve piyasa tepkisi Ankara merkezli gündemin ana başlığı oldu.",
+"summary": "CHP yönetimine ilişkin mahkeme kararı ve parti genel merkezindeki müdahale, siyasi tansiyonu yükseltirken piyasalarda temkinli toparlanma izlendi.",
+"image_prompt": "Ankara'da gece ışıkları altında gazete manşeti estetiğinde siyasi kriz ve piyasa ekranlarını birlikte gösteren gerçekçi haber görseli",
+"status": "confirmed",
+"source_count": 2,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/](https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/)",
+"published_at": "2026-05-25"
+},
+{
+"name": "Associated Press",
+"url": "[https://apnews.com/article/2eee5ef016ff6ac1eeda368aff7588e0](https://apnews.com/article/2eee5ef016ff6ac1eeda368aff7588e0)",
+"published_at": "2026-05-24"
+}
+],
+"verification_note": "Siyasi gelişme ve piyasa etkisi iki uluslararası kaynakla doğrulandı."
+},
+"lead_stories": [
+{
+"id": "dem-partisinden-chp-kararina-tepki",
+"title": "DEM'den CHP kararına tepki",
+"subtitle": "DEM Parti, mahkeme kararını demokrasi açısından eleştirdi.",
+"summary": "DEM Parti, CHP yönetimine ilişkin kararı ve parti genel merkezindeki müdahaleyi sert ifadelerle değerlendirdi.",
+"body": "DEM Parti yönetimi, CHP'nin 2023 kongresine ilişkin mahkeme kararının ardından yaşanan gelişmeleri demokratik siyaset açısından sorunlu gördüğünü açıkladı. Açıklamada, parti yönetimlerinin mahkeme süreçleriyle değil üyelerin iradesiyle belirlenmesi gerektiği vurgulandı. Karar, muhalefet cephesinde siyasi temsil ve yargı bağımsızlığı tartışmalarını yeniden öne çıkardı.",
+"category": "politics",
+"importance": 1,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkeys-pro-kurdish-party-condemns-ousting-main-opposition-2026-05-25/](https://www.reuters.com/world/middle-east/turkeys-pro-kurdish-party-condemns-ousting-main-opposition-2026-05-25/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Haber tek uluslararası ajans kaynağına dayanmaktadır.",
+"image_prompt": "TBMM koridorlarında gazeteciler ve siyasi parti temsilcileri, tarafsız haber fotoğrafı"
+},
+{
+"id": "borsa-ve-lira-temkinli-seyirde",
+"title": "Piyasalarda temkinli denge",
+"subtitle": "Borsa ve lira siyasi gündemin ardından sınırlı toparlanma işareti verdi.",
+"summary": "BIST 100 sınırlı yükseliş kaydederken lira düşük seviyelerine yakın seyretti.",
+"body": "Reuters verilerine göre Türk piyasaları haftaya siyasi belirsizliğin gölgesinde başladı. BIST 100 endeksi önceki sert hareketlerin ardından sınırlı toparlandı. Bankacılık endeksinde daha güçlü bir artış görülürken lira dolar karşısında tarihi zayıf seviyelerine yakın kaldı. Analistler, siyasi tansiyonun kalıcı risk algısını etkileyebileceğini belirtiyor.",
+"category": "economy",
+"importance": 1,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/](https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Piyasa rakamları Reuters haberine dayanmaktadır.",
+"image_prompt": "Borsa ekranı, döviz kuru grafiği ve İstanbul finans merkezi görünümü"
+},
+{
+"id": "trabzonspor-kupayi-aldi",
+"title": "Kupa Trabzonspor'un",
+"subtitle": "Trabzonspor, Türkiye Kupası finalinde Konyaspor'u yenerek sezonu kupayla tamamladı.",
+"summary": "Trabzonspor, Ziraat Türkiye Kupası finalinde Tümosan Konyaspor'u 2-1 mağlup etti.",
+"body": "Trabzonspor Kulübü, Ziraat Türkiye Kupası finalinde Tümosan Konyaspor'u 2-1 mağlup ederek kupayı kazandığını duyurdu. Kulüp açıklamasında sonuç resmi olarak paylaşılırken, bordo mavili ekip kupayı müzesine götürdü. Bu sonuç, spor sayfalarında sezonun en önemli başlıklarından biri olarak öne çıktı.",
+"category": "sports",
+"importance": 2,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Trabzonspor",
+"url": "[https://www.trabzonspor.org.tr/news/2025-2026-ziraat-turkiye-kupasi-sampiyonu-trabzonspor-22-05-2026](https://www.trabzonspor.org.tr/news/2025-2026-ziraat-turkiye-kupasi-sampiyonu-trabzonspor-22-05-2026)",
+"published_at": "2026-05-22"
+}
+],
+"verification_note": "Sonuç kulübün resmi açıklamasıyla doğrulandı.",
+"image_prompt": "Kupa kaldıran futbol takımı, bordo mavi renkler, stadyum ışıkları"
+}
+],
+"briefs": [
+{
+"id": "aa-gundem-ozeti",
+"title": "AA'dan gündem özeti",
+"subtitle": "Anadolu Ajansı günün Türkiye ve dünya gündemini yayımladı.",
+"summary": "AA'nın günlük özetinde Gazze, ekonomi, spor ve iç gündem başlıkları yer aldı.",
+"body": "Anadolu Ajansı'nın 25 Mayıs 2026 tarihli gündem özetinde Türkiye ve dünya gündemindeki gelişmeler kısa başlıklarla aktarıldı. Gazze'deki ateşkes süreci, ekonomi gündemi ve spor hazırlıkları takip edilen başlıklar arasında yer aldı.",
+"category": "politics",
+"importance": 4,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Anadolu Ajansı",
+"url": "[https://www.aa.com.tr/tr/gundem/60-saniyede-bugun-25-mayis-2026/3948150](https://www.aa.com.tr/tr/gundem/60-saniyede-bugun-25-mayis-2026/3948150)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Günlük gündem özeti AA kaynağına dayanmaktadır.",
+"image_prompt": "Gazete editör masasında haber akış ekranları"
+},
+{
+"id": "ekonomi-gunun-ozeti",
+"title": "Ekonomide günün notları",
+"subtitle": "AA, ekonomide öne çıkan gelişmeleri kısa bültende topladı.",
+"summary": "Ekonomi gündemi piyasa, veri ve kurum açıklamaları ekseninde izlendi.",
+"body": "Anadolu Ajansı'nın ekonomide bugün bülteni, gün içinde izlenen ekonomik gelişmeleri kısa formatta derledi. Piyasalar, resmi veri takvimi ve ekonomi yönetiminden gelen mesajlar yatırımcıların takip ettiği başlıklar arasında yer aldı.",
+"category": "economy",
+"importance": 4,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Anadolu Ajansı",
+"url": "[https://www.aa.com.tr/tr/ekonomi/60-saniyede-ekonomide-bugun-25-mayis-2026/3948154](https://www.aa.com.tr/tr/ekonomi/60-saniyede-ekonomide-bugun-25-mayis-2026/3948154)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Haber AA'nın günlük ekonomi özetinden derlenmiştir.",
+"image_prompt": "Ekonomi haberleri için veri grafikleri ve ofis ekranları"
+},
+{
+"id": "trt-son-dakika-akisi",
+"title": "TRT'de son dakika akışı",
+"subtitle": "TRT Haber gün içinde Türkiye ve dünyadan gelişmeleri yayımladı.",
+"summary": "Tokyo'daki sağlık olayı, İstanbul trafiği ve bölgesel gelişmeler günün son dakika akışında yer aldı.",
+"body": "TRT Haber'in 25 Mayıs 2026 son dakika akışında yurt içi ve yurt dışından gelişmeler yer aldı. Tokyo'da AVM'de yaşanan sağlık olayı, İstanbul trafiğindeki bayram sakinliği ve Ortadoğu kaynaklı haberler takip edilen başlıklar arasında görüldü.",
+"category": "lifestyle",
+"importance": 5,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "TRT Haber",
+"url": "[https://www.trthaber.com/son-dakika-haberleri](https://www.trthaber.com/son-dakika-haberleri)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Başlıklar TRT Haber son dakika sayfasına dayanmaktadır.",
+"image_prompt": "Televizyon haber merkezi, son dakika ekranları"
+},
+{
+"id": "rami-bienal-devam-ediyor",
+"title": "Rami'de çocuk ve sanat",
+"subtitle": "Rami Çocuk ve Sanat Bienali aileleri kültür etkinliklerinde buluşturuyor.",
+"summary": "Bienal, sergi, atölye ve deneyim alanlarıyla çocuklara sanat odaklı program sunuyor.",
+"body": "Rami Çocuk ve Sanat Bienali, çocukları sanat, hikaye, mekan ve üretim ekseninde buluşturan etkinlik programıyla devam ediyor. Programda sergiler, yaratıcı atölyeler, okuma alanları ve yazar çizer buluşmaları yer alıyor.",
+"category": "culture_arts",
+"importance": 4,
+"status": "confirmed",
+"source_count": 2,
+"sources": [
+{
+"name": "Rami Kütüphanesi",
+"url": "[https://ramikutuphanesi.gov.tr/etkinlikler/tum-etkinlikler/a0bc37da-857c-47fb-ae1c-c4767be46fa1](https://ramikutuphanesi.gov.tr/etkinlikler/tum-etkinlikler/a0bc37da-857c-47fb-ae1c-c4767be46fa1)",
+"published_at": "2026-04-25"
+},
+{
+"name": "Anadolu Ajansı",
+"url": "[https://www.aa.com.tr/tr/kultur/rami-cocuk-ve-sanat-bienali-yarin-kapilarini-aciyor/3916611](https://www.aa.com.tr/tr/kultur/rami-cocuk-ve-sanat-bienali-yarin-kapilarini-aciyor/3916611)",
+"published_at": "2026-04-24"
+}
+],
+"verification_note": "Etkinlik bilgisi resmi sayfa ve AA haberiyle doğrulandı.",
+"image_prompt": "Tarihi kütüphane içinde çocuklar için sanat atölyesi"
+},
+{
+"id": "transferde-temkinli-dil",
+"title": "Transferde söylenti uyarısı",
+"subtitle": "Kulüplerden açıklama gelmeden kesin ifade kullanılmaması gerekiyor.",
+"summary": "Günün transfer gündeminde çok sayıda iddia bulunuyor ancak resmi açıklama yapılmayan başlıklar söylenti olarak sınıflandırıldı.",
+"body": "Transfer dönemine yaklaşılırken spor medyasında birçok kulüp ve oyuncu adı birlikte anılıyor. Ancak resmi kulüp açıklaması bulunmayan haberlerde kesin transfer dili kullanılmamalı. Bu sayıda transfer başlıkları doğrulama durumuna göre ayrıldı.",
+"category": "transfer_file",
+"importance": 3,
+"status": "analysis",
+"source_count": 1,
+"sources": [
+{
+"name": "beIN SPORTS Türkiye",
+"url": "[https://beinsports.com.tr/](https://beinsports.com.tr/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Resmi açıklama bulunmayan başlıklar söylenti olarak etiketlendi.",
+"image_prompt": "Futbol transfer dosyası, kulüp logoları olmadan gazete kolajı"
+}
+]
+},
+{
+"page_number": 2,
+"section": "politics",
+"template": "politics.html",
+"css": "politics.css",
+"main_story": {
+"id": "chp-genel-merkezinde-mudahale",
+"title": "CHP genel merkezinde müdahale",
+"subtitle": "Polis müdahalesi, mahkeme kararının ardından üç günlük gerilimi sona erdirdi.",
+"summary": "CHP genel merkezinde yaşanan müdahale, muhalefet ve iktidar cephesinde farklı yorumlara neden oldu.",
+"body": "Associated Press'in haberine göre, Ankara'daki CHP genel merkezinde mahkeme kararının ardından başlayan bekleyiş polis müdahalesiyle sonuçlandı. Destekçiler ve parti görevlileri binada direniş gösterirken, güvenlik güçleri müdahale etti. CHP kanadı kararı siyasi baskı olarak yorumlarken hükümet çevresi yargı sürecinin bağımsız olduğunu savundu. Gelişme, Türkiye siyasetinde kurumsal kriz ve muhalefetin geleceği tartışmalarını büyüttü.",
+"category": "politics",
+"importance": 1,
+"status": "confirmed",
+"source_count": 2,
+"sources": [
+{
+"name": "Associated Press",
+"url": "[https://apnews.com/article/2eee5ef016ff6ac1eeda368aff7588e0](https://apnews.com/article/2eee5ef016ff6ac1eeda368aff7588e0)",
+"published_at": "2026-05-24"
+},
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkeys-pro-kurdish-party-condemns-ousting-main-opposition-2026-05-25/](https://www.reuters.com/world/middle-east/turkeys-pro-kurdish-party-condemns-ousting-main-opposition-2026-05-25/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Müdahale ve siyasi tepkiler iki uluslararası kaynakta yer aldı.",
+"image_prompt": "Ankara'da siyasi parti binası önünde polis bariyerleri ve gazeteciler"
+},
+"stories": [
+{
+"id": "mahkeme-karari-chp-yonetimi",
+"title": "Mahkeme kararı siyaseti sarstı",
+"subtitle": "CHP'nin 2023 kongresi hakkındaki karar siyasi tartışmayı büyüttü.",
+"summary": "Mahkeme, CHP kongresini geçersiz sayarak yönetim değişikliği sürecini başlattı.",
+"body": "AP ve Reuters haberlerine göre karar, CHP'nin 2023 kongresini geçersiz saydı ve eski genel başkan Kemal Kılıçdaroğlu'nun yeniden göreve dönmesi sonucunu doğurdu. Özgür Özel kararı yargı darbesi olarak nitelendirdi. Karar, muhalefet içi meşruiyet ve yargı bağımsızlığı tartışmasını yeniden gündemin merkezine taşıdı.",
+"category": "politics",
+"importance": 1,
+"status": "confirmed",
+"source_count": 2,
+"sources": [
+{
+"name": "Associated Press",
+"url": "[https://apnews.com/article/79f411c037e3aa7fe82395ea38e15c88](https://apnews.com/article/79f411c037e3aa7fe82395ea38e15c88)",
+"published_at": "2026-05-22"
+},
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkey-political-crisis-simmers-opposition-vows-resist-court-ruling-2026-05-22/](https://www.reuters.com/world/middle-east/turkey-political-crisis-simmers-opposition-vows-resist-court-ruling-2026-05-22/)",
+"published_at": "2026-05-22"
+}
+],
+"verification_note": "Kararın içeriği iki ajans haberinde doğrulandı.",
+"image_prompt": "Mahkeme binası ve siyasi parti evrakları, tarafsız haber görseli"
+},
+{
+"id": "ozel-direnecegiz-mesaji",
+"title": "Özel'den direnme mesajı",
+"subtitle": "CHP liderliği tartışmasında sokak ve hukuk hattı birlikte öne çıktı.",
+"summary": "Özgür Özel, mahkeme kararına karşı mücadeleyi sürdüreceğini açıkladı.",
+"body": "Reuters'in aktardığına göre Özgür Özel, mahkeme kararının ardından parti merkezinde kalacağını ve hukuki süreci sürdüreceğini belirtti. CHP çevreleri kararı siyasi müdahale olarak değerlendirirken, kararın kesinleşme ve itiraz süreçleri yakından izleniyor. Parti tabanındaki gerilim Ankara'daki siyasi gündemi belirlemeye devam ediyor.",
+"category": "politics",
+"importance": 2,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkey-political-crisis-simmers-opposition-vows-resist-court-ruling-2026-05-22/](https://www.reuters.com/world/middle-east/turkey-political-crisis-simmers-opposition-vows-resist-court-ruling-2026-05-22/)",
+"published_at": "2026-05-22"
+}
+],
+"verification_note": "Açıklama Reuters haberine dayanmaktadır.",
+"image_prompt": "Parti kürsüsünde konuşma yapan muhalefet lideri, arkada basın kameraları"
+},
+{
+"id": "kilicdaroglu-yeniden-gundemde",
+"title": "Kılıçdaroğlu yeniden merkezde",
+"subtitle": "Mahkeme kararı eski genel başkanı siyasi denklemin içine çekti.",
+"summary": "Kemal Kılıçdaroğlu'nun adı karar sonrası CHP yönetimi tartışmasının merkezine yerleşti.",
+"body": "AP haberine göre mahkeme kararı, eski CHP Genel Başkanı Kemal Kılıçdaroğlu'nun yeniden parti yönetimi denklemine dönmesine yol açtı. Kılıçdaroğlu tarafı sakinlik çağrısı yaparken, Özgür Özel ve destekçileri karara karşı çıkıyor. Bu durum CHP içinde çift meşruiyet tartışmasını derinleştirdi.",
+"category": "politics",
+"importance": 2,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Associated Press",
+"url": "[https://apnews.com/article/af4191515ee4413328f34e19f5fefffd](https://apnews.com/article/af4191515ee4413328f34e19f5fefffd)",
+"published_at": "2026-05-23"
+}
+],
+"verification_note": "Haber AP kaynağına dayanmaktadır.",
+"image_prompt": "Siyasi parti koridorunda iki farklı lider fotoğrafı bulunan gazete sayfası"
+},
+{
+"id": "ak-parti-yargi-vurgusu",
+"title": "AK Parti'den yargı vurgusu",
+"subtitle": "İktidar cephesi süreci parti içi hukuki mesele olarak değerlendirdi.",
+"summary": "AK Parti sözcülerinin yaklaşımı, yargı sürecine müdahale olmadığı yönünde oldu.",
+"body": "Reuters haberinde aktarıldığı üzere iktidar cephesi, CHP'deki gelişmeleri yargının parti içi hukuki itirazlara verdiği karar kapsamında değerlendirdi. Muhalefet ise kararın siyasi sonuçlarına dikkat çekiyor. Bu ayrışma, Türkiye'deki kurumlar ve yargı bağımsızlığı tartışmasının ana eksenini oluşturuyor.",
+"category": "politics",
+"importance": 3,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkeys-pro-kurdish-party-condemns-ousting-main-opposition-2026-05-25/](https://www.reuters.com/world/middle-east/turkeys-pro-kurdish-party-condemns-ousting-main-opposition-2026-05-25/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "İktidar cephesinin yaklaşımı Reuters haberinden aktarılmıştır.",
+"image_prompt": "Meclis binası ve açıklama yapan siyasi parti sözcüsü atmosferi"
+}
+]
+},
+{
+"page_number": 3,
+"section": "politics",
+"template": "politics.html",
+"css": "politics.css",
+"main_story": {
+"id": "muhalefette-hukuk-ve-sokak-hatti",
+"title": "Muhalefette hukuk ve sokak hattı",
+"subtitle": "CHP krizi, itiraz süreci ve protesto çağrılarıyla yeni aşamaya geçti.",
+"summary": "Mahkeme kararının ardından muhalefet hem hukuki itiraz hem de siyasi mobilizasyon arayışında.",
+"body": "CHP cephesinde mahkeme kararına karşı verilecek yanıt iki hatta şekilleniyor. Bir tarafta üst yargı ve hukuki itiraz seçenekleri, diğer tarafta parti tabanını canlı tutmaya dönük kitlesel çağrılar öne çıkıyor. AP ve Reuters haberleri, krizin yalnızca parti içi yönetim meselesi olmaktan çıkarak Türkiye siyasetinin genel yönüyle ilgili bir tartışmaya dönüştüğünü gösteriyor.",
+"category": "politics",
+"importance": 1,
+"status": "analysis",
+"source_count": 2,
+"sources": [
+{
+"name": "Associated Press",
+"url": "[https://apnews.com/article/79f411c037e3aa7fe82395ea38e15c88](https://apnews.com/article/79f411c037e3aa7fe82395ea38e15c88)",
+"published_at": "2026-05-22"
+},
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkey-court-ruling-adds-crackdown-main-opposition-chp-2026-05-22/](https://www.reuters.com/world/middle-east/turkey-court-ruling-adds-crackdown-main-opposition-chp-2026-05-22/)",
+"published_at": "2026-05-22"
+}
+],
+"verification_note": "Analiz, doğrulanmış haberlerdeki gelişmelerin editoryal değerlendirmesidir.",
+"image_prompt": "Gazete analiz sayfası, mahkeme terazisi ve kalabalık siluetleri"
+},
+"stories": [
+{
+"id": "erken-secim-tartismasi-canlandi",
+"title": "Erken seçim tartışması canlandı",
+"subtitle": "Siyasi kriz 2028 öncesi senaryoları yeniden gündeme getirdi.",
+"summary": "CHP krizi, olası erken seçim ve muhalefetin hazırlığı tartışmalarını hızlandırdı.",
+"body": "Reuters analizine göre CHP çevresindeki hukuki baskı ve siyasi kriz, Cumhurbaşkanlığı seçim takvimi üzerine tartışmaları yeniden güçlendirdi. Resmi seçim takvimi 2028'i gösterse de erken seçim ihtimali siyasi yorumların merkezinde yer alıyor. Bu nedenle muhalefetin örgüt kapasitesi ve liderlik bütünlüğü kritik önemde görülüyor.",
+"category": "politics",
+"importance": 2,
+"status": "analysis",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/turkey-court-ruling-adds-crackdown-main-opposition-chp-2026-05-22/](https://www.reuters.com/world/turkey-court-ruling-adds-crackdown-main-opposition-chp-2026-05-22/)",
+"published_at": "2026-05-22"
+}
+],
+"verification_note": "Erken seçim kısmı haber analizinden çıkarılan siyasi değerlendirmedir.",
+"image_prompt": "Seçim sandığı, takvim yaprağı ve parlamento silueti"
+},
+{
+"id": "imamoglu-dosyasi-gundemde",
+"title": "İmamoğlu dosyası gölgede değil",
+"subtitle": "CHP üzerindeki baskı tartışmasında İstanbul dosyaları da anılıyor.",
+"summary": "Ekrem İmamoğlu'nun hukuki süreci, CHP krizinin arka planındaki önemli başlıklardan biri olmayı sürdürüyor.",
+"body": "AP haberlerinde CHP'ye yönelik yargı süreçleri aktarılırken Ekrem İmamoğlu'nun hapis süreci ve muhalefet içindeki rolü de arka plan unsuru olarak yer alıyor. İmamoğlu, muhalefetin olası cumhurbaşkanı adayı olarak görülmesi nedeniyle dosyaların siyasi etkisi daha geniş bir çerçevede değerlendiriliyor.",
+"category": "politics",
+"importance": 3,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Associated Press",
+"url": "[https://apnews.com/article/c56f77e647a500c39770e6cc34d00326](https://apnews.com/article/c56f77e647a500c39770e6cc34d00326)",
+"published_at": "2025-07-16"
+}
+],
+"verification_note": "Arka plan bilgisi eski tarihli AP haberine dayanmaktadır ve güncel krizle bağlam olarak kullanılmıştır.",
+"image_prompt": "İstanbul belediye binası ve mahkeme dosyası temalı haber görseli"
+},
+{
+"id": "parti-ici-mesruiyet-sorunu",
+"title": "Parti içi meşruiyet sorunu",
+"subtitle": "CHP'de yönetim yetkisi ve karar alma süreci tartışmalı hale geldi.",
+"summary": "Mahkeme kararı, parti içi organların hangi yönetim altında çalışacağı sorusunu doğurdu.",
+"body": "CHP dosyasında yalnızca genel başkanlık değil, parti meclisi ve yönetim kurulları gibi organların meşruiyeti de tartışılıyor. AP'nin aktardığı bilgiler, kararın parti içi işleyişte önemli belirsizlik yarattığını gösteriyor. Bu belirsizlik, yerel örgütlerden parlamento grubuna kadar geniş bir alanı etkileyebilir.",
+"category": "politics",
+"importance": 3,
+"status": "analysis",
+"source_count": 1,
+"sources": [
+{
+"name": "Associated Press",
+"url": "[https://apnews.com/article/79f411c037e3aa7fe82395ea38e15c88](https://apnews.com/article/79f411c037e3aa7fe82395ea38e15c88)",
+"published_at": "2026-05-22"
+}
+],
+"verification_note": "Analiz AP haberindeki karar kapsamına dayanmaktadır.",
+"image_prompt": "Parti toplantı salonunda boş sandalyeler ve karar defteri"
+},
+{
+"id": "demokrasi-tartismasi-buyuyor",
+"title": "Demokrasi tartışması büyüyor",
+"subtitle": "Muhalefet partileri kararı kurumsal siyaset açısından yorumluyor.",
+"summary": "CHP krizine verilen tepkiler, parti yönetimlerinin yargı kararlarıyla değişip değişmeyeceği sorusunu gündeme taşıdı.",
+"body": "DEM Parti'nin Reuters'e yansıyan açıklaması, CHP krizinin yalnızca bir parti içi uyuşmazlık olmadığını savundu. Açıklamada siyasi partilerin liderlerinin üyeler tarafından belirlenmesi gerektiği vurgulandı. Bu yaklaşım, muhalefetin ortak demokrasi ve temsil argümanını güçlendirme çabasını gösteriyor.",
+"category": "politics",
+"importance": 3,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkeys-pro-kurdish-party-condemns-ousting-main-opposition-2026-05-25/](https://www.reuters.com/world/middle-east/turkeys-pro-kurdish-party-condemns-ousting-main-opposition-2026-05-25/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "DEM Parti tepkisi Reuters haberine dayanmaktadır.",
+"image_prompt": "Meclis önünde demokrasi ve temsil temalı gazete fotoğrafı"
+}
+]
+},
+{
+"page_number": 4,
+"section": "politics",
+"template": "politics.html",
+"css": "politics.css",
+"main_story": {
+"id": "gazze-ateskes-sureci-izleniyor",
+"title": "Gazze ateşkes süreci izleniyor",
+"subtitle": "Bölgedeki insani durum ve ateşkes ihlalleri gündemde kalmayı sürdürüyor.",
+"summary": "Anadolu Ajansı gündeminde Gazze'deki ateşkes süreci ve insani gelişmeler izlenen başlıklar arasında yer aldı.",
+"body": "Anadolu Ajansı'nın 25 Mayıs 2026 gündem notunda Gazze'deki ateşkes süreci, İsrail'in ateşkes ihlalleri iddiaları, bölgedeki insani durum ve gelişmelerin uluslararası yansımaları takip edilecek başlıklar arasında gösterildi. Bölgedeki haber akışı, diplomatik temaslar ve insani yardım gündemiyle birlikte izleniyor.",
+"category": "politics",
+"importance": 2,
+"status": "developing",
+"source_count": 1,
+"sources": [
+{
+"name": "Anadolu Ajansı",
+"url": "[https://www.aa.com.tr/tr/p/gundem](https://www.aa.com.tr/tr/p/gundem)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Haber takip notu AA gündem sayfasına dayanmaktadır.",
+"image_prompt": "Gazze gündemi için insani yardım konvoyu ve diplomasi masası temalı tarafsız görsel"
+},
+"stories": [
+{
+"id": "uluslararasi-yansimalar-takipte",
+"title": "Uluslararası yansımalar takipte",
+"subtitle": "Gazze gündemi diplomasi ve insani yardım ekseninde izleniyor.",
+"summary": "Ateşkes sürecine ilişkin uluslararası değerlendirmeler haber akışında kalıyor.",
+"body": "AA gündem notunda Gazze'deki gelişmelerin uluslararası alandaki yansımalarının takip edildiği belirtildi. Bu başlık, yalnızca sahadaki güvenlik durumunu değil, diplomatik açıklamaları ve insani yardım akışını da kapsıyor. Bölgedeki kırılgan süreç nedeniyle haber dili kesin olmayan gelişmelerde temkinli tutulmalı.",
+"category": "politics",
+"importance": 3,
+"status": "developing",
+"source_count": 1,
+"sources": [
+{
+"name": "Anadolu Ajansı",
+"url": "[https://www.aa.com.tr/tr/p/gundem](https://www.aa.com.tr/tr/p/gundem)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Başlık AA gündem planındaki ifadeye dayanmaktadır.",
+"image_prompt": "Birleşmiş Milletler koridoru ve Ortadoğu haritası"
+},
+{
+"id": "lubnan-guneyinde-gerilim",
+"title": "Lübnan güneyinde gerilim",
+"subtitle": "TRT Haber, Lübnan resmi ajansına dayandırılan saldırı iddiasını aktardı.",
+"summary": "Lübnan'ın güneyine yönelik fosfor bombası iddiası günün son dakika akışına girdi.",
+"body": "TRT Haber son dakika akışında, Lübnan resmi ajansına dayandırılan haberde İsrail'in Lübnan'ın güneyini fosfor bombalarıyla hedef aldığı iddiası yer aldı. Bölgedeki askeri gerilim ve sivil güvenlik riski, Ortadoğu haberlerinin önemli başlıklarından biri olmaya devam ediyor.",
+"category": "politics",
+"importance": 3,
+"status": "developing",
+"source_count": 1,
+"sources": [
+{
+"name": "TRT Haber",
+"url": "[https://www.trthaber.com/son-dakika-haberleri](https://www.trthaber.com/son-dakika-haberleri)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Haber TRT'nin son dakika akışındaki aktarıma dayanmaktadır.",
+"image_prompt": "Sınır bölgesinde duman ve haber ajansı ekranı, gerçekçi ama tarafsız"
+},
+{
+"id": "tokyoda-avm-olayi",
+"title": "Tokyo'da AVM alarmı",
+"subtitle": "Yabancı madde püskürtülmesi sonucu 19 kişi hastaneye kaldırıldı.",
+"summary": "TRT Haber, Tokyo'da bir AVM'de yaşanan olayın sağlık müdahalesine yol açtığını duyurdu.",
+"body": "TRT Haber son dakika akışında Tokyo'da bir alışveriş merkezinde yabancı madde püskürtülmesi sonucu 19 kişinin hastaneye kaldırıldığı bilgisi yer aldı. Olayın nedeni ve maddeye ilişkin ayrıntılar netleşmediği için haber gelişmekte olan olay olarak değerlendirilmelidir.",
+"category": "politics",
+"importance": 4,
+"status": "developing",
+"source_count": 1,
+"sources": [
+{
+"name": "TRT Haber",
+"url": "[https://www.trthaber.com/son-dakika-haberleri](https://www.trthaber.com/son-dakika-haberleri)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Olay TRT Haber son dakika akışına dayanmaktadır.",
+"image_prompt": "Tokyo'da alışveriş merkezi önünde ambulans ve polis şeridi"
+},
+{
+"id": "gundem-takviminde-ekonomi-verisi",
+"title": "Ekonomik güven endeksi bekleniyor",
+"subtitle": "TÜİK'in mayıs ayı ekonomik güven endeksi veri takviminde yer aldı.",
+"summary": "AA gündeminde TÜİK'in ekonomik güven endeksini açıklayacağı bilgisi yer aldı.",
+"body": "Anadolu Ajansı gündem sayfasında, Türkiye İstatistik Kurumu'nun mayıs ayı ekonomik güven endeksini açıklayacağı bilgisi yer aldı. Veri, tüketici ve reel sektör algısına dair birleşik bir gösterge olduğu için ekonomi yönetimi, piyasa ve iş dünyası tarafından takip ediliyor.",
+"category": "economy",
+"importance": 3,
+"status": "developing",
+"source_count": 1,
+"sources": [
+{
+"name": "Anadolu Ajansı",
+"url": "[https://www.aa.com.tr/tr/p/gundem](https://www.aa.com.tr/tr/p/gundem)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Veri takvimi bilgisi AA gündem sayfasına dayanmaktadır.",
+"image_prompt": "TÜİK veri takvimi, ekonomi grafikleri ve hesap makinesi"
+}
+]
+},
+{
+"page_number": 5,
+"section": "politics",
+"template": "politics.html",
+"css": "politics.css",
+"main_story": {
+"id": "siyasette-kurumlar-tartismasi",
+"title": "Kurumlar tartışması derinleşti",
+"subtitle": "CHP kararı, yargı, parti içi demokrasi ve seçim dengeleri açısından okunuyor.",
+"summary": "Siyasi krizin merkezinde yalnızca liderlik değil, kurumların işleyişi ve güven tartışması da var.",
+"body": "CHP kararının ardından Türkiye siyasetinde kurumların rolü yeniden tartışılıyor. Muhalefet, kararın demokratik temsil alanını daralttığını savunurken, iktidar cephesi yargı sürecinin parti içi itirazlardan kaynaklandığını belirtiyor. Uluslararası haber ajansları gelişmeyi muhalefet üzerindeki yargı baskısı ve siyasi belirsizlik başlıklarıyla ele aldı.",
+"category": "politics",
+"importance": 2,
+"status": "analysis",
+"source_count": 2,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/turkey-court-ruling-adds-crackdown-main-opposition-chp-2026-05-22/](https://www.reuters.com/world/turkey-court-ruling-adds-crackdown-main-opposition-chp-2026-05-22/)",
+"published_at": "2026-05-22"
+},
+{
+"name": "Associated Press",
+"url": "[https://apnews.com/article/79f411c037e3aa7fe82395ea38e15c88](https://apnews.com/article/79f411c037e3aa7fe82395ea38e15c88)",
+"published_at": "2026-05-22"
+}
+],
+"verification_note": "Analiz, iki ajans haberindeki doğrulanmış olaylara dayanmaktadır.",
+"image_prompt": "Yargı binası, parlamento ve siyasi parti tabelalarını birlikte gösteren kolaj"
+},
+"stories": [
+{
+"id": "yargi-bagimsizligi-gundemde",
+"title": "Yargı bağımsızlığı gündemde",
+"subtitle": "Karar, hukuk devleti tartışmalarını yeniden açtı.",
+"summary": "Muhalefet ve hükümetin açıklamaları yargı bağımsızlığı konusunda keskin biçimde ayrıştı.",
+"body": "CHP dosyası, Türkiye'de yargının siyasi alan üzerindeki etkisine dair tartışmayı yeniden görünür hale getirdi. Reuters ve AP haberlerinde hükümetin yargı bağımsızlığı vurgusu ile muhalefetin siyasi müdahale eleştirisi birlikte aktarıldı. Bu ayrışma, krizin uzun süre gündemde kalabileceğini gösteriyor.",
+"category": "politics",
+"importance": 2,
+"status": "analysis",
+"source_count": 2,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkeys-pro-kurdish-party-condemns-ousting-main-opposition-2026-05-25/](https://www.reuters.com/world/middle-east/turkeys-pro-kurdish-party-condemns-ousting-main-opposition-2026-05-25/)",
+"published_at": "2026-05-25"
+},
+{
+"name": "Associated Press",
+"url": "[https://apnews.com/article/2eee5ef016ff6ac1eeda368aff7588e0](https://apnews.com/article/2eee5ef016ff6ac1eeda368aff7588e0)",
+"published_at": "2026-05-24"
+}
+],
+"verification_note": "Yorum, tarafların haberlerde aktarılan pozisyonlarına dayanmaktadır.",
+"image_prompt": "Adalet terazisi ve haber başlığı tipografisi"
+},
+{
+"id": "parti-uyeligi-irade-vurgusu",
+"title": "Üye iradesi vurgusu",
+"subtitle": "Muhalefet partileri, liderliğin üyelerce belirlenmesi gerektiğini savunuyor.",
+"summary": "DEM Parti açıklaması, CHP kararının parti demokrasisi boyutuna işaret etti.",
+"body": "DEM Parti'nin Reuters'e yansıyan açıklamasında, siyasi partilerin yönetimlerinin mahkemeler yerine üyelerin iradesiyle belirlenmesi gerektiği ifade edildi. Bu vurgu, CHP dışındaki muhalefet aktörlerinin de kararı daha geniş bir demokratik temsil meselesi olarak gördüğünü ortaya koydu.",
+"category": "politics",
+"importance": 3,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkeys-pro-kurdish-party-condemns-ousting-main-opposition-2026-05-25/](https://www.reuters.com/world/middle-east/turkeys-pro-kurdish-party-condemns-ousting-main-opposition-2026-05-25/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Açıklama Reuters haberine dayanmaktadır.",
+"image_prompt": "Parti üyeleri toplantısı ve oy pusulası görseli"
+},
+{
+"id": "ankara-siyasetinde-yogun-hafta",
+"title": "Ankara'da yoğun hafta",
+"subtitle": "Siyasi kriz, ekonomi verisi ve dış gündem aynı haftada izleniyor.",
+"summary": "Ankara'da siyaset, ekonomi ve dış politika başlıkları yoğun bir gündem oluşturdu.",
+"body": "25 Mayıs haftasına girilirken Ankara gündemi çok katmanlı ilerliyor. CHP kararı iç siyasetin ana başlığı olurken, ekonomik güven endeksi ve Gazze ateşkes süreci de resmi gündem notlarında yer aldı. Bu yoğunluk, haber akışında siyasi ve ekonomik risklerin birlikte okunmasına neden oluyor.",
+"category": "politics",
+"importance": 4,
+"status": "analysis",
+"source_count": 2,
+"sources": [
+{
+"name": "Anadolu Ajansı",
+"url": "[https://www.aa.com.tr/tr/p/gundem](https://www.aa.com.tr/tr/p/gundem)",
+"published_at": "2026-05-25"
+},
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/](https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Haftalık gündem değerlendirmesi AA ve Reuters kaynaklarına dayanmaktadır.",
+"image_prompt": "Ankara şehir silueti üzerinde gazete başlıkları"
+},
+{
+"id": "haber-dilinde-temkin",
+"title": "Kesin olmayan başlığa temkin",
+"subtitle": "Gelişmekte olan dosyalarda kaynak ve statü ayrımı önem kazanıyor.",
+"summary": "CHP ve dış politika başlıklarında doğrulama düzeyi haber dilini belirliyor.",
+"body": "Bugünkü sayıda siyasi haberler doğrulama düzeyine göre sınıflandırıldı. Mahkeme kararı ve polis müdahalesi doğrulanmış haber olarak yazılırken, devam eden hukuki süreçler ve diplomatik gelişmeler gelişmekte olan dosya statüsünde tutuldu. Bu ayrım, gazetenin anti halüsinasyon politikasının temel uygulamasıdır.",
+"category": "politics",
+"importance": 5,
+"status": "analysis",
+"source_count": 1,
+"sources": [
+{
+"name": "Associated Press",
+"url": "[https://apnews.com/article/2eee5ef016ff6ac1eeda368aff7588e0](https://apnews.com/article/2eee5ef016ff6ac1eeda368aff7588e0)",
+"published_at": "2026-05-24"
+}
+],
+"verification_note": "Editoryal not, doğrulanmış ajans haberlerine dayalı haber üretim ilkesidir.",
+"image_prompt": "Editör masasında kaynak kontrol listesi"
+}
+]
+},
+{
+"page_number": 6,
+"section": "economy",
+"template": "economy.html",
+"css": "economy.css",
+"main_story": {
+"id": "piyasalar-siyasi-gerilim-sonrasi",
+"title": "Piyasalar gerilimi fiyatlıyor",
+"subtitle": "BIST 100 toparlanırken lira tarihi zayıf seviyelere yakın kaldı.",
+"summary": "Siyasi tansiyon sonrası piyasalarda sınırlı toparlanma görülse de kırılganlık devam ediyor.",
+"body": "Reuters'in 25 Mayıs haberine göre BIST 100 endeksi haftaya sınırlı yükselişle başladı. Bankacılık endeksinde daha belirgin toparlanma izlenirken, Türk lirası dolar karşısında düşük seviyelerine yakın kaldı. Haber, siyasi belirsizliğin yatırımcı davranışını etkilediğini ve işlem hacimlerinin uluslararası tatiller nedeniyle sınırlı kaldığını aktardı.",
+"category": "economy",
+"importance": 1,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/](https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Piyasa bilgileri Reuters haberine dayanmaktadır.",
+"image_prompt": "BIST ekranı, döviz kuru ve yatırımcı silueti"
+},
+"stories": [
+{
+"id": "bist-bankacilik-endeksi",
+"title": "Bankacılık hisseleri öne çıktı",
+"subtitle": "Endekste sınırlı yükselişe rağmen bankacılık tarafında daha güçlü hareket izlendi.",
+"summary": "Reuters, bankacılık endeksinin ana endeksten daha yüksek yükseldiğini aktardı.",
+"body": "Reuters haberinde BIST 100 endeksindeki sınırlı toparlanmaya karşı bankacılık endeksinde daha belirgin artış görüldüğü belirtildi. Bu hareket, önceki düşüşlerin ardından tepki alımı olarak değerlendirilebilir. Ancak siyasi risk algısı nedeniyle yatırımcıların temkinli kaldığı vurgulanıyor.",
+"category": "economy",
+"importance": 2,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/](https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Endeks bilgisi Reuters haberinden alınmıştır.",
+"image_prompt": "Banka hisseleri ve piyasa grafikleri"
+},
+{
+"id": "lirada-zayif-seyir",
+"title": "Lirada zayıf seyir",
+"subtitle": "Kur, siyasi gündemden sonra tarihi düşük seviyelere yakın kaldı.",
+"summary": "Lira dolar karşısında düşük seviyelerine yakın işlem gördü.",
+"body": "Reuters haberinde Türk lirasının dolar karşısında tarihi zayıf seviyelerine yakın seyrettiği aktarıldı. Siyasi belirsizlik, enflasyon görünümü ve merkez bankası patikası kur üzerindeki ana risk başlıkları arasında değerlendiriliyor. Piyasa oyuncuları yeni veri akışını ve siyasi gelişmeleri birlikte izliyor.",
+"category": "economy",
+"importance": 2,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/](https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Kur seviyesi Reuters haberinde aktarılmıştır.",
+"image_prompt": "Dolar ve Türk lirası banknotları, kur grafiği"
+},
+{
+"id": "tahvillerde-sinirli-hareket",
+"title": "Tahvillerde sınırlı hareket",
+"subtitle": "Uluslararası tahvillerde hafif toparlanma izlendi.",
+"summary": "Reuters, Türkiye eurobondlarında sınırlı yukarı hareket olduğunu bildirdi.",
+"body": "Reuters'in piyasa haberinde Türkiye'nin uluslararası tahvillerinde sınırlı yükseliş yaşandığı belirtildi. Bu hareket, siyasi haber akışına rağmen yatırımcıların kısa vadede panik satışından uzak durduğuna işaret ediyor. Ancak risk primindeki seyrin kalıcı güven için yakından izlenmesi gerekiyor.",
+"category": "economy",
+"importance": 3,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/](https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Tahvil hareketi Reuters verisine dayanmaktadır.",
+"image_prompt": "Uluslararası tahvil ekranı ve finans terminali"
+},
+{
+"id": "ince-islem-hacmi-etkisi",
+"title": "Tatiller hacmi inceltti",
+"subtitle": "ABD ve İngiltere tatilleri işlem hacmini sınırladı.",
+"summary": "Küresel tatil takvimi, Türkiye piyasalarındaki işlem hacmini etkiledi.",
+"body": "Reuters haberinde ABD ve İngiltere piyasalarının tatil nedeniyle kapalı olmasının işlem hacimlerini sınırladığı belirtildi. Bu durum, fiyat hareketlerinin yorumlanmasında dikkat edilmesi gereken bir teknik faktör oluşturuyor. Siyasi haber akışının gerçek etkisi daha derin hacimli seanslarda daha net görülebilir.",
+"category": "economy",
+"importance": 4,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/](https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Hacim yorumu Reuters haberindeki piyasa takvimi bilgisine dayanmaktadır.",
+"image_prompt": "Boş işlem masaları ve kapalı küresel piyasa takvimi"
+}
+]
+},
+{
+"page_number": 7,
+"section": "economy",
+"template": "economy.html",
+"css": "economy.css",
+"main_story": {
+"id": "enflasyon-gorunumu-zorlu",
+"title": "Enflasyon görünümü zorlu",
+"subtitle": "Nisan verisi ve siyasi belirsizlik para politikası patikasını önemli hale getiriyor.",
+"summary": "Türkiye'de nisan enflasyonu yıllık yüzde 32,37 olarak açıklanmıştı.",
+"body": "Reuters'in 4 Mayıs tarihli haberine göre Türkiye'de nisan ayı tüketici enflasyonu aylık yüzde 4,18, yıllık yüzde 32,37 seviyesinde gerçekleşti. Bu veri, merkez bankasının sıkı duruşunu ve faiz patikasını izleyen piyasalar açısından önemini koruyor. Siyasi belirsizliklerin arttığı dönemde enflasyon beklentilerinin yönetimi daha kritik hale geliyor.",
+"category": "economy",
+"importance": 1,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkish-monthly-inflation-surges-418-amid-war-fallout-2026-05-04/](https://www.reuters.com/world/middle-east/turkish-monthly-inflation-surges-418-amid-war-fallout-2026-05-04/)",
+"published_at": "2026-05-04"
+}
+],
+"verification_note": "Enflasyon verisi Reuters haberinde yer alan resmi veri aktarımına dayanmaktadır.",
+"image_prompt": "Market fiyat etiketleri ve enflasyon grafiği"
+},
+"stories": [
+{
+"id": "merkez-bankasi-patikasi",
+"title": "Faiz patikası mercek altında",
+"subtitle": "Enflasyon ve kur baskısı para politikasını kritik hale getiriyor.",
+"summary": "Piyasalar merkez bankasının gelecek adımlarını siyasi risk ve enflasyonla birlikte izliyor.",
+"body": "Reuters'in önceki haberlerinde merkez bankasının enflasyon görünümü ve faiz kararı bağlamında temkinli çizgisi öne çıkmıştı. Nisan enflasyonunun yüksek gelmesi ve kurdaki zayıf görünüm, erken gevşeme beklentilerini sınırlayabilir. Bu nedenle para politikası iletişimi yatırımcı güveni açısından önem taşıyor.",
+"category": "economy",
+"importance": 2,
+"status": "analysis",
+"source_count": 2,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkey-cenbank-raises-end-2026-inflation-forecast-range-15-21-2026-02-12/](https://www.reuters.com/world/middle-east/turkey-cenbank-raises-end-2026-inflation-forecast-range-15-21-2026-02-12/)",
+"published_at": "2026-02-12"
+},
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkish-monthly-inflation-surges-418-amid-war-fallout-2026-05-04/](https://www.reuters.com/world/middle-east/turkish-monthly-inflation-surges-418-amid-war-fallout-2026-05-04/)",
+"published_at": "2026-05-04"
+}
+],
+"verification_note": "Analiz, Reuters'in enflasyon ve merkez bankası haberlerine dayanmaktadır.",
+"image_prompt": "Merkez bankası binası ve faiz grafiği"
+},
+{
+"id": "gida-ve-ulasim-etkisi",
+"title": "Gıda ve ulaşım baskısı",
+"subtitle": "Nisan enflasyonunda ulaşım, gıda ve giyim kalemleri öne çıktı.",
+"summary": "Reuters, fiyat artışlarında temel tüketim kalemlerinin etkili olduğunu aktardı.",
+"body": "Nisan enflasyon haberinde ulaşım, gıda ve giyim kalemlerindeki artışların fiyat baskısını yukarı taşıdığı belirtildi. Bu tablo hane bütçeleri üzerinde doğrudan etki yaratıyor. Özellikle gıda ve ulaşım kalemleri günlük yaşam maliyetini belirlediği için enflasyon algısında yüksek ağırlığa sahip.",
+"category": "economy",
+"importance": 3,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkish-monthly-inflation-surges-418-amid-war-fallout-2026-05-04/](https://www.reuters.com/world/middle-east/turkish-monthly-inflation-surges-418-amid-war-fallout-2026-05-04/)",
+"published_at": "2026-05-04"
+}
+],
+"verification_note": "Kalem etkileri Reuters haberinde aktarılmıştır.",
+"image_prompt": "Market arabası, otobüs durağı ve fiyat etiketi kolajı"
+},
+{
+"id": "guven-endeksi-beklentisi",
+"title": "Güven endeksi bekleniyor",
+"subtitle": "Ekonomik güven endeksi haftanın veri başlıklarından biri.",
+"summary": "TÜİK'in mayıs ayı ekonomik güven endeksi veri gündeminde yer aldı.",
+"body": "AA gündem sayfasında TÜİK'in mayıs ayı ekonomik güven endeksini açıklayacağı bilgisi yer aldı. Endeks, tüketici, reel kesim, hizmet, perakende ve inşaat gibi farklı alanlardaki güven eğilimlerini birlikte değerlendirdiği için ekonomi görünümüne dair önemli bir sinyal olarak izlenir.",
+"category": "economy",
+"importance": 3,
+"status": "developing",
+"source_count": 1,
+"sources": [
+{
+"name": "Anadolu Ajansı",
+"url": "[https://www.aa.com.tr/tr/p/gundem](https://www.aa.com.tr/tr/p/gundem)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Veri takvimi AA gündeminden alınmıştır.",
+"image_prompt": "Ekonomik güven endeksi gösterge paneli"
+},
+{
+"id": "hane-butcesi-riskleri",
+"title": "Hane bütçesinde sıkı dönem",
+"subtitle": "Enflasyon ve kur baskısı günlük harcama disiplinini öne çıkarıyor.",
+"summary": "Yüksek fiyat ortamında hane halkı için nakit akışı yönetimi daha önemli hale geliyor.",
+"body": "Enflasyon verileri ve kurdaki zayıf seyir, hane bütçeleri açısından planlı harcama dönemini zorunlu kılıyor. Gıda, ulaşım ve fatura kalemlerinde fiyat duyarlılığı yüksek kalırken, kredi kartı ve kısa vadeli borç yönetimi gelir gider dengesinin ana unsuru haline geliyor.",
+"category": "economy",
+"importance": 4,
+"status": "analysis",
+"source_count": 2,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkish-monthly-inflation-surges-418-amid-war-fallout-2026-05-04/](https://www.reuters.com/world/middle-east/turkish-monthly-inflation-surges-418-amid-war-fallout-2026-05-04/)",
+"published_at": "2026-05-04"
+},
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/](https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Analiz, enflasyon ve kur haberlerinin hane bütçesine etkisinden çıkarılmıştır.",
+"image_prompt": "Ev bütçesi defteri, kredi kartı ve hesap makinesi"
+}
+]
+},
+{
+"page_number": 8,
+"section": "economy",
+"template": "economy.html",
+"css": "economy.css",
+"main_story": {
+"id": "ekonomi-yonetiminde-guven-mesaji",
+"title": "Ekonomide güven mesajı",
+"subtitle": "Ekonomi yönetimi uluslararası toplantılarda direnç ve potansiyel vurgusu yaptı.",
+"summary": "Hazine ve Maliye Bakanı Mehmet Şimşek, Türkiye ekonomisinin güçlü ve dayanıklı yapısını vurguladı.",
+"body": "Anadolu Ajansı'nın nisan ayındaki haberine göre Hazine ve Maliye Bakanı Mehmet Şimşek, IMF ve Dünya Bankası Bahar Toplantılarında Türkiye'nin güçlü, dayanıklı ve yüksek potansiyelli ekonomisiyle zorlu dönemi aşacağı mesajını verdi. Güncel siyasi ve piyasa dalgalanması içinde bu mesajlar, yatırımcı güveni açısından yeniden önem kazanıyor.",
+"category": "economy",
+"importance": 2,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Anadolu Ajansı",
+"url": "[https://www.aa.com.tr/tr/ekonomi/bakan-simsek-imf-dunya-bankasi-toplantilarinda-turkiyenin-guclu-ekonomisiyle-bu-zorlu-donemi-asacagini-vurguladik/3910866](https://www.aa.com.tr/tr/ekonomi/bakan-simsek-imf-dunya-bankasi-toplantilarinda-turkiyenin-guclu-ekonomisiyle-bu-zorlu-donemi-asacagini-vurguladik/3910866)",
+"published_at": "2026-04-18"
+}
+],
+"verification_note": "Açıklama AA'nın önceki tarihli haberine dayanmaktadır ve bağlam olarak kullanılmıştır.",
+"image_prompt": "Uluslararası ekonomi toplantısı, Türkiye bayrağı ve finans grafikleri"
+},
+"stories": [
+{
+"id": "yatirimci-guveni-sinavi",
+"title": "Yatırımcı güveni sınavda",
+"subtitle": "Siyasi belirsizlik ve ekonomi programı aynı anda izleniyor.",
+"summary": "Piyasa aktörleri siyasi riskle ekonomi programının sürdürülebilirliğini birlikte değerlendiriyor.",
+"body": "Reuters'in piyasa haberleri, yatırımcıların siyasi gelişmeleri ekonomi programının güvenilirliğiyle birlikte okuduğunu gösteriyor. Kur, tahvil ve hisse piyasalarındaki hareketler yalnızca günlük fiyatlama değil, aynı zamanda kurumsal güven algısının da göstergesi olarak değerlendiriliyor.",
+"category": "economy",
+"importance": 2,
+"status": "analysis",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/](https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Analiz Reuters piyasa haberine dayanmaktadır.",
+"image_prompt": "Yabancı yatırımcı toplantısı ve Türkiye piyasa ekranı"
+},
+{
+"id": "risk-primi-izlenecek",
+"title": "Risk primi izlenecek",
+"subtitle": "CDS seviyesi siyasi tansiyon dönemlerinde kritik gösterge haline geliyor.",
+"summary": "Reuters haberinde Türkiye risk priminin yatay seyrettiği belirtildi.",
+"body": "Reuters haberinde Türkiye'nin kredi risk göstergesi olan CDS seviyesinin yatay kaldığı aktarıldı. Risk primi, yatırımcıların ülke varlıklarına bakışını gösteren temel göstergelerden biri. Siyasi gerilim sürerse bu göstergenin yeniden fiyatlamaya konu olması beklenebilir.",
+"category": "economy",
+"importance": 3,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/](https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "CDS bilgisi Reuters piyasa haberine dayanmaktadır.",
+"image_prompt": "Risk primi göstergesi ve ülke tahvili ekranı"
+},
+{
+"id": "ekonomide-gunluk-bulten",
+"title": "Ekonomide günlük bülten",
+"subtitle": "AA'nın ekonomi özeti günün veri ve piyasa başlıklarını toparladı.",
+"summary": "Ekonomide gündem, veri takvimi ve piyasa gelişmeleri etrafında şekillendi.",
+"body": "Anadolu Ajansı'nın 25 Mayıs tarihli ekonomide bugün bülteni, günün ekonomi başlıklarını kısa formatta sundu. Bu tür özetler, piyasa verisi, kurum açıklaması ve makro gündem arasında hızlı yön bulmak isteyen okurlar için pratik bir çerçeve sağlıyor.",
+"category": "economy",
+"importance": 4,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Anadolu Ajansı",
+"url": "[https://www.aa.com.tr/tr/ekonomi/60-saniyede-ekonomide-bugun-25-mayis-2026/3948154](https://www.aa.com.tr/tr/ekonomi/60-saniyede-ekonomide-bugun-25-mayis-2026/3948154)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Bülten AA kaynağına dayanmaktadır.",
+"image_prompt": "Ekonomi bülteni hazırlayan haber editörü"
+},
+{
+"id": "piyasa-okuryazarligi-notu",
+"title": "Veri tek başına yetmez",
+"subtitle": "Piyasa hareketleri siyasi ve küresel bağlamla birlikte okunmalı.",
+"summary": "Borsa, kur ve tahvil hareketlerini değerlendirirken hacim, takvim ve haber akışı birlikte ele alınmalı.",
+"body": "Bugünkü piyasa görünümü, ekonomi haberlerinde bağlamın önemini gösteriyor. BIST'teki toparlanma olumlu görünse de işlem hacminin küresel tatillerle sınırlı olması, hareketin gücünü ölçmeyi zorlaştırıyor. Bu nedenle tek günlük fiyat değişimleri yerine trend ve haber akışı birlikte incelenmelidir.",
+"category": "economy",
+"importance": 5,
+"status": "analysis",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/](https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Editoryal analiz Reuters piyasa haberindeki bağlamdan üretilmiştir.",
+"image_prompt": "Piyasa verilerini yorumlayan finans analisti"
+}
+]
+},
+{
+"page_number": 9,
+"section": "technology_science",
+"template": "tech.html",
+"css": "tech.css",
+"main_story": {
+"id": "hindistan-ai-yetenek-donusumu",
+"title": "AI için yeniden beceri dönemi",
+"subtitle": "IBM India yöneticisi, yapay zeka hedeflerinin iş gücü dönüşümüne bağlı olduğunu söyledi.",
+"summary": "Reuters teknoloji akışında Hindistan'ın AI hedefleri için yeniden beceri kazandırma ihtiyacı öne çıktı.",
+"body": "Reuters teknoloji sayfasında 25 Mayıs tarihli başlıkta IBM India yöneticisinin Hindistan'ın yapay zeka hedefleri için koordineli bir yeniden beceri kazandırma hamlesine ihtiyaç duyduğunu söylediği aktarıldı. Bu başlık, yalnızca Hindistan için değil, AI dönüşümüne hazırlanan tüm ülkeler ve sektörler için önemli bir iş gücü planlaması sorusunu gündeme getiriyor.",
+"category": "technology_science",
+"importance": 1,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/technology/](https://www.reuters.com/technology/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Başlık Reuters teknoloji akışında yer almaktadır.",
+"image_prompt": "Yapay zeka eğitim laboratuvarı, çalışanlar ve dijital beceri panosu"
+},
+"stories": [
+{
+"id": "openai-gpt55-guvenlik-testi",
+"title": "GPT-5.5 güvenlik testinde",
+"subtitle": "OpenAI modelinin ABD ulusal güvenlik testlerine sunulduğu açıklandı.",
+"summary": "Reuters, OpenAI yöneticisine dayandırdığı haberinde GPT-5.5'in güvenlik testlerine verildiğini aktardı.",
+"body": "Reuters'in 5 Mayıs tarihli haberine göre OpenAI, GPT-5.5 modelini ABD'nin ulusal güvenlik testleri için ilgili kurumlara sundu. Bu gelişme, gelişmiş yapay zeka modellerinde güvenlik, kötüye kullanım riski ve kamu denetimi başlıklarını öne çıkarıyor. Yeni model ailesi, AI regülasyonu tartışmalarının merkezinde yer almayı sürdürüyor.",
+"category": "technology_science",
+"importance": 2,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/business/openai-provided-gpt-55-us-national-security-testing-executive-said-2026-05-05/](https://www.reuters.com/business/openai-provided-gpt-55-us-national-security-testing-executive-said-2026-05-05/)",
+"published_at": "2026-05-05"
+}
+],
+"verification_note": "Haber Reuters'in OpenAI yöneticisine dayandırdığı açıklamaya dayanmaktadır.",
+"image_prompt": "Yapay zeka güvenlik testi, sunucu odası ve resmi değerlendirme masası"
+},
+{
+"id": "space-etf-ilgisi",
+"title": "Uzay ETF'lerine ilgi",
+"subtitle": "SpaceX halka arz beklentisi uzay temalı fonları hareketlendirdi.",
+"summary": "Reuters teknoloji akışında uzay ETF'lerine yönelik ilginin arttığı belirtildi.",
+"body": "Reuters teknoloji sayfasında uzay temalı ETF'lerin SpaceX halka arz beklentisiyle ilgi gördüğü başlığı yer aldı. Bu eğilim, özel uzay şirketlerinin finans piyasalarındaki anlatı gücünü gösteriyor. Ancak halka arz beklentileri kesinleşmiş işlem değil, piyasa beklentisi olarak değerlendirilmelidir.",
+"category": "technology_science",
+"importance": 3,
+"status": "analysis",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/technology/](https://www.reuters.com/technology/)",
+"published_at": "2026-05-22"
+}
+],
+"verification_note": "Başlık Reuters teknoloji akışındaki analiz başlığına dayanmaktadır.",
+"image_prompt": "Roket fırlatma rampası ve finans piyasası grafikleri"
+},
+{
+"id": "samsung-ucret-anlasmasi",
+"title": "Samsung'da ücret anlaşması",
+"subtitle": "Sendika planlanan grevi askıya aldı.",
+"summary": "Reuters teknoloji akışında Samsung çalışanlarının ücret anlaşması için oylamaya başladığı aktarıldı.",
+"body": "Reuters teknoloji sayfasında Samsung çalışanlarının ücret anlaşması için oylama sürecine girdiği ve planlanan grevin askıya alındığı bilgisi yer aldı. Teknoloji üretim zincirlerinde iş gücü ilişkileri, çip üretimi ve tedarik sürekliliği açısından önemli bir başlık olmaya devam ediyor.",
+"category": "technology_science",
+"importance": 3,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/technology/](https://www.reuters.com/technology/)",
+"published_at": "2026-05-22"
+}
+],
+"verification_note": "Başlık Reuters teknoloji akışına dayanmaktadır.",
+"image_prompt": "Yarı iletken fabrikası, çalışanlar ve sendika duyuru panosu"
+},
+{
+"id": "ai-haberlerin-gelecegi",
+"title": "AI haberciliği dönüştürüyor",
+"subtitle": "Reuters Institute, yapay zekanın gazeteciliğe etkisini araştırıyor.",
+"summary": "AI, haber üretimi, doğrulama, dağıtım ve okur davranışı alanlarında temel dönüşüm başlığı haline geldi.",
+"body": "Reuters Institute'un yapay zeka ve gazetecilik çalışmaları, AI araçlarının haber üretiminden doğrulama süreçlerine kadar geniş bir alanda etkili olduğunu gösteriyor. Bu dönüşüm, haber merkezleri için hız avantajı yaratırken kaynak kontrolü, şeffaflık ve editoryal sorumluluk ihtiyacını da artırıyor.",
+"category": "technology_science",
+"importance": 4,
+"status": "analysis",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters Institute",
+"url": "[https://reutersinstitute.politics.ox.ac.uk/ai-journalism-future-news](https://reutersinstitute.politics.ox.ac.uk/ai-journalism-future-news)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Analiz Reuters Institute'un AI ve gazetecilik sayfasındaki araştırma çerçevesine dayanmaktadır.",
+"image_prompt": "Haber odasında yapay zeka destekli editör ekranları"
+}
+]
+},
+{
+"page_number": 10,
+"section": "technology_science",
+"template": "tech.html",
+"css": "tech.css",
+"main_story": {
+"id": "turk-gencleri-robotik-yolunda",
+"title": "Gençler robotikte sahnede",
+"subtitle": "Liseli öğrenciler dünya şampiyonluğu için ABD'deki yarışmaya hazırlanıyor.",
+"summary": "TRT Haber'in bilim teknoloji akışında Türk öğrencilerin robotik başarısı öne çıktı.",
+"body": "TRT Haber'in bilim teknoloji video arşivinde İstanbul Üsküdar Ahmet Yüksel Özemre Bilim ve Sanat Merkezi öğrencilerinin kurduğu Avrasya Robotics Takımı'nın ABD'deki şampiyonada Türkiye'yi temsil edeceği bilgisi yer aldı. Öğrencilerin robotu baştan aşağı üretmesi, genç yaşta mühendislik, takım çalışması ve üretim kültürünün önemini gösteriyor.",
+"category": "technology_science",
+"importance": 2,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "TRT Haber",
+"url": "[https://www.trthaber.com/videolar/bilim-teknoloji/](https://www.trthaber.com/videolar/bilim-teknoloji/)",
+"published_at": "2026-04-23"
+}
+],
+"verification_note": "Haber TRT Haber bilim teknoloji video akışına dayanmaktadır.",
+"image_prompt": "Liseli robotik takımı atölyede robot üzerinde çalışıyor"
+},
+"stories": [
+{
+"id": "robotikte-takim-calismasi",
+"title": "Robotikte takım kültürü",
+"subtitle": "Başarı yalnızca kod değil, mekanik, strateji ve görev paylaşımı gerektiriyor.",
+"summary": "Avrasya Robotics örneği, lise düzeyinde disiplinler arası üretimin değerini gösteriyor.",
+"body": "Robotik yarışmaları, öğrencilere mekanik tasarım, elektronik, yazılım, sunum ve saha stratejisini birlikte öğretir. TRT Haber'deki örnek, gençlerin yalnızca teorik bilgiyle değil, gerçek ürün geliştirme süreciyle de öğrenebildiğini gösteriyor. Bu deneyim mühendislik eğitimi için güçlü bir temel oluşturuyor.",
+"category": "technology_science",
+"importance": 3,
+"status": "analysis",
+"source_count": 1,
+"sources": [
+{
+"name": "TRT Haber",
+"url": "[https://www.trthaber.com/videolar/bilim-teknoloji/](https://www.trthaber.com/videolar/bilim-teknoloji/)",
+"published_at": "2026-04-23"
+}
+],
+"verification_note": "Analiz TRT Haber'deki robotik takımı örneğine dayanmaktadır.",
+"image_prompt": "Robotik yarışma sahasında takım çalışması"
+},
+{
+"id": "cozulebilir-ag-projesi",
+"title": "Denizlerde çözülebilir ağ",
+"subtitle": "TRT Haber çevre akışında denizlerdeki ağ kirliliğine çözüm arayışı öne çıktı.",
+"summary": "Çözülebilir ağ çalışmaları deniz yaşamı ve sürdürülebilir balıkçılık açısından önem taşıyor.",
+"body": "TRT Haber ana sayfasında denizlerdeki kabus olarak nitelenen ağ sorununa karşı çözülebilir ağ için geri sayım başlığı yer aldı. Hayalet ağlar deniz canlıları için ciddi risk oluşturduğu için malzeme bilimi ve çevre teknolojisi bu alanda doğrudan toplumsal fayda üretebilir.",
+"category": "technology_science",
+"importance": 3,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "TRT Haber",
+"url": "[https://www.trthaber.com/](https://www.trthaber.com/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Başlık TRT Haber ana sayfasındaki çevre akışından alınmıştır.",
+"image_prompt": "Denizde çözülebilir balık ağı ve deniz canlıları"
+},
+{
+"id": "sari-benekli-semender",
+"title": "Semender yaşam alanı izlendi",
+"subtitle": "Yağışlarla görünür hale gelen sarı benekli semenderin yaşam alanları tespit ediliyor.",
+"summary": "TRT Haber çevre akışında sarı benekli semenderle ilgili doğa gözlemi yer aldı.",
+"body": "TRT Haber ana sayfasında yağışlarla görünür hale gelen sarı benekli semenderin yaşam alanlarının tespit edildiği başlığı yer aldı. Bu tür gözlemler, iklim, habitat ve biyolojik çeşitlilik ilişkisini izlemek açısından önemlidir. Yerel türlerin takibi çevre koruma politikaları için veri sağlar.",
+"category": "technology_science",
+"importance": 4,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "TRT Haber",
+"url": "[https://www.trthaber.com/](https://www.trthaber.com/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Başlık TRT Haber çevre akışından alınmıştır.",
+"image_prompt": "Nemli orman zemininde sarı benekli semender"
+},
+{
+"id": "sifir-atik-istanbul",
+"title": "İstanbul'da sıfır atık hedefi",
+"subtitle": "TRT Haber çevre akışında sıfır atık çalışmaları gündeme geldi.",
+"summary": "İstanbul'un sıfır atık çalışmalarında merkez haline getirilmesi hedefi öne çıktı.",
+"body": "TRT Haber ana sayfasında İstanbul'u sıfır atık çalışmalarının merkezi haline getirme hedefiyle ilgili başlık yer aldı. Büyükşehir ölçeğinde atık yönetimi, yalnızca çevre değil, lojistik, veri takibi, geri dönüşüm altyapısı ve vatandaş davranışı yönetimi gerektiren sistemsel bir konudur.",
+"category": "technology_science",
+"importance": 4,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "TRT Haber",
+"url": "[https://www.trthaber.com/](https://www.trthaber.com/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Başlık TRT Haber ana sayfasındaki çevre akışına dayanmaktadır.",
+"image_prompt": "Modern geri dönüşüm tesisi ve İstanbul silueti"
+}
+]
+},
+{
+"page_number": 11,
+"section": "culture_arts",
+"template": "culture.html",
+"css": "style.css",
+"main_story": {
+"id": "rami-cocuk-ve-sanat-bienali",
+"title": "Rami'de sanat çocuklarla buluşuyor",
+"subtitle": "Rami Çocuk ve Sanat Bienali sergi, atölye ve deneyim alanlarıyla devam ediyor.",
+"summary": "25 Nisan ve 25 Haziran 2026 arasında düzenlenen etkinlik, çocukları sanat ve hikaye etrafında bir araya getiriyor.",
+"body": "Rami Kütüphanesi'nin etkinlik sayfasına göre Rami Çocuk ve Sanat Bienali, 25 Nisan ile 25 Haziran 2026 tarihleri arasında düzenleniyor. Program; sergiler, yaratıcı atölyeler, okuma alanları, söyleşiler, yazar çizer buluşmaları ve katılımcı deneyimlerden oluşuyor. Bienal, çocukların sanatla ilişki kurmasını destekleyen kapsamlı bir kültür buluşması olarak öne çıkıyor.",
+"category": "culture_arts",
+"importance": 1,
+"status": "confirmed",
+"source_count": 2,
+"sources": [
+{
+"name": "Rami Kütüphanesi",
+"url": "[https://ramikutuphanesi.gov.tr/etkinlikler/tum-etkinlikler/a0bc37da-857c-47fb-ae1c-c4767be46fa1](https://ramikutuphanesi.gov.tr/etkinlikler/tum-etkinlikler/a0bc37da-857c-47fb-ae1c-c4767be46fa1)",
+"published_at": "2026-04-25"
+},
+{
+"name": "Rami Çocuk ve Sanat Bienali",
+"url": "[https://ramicocukvesanatbienali.com/en/](https://ramicocukvesanatbienali.com/en/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Etkinlik bilgisi resmi kaynaklardan doğrulandı.",
+"image_prompt": "Rami Kütüphanesi içinde çocuk sanat sergisi ve atölye masaları"
+},
+"stories": [
+{
+"id": "resimli-cocuk-edebiyati",
+"title": "Resimli kitaplar merkezde",
+"subtitle": "Bienal, çocuk edebiyatı ve görsel sanatları birlikte ele alıyor.",
+"summary": "Program, çocukların hikaye, mekan ve sanatla kurduğu bağı güçlendirmeyi hedefliyor.",
+"body": "Rami Çocuk ve Sanat Bienali'nin resmi anlatımında resimli çocuk kitapları önemli bir eksen olarak yer alıyor. Bu yaklaşım, okuma kültürüyle görsel üretimi birleştiriyor. Çocuklar yalnızca izleyici değil, atölye ve deneyim alanlarında üretime katılan aktif katılımcılar olarak konumlanıyor.",
+"category": "culture_arts",
+"importance": 2,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Rami Çocuk ve Sanat Bienali",
+"url": "[https://ramicocukvesanatbienali.com/en/](https://ramicocukvesanatbienali.com/en/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Bilgi bienalin resmi sayfasına dayanmaktadır.",
+"image_prompt": "Çocuk kitapları, illüstrasyon panoları ve sanat masası"
+},
+{
+"id": "rami-gonullu-basvurulari",
+"title": "Gönüllüler sahada",
+"subtitle": "Bienal için farklı görev alanlarında gönüllü desteği aranıyor.",
+"summary": "Rami Kütüphanesi, bienal kapsamında gönüllü başvuru formu yayımladı.",
+"body": "Rami Kütüphanesi etkinlik sayfasında bienal için farklı görev alanlarında gönüllü başvurularının alındığı belirtildi. Kültür etkinliklerinde gönüllü yapılar, organizasyonun sürdürülebilirliği ve katılımcı deneyiminin düzenli yürütülmesi açısından önemli rol oynar.",
+"category": "culture_arts",
+"importance": 3,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Rami Kütüphanesi",
+"url": "[https://ramikutuphanesi.gov.tr/etkinlikler/tum-etkinlikler/a0bc37da-857c-47fb-ae1c-c4767be46fa1](https://ramikutuphanesi.gov.tr/etkinlikler/tum-etkinlikler/a0bc37da-857c-47fb-ae1c-c4767be46fa1)",
+"published_at": "2026-04-25"
+}
+],
+"verification_note": "Gönüllülük bilgisi resmi etkinlik sayfasından alınmıştır.",
+"image_prompt": "Kültür etkinliğinde gönüllü danışma masası"
+},
+{
+"id": "turk-mutfagi-cakartada",
+"title": "Türk mutfağı Cakarta'da",
+"subtitle": "TRT Haber kültür sanat akışında Türk mutfağının tanıtımı yer aldı.",
+"summary": "Türkiye'nin Cakarta Büyükelçiliğince düzenlenen programda Türk mutfağı tanıtıldı.",
+"body": "TRT Haber ana sayfasındaki kültür sanat akışında Türkiye'nin Cakarta Büyükelçiliği tarafından düzenlenen programda Türk mutfağının tanıtıldığı başlığı yer aldı. Kültür diplomasisi, gastronomi üzerinden ülke tanıtımı ve uluslararası ilişkilerde yumuşak güç etkisi yaratmayı hedefliyor.",
+"category": "culture_arts",
+"importance": 4,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "TRT Haber",
+"url": "[https://www.trthaber.com/](https://www.trthaber.com/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Başlık TRT Haber kültür sanat akışına dayanmaktadır.",
+"image_prompt": "Türk mutfağı sunumu ve diplomatik resepsiyon atmosferi"
+},
+{
+"id": "havza-ataturk-evi",
+"title": "Havza'da hafıza mekanı",
+"subtitle": "Havza Atatürk Evi, Milli Mücadele'nin haberleşme hafızasını taşıyor.",
+"summary": "TRT Haber kültür sanat akışında Havza Atatürk Evi başlığı yer aldı.",
+"body": "TRT Haber ana sayfasındaki kültür sanat akışında Havza Atatürk Evi'nin Milli Mücadele'nin haberleşme hafızasını günümüze taşıdığı başlığı yer aldı. Bu tür müze ve hafıza mekanları, tarihsel olayları yerinde öğrenme ve toplumsal belleği koruma açısından önem taşıyor.",
+"category": "culture_arts",
+"importance": 4,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "TRT Haber",
+"url": "[https://www.trthaber.com/](https://www.trthaber.com/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Başlık TRT Haber kültür sanat akışından alınmıştır.",
+"image_prompt": "Tarihi müze odasında eski telgraf ve Atatürk dönemi belgeleri"
+}
+]
+},
+{
+"page_number": 12,
+"section": "lifestyle",
+"template": "lifestyle.html",
+"css": "style.css",
+"main_story": {
+"id": "istanbul-trafiginde-bayram-sakinligi",
+"title": "İstanbul trafiğinde bayram sakinliği",
+"subtitle": "TRT Haber son dakika akışında İstanbul trafiğinin sakinlediği bildirildi.",
+"summary": "Bayram tatili etkisiyle İstanbul trafiğinde normal günlere göre daha sakin bir tablo izlendi.",
+"body": "TRT Haber'in 25 Mayıs son dakika akışında İstanbul trafiğinde bayram tatili sakinliği yaşandığı bilgisi yer aldı. Büyük şehirlerde tatil dönemleri, günlük ulaşım baskısını geçici olarak azaltabiliyor. Bu durum kent yaşamında zaman yönetimi, yakıt tüketimi ve toplu taşıma yoğunluğu açısından görünür etki yaratıyor.",
+"category": "lifestyle",
+"importance": 2,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "TRT Haber",
+"url": "[https://www.trthaber.com/son-dakika-haberleri](https://www.trthaber.com/son-dakika-haberleri)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Başlık TRT Haber son dakika akışına dayanmaktadır.",
+"image_prompt": "Boşalan İstanbul ana arterleri ve bayram tatili atmosferi"
+},
+"stories": [
+{
+"id": "kent-yasaminda-tatil-etkisi",
+"title": "Tatil kent ritmini değiştirdi",
+"subtitle": "Ulaşım ve günlük akış bayram dönemlerinde farklılaşıyor.",
+"summary": "İstanbul trafiğindeki sakinlik, kent yaşamında dönemsel ritim değişimini gösterdi.",
+"body": "Bayram tatilleri büyük şehirlerde trafik yoğunluğunu azaltırken sahil bölgeleri ve memleket güzergahlarında hareketliliği artırabilir. İstanbul örneği, kent içi ulaşımda zaman planlamasının takvim etkilerine ne kadar bağlı olduğunu gösteriyor. Bu tür dönemlerde belediye ve ulaşım birimleri farklı senaryolarla çalışır.",
+"category": "lifestyle",
+"importance": 3,
+"status": "analysis",
+"source_count": 1,
+"sources": [
+{
+"name": "TRT Haber",
+"url": "[https://www.trthaber.com/son-dakika-haberleri](https://www.trthaber.com/son-dakika-haberleri)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Analiz TRT Haber'deki trafik başlığına dayanmaktadır.",
+"image_prompt": "Şehir içi trafik yoğunluğu karşılaştırma panosu"
+},
+{
+"id": "new-york-gastroshow",
+"title": "New York'ta Türk lezzetleri",
+"subtitle": "Gastroshow programında Türk mutfağı tanıtıldı.",
+"summary": "TRT Haber kültür sanat akışında New York'ta Türk mutfağı lezzetlerinin sunulduğu başlığı yer aldı.",
+"body": "TRT Haber ana sayfasında New York'ta düzenlenen Gastroshow'da Türk mutfağı lezzetlerinin sunulduğu başlığı yer aldı. Gastronomi etkinlikleri, kültürel tanıtımın günlük yaşamla en kolay bağ kuran alanlarından biri. Yemek kültürü, turizm ve ülke imajı arasında güçlü bir köprü oluşturuyor.",
+"category": "lifestyle",
+"importance": 4,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "TRT Haber",
+"url": "[https://www.trthaber.com/](https://www.trthaber.com/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Başlık TRT Haber kültür sanat akışına dayanmaktadır.",
+"image_prompt": "New York'ta Türk yemekleri sunumu ve kültür standı"
+},
+{
+"id": "etnospor-son-gun",
+"title": "Etnospor'da son gün",
+"subtitle": "8. Etnospor Kültür Festivali'nde son gün etkinlikleri başladı.",
+"summary": "TRT Haber kültür sanat akışında Etnospor Kültür Festivali başlığı yer aldı.",
+"body": "TRT Haber ana sayfasında 8. Etnospor Kültür Festivali'nde son gün etkinliklerinin başladığı başlığı yer aldı. Geleneksel sporlar ve kültür festivalleri, kent yaşamında aile etkinliği, kültürel aktarım ve açık alan kullanımı açısından önemli sosyal buluşmalar oluşturuyor.",
+"category": "lifestyle",
+"importance": 4,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "TRT Haber",
+"url": "[https://www.trthaber.com/](https://www.trthaber.com/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Başlık TRT Haber kültür sanat akışına dayanmaktadır.",
+"image_prompt": "Geleneksel spor festivalinde okçuluk ve aile etkinliği"
+},
+{
+"id": "saglikli-haber-tuketimi",
+"title": "Haber tüketiminde denge",
+"subtitle": "Yoğun gündemde kaynak kontrolü ve sınırlı ekran süresi önem kazanıyor.",
+"summary": "Siyasi, ekonomik ve dış politika gündeminin aynı anda yoğunlaştığı günlerde bilinçli haber takibi gerekiyor.",
+"body": "Bugünkü haber akışı siyasi kriz, piyasa hareketleri ve dış politika gelişmelerini aynı anda içeriyor. Bu yoğunluk, okurlar için bilgi yorgunluğu yaratabilir. Sağlıklı haber tüketimi için güvenilir kaynakları seçmek, iddia ile doğrulanmış bilgiyi ayırmak ve ekran süresini sınırlamak önemlidir.",
+"category": "lifestyle",
+"importance": 5,
+"status": "analysis",
+"source_count": 2,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/](https://www.reuters.com/world/middle-east/turkish-stocks-lira-stabilise-political-tensions-loom-bonds-nudge-higher-2026-05-25/)",
+"published_at": "2026-05-25"
+},
+{
+"name": "Anadolu Ajansı",
+"url": "[https://www.aa.com.tr/tr/gundem/60-saniyede-bugun-25-mayis-2026/3948150](https://www.aa.com.tr/tr/gundem/60-saniyede-bugun-25-mayis-2026/3948150)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Editoryal analiz günün haber yoğunluğundan üretilmiştir.",
+"image_prompt": "Telefon ekranında haber bildirimleri ve sakin çalışma masası"
+}
+]
+},
+{
+"page_number": 13,
+"section": "sports",
+"template": "sports.html",
+"css": "sports.css",
+"main_story": {
+"id": "trabzonspor-turkiye-kupasi-sampiyonu",
+"title": "Trabzonspor kupayı kaldırdı",
+"subtitle": "Bordo mavililer, finalde Konyaspor'u 2-1 yenerek kupanın sahibi oldu.",
+"summary": "Trabzonspor, 2025-2026 Ziraat Türkiye Kupası'nı kazandığını resmi sitesinden duyurdu.",
+"body": "Trabzonspor Kulübü'nün resmi açıklamasına göre bordo mavili ekip, Ziraat Türkiye Kupası Finali'nde Tümosan Konyaspor'u 2-1 mağlup ederek kupayı müzesine götürdü. Kulübün duyurusu, sonucu ve kupa sevincini resmi olarak doğruladı. Bu başarı, Trabzonspor için sezonun en güçlü spor başlığı oldu.",
+"category": "sports",
+"importance": 1,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Trabzonspor",
+"url": "[https://www.trabzonspor.org.tr/news/2025-2026-ziraat-turkiye-kupasi-sampiyonu-trabzonspor-22-05-2026](https://www.trabzonspor.org.tr/news/2025-2026-ziraat-turkiye-kupasi-sampiyonu-trabzonspor-22-05-2026)",
+"published_at": "2026-05-22"
+}
+],
+"verification_note": "Sonuç kulübün resmi internet sitesinden doğrulanmıştır.",
+"image_prompt": "Trabzonspor futbolcuları kupa kaldırıyor, stadyum ışıkları"
+},
+"stories": [
+{
+"id": "konyaspor-finalde-kaybetti",
+"title": "Konyaspor finalde kaldı",
+"subtitle": "Tümosan Konyaspor finali 2-1 kaybetti.",
+"summary": "Konyaspor, finalde mücadele etmesine rağmen kupayı Trabzonspor'a kaptırdı.",
+"body": "Trabzonspor'un resmi açıklamasında final sonucunun 2-1 olduğu belirtildi. Bu skor, Tümosan Konyaspor'un finalde kupaya çok yaklaşmasına rağmen sezonu ikincilikle tamamladığını gösteriyor. Final performansı, Konyaspor için gelecek sezon planlamasında önemli bir referans olacaktır.",
+"category": "sports",
+"importance": 2,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Trabzonspor",
+"url": "[https://www.trabzonspor.org.tr/news/2025-2026-ziraat-turkiye-kupasi-sampiyonu-trabzonspor-22-05-2026](https://www.trabzonspor.org.tr/news/2025-2026-ziraat-turkiye-kupasi-sampiyonu-trabzonspor-22-05-2026)",
+"published_at": "2026-05-22"
+}
+],
+"verification_note": "Final skoru Trabzonspor resmi açıklamasına dayanmaktadır.",
+"image_prompt": "Final maçında mücadele eden iki futbol takımı"
+},
+{
+"id": "kupada-avrupa-bileti",
+"title": "Kupa Avrupa kapısı",
+"subtitle": "Türkiye Kupası şampiyonu Avrupa ve Süper Kupa hattına yöneliyor.",
+"summary": "Türkiye Kupası statüsüne göre şampiyon takım Avrupa Ligi play-off turu ve Süper Kupa hakkı kazanır.",
+"body": "2025-2026 Türkiye Kupası sayfasında turnuva galibinin 2026 Süper Kupa'da ve 2026-2027 UEFA Avrupa Ligi play-off turunda yer alacağı bilgisi yer alıyor. Bu nedenle Trabzonspor'un kupası yalnızca prestij değil, Avrupa planlaması açısından da önemli sonuç doğuruyor.",
+"category": "sports",
+"importance": 2,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Türkiye Kupası Bilgi Sayfası",
+"url": "[https://tr.wikipedia.org/wiki/2025-26_T%C3%BCrkiye_Kupas%C4%B1](https://tr.wikipedia.org/wiki/2025-26_T%C3%BCrkiye_Kupas%C4%B1)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Statü bilgisi turnuva bilgi sayfasından alınmıştır.",
+"image_prompt": "Türkiye Kupası, Avrupa kupası yolu ve stadyum tüneli"
+},
+{
+"id": "bahceliden-trabzonspor-tebrigi",
+"title": "Bahçeli'den tebrik",
+"subtitle": "MHP Genel Başkanı Trabzonspor'u kupadan dolayı kutladı.",
+"summary": "Anadolu Ajansı, Devlet Bahçeli'nin Trabzonspor'a tebrik mesajını aktardı.",
+"body": "Anadolu Ajansı'nın haberine göre MHP Genel Başkanı Devlet Bahçeli, Ziraat Türkiye Kupası şampiyonu Trabzonspor'u kutladı. Spor başarılarının siyaset ve kamuoyunda geniş yankı bulması, kulüplerin toplumsal etkisini ve taraftar kültürünün önemini gösteriyor.",
+"category": "sports",
+"importance": 4,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Anadolu Ajansı",
+"url": "[https://www.aa.com.tr/tr/spor/mhp-genel-baskani-bahceli-ziraat-turkiye-kupasi-sampiyonu-trabzonsporu-kutladi/3946581](https://www.aa.com.tr/tr/spor/mhp-genel-baskani-bahceli-ziraat-turkiye-kupasi-sampiyonu-trabzonsporu-kutladi/3946581)",
+"published_at": "2026-05-23"
+}
+],
+"verification_note": "Tebrik mesajı AA haberine dayanmaktadır.",
+"image_prompt": "Kupa sevinci ve tebrik mesajı gazete görseli"
+},
+{
+"id": "kupada-sezon-degeri",
+"title": "Kupada sezon değeri",
+"subtitle": "Kupa zaferi, lig performansından bağımsız sezon hikayesi yaratır.",
+"summary": "Trabzonspor için kupa, sezonun sportif hafızasında belirleyici başlık haline geldi.",
+"body": "Türkiye Kupası, kulüpler için lig sıralamasından bağımsız bir başarı alanı yaratır. Trabzonspor'un finali kazanması, sezon değerlendirmesinde doğrudan başarı hanesine yazılacak bir sonuç üretti. Bu tür kupalar, teknik ekip ve kadro planlaması açısından da moral ve meşruiyet etkisi taşır.",
+"category": "sports",
+"importance": 4,
+"status": "analysis",
+"source_count": 1,
+"sources": [
+{
+"name": "Trabzonspor",
+"url": "[https://www.trabzonspor.org.tr/news/2025-2026-ziraat-turkiye-kupasi-sampiyonu-trabzonspor-22-05-2026](https://www.trabzonspor.org.tr/news/2025-2026-ziraat-turkiye-kupasi-sampiyonu-trabzonspor-22-05-2026)",
+"published_at": "2026-05-22"
+}
+],
+"verification_note": "Analiz resmi final sonucuna dayanmaktadır.",
+"image_prompt": "Sezon değerlendirme panosu ve kupa görseli"
+}
+]
+},
+{
+"page_number": 14,
+"section": "sports",
+"template": "sports.html",
+"css": "sports.css",
+"main_story": {
+"id": "milli-takim-dunya-kupasi-hazirligi",
+"title": "Milliler Dünya Kupası hazırlığında",
+"subtitle": "A Milli Takım, Dünya Kupası hazırlıklarını TFF tesislerinde sürdürecek.",
+"summary": "Anadolu Ajansı gündeminde A Milli Futbol Takımı'nın hazırlık programı yer aldı.",
+"body": "Anadolu Ajansı gündem sayfasında A Milli Futbol Takımı'nın 2026 FIFA Dünya Kupası hazırlıklarını TFF Hasan Doğan Milli Takımlar Kamp ve Eğitim Tesisleri'nde sürdüreceği bilgisi yer aldı. Türkiye'nin Dünya Kupası'na dönüşü, kamp planlaması, oyuncu sağlığı ve hazırlık maçları açısından yoğun bir spor gündemi oluşturuyor.",
+"category": "sports",
+"importance": 1,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Anadolu Ajansı",
+"url": "[https://www.aa.com.tr/tr/p/gundem](https://www.aa.com.tr/tr/p/gundem)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Hazırlık bilgisi AA gündem sayfasına dayanmaktadır.",
+"image_prompt": "A Milli Takım antrenmanı, kamp tesisi ve Dünya Kupası teması"
+},
+"stories": [
+{
+"id": "turkiye-grup-d",
+"title": "Türkiye D Grubu'nda",
+"subtitle": "TFF sayfasına göre Türkiye, Dünya Kupası'nda ABD, Paraguay ve Avustralya ile aynı grupta.",
+"summary": "Türkiye, 24 yıl sonra Dünya Kupası finallerinde mücadele edecek.",
+"body": "TFF'nin önceki duyurusuna göre Türkiye, 2026 FIFA Dünya Kupası'nda D Grubu'nda ABD, Paraguay ve Avustralya ile eşleşti. Milli takımın turnuvaya 24 yıl sonra dönmesi, futbol kamuoyunda hazırlık sürecini daha görünür hale getirdi. Grup dengesi taktik planlama açısından yakından analiz edilecek.",
+"category": "sports",
+"importance": 2,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Türkiye Futbol Federasyonu",
+"url": "[https://www.tff.org/default.aspx?ftxtID=50139&pageID=471](https://www.tff.org/default.aspx?ftxtID=50139&pageID=471)",
+"published_at": "2026-03-31"
+}
+],
+"verification_note": "Grup bilgisi TFF duyurusuna dayanmaktadır.",
+"image_prompt": "Dünya Kupası grup tablosu ve Türkiye forması"
+},
+{
+"id": "kamp-surecinde-fiziksel-hazirlik",
+"title": "Fiziksel hazırlık kritik",
+"subtitle": "Turnuva öncesi kamp dönemi oyuncu dayanıklılığı açısından belirleyici olacak.",
+"summary": "Dünya Kupası hazırlığında kondisyon, sakatlık yönetimi ve takım uyumu öne çıkıyor.",
+"body": "Milli takım kampları yalnızca taktik çalışma değil, fiziksel yükleme ve sakatlık riskini dengeleme sürecidir. Dünya Kupası gibi yoğun turnuvalarda oyuncuların sezon sonu yorgunluğu dikkatle yönetilmelidir. Kamp programı, teknik ekip için performans ve dinlenme dengesini kurma sınavı niteliği taşır.",
+"category": "sports",
+"importance": 3,
+"status": "analysis",
+"source_count": 1,
+"sources": [
+{
+"name": "Anadolu Ajansı",
+"url": "[https://www.aa.com.tr/tr/p/gundem](https://www.aa.com.tr/tr/p/gundem)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Analiz AA gündemindeki kamp bilgisine dayanmaktadır.",
+"image_prompt": "Milli futbolcular kondisyon antrenmanında"
+},
+{
+"id": "iran-antalya-kampi",
+"title": "İran kamp için Türkiye'de",
+"subtitle": "İran Milli Takımı, Dünya Kupası öncesi Antalya'da hazırlık kampı yaptı.",
+"summary": "Reuters, İran'ın lig kesintisi sonrası fiziksel hazırlık için Türkiye kampına başladığını yazdı.",
+"body": "Reuters'e göre İran Milli Takımı, Dünya Kupası öncesi fiziksel eksiklerini gidermek amacıyla Antalya'da kamp yaptı. İran ligindeki kesinti oyuncuların maç kondisyonunu etkilediği için kamp süreci önem kazandı. Takımın vize işlemleri için Ankara'ya geçtiği de aktarıldı.",
+"category": "sports",
+"importance": 3,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/sports/soccer/iran-focused-fitness-turkey-after-war-enforced-furlough-2026-05-19/](https://www.reuters.com/sports/soccer/iran-focused-fitness-turkey-after-war-enforced-furlough-2026-05-19/)",
+"published_at": "2026-05-19"
+}
+],
+"verification_note": "Kamp bilgisi Reuters spor haberine dayanmaktadır.",
+"image_prompt": "Antalya'da futbol kampı, antrenman sahası ve milli takım otobüsü"
+},
+{
+"id": "iran-vize-sureci",
+"title": "İran'da vize mesaisi",
+"subtitle": "İranlı oyuncular Dünya Kupası için ABD ve Kanada vizelerine başvurdu.",
+"summary": "Reuters, İran Milli Takımı oyuncularının Ankara'da vize işlemleri yaptığını aktardı.",
+"body": "Reuters'in 21 Mayıs haberine göre İran Milli Takımı oyuncuları, Dünya Kupası kapsamında Kanada ve ABD vizeleri için Türkiye'de başvuru yaptı. Turnuvanın ABD, Kanada ve Meksika'da düzenlenmesi, sportif hazırlığın yanında seyahat ve diplomatik süreçleri de önemli hale getiriyor.",
+"category": "sports",
+"importance": 3,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Reuters",
+"url": "[https://www.reuters.com/sports/soccer/iran-players-apply-us-canada-visas-turkey-ahead-world-cup-2026-05-21/](https://www.reuters.com/sports/soccer/iran-players-apply-us-canada-visas-turkey-ahead-world-cup-2026-05-21/)",
+"published_at": "2026-05-21"
+}
+],
+"verification_note": "Vize süreci Reuters haberinden doğrulanmıştır.",
+"image_prompt": "Ankara'da konsolosluk önünde spor kafilesi ve pasaport dosyaları"
+}
+]
+},
+{
+"page_number": 15,
+"section": "sports",
+"template": "sports.html",
+"css": "sports.css",
+"main_story": {
+"id": "super-ligde-sezon-sonu-gundemi",
+"title": "Süper Lig'de sezon sonu gündemi",
+"subtitle": "Kupa, transfer ve Dünya Kupası hazırlıkları spor sayfalarını belirliyor.",
+"summary": "Sezon sonu yaklaşırken kulüpler sportif sonuç, kadro planı ve transfer stratejisiyle gündemde.",
+"body": "Mayıs ayının son haftasında Türkiye spor gündemi üç başlık etrafında yoğunlaşıyor. Trabzonspor'un Türkiye Kupası zaferi, A Milli Takım'ın Dünya Kupası hazırlıkları ve kulüplerin transfer dönemine hazırlığı aynı anda takip ediliyor. Resmi açıklama bulunan sonuçlar doğrulanmış haber olarak, kulis bilgileri ise söylenti statüsünde ele alınmalı.",
+"category": "sports",
+"importance": 2,
+"status": "analysis",
+"source_count": 3,
+"sources": [
+{
+"name": "Trabzonspor",
+"url": "[https://www.trabzonspor.org.tr/news/2025-2026-ziraat-turkiye-kupasi-sampiyonu-trabzonspor-22-05-2026](https://www.trabzonspor.org.tr/news/2025-2026-ziraat-turkiye-kupasi-sampiyonu-trabzonspor-22-05-2026)",
+"published_at": "2026-05-22"
+},
+{
+"name": "Anadolu Ajansı",
+"url": "[https://www.aa.com.tr/tr/p/gundem](https://www.aa.com.tr/tr/p/gundem)",
+"published_at": "2026-05-25"
+},
+{
+"name": "beIN SPORTS Türkiye",
+"url": "[https://beinsports.com.tr/](https://beinsports.com.tr/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Analiz resmi sonuç, gündem planı ve spor haber akışına dayanmaktadır.",
+"image_prompt": "Futbol sezon sonu panoraması, kupa, milli takım ve transfer dosyaları"
+},
+"stories": [
+{
+"id": "galatasaray-sampiyonluk-bilgisi",
+"title": "Galatasaray şampiyonlukla anıldı",
+"subtitle": "TRT Afrika paylaşımında Galatasaray'ın 2025-2026 Süper Lig şampiyonluğu yer aldı.",
+"summary": "Galatasaray'ın sezon başarısı uluslararası TRT kanallarının spor akışında da yer buldu.",
+"body": "TRT Afrika'nın sosyal medya paylaşımında Galatasaray'ın 2025-2026 Süper Lig şampiyonluğunu ilan ettiği bilgisi yer aldı. Sosyal medya kaynağı resmi lig verisi yerine ikincil kaynak sayıldığı için bu haber sayfada düşük öncelikli ve bağlam bilgisi olarak değerlendirildi.",
+"category": "sports",
+"importance": 4,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "TRT Afrika",
+"url": "[https://www.facebook.com/trtafrika/posts/turkish-football-club-galatasaray-clinched-the-2025-2026-turkish-s%C3%BCper-lig-crown/958704826948320/](https://www.facebook.com/trtafrika/posts/turkish-football-club-galatasaray-clinched-the-2025-2026-turkish-s%C3%BCper-lig-crown/958704826948320/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Kaynak sosyal medya paylaşımı olduğu için haber düşük öncelikle işlendi.",
+"image_prompt": "Futbol ligi şampiyonluk kutlaması, sarı kırmızı atmosfer"
+},
+{
+"id": "transfer-donemi-temkinli-basliyor",
+"title": "Transfer dönemi temkinli başlıyor",
+"subtitle": "Kulüplerin resmi açıklamaları gelmeden kesin başlık kullanılmıyor.",
+"summary": "Spor medyasında çok sayıda iddia dolaşıma girerken doğrulama ayrımı önem kazanıyor.",
+"body": "Sezon sonu yaklaşırken transfer haberleri hızlanıyor. Ancak resmi kulüp açıklaması, KAP bildirimi veya oyuncu kulübünden doğrulama bulunmadıkça haberler söylenti olarak sınıflandırılmalı. Bu yaklaşım, taraftar beklentisini yönetmek ve yanlış kesinlik üretmemek açısından gereklidir.",
+"category": "sports",
+"importance": 3,
+"status": "analysis",
+"source_count": 1,
+"sources": [
+{
+"name": "beIN SPORTS Türkiye",
+"url": "[https://beinsports.com.tr/](https://beinsports.com.tr/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Editoryal sınıflandırma spor haber akışındaki transfer başlıklarına dayanmaktadır.",
+"image_prompt": "Transfer masası, futbolcu silueti ve imza dosyası"
+},
+{
+"id": "dunya-kupasi-takvimi-yaklasiyor",
+"title": "Dünya Kupası takvimi yaklaşıyor",
+"subtitle": "11 Haziran'da başlayacak turnuva öncesi hazırlıklar hızlandı.",
+"summary": "TFF duyurusuna göre Dünya Kupası 11 Haziran ve 19 Temmuz 2026 arasında düzenlenecek.",
+"body": "TFF'nin Dünya Kupası bilgilendirmesine göre turnuva ABD, Meksika ve Kanada ev sahipliğinde 11 Haziran ile 19 Temmuz 2026 arasında oynanacak. Bu takvim, milli takımlar için kamp, hazırlık maçı, seyahat ve kadro belirleme süreçlerini kısa sürede tamamlamayı gerektiriyor.",
+"category": "sports",
+"importance": 3,
+"status": "confirmed",
+"source_count": 1,
+"sources": [
+{
+"name": "Türkiye Futbol Federasyonu",
+"url": "[https://www.tff.org/default.aspx?ftxtID=49210&pageID=471](https://www.tff.org/default.aspx?ftxtID=49210&pageID=471)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Turnuva takvimi TFF bilgi sayfasına dayanmaktadır.",
+"image_prompt": "Dünya Kupası takvimi ve üç ev sahibi ülke haritası"
+},
+{
+"id": "spor-haberlerinde-kaynak-ayrimi",
+"title": "Spor haberinde kaynak ayrımı",
+"subtitle": "Resmi sonuç, kulis ve yorum aynı düzeyde yazılmamalı.",
+"summary": "Kupa sonucu ile transfer iddiası aynı doğrulama düzeyine sahip değildir.",
+"body": "Trabzonspor'un kupa zaferi resmi kulüp açıklamasıyla doğrulanmış bir sonuçtur. Buna karşılık transfer iddiaları çoğu zaman kulis haberidir. Spor haberciliğinde kaynak türünü ayırmak, okurun neyin kesin, neyin ihtimal olduğunu anlamasını sağlar. Bu sayıda statü alanları bu nedenle özellikle kullanıldı.",
+"category": "sports",
+"importance": 5,
+"status": "analysis",
+"source_count": 2,
+"sources": [
+{
+"name": "Trabzonspor",
+"url": "[https://www.trabzonspor.org.tr/news/2025-2026-ziraat-turkiye-kupasi-sampiyonu-trabzonspor-22-05-2026](https://www.trabzonspor.org.tr/news/2025-2026-ziraat-turkiye-kupasi-sampiyonu-trabzonspor-22-05-2026)",
+"published_at": "2026-05-22"
+},
+{
+"name": "beIN SPORTS Türkiye",
+"url": "[https://beinsports.com.tr/](https://beinsports.com.tr/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Editoryal not, resmi sonuç ve transfer akışı arasındaki kaynak farkına dayanmaktadır.",
+"image_prompt": "Gazete spor editörü, resmi açıklama ve söylenti dosyalarını ayırıyor"
+}
+]
+},
+{
+"page_number": 16,
+"section": "transfer_file",
+"template": "transfer.html",
+"css": "sports.css",
+"main_story": {
+"id": "transfer-dosyasinda-resmi-ve-soylenti-ayrimi",
+"title": "Transferde resmi ve söylenti ayrımı",
+"subtitle": "Bugünün transfer dosyasında kesinleşen imza değil, kulis iddiaları öne çıkıyor.",
+"summary": "Resmi açıklama bulunmayan transfer başlıkları rumor statüsünde sınıflandırıldı.",
+"body": "Transfer dönemine yaklaşılırken Galatasaray, Fenerbahçe, Beşiktaş ve Trabzonspor için çok sayıda iddia spor medyasında dolaşıma giriyor. Ancak resmi kulüp açıklaması, KAP bildirimi veya oyuncu kulübünden doğrulama olmadığında haberler kesin transfer olarak yazılmamalı. Bu sayfada resmi açıklama bulunmayan başlıklar söylenti statüsünde tutuldu.",
+"category": "transfer_file",
+"importance": 1,
+"status": "analysis",
+"source_count": 2,
+"sources": [
+{
+"name": "beIN SPORTS Türkiye",
+"url": "[https://beinsports.com.tr/](https://beinsports.com.tr/)",
+"published_at": "2026-05-25"
+},
+{
+"name": "Fotomaç",
+"url": "[https://www.fotomac.com.tr/](https://www.fotomac.com.tr/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Resmi kulüp açıklaması bulunmayan başlıklar kesin haber yapılmadı.",
+"image_prompt": "Transfer dosyası kapağı, futbolcu siluetleri ve resmi açıklama kontrol listesi"
+},
+"stories": [
+{
+"id": "galatasaray-bertug-yildirim-iddiasi",
+"title": "Galatasaray için Bertuğ iddiası",
+"subtitle": "Fotomaç, Galatasaray'ın Bertuğ Yıldırım için iki oyuncuyu gözden çıkardığını yazdı.",
+"summary": "İddia resmi açıklamayla doğrulanmadığı için söylenti statüsünde değerlendirildi.",
+"body": "Fotomaç ana sayfasında Galatasaray'ın Bertuğ Yıldırım transferi için iki futbolcusunu gözden çıkardığı iddiası yer aldı. Haberde resmi kulüp açıklaması görülmediği için bu başlık kesin transfer olarak değerlendirilemez. Transfer dosyasında iddia, yalnızca spor basını kaynaklı söylenti olarak sınıflandırıldı.",
+"category": "transfer_file",
+"importance": 3,
+"status": "rumor",
+"source_count": 1,
+"sources": [
+{
+"name": "Fotomaç",
+"url": "[https://www.fotomac.com.tr/](https://www.fotomac.com.tr/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Resmi kulüp açıklaması bulunmadığı için rumor statüsünde tutuldu.",
+"image_prompt": "Galatasaray transfer dosyası, genç forvet silueti ve soru işareti"
+},
+{
+"id": "fenerbahce-livakovic-karari-iddiasi",
+"title": "Fenerbahçe'de Livakovic iddiası",
+"subtitle": "Fotomaç, Dominik Livakovic için karar başlığını öne çıkardı.",
+"summary": "İddia resmi kaynakla doğrulanmadığından kesin haber olarak yazılmadı.",
+"body": "Fotomaç ana sayfasında Fenerbahçe'den Dominik Livakovic için karar başlığı yer aldı. Ancak resmi kulüp açıklaması veya oyuncu taraflı doğrulama bulunmadığı için haber transfer dosyasında söylenti olarak ele alındı. Kaleci rotasyonu haberleri, resmi açıklama gelene kadar temkinli izlenmelidir.",
+"category": "transfer_file",
+"importance": 3,
+"status": "rumor",
+"source_count": 1,
+"sources": [
+{
+"name": "Fotomaç",
+"url": "[https://www.fotomac.com.tr/](https://www.fotomac.com.tr/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Resmi doğrulama bulunmadığı için rumor statüsündedir.",
+"image_prompt": "Fenerbahçe kaleci dosyası, kale çizgisi ve transfer soru işareti"
+},
+{
+"id": "fenerbahce-eski-yildiz-iddiasi",
+"title": "Fenerbahçe eski yıldız peşinde iddiası",
+"subtitle": "Fotomaç, sarı lacivertlilerin eski bir oyuncu için temas başlattığını yazdı.",
+"summary": "Alman basınına dayandırılan iddia resmi açıklamayla doğrulanmadı.",
+"body": "Fotomaç ana sayfasında Fenerbahçe'nin eski bir yıldızını yeniden kadroya katmak için görüşmelere başladığı iddiası yer aldı. Haberde Alman basınına atıf yapılırken resmi kulüp duyurusu bulunmadı. Bu nedenle haber kesinleşmiş transfer değil, dış basın kaynaklı söylenti olarak sınıflandırıldı.",
+"category": "transfer_file",
+"importance": 3,
+"status": "rumor",
+"source_count": 1,
+"sources": [
+{
+"name": "Fotomaç",
+"url": "[https://www.fotomac.com.tr/](https://www.fotomac.com.tr/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Resmi kulüp açıklaması olmadığı için rumor statüsü kullanıldı.",
+"image_prompt": "Eski futbolcu dönüşü temalı transfer masası, sarı lacivert tonlar"
+},
+{
+"id": "bein-gunun-transfer-haberleri",
+"title": "beIN'de günün transfer başlıkları",
+"subtitle": "beIN SPORTS, 25 Mayıs transfer haberlerini günlük akışında topladı.",
+"summary": "Transfer başlıkları resmi açıklama gelene kadar haber akışı niteliğinde değerlendirildi.",
+"body": "beIN SPORTS Türkiye ana sayfasında 25 Mayıs 2026 tarihli günün transfer haberleri başlığı yer aldı. Bu tür günlük transfer akışları kulüp gündemlerini izlemek için yararlı olsa da resmi açıklama yerine geçmez. Dosyada bu nedenle kulüp duyurusu olmayan başlıklar kesin transfer olarak yazılmadı.",
+"category": "transfer_file",
+"importance": 4,
+"status": "rumor",
+"source_count": 1,
+"sources": [
+{
+"name": "beIN SPORTS Türkiye",
+"url": "[https://beinsports.com.tr/](https://beinsports.com.tr/)",
+"published_at": "2026-05-25"
+}
+],
+"verification_note": "Günlük transfer akışı resmi imza doğrulaması sayılmadığı için rumor statüsünde değerlendirildi.",
+"image_prompt": "Spor haber ekranında transfer bülteni ve oyuncu siluetleri"
+}
+]
+}
+]
+}

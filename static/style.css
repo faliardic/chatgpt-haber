@@ -1,0 +1,445 @@
+@page {
+    size: A4;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #111111;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================================================
+   A4 PAGE CORE
+   ========================================================= */
+
+.inner-page,
+.page {
+    width: 210mm;
+    height: 297mm;
+    max-height: 297mm;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+    position: relative;
+    background: #fffdf8;
+    padding: 13mm 15mm 11mm 15mm;
+}
+
+.inner-page:last-child,
+.page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+}
+
+/* =========================================================
+   INNER PAGE HEADER
+   ========================================================= */
+
+.inner-header {
+    height: 31mm;
+    border-bottom: 1.2mm solid #111111;
+    margin-bottom: 6mm;
+}
+
+.inner-header-top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.newspaper-name {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25pt;
+    font-weight: 900;
+    letter-spacing: 0.6mm;
+    line-height: 1;
+}
+
+.issue-meta {
+    font-size: 9pt;
+    font-weight: 700;
+    color: #333333;
+}
+
+.section-band {
+    margin-top: 5mm;
+    height: 8mm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 0.35mm solid #111111;
+    border-bottom: 0.35mm solid #111111;
+}
+
+.section-name {
+    text-transform: uppercase;
+    font-size: 9pt;
+    font-weight: 900;
+    letter-spacing: 0.4mm;
+    color: #ffffff;
+    background: #111111;
+    padding: 1.5mm 4mm;
+}
+
+.page-number-top {
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: #333333;
+}
+
+/* =========================================================
+   INNER CONTENT LAYOUT
+   ========================================================= */
+
+.inner-content {
+    height: 238mm;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 82mm 1fr;
+    gap: 6mm;
+}
+
+/* =========================================================
+   MAIN STORY
+   ========================================================= */
+
+.main-story-block {
+    overflow: hidden;
+    border-bottom: 0.45mm solid #111111;
+    padding-bottom: 4mm;
+    position: relative;
+}
+
+.main-story-label {
+    display: inline-block;
+    background: #8b0000;
+    color: #ffffff;
+    font-size: 7.8pt;
+    font-weight: 900;
+    letter-spacing: 0.3mm;
+    padding: 1.4mm 3mm;
+    margin-bottom: 3mm;
+}
+
+.main-story-title {
+    margin: 0;
+    font-size: 25pt;
+    line-height: 0.98;
+    font-weight: 900;
+    letter-spacing: -0.4mm;
+}
+
+.main-story-subtitle {
+    margin: 2.5mm 0 0 0;
+    font-size: 13pt;
+    line-height: 1.12;
+    font-weight: 800;
+    color: #333333;
+}
+
+.main-story-summary {
+    margin: 3mm 0 0 0;
+    font-size: 10.3pt;
+    line-height: 1.25;
+    font-weight: 800;
+}
+
+.main-story-body {
+    margin: 2.5mm 0 0 0;
+    font-size: 9.2pt;
+    line-height: 1.28;
+    column-count: 2;
+    column-gap: 7mm;
+    text-align: left;
+}
+
+/* =========================================================
+   STORY GRID
+   ========================================================= */
+
+.stories-grid {
+    height: 150mm;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 5mm 7mm;
+}
+
+.story-card {
+    overflow: hidden;
+    border-top: 0.55mm solid #111111;
+    padding-top: 2.5mm;
+    position: relative;
+}
+
+.story-category {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 6.8pt;
+    font-weight: 900;
+    letter-spacing: 0.25mm;
+    color: #8b0000;
+    margin-bottom: 1.5mm;
+}
+
+.story-title {
+    margin: 0;
+    font-size: 14.5pt;
+    line-height: 1.03;
+    font-weight: 900;
+    letter-spacing: -0.15mm;
+}
+
+.story-summary {
+    margin: 2mm 0 0 0;
+    font-size: 8.8pt;
+    line-height: 1.22;
+    font-weight: 800;
+    color: #333333;
+}
+
+.story-body {
+    margin: 2mm 0 0 0;
+    font-size: 8.4pt;
+    line-height: 1.24;
+}
+
+.story-meta {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 2mm;
+    padding-top: 1.5mm;
+    border-top: 0.25mm solid #cccccc;
+    font-size: 6.8pt;
+    font-weight: 800;
+    color: #666666;
+    background: #fffdf8;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.inner-footer {
+    position: absolute;
+    left: 15mm;
+    right: 15mm;
+    bottom: 7mm;
+    height: 6mm;
+    border-top: 0.35mm solid #111111;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    font-size: 7.8pt;
+    font-weight: 700;
+    color: #333333;
+}
+
+/* =========================================================
+   SECTION COLOR ACCENTS
+   ========================================================= */
+
+.section-politics .section-name,
+.section-politics .main-story-label {
+    background: #8b0000;
+}
+
+.section-economy .section-name,
+.section-economy .main-story-label {
+    background: #003366;
+}
+
+.section-technology_science .section-name,
+.section-technology_science .main-story-label {
+    background: #245b45;
+}
+
+.section-culture_arts .section-name,
+.section-culture_arts .main-story-label {
+    background: #5c2d6d;
+}
+
+.section-lifestyle .section-name,
+.section-lifestyle .main-story-label {
+    background: #8a5a00;
+}
+
+.section-sports .section-name,
+.section-sports .main-story-label {
+    background: #006633;
+}
+
+.section-transfer_file .section-name,
+.section-transfer_file .main-story-label {
+    background: #111111;
+}
+
+/* =========================================================
+   PRINT SAFETY
+   ========================================================= */
+
+h1,
+h2,
+h3,
+p {
+    orphans: 2;
+    widows: 2;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* =========================================================
+   INNER PAGE V3 - SCOPED IMAGE LAYOUT
+   Sadece ic sayfalari etkiler. Ana sayfaya dokunmaz.
+   ========================================================= */
+
+.inner-page .inner-content {
+    height: 238mm;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 88mm 1fr;
+    gap: 5mm;
+}
+
+/* Ana haber: solda metin, sagda gorsel */
+.inner-page .main-story-block {
+    overflow: hidden;
+    border-bottom: 0.45mm solid #111111;
+    padding-bottom: 4mm;
+    display: grid;
+    grid-template-columns: 1.45fr 0.9fr;
+    gap: 6mm;
+}
+
+.inner-page .main-story-text {
+    overflow: hidden;
+}
+
+.inner-page .main-story-image {
+    overflow: hidden;
+    height: 74mm;
+    border: 0.35mm solid #bfbfbf;
+    background: linear-gradient(135deg, #eeeeee, #d8d8d8);
+}
+
+.inner-page .image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Ana haber metin ayari */
+.inner-page .main-story-title {
+    font-size: 23pt;
+    line-height: 1;
+}
+
+.inner-page .main-story-subtitle {
+    font-size: 12pt;
+    line-height: 1.12;
+}
+
+.inner-page .main-story-summary {
+    font-size: 9.6pt;
+    line-height: 1.22;
+}
+
+.inner-page .main-story-body {
+    font-size: 8.7pt;
+    line-height: 1.24;
+    column-count: 1;
+}
+
+/* Alt haberler */
+.inner-page .stories-grid {
+    height: 145mm;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 4.5mm 7mm;
+}
+
+.inner-page .story-card {
+    overflow: hidden;
+    border-top: 0.55mm solid #111111;
+    padding-top: 2.3mm;
+    position: relative;
+}
+
+/* Kucuk gorsel alani */
+.inner-page .story-image {
+    width: 100%;
+    height: 22mm;
+    margin-bottom: 2mm;
+    border: 0.3mm solid #c6c6c6;
+    background: linear-gradient(135deg, #eeeeee, #d7d7d7);
+    overflow: hidden;
+}
+
+.inner-page .small-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Kategori cok tekrar etmesin diye daha kucuk */
+.inner-page .story-category {
+    font-size: 6.2pt;
+    margin-bottom: 1.1mm;
+}
+
+.inner-page .story-title {
+    font-size: 12.4pt;
+    line-height: 1.04;
+}
+
+.inner-page .story-summary {
+    font-size: 7.9pt;
+    line-height: 1.18;
+    margin-top: 1.4mm;
+}
+
+.inner-page .story-body {
+    font-size: 7.55pt;
+    line-height: 1.17;
+    margin-top: 1.4mm;
+}
+
+/* confirmed / analysis / rumor / kaynak satirlarini gizle */
+.inner-page .story-meta {
+    display: none !important;
+}
+
+/* Footer rahatlatma */
+.inner-page .inner-footer {
+    position: absolute;
+    left: 15mm;
+    right: 15mm;
+    bottom: 6mm;
+    height: 7mm;
+    border-top: 0.35mm solid #111111;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 7.6pt;
+    font-weight: 700;
+    color: #333333;
+    padding-top: 1.5mm;
+    background: #fffdf8;
+}

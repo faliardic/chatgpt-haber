@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/{{ page.css|default('frontpage.css') }}">
+</head>
+
+<body>
+
+<div class="newspaper-page front-page">
+
+    <header class="front-header">
+        <div class="front-kicker">GUNLUK GAZETE</div>
+        <h1>{{ newspaper.issue.newspaper_name }}</h1>
+        <div class="front-meta">
+            <span>{{ newspaper.issue.date }} - {{ newspaper.issue.day }}</span>
+            <span>Sayi: {{ newspaper.issue.issue_number }}</span>
+            <span>16 sayfa</span>
+        </div>
+    </header>
+
+    <main class="front-lead">
+        <section class="front-hero-card">
+            <div class="story-label">MANSET</div>
+            <h2>{{ page.headline.title }}</h2>
+            <h3>{{ page.headline.subtitle }}</h3>
+            <div class="front-hero-image">
+                <span>CHATGPT HABER</span>
+            </div>
+            <p>{{ page.headline.summary }} {{ page.headline.body }}</p>
+        </section>
+
+        <aside class="front-side-grid">
+            {% for news in page.lead_stories %}
+            <article class="front-side-card">
+                <div class="side-image"></div>
+                <div class="story-label">{{ news.category }}</div>
+                <h3>{{ news.title }}</h3>
+                <p>{{ news.summary }}</p>
+            </article>
+            {% endfor %}
+        </aside>
+    </main>
+
+    <section class="page-preview-grid">
+        {% for preview_page in newspaper.pages[1:] %}
+        <article class="page-preview-card section-{{ preview_page.section }}">
+            <div class="preview-top">
+                <span>{{ preview_page.section }}</span>
+                <b>{{ preview_page.page_number }}</b>
+            </div>
+            <h4>{{ preview_page.main_story.title }}</h4>
+        </article>
+        {% endfor %}
+    </section>
+
+    <footer class="front-footer">
+        <span>Tarafsiz - Dogru - Guncel</span>
+        <span>Sayfa {{ page.page_number }}</span>
+    </footer>
+
+</div>
+
+</body>
+
+</html>

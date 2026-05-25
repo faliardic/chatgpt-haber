@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+
+<div class="newspaper-page inner-page section-{{ page.section }}">
+
+    <header class="inner-header">
+        <div class="inner-header-top">
+            <div class="newspaper-name">CHATGPT HABER</div>
+            <div class="issue-meta">
+                {{ newspaper.issue.date }} - {{ newspaper.issue.day }}
+            </div>
+        </div>
+
+        <div class="section-band">
+            <span class="section-name">{{ page.section }}</span>
+            <span class="page-number-top">Sayfa {{ page.page_number }}</span>
+        </div>
+    </header>
+
+    <main class="inner-content">
+
+        <section class="main-story-block">
+            <div class="main-story-text">
+                <div class="main-story-label">ANA HABER</div>
+
+                <h1 class="main-story-title">
+                    {{ page.main_story.title }}
+                </h1>
+
+                <h2 class="main-story-subtitle">
+                    {{ page.main_story.subtitle }}
+                </h2>
+
+                <p class="main-story-summary">
+                    {{ page.main_story.summary }}
+                </p>
+
+                <p class="main-story-body">
+                    {{ page.main_story.body }}
+                </p>
+            </div>
+
+            <div class="main-story-image">
+                <div class="image-placeholder"></div>
+            </div>
+        </section>
+
+        <section class="stories-grid">
+
+            {% for story in page.stories %}
+            <article class="story-card story-{{ loop.index }}">
+                <div class="story-image">
+                    <div class="small-image-placeholder"></div>
+                </div>
+
+                <div class="story-category">
+                    {{ story.category }}
+                </div>
+
+                <h3 class="story-title">
+                    {{ story.title }}
+                </h3>
+
+                <p class="story-summary">
+                    {{ story.summary }}
+                </p>
+
+                <p class="story-body">
+                    {{ story.body }}
+                </p>
+            </article>
+            {% endfor %}
+
+        </section>
+
+    </main>
+
+    <footer class="inner-footer">
+        <span>CHATGPT HABER</span>
+        <span>Sayfa {{ page.page_number }}</span>
+    </footer>
+
+</div>
+
+</body>
+
+</html>

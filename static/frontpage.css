@@ -1,0 +1,284 @@
+@page {
+    size: A4;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #111111;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.newspaper-page,
+.front-page {
+    width: 210mm;
+    height: 297mm;
+    max-height: 297mm;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+    position: relative;
+    background: #fffdf8;
+    padding: 8mm;
+}
+
+.front-header {
+    height: 32mm;
+    border-bottom: 1.4mm solid #111111;
+    overflow: hidden;
+}
+
+.front-kicker {
+    display: inline-block;
+    background: #8b0000;
+    color: #ffffff;
+    font-size: 8pt;
+    font-weight: 900;
+    letter-spacing: 0.35mm;
+    padding: 1.2mm 3mm;
+    margin-bottom: 2mm;
+}
+
+.front-header h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 39pt;
+    line-height: 0.9;
+    font-weight: 900;
+    letter-spacing: 0.4mm;
+}
+
+.front-meta {
+    margin-top: 2.4mm;
+    display: flex;
+    justify-content: space-between;
+    border-top: 0.3mm solid #111111;
+    padding-top: 1.3mm;
+    font-size: 8.5pt;
+    font-weight: 800;
+}
+
+.front-lead {
+    height: 128mm;
+    margin-top: 4mm;
+    display: grid;
+    grid-template-columns: 1.75fr 1fr;
+    gap: 5mm;
+    overflow: hidden;
+}
+
+.front-hero-card,
+.front-side-card,
+.page-preview-card {
+    overflow: hidden;
+}
+
+.front-hero-card {
+    border-right: 0.35mm solid #b8b8b8;
+    padding-right: 5mm;
+}
+
+.story-label {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: #111111;
+    color: #ffffff;
+    font-size: 7.5pt;
+    line-height: 1;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.25mm;
+    padding: 1.2mm 2.5mm;
+    margin-bottom: 2.2mm;
+}
+
+.front-hero-card h2 {
+    margin: 0;
+    font-size: 31pt;
+    line-height: 0.98;
+    font-weight: 900;
+    letter-spacing: -0.35mm;
+}
+
+.front-hero-card h3 {
+    margin: 2.5mm 0 0;
+    color: #8b0000;
+    font-size: 13.5pt;
+    line-height: 1.12;
+    font-weight: 800;
+}
+
+.front-hero-image {
+    height: 49mm;
+    margin-top: 4mm;
+    border: 0.35mm solid #999999;
+    background: linear-gradient(135deg, #151515, #353535 48%, #7a0000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.front-hero-image span {
+    font-size: 23pt;
+    font-weight: 900;
+    letter-spacing: 0.8mm;
+}
+
+.front-hero-card p {
+    margin: 3mm 0 0;
+    font-size: 10pt;
+    line-height: 1.28;
+    max-height: 20mm;
+    overflow: hidden;
+}
+
+.front-side-grid {
+    min-height: 0;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 3mm;
+    overflow: hidden;
+}
+
+.front-side-card {
+    border-top: 0.45mm solid #111111;
+    padding-top: 2mm;
+}
+
+.side-image {
+    height: 17mm;
+    margin-bottom: 1.6mm;
+    border: 0.3mm solid #bcbcbc;
+    background: linear-gradient(135deg, #eeeeee, #cfcfcf);
+}
+
+.front-side-card h3 {
+    margin: 0;
+    font-size: 13pt;
+    line-height: 1.05;
+    font-weight: 900;
+    max-height: 14mm;
+    overflow: hidden;
+}
+
+.front-side-card p {
+    margin: 1.5mm 0 0;
+    font-size: 8.4pt;
+    line-height: 1.2;
+    max-height: 10mm;
+    overflow: hidden;
+}
+
+.page-preview-grid {
+    height: 89mm;
+    margin-top: 4mm;
+    padding-top: 3mm;
+    border-top: 1mm solid #111111;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2.4mm;
+    overflow: hidden;
+}
+
+.page-preview-card {
+    border: 0.28mm solid #c9c9c9;
+    border-top: 0.8mm solid #111111;
+    background: #ffffff;
+    padding: 2mm;
+    position: relative;
+}
+
+.preview-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5mm;
+    margin-bottom: 1.5mm;
+}
+
+.preview-top span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-size: 6.2pt;
+    line-height: 1;
+    font-weight: 900;
+    color: #8b0000;
+}
+
+.preview-top b {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 5mm;
+    height: 5mm;
+    background: #111111;
+    color: #ffffff;
+    font-size: 7pt;
+    line-height: 1;
+}
+
+.page-preview-card h4 {
+    margin: 0;
+    font-size: 8.8pt;
+    line-height: 1.12;
+    font-weight: 900;
+    max-height: 18mm;
+    overflow: hidden;
+}
+
+.section-economy {
+    border-top-color: #003366;
+}
+
+.section-technology_science {
+    border-top-color: #245b45;
+}
+
+.section-culture_arts {
+    border-top-color: #5c2d6d;
+}
+
+.section-lifestyle {
+    border-top-color: #8a5a00;
+}
+
+.section-sports {
+    border-top-color: #006633;
+}
+
+.section-transfer_file {
+    border-top-color: #111111;
+}
+
+.front-footer {
+    position: absolute;
+    left: 8mm;
+    right: 8mm;
+    bottom: 5mm;
+    height: 7mm;
+    border-top: 0.35mm solid #111111;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    font-size: 7.8pt;
+    font-weight: 800;
+    color: #333333;
+    background: #fffdf8;
+}
