@@ -11,18 +11,18 @@
 <div class="newspaper-page front-page">
 
     <header class="front-header">
-        <div class="front-kicker">GUNLUK GAZETE</div>
+        <div class="front-kicker">GÜNLÜK GAZETE</div>
         <h1>{{ newspaper.issue.newspaper_name }}</h1>
         <div class="front-meta">
             <span>{{ newspaper.issue.date }} - {{ newspaper.issue.day }}</span>
-            <span>Sayi: {{ newspaper.issue.issue_number }}</span>
+            <span>Sayı: {{ newspaper.issue.issue_number }}</span>
             <span>16 sayfa</span>
         </div>
     </header>
 
     <main class="front-lead">
         <section class="front-hero-card">
-            <div class="story-label">MANSET</div>
+            <div class="story-label">MANŞET</div>
             <h2>{{ page.headline.title }}</h2>
             <h3>{{ page.headline.subtitle }}</h3>
             <div class="front-hero-image">
@@ -35,7 +35,16 @@
             {% for news in page.lead_stories %}
             <article class="front-side-card">
                 <div class="side-image"></div>
-                <div class="story-label">{{ news.category }}</div>
+                <div class="story-label">
+                    {% if news.category == 'politics' %}SİYASET
+                    {% elif news.category == 'economy' %}EKONOMİ
+                    {% elif news.category == 'sports' %}SPOR
+                    {% elif news.category == 'technology_science' %}TEKNOLOJİ
+                    {% elif news.category == 'culture_arts' %}KÜLTÜR
+                    {% elif news.category == 'lifestyle' %}YAŞAM
+                    {% elif news.category == 'transfer_file' %}TRANSFER
+                    {% else %}{{ news.category }}{% endif %}
+                </div>
                 <h3>{{ news.title }}</h3>
                 <p>{{ news.summary }}</p>
             </article>
@@ -47,7 +56,16 @@
         {% for preview_page in newspaper.pages[1:] %}
         <article class="page-preview-card section-{{ preview_page.section }}">
             <div class="preview-top">
-                <span>{{ preview_page.section }}</span>
+                <span>
+                    {% if preview_page.section == 'politics' %}SİYASET
+                    {% elif preview_page.section == 'economy' %}EKONOMİ
+                    {% elif preview_page.section == 'sports' %}SPOR
+                    {% elif preview_page.section == 'technology_science' %}TEKNOLOJİ
+                    {% elif preview_page.section == 'culture_arts' %}KÜLTÜR
+                    {% elif preview_page.section == 'lifestyle' %}YAŞAM
+                    {% elif preview_page.section == 'transfer_file' %}TRANSFER
+                    {% else %}{{ preview_page.section }}{% endif %}
+                </span>
                 <b>{{ preview_page.page_number }}</b>
             </div>
             <h4>{{ preview_page.main_story.title }}</h4>
@@ -56,7 +74,7 @@
     </section>
 
     <footer class="front-footer">
-        <span>Tarafsiz - Dogru - Guncel</span>
+        <span>Tarafsız - Doğru - Güncel</span>
         <span>Sayfa {{ page.page_number }}</span>
     </footer>
 
