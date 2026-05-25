@@ -158,6 +158,10 @@ body {
     padding-top: 2mm;
 }
 
+.front-side-card:nth-child(n+3) {
+    display: none !important;
+}
+
 .side-image {
     height: 27mm;
     margin-bottom: 2.2mm;
