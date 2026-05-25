@@ -450,4 +450,20 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    import json
+    import re
+    from pathlib import Path
+    
+    text = Path("raw_ai_output.txt").read_text(encoding="utf-8")
+    s = text.find("{")
+    e = text.rfind("}")
+    j = text[s:e+1]
+    j = re.sub(r'\]\([^)]*\)', '', j)
+    for o,n in [('%22','"'),('%2F','/'),('%3A',':'),('%2C',','),('%7B','{'),('%7D','}'),('%20',' ')]:
+        j = j.replace(o,n)
+    j = re.sub(r'"url":"\[https://', r'"url":"https://', j)
+    j = j.replace('\\"', '"').replace('\\/', '/')
+    d = json.loads(j)
+    Path("data").mkdir(exist_ok=True)
+    Path("data/issue.json").write_text(json.dumps(d, ensure_ascii=False, indent=2), encoding="utf-8")
+    print("✅ OK")

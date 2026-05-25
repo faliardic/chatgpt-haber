@@ -1,57 +1,10 @@
 <!DOCTYPE html>
 <html lang="tr">
+{% import "macros/story_blocks.html" as blocks %}
 
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../static/style.css">
-    <style>
-        /* PDF overflow safety: keep inner content clear of the fixed footer. */
-        .inner-page .inner-content {
-            height: 232mm;
-            grid-template-rows: 86mm 1fr;
-            gap: 5mm;
-        }
-
-        .inner-page .main-story-block {
-            min-height: 0;
-        }
-
-        .inner-page .main-story-image {
-            height: 72mm;
-        }
-
-        .inner-page .stories-grid {
-            height: 141mm;
-            min-height: 0;
-        }
-
-        .inner-page .story-card,
-        .inner-page .main-story-text {
-            min-height: 0;
-        }
-
-        .inner-page .main-story-title,
-        .inner-page .main-story-subtitle,
-        .inner-page .main-story-summary,
-        .inner-page .main-story-body,
-        .inner-page .story-title,
-        .inner-page .story-summary,
-        .inner-page .story-body {
-            overflow: hidden;
-        }
-
-        .inner-page .story-title {
-            max-height: 19mm;
-        }
-
-        .inner-page .story-summary {
-            max-height: 15mm;
-        }
-
-        .inner-page .story-body {
-            max-height: 18mm;
-        }
-    </style>
 </head>
 
 <body>
@@ -67,65 +20,31 @@
         </div>
 
         <div class="section-band">
-            <span class="section-name">{{ page.section }}</span>
+            <span class="section-name">{{ blocks.section_label(page.section) }}</span>
             <span class="page-number-top">Sayfa {{ page.page_number }}</span>
         </div>
     </header>
 
-    <main class="inner-content">
+    <main class="inner-content page-grid-standard">
 
-        <section class="main-story-block">
-            <div class="main-story-text">
-                <div class="main-story-label">ANA HABER</div>
-
-                <h1 class="main-story-title">
-                    {{ page.main_story.title }}
-                </h1>
-
-                <h2 class="main-story-subtitle">
-                    {{ page.main_story.subtitle }}
-                </h2>
-
-                <p class="main-story-summary">
-                    {{ page.main_story.summary }}
-                </p>
-
-                <p class="main-story-body">
-                    {{ page.main_story.body }}
-                </p>
-            </div>
-
-            <div class="main-story-image">
-                <div class="image-placeholder"></div>
-            </div>
+        <section class="inner-feature-area">
+            {{ blocks.inner_main_story(page.main_story) }}
         </section>
 
-        <section class="stories-grid">
+        <aside class="inner-rail">
+            {{ blocks.quote_box(page.main_story.subtitle or page.main_story.summary) }}
 
-            {% for story in page.stories %}
-            <article class="story-card story-{{ loop.index }}">
-                <div class="story-image">
-                    <div class="small-image-placeholder"></div>
-                </div>
+            {% if page.stories and page.stories|length > 0 %}
+            {{ blocks.analysis_story(page.stories[0]) }}
+            {% endif %}
 
-                <div class="story-category">
-                    {{ story.category }}
-                </div>
+            {{ blocks.data_box(page) }}
+        </aside>
 
-                <h3 class="story-title">
-                    {{ story.title }}
-                </h3>
-
-                <p class="story-summary">
-                    {{ story.summary }}
-                </p>
-
-                <p class="story-body">
-                    {{ story.body }}
-                </p>
-            </article>
+        <section class="inner-support-grid">
+            {% for story in page.stories[1:5] %}
+            {{ blocks.supporting_story(story, loop.index) }}
             {% endfor %}
-
         </section>
 
     </main>

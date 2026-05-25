@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
+{% import "macros/story_blocks.html" as blocks %}
 
 <head>
     <meta charset="UTF-8">
@@ -34,34 +35,12 @@
     </header>
 
     <main class="front-news-grid">
-        <section class="front-hero-card">
-            <div class="story-label">MANŞET</div>
-            <h2>{{ page.headline.title }}</h2>
-            <h3>{{ page.headline.subtitle }}</h3>
-            <p>{{ page.headline.summary }} {{ page.headline.body }}</p>
-            <div class="front-hero-image">
-                <span>{{ newspaper.issue.newspaper_name }}</span>
-            </div>
-        </section>
+        {{ blocks.front_headline(page.headline, newspaper.issue.newspaper_name) }}
 
         <aside class="front-side-grid">
             {% for news in page.lead_stories %}
             {% if loop.index <= 2 %}
-            <article class="front-side-card">
-                <div class="side-image"></div>
-                <div class="story-label small">
-                    {% if news.category == 'politics' %}SİYASET
-                    {% elif news.category == 'economy' %}EKONOMİ
-                    {% elif news.category == 'sports' %}SPOR
-                    {% elif news.category == 'technology_science' %}TEKNOLOJİ
-                    {% elif news.category == 'culture_arts' %}KÜLTÜR
-                    {% elif news.category == 'lifestyle' %}YAŞAM
-                    {% elif news.category == 'transfer_file' %}TRANSFER
-                    {% else %}{{ news.category }}{% endif %}
-                </div>
-                <h3>{{ news.title }}</h3>
-                <p>{{ news.summary }}</p>
-            </article>
+            {{ blocks.front_sidebar_story(news) }}
             {% endif %}
             {% endfor %}
         </aside>
@@ -69,32 +48,13 @@
 
     <section class="front-brief-grid">
         {% for brief in page.briefs[:6] %}
-        <article class="front-brief-card">
-            <div class="brief-image"></div>
-            <b>{{ brief.title }}</b>
-            <p>{{ brief.summary }}</p>
-        </article>
+        {{ blocks.front_brief(brief) }}
         {% endfor %}
     </section>
 
     <section class="page-preview-grid">
         {% for preview_page in newspaper.pages[1:] %}
-        <article class="page-preview-card section-{{ preview_page.section }}">
-            <div class="preview-top">
-                <span>
-                    {% if preview_page.section == 'politics' %}SİYASET
-                    {% elif preview_page.section == 'economy' %}EKONOMİ
-                    {% elif preview_page.section == 'sports' %}SPOR
-                    {% elif preview_page.section == 'technology_science' %}TEKNOLOJİ
-                    {% elif preview_page.section == 'culture_arts' %}KÜLTÜR
-                    {% elif preview_page.section == 'lifestyle' %}YAŞAM
-                    {% elif preview_page.section == 'transfer_file' %}TRANSFER
-                    {% else %}{{ preview_page.section }}{% endif %}
-                </span>
-                <b>{{ preview_page.page_number }}</b>
-            </div>
-            <h4>{{ preview_page.main_story.title }}</h4>
-        </article>
+        {{ blocks.page_teaser(preview_page) }}
         {% endfor %}
     </section>
 

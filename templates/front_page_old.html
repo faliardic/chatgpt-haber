@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/{{ page.css|default('frontpage.css') }}">
+</head>
+
+<body>
+
+<div class="newspaper-page front-page">
+
+    <header class="front-header">
+        <div class="front-info-strip">
+            <span>GÜNLÜK BAĞIMSIZ GAZETE</span>
+            <span>{{ newspaper.issue.date }} - {{ newspaper.issue.day }}</span>
+            <span>Sayı: {{ newspaper.issue.issue_number }}</span>
+            <span>Fiyatı: 15 TL</span>
+        </div>
+
+        <div class="front-masthead-row">
+            <div class="front-market-box">
+                <b>BIST 100</b>
+                <span>9.428,61</span>
+            </div>
+            <h1>{{ newspaper.issue.newspaper_name }}</h1>
+            <div class="front-market-box right">
+                <b>16 SAYFA</b>
+                <span>Tarafsız • Doğru • Güncel</span>
+            </div>
+        </div>
+
+        <div class="front-redline">MAHKEME KARARININ ARDINDAN GERGİN GÜN</div>
+    </header>
+
+    <main class="front-news-grid">
+        <section class="front-hero-card">
+            <div class="story-label">MANŞET</div>
+            <h2>{{ page.headline.title }}</h2>
+            <h3>{{ page.headline.subtitle }}</h3>
+            <p>{{ page.headline.summary }} {{ page.headline.body }}</p>
+            <div class="front-hero-image">
+                <span>{{ newspaper.issue.newspaper_name }}</span>
+            </div>
+        </section>
+
+        <aside class="front-side-grid">
+            {% for news in page.lead_stories %}
+            {% if loop.index <= 2 %}
+            <article class="front-side-card">
+                <div class="side-image"></div>
+                <div class="story-label small">
+                    {% if news.category == 'politics' %}SİYASET
+                    {% elif news.category == 'economy' %}EKONOMİ
+                    {% elif news.category == 'sports' %}SPOR
+                    {% elif news.category == 'technology_science' %}TEKNOLOJİ
+                    {% elif news.category == 'culture_arts' %}KÜLTÜR
+                    {% elif news.category == 'lifestyle' %}YAŞAM
+                    {% elif news.category == 'transfer_file' %}TRANSFER
+                    {% else %}{{ news.category }}{% endif %}
+                </div>
+                <h3>{{ news.title }}</h3>
+                <p>{{ news.summary }}</p>
+            </article>
+            {% endif %}
+            {% endfor %}
+        </aside>
+    </main>
+
+    <section class="front-brief-grid">
+        {% for brief in page.briefs[:6] %}
+        <article class="front-brief-card">
+            <div class="brief-image"></div>
+            <b>{{ brief.title }}</b>
+            <p>{{ brief.summary }}</p>
+        </article>
+        {% endfor %}
+    </section>
+
+    <section class="page-preview-grid">
+        {% for preview_page in newspaper.pages[1:] %}
+        <article class="page-preview-card section-{{ preview_page.section }}">
+            <div class="preview-top">
+                <span>
+                    {% if preview_page.section == 'politics' %}SİYASET
+                    {% elif preview_page.section == 'economy' %}EKONOMİ
+                    {% elif preview_page.section == 'sports' %}SPOR
+                    {% elif preview_page.section == 'technology_science' %}TEKNOLOJİ
+                    {% elif preview_page.section == 'culture_arts' %}KÜLTÜR
+                    {% elif preview_page.section == 'lifestyle' %}YAŞAM
+                    {% elif preview_page.section == 'transfer_file' %}TRANSFER
+                    {% else %}{{ preview_page.section }}{% endif %}
+                </span>
+                <b>{{ preview_page.page_number }}</b>
+            </div>
+            <h4>{{ preview_page.main_story.title }}</h4>
+        </article>
+        {% endfor %}
+    </section>
+
+    <footer class="front-footer">
+        <span>Tarafsız - Doğru - Güncel</span>
+        <span>Sayfa {{ page.page_number }}</span>
+    </footer>
+
+</div>
+
+</body>
+
+</html>

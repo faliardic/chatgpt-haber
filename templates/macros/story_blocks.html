@@ -1,0 +1,113 @@
+{% macro section_label(section) -%}
+    {%- if section == 'politics' -%}SİYASET
+    {%- elif section == 'economy' -%}EKONOMİ
+    {%- elif section == 'sports' -%}SPOR
+    {%- elif section == 'technology_science' -%}TEKNOLOJİ
+    {%- elif section == 'culture_arts' -%}KÜLTÜR
+    {%- elif section == 'lifestyle' -%}YAŞAM
+    {%- elif section == 'transfer_file' -%}TRANSFER
+    {%- elif section == 'front_page' -%}ANA SAYFA
+    {%- else -%}{{ section }}
+    {%- endif -%}
+{%- endmacro %}
+
+{% macro front_headline(story, newspaper_name) %}
+<section class="front-hero-card">
+    <div class="story-label">MANŞET</div>
+    <h2>{{ story.title }}</h2>
+    <h3>{{ story.subtitle }}</h3>
+    <p>{{ story.summary }} {{ story.body }}</p>
+    <div class="front-hero-image">
+        <span>{{ newspaper_name }}</span>
+    </div>
+</section>
+{% endmacro %}
+
+{% macro front_sidebar_story(story) %}
+<article class="front-side-card">
+    <div class="side-image"></div>
+    <div class="story-label small">{{ section_label(story.category) }}</div>
+    <h3>{{ story.title }}</h3>
+    <p>{{ story.summary }}</p>
+</article>
+{% endmacro %}
+
+{% macro front_brief(story) %}
+<article class="front-brief-card">
+    <div class="brief-image"></div>
+    <b>{{ story.title }}</b>
+    <p>{{ story.summary }}</p>
+</article>
+{% endmacro %}
+
+{% macro page_teaser(preview_page) %}
+<article class="page-preview-card section-{{ preview_page.section }}">
+    <div class="preview-top">
+        <span>{{ section_label(preview_page.section) }}</span>
+        <b>{{ preview_page.page_number }}</b>
+    </div>
+    <h4>{{ preview_page.main_story.title }}</h4>
+</article>
+{% endmacro %}
+
+{% macro inner_main_story(story) %}
+<section class="main-story-block">
+    <div class="main-story-text">
+        <div class="main-story-label">ANA DOSYA</div>
+        <h1 class="main-story-title">{{ story.title }}</h1>
+        <h2 class="main-story-subtitle">{{ story.subtitle }}</h2>
+        <p class="main-story-summary">{{ story.summary }}</p>
+        <p class="main-story-body">{{ story.body }}</p>
+    </div>
+    <div class="main-story-image">
+        <div class="image-placeholder"></div>
+    </div>
+</section>
+{% endmacro %}
+
+{% macro analysis_story(story) %}
+<article class="analysis-card">
+    <div class="rail-label">ANALİZ</div>
+    <h3>{{ story.title }}</h3>
+    <p>{{ story.summary }}</p>
+</article>
+{% endmacro %}
+
+{% macro supporting_story(story, index) %}
+<article class="story-card story-{{ index }}">
+    <div class="story-image">
+        <div class="small-image-placeholder"></div>
+    </div>
+    <div class="story-category">{{ section_label(story.category) }}</div>
+    <h3 class="story-title">{{ story.title }}</h3>
+    <p class="story-summary">{{ story.summary }}</p>
+    <p class="story-body">{{ story.body }}</p>
+</article>
+{% endmacro %}
+
+{% macro quote_box(text) %}
+<aside class="quote-box">
+    <span>“</span>
+    <p>{{ text }}</p>
+</aside>
+{% endmacro %}
+
+{% macro data_box(page) %}
+<aside class="data-box">
+    <div class="rail-label">VERİ KUTUSU</div>
+    <dl>
+        <div>
+            <dt>Bölüm</dt>
+            <dd>{{ section_label(page.section) }}</dd>
+        </div>
+        <div>
+            <dt>Sayfa</dt>
+            <dd>{{ page.page_number }}</dd>
+        </div>
+        <div>
+            <dt>Haber</dt>
+            <dd>{{ page.stories|length + 1 }}</dd>
+        </div>
+    </dl>
+</aside>
+{% endmacro %}

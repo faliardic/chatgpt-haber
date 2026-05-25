@@ -213,6 +213,210 @@
           "verification_note": "Resmi açıklama bulunmayan başlıklar söylenti olarak etiketlendi.",
           "image_prompt": "Futbol transfer dosyası, kulüp logoları olmadan gazete kolajı"
         }
+      ],
+      "layout": "front_dense_newspaper",
+      "layout_blocks": [
+        {
+          "role": "masthead",
+          "size": "full",
+          "data_type": "issue_meta"
+        },
+        {
+          "role": "breaking_band",
+          "size": "full",
+          "text": "Mahkeme kararı, polis müdahalesi ve piyasa tepkisi Ankara merkezli gündemin ana başlığı oldu."
+        },
+        {
+          "role": "main_headline",
+          "size": "xl",
+          "story_id": "chp-krizi-piyasalarin-golgesinde",
+          "image_required": true,
+          "title_variant": "medium"
+        },
+        {
+          "role": "right_column_1",
+          "size": "m",
+          "story_id": "dem-partisinden-chp-kararina-tepki",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "right_column_2",
+          "size": "m",
+          "story_id": "borsa-ve-lira-temkinli-seyirde",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "front_brief_1",
+          "size": "s",
+          "story_id": "aa-gundem-ozeti",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "front_brief_2",
+          "size": "s",
+          "story_id": "ekonomi-gunun-ozeti",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "front_brief_3",
+          "size": "s",
+          "story_id": "trt-son-dakika-akisi",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "front_brief_4",
+          "size": "s",
+          "story_id": "rami-bienal-devam-ediyor",
+          "image_required": false,
+          "title_variant": "short"
+        },
+        {
+          "role": "front_brief_5",
+          "size": "s",
+          "story_id": "transferde-temkinli-dil",
+          "image_required": false,
+          "title_variant": "short"
+        },
+        {
+          "role": "page_teaser_2",
+          "size": "xs",
+          "page_ref": 2,
+          "section": "politics",
+          "section_label": "Siyaset",
+          "story_id": "chp-genel-merkezinde-mudahale",
+          "title_variant": "short"
+        },
+        {
+          "role": "page_teaser_3",
+          "size": "xs",
+          "page_ref": 3,
+          "section": "politics",
+          "section_label": "Siyaset",
+          "story_id": "muhalefette-hukuk-ve-sokak-hatti",
+          "title_variant": "short"
+        },
+        {
+          "role": "page_teaser_4",
+          "size": "xs",
+          "page_ref": 4,
+          "section": "politics",
+          "section_label": "Siyaset",
+          "story_id": "gazze-ateskes-sureci-izleniyor",
+          "title_variant": "short"
+        },
+        {
+          "role": "page_teaser_5",
+          "size": "xs",
+          "page_ref": 5,
+          "section": "politics",
+          "section_label": "Siyaset",
+          "story_id": "siyasette-kurumlar-tartismasi",
+          "title_variant": "short"
+        },
+        {
+          "role": "page_teaser_6",
+          "size": "xs",
+          "page_ref": 6,
+          "section": "economy",
+          "section_label": "Ekonomi",
+          "story_id": "piyasalar-siyasi-gerilim-sonrasi",
+          "title_variant": "short"
+        },
+        {
+          "role": "page_teaser_7",
+          "size": "xs",
+          "page_ref": 7,
+          "section": "economy",
+          "section_label": "Ekonomi",
+          "story_id": "enflasyon-gorunumu-zorlu",
+          "title_variant": "short"
+        },
+        {
+          "role": "page_teaser_8",
+          "size": "xs",
+          "page_ref": 8,
+          "section": "economy",
+          "section_label": "Ekonomi",
+          "story_id": "ekonomi-yonetiminde-guven-mesaji",
+          "title_variant": "short"
+        },
+        {
+          "role": "page_teaser_9",
+          "size": "xs",
+          "page_ref": 9,
+          "section": "technology_science",
+          "section_label": "Teknoloji",
+          "story_id": "hindistan-ai-yetenek-donusumu",
+          "title_variant": "short"
+        },
+        {
+          "role": "page_teaser_10",
+          "size": "xs",
+          "page_ref": 10,
+          "section": "technology_science",
+          "section_label": "Teknoloji",
+          "story_id": "turk-gencleri-robotik-yolunda",
+          "title_variant": "short"
+        },
+        {
+          "role": "page_teaser_11",
+          "size": "xs",
+          "page_ref": 11,
+          "section": "culture_arts",
+          "section_label": "Kultur",
+          "story_id": "rami-cocuk-ve-sanat-bienali",
+          "title_variant": "short"
+        },
+        {
+          "role": "page_teaser_12",
+          "size": "xs",
+          "page_ref": 12,
+          "section": "lifestyle",
+          "section_label": "Yasam",
+          "story_id": "istanbul-trafiginde-bayram-sakinligi",
+          "title_variant": "short"
+        },
+        {
+          "role": "page_teaser_13",
+          "size": "xs",
+          "page_ref": 13,
+          "section": "sports",
+          "section_label": "Spor",
+          "story_id": "trabzonspor-turkiye-kupasi-sampiyonu",
+          "title_variant": "short"
+        },
+        {
+          "role": "page_teaser_14",
+          "size": "xs",
+          "page_ref": 14,
+          "section": "sports",
+          "section_label": "Spor",
+          "story_id": "milli-takim-dunya-kupasi-hazirligi",
+          "title_variant": "short"
+        },
+        {
+          "role": "page_teaser_15",
+          "size": "xs",
+          "page_ref": 15,
+          "section": "sports",
+          "section_label": "Spor",
+          "story_id": "super-ligde-sezon-sonu-gundemi",
+          "title_variant": "short"
+        },
+        {
+          "role": "page_teaser_16",
+          "size": "xs",
+          "page_ref": 16,
+          "section": "transfer_file",
+          "section_label": "Transfer",
+          "story_id": "transfer-dosyasinda-resmi-ve-soylenti-ayrimi",
+          "title_variant": "short"
+        }
       ]
     },
     {
@@ -331,6 +535,54 @@
           "verification_note": "İktidar cephesinin yaklaşımı Reuters haberinden aktarılmıştır.",
           "image_prompt": "Meclis binası ve açıklama yapan siyasi parti sözcüsü atmosferi"
         }
+      ],
+      "layout": "politics_newspaper",
+      "layout_blocks": [
+        {
+          "role": "section_header",
+          "size": "full",
+          "section": "politics",
+          "section_label": "Siyaset"
+        },
+        {
+          "role": "main_file",
+          "size": "xl",
+          "story_id": "chp-genel-merkezinde-mudahale",
+          "image_required": true,
+          "title_variant": "medium"
+        },
+        {
+          "role": "analysis_column",
+          "size": "m",
+          "story_id": "mahkeme-karari-chp-yonetimi",
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_1",
+          "size": "s",
+          "story_id": "ozel-direnecegiz-mesaji",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_2",
+          "size": "s",
+          "story_id": "kilicdaroglu-yeniden-gundemde",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_3",
+          "size": "s",
+          "story_id": "ak-parti-yargi-vurgusu",
+          "image_required": false,
+          "title_variant": "short"
+        },
+        {
+          "role": "data_box",
+          "size": "s",
+          "data_type": "politics"
+        }
       ]
     },
     {
@@ -444,6 +696,54 @@
           "verification_note": "DEM Parti tepkisi Reuters haberine dayanmaktadır.",
           "image_prompt": "Meclis önünde demokrasi ve temsil temalı gazete fotoğrafı"
         }
+      ],
+      "layout": "politics_newspaper",
+      "layout_blocks": [
+        {
+          "role": "section_header",
+          "size": "full",
+          "section": "politics",
+          "section_label": "Siyaset"
+        },
+        {
+          "role": "main_file",
+          "size": "xl",
+          "story_id": "muhalefette-hukuk-ve-sokak-hatti",
+          "image_required": true,
+          "title_variant": "medium"
+        },
+        {
+          "role": "analysis_column",
+          "size": "m",
+          "story_id": "erken-secim-tartismasi-canlandi",
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_1",
+          "size": "s",
+          "story_id": "imamoglu-dosyasi-gundemde",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_2",
+          "size": "s",
+          "story_id": "parti-ici-mesruiyet-sorunu",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_3",
+          "size": "s",
+          "story_id": "demokrasi-tartismasi-buyuyor",
+          "image_required": false,
+          "title_variant": "short"
+        },
+        {
+          "role": "data_box",
+          "size": "s",
+          "data_type": "politics"
+        }
       ]
     },
     {
@@ -551,6 +851,54 @@
           ],
           "verification_note": "Veri takvimi bilgisi AA gündem sayfasına dayanmaktadır.",
           "image_prompt": "TÜİK veri takvimi, ekonomi grafikleri ve hesap makinesi"
+        }
+      ],
+      "layout": "politics_newspaper",
+      "layout_blocks": [
+        {
+          "role": "section_header",
+          "size": "full",
+          "section": "politics",
+          "section_label": "Siyaset"
+        },
+        {
+          "role": "main_file",
+          "size": "xl",
+          "story_id": "gazze-ateskes-sureci-izleniyor",
+          "image_required": true,
+          "title_variant": "medium"
+        },
+        {
+          "role": "analysis_column",
+          "size": "m",
+          "story_id": "uluslararasi-yansimalar-takipte",
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_1",
+          "size": "s",
+          "story_id": "lubnan-guneyinde-gerilim",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_2",
+          "size": "s",
+          "story_id": "tokyoda-avm-olayi",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_3",
+          "size": "s",
+          "story_id": "gundem-takviminde-ekonomi-verisi",
+          "image_required": false,
+          "title_variant": "short"
+        },
+        {
+          "role": "data_box",
+          "size": "s",
+          "data_type": "politics"
         }
       ]
     },
@@ -675,6 +1023,54 @@
           "verification_note": "Editoryal not, doğrulanmış ajans haberlerine dayalı haber üretim ilkesidir.",
           "image_prompt": "Editör masasında kaynak kontrol listesi"
         }
+      ],
+      "layout": "politics_newspaper",
+      "layout_blocks": [
+        {
+          "role": "section_header",
+          "size": "full",
+          "section": "politics",
+          "section_label": "Siyaset"
+        },
+        {
+          "role": "main_file",
+          "size": "xl",
+          "story_id": "siyasette-kurumlar-tartismasi",
+          "image_required": true,
+          "title_variant": "medium"
+        },
+        {
+          "role": "analysis_column",
+          "size": "m",
+          "story_id": "yargi-bagimsizligi-gundemde",
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_1",
+          "size": "s",
+          "story_id": "parti-uyeligi-irade-vurgusu",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_2",
+          "size": "s",
+          "story_id": "ankara-siyasetinde-yogun-hafta",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_3",
+          "size": "s",
+          "story_id": "haber-dilinde-temkin",
+          "image_required": false,
+          "title_variant": "short"
+        },
+        {
+          "role": "data_box",
+          "size": "s",
+          "data_type": "politics"
+        }
       ]
     },
     {
@@ -782,6 +1178,54 @@
           ],
           "verification_note": "Hacim yorumu Reuters haberindeki piyasa takvimi bilgisine dayanmaktadır.",
           "image_prompt": "Boş işlem masaları ve kapalı küresel piyasa takvimi"
+        }
+      ],
+      "layout": "economy_newspaper",
+      "layout_blocks": [
+        {
+          "role": "section_header",
+          "size": "full",
+          "section": "economy",
+          "section_label": "Ekonomi"
+        },
+        {
+          "role": "main_file",
+          "size": "xl",
+          "story_id": "piyasalar-siyasi-gerilim-sonrasi",
+          "image_required": true,
+          "title_variant": "medium"
+        },
+        {
+          "role": "analysis_column",
+          "size": "m",
+          "story_id": "bist-bankacilik-endeksi",
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_1",
+          "size": "s",
+          "story_id": "lirada-zayif-seyir",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_2",
+          "size": "s",
+          "story_id": "tahvillerde-sinirli-hareket",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_3",
+          "size": "s",
+          "story_id": "ince-islem-hacmi-etkisi",
+          "image_required": false,
+          "title_variant": "short"
+        },
+        {
+          "role": "data_box",
+          "size": "s",
+          "data_type": "economy"
         }
       ]
     },
@@ -901,6 +1345,54 @@
           "verification_note": "Analiz, enflasyon ve kur haberlerinin hane bütçesine etkisinden çıkarılmıştır.",
           "image_prompt": "Ev bütçesi defteri, kredi kartı ve hesap makinesi"
         }
+      ],
+      "layout": "economy_newspaper",
+      "layout_blocks": [
+        {
+          "role": "section_header",
+          "size": "full",
+          "section": "economy",
+          "section_label": "Ekonomi"
+        },
+        {
+          "role": "main_file",
+          "size": "xl",
+          "story_id": "enflasyon-gorunumu-zorlu",
+          "image_required": true,
+          "title_variant": "medium"
+        },
+        {
+          "role": "analysis_column",
+          "size": "m",
+          "story_id": "merkez-bankasi-patikasi",
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_1",
+          "size": "s",
+          "story_id": "gida-ve-ulasim-etkisi",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_2",
+          "size": "s",
+          "story_id": "guven-endeksi-beklentisi",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_3",
+          "size": "s",
+          "story_id": "hane-butcesi-riskleri",
+          "image_required": false,
+          "title_variant": "short"
+        },
+        {
+          "role": "data_box",
+          "size": "s",
+          "data_type": "economy"
+        }
       ]
     },
     {
@@ -1008,6 +1500,54 @@
           ],
           "verification_note": "Editoryal analiz Reuters piyasa haberindeki bağlamdan üretilmiştir.",
           "image_prompt": "Piyasa verilerini yorumlayan finans analisti"
+        }
+      ],
+      "layout": "economy_newspaper",
+      "layout_blocks": [
+        {
+          "role": "section_header",
+          "size": "full",
+          "section": "economy",
+          "section_label": "Ekonomi"
+        },
+        {
+          "role": "main_file",
+          "size": "xl",
+          "story_id": "ekonomi-yonetiminde-guven-mesaji",
+          "image_required": true,
+          "title_variant": "medium"
+        },
+        {
+          "role": "analysis_column",
+          "size": "m",
+          "story_id": "yatirimci-guveni-sinavi",
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_1",
+          "size": "s",
+          "story_id": "risk-primi-izlenecek",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_2",
+          "size": "s",
+          "story_id": "ekonomide-gunluk-bulten",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_3",
+          "size": "s",
+          "story_id": "piyasa-okuryazarligi-notu",
+          "image_required": false,
+          "title_variant": "short"
+        },
+        {
+          "role": "data_box",
+          "size": "s",
+          "data_type": "economy"
         }
       ]
     },
@@ -1117,6 +1657,54 @@
           "verification_note": "Analiz Reuters Institute'un AI ve gazetecilik sayfasındaki araştırma çerçevesine dayanmaktadır.",
           "image_prompt": "Haber odasında yapay zeka destekli editör ekranları"
         }
+      ],
+      "layout": "technology_science_newspaper",
+      "layout_blocks": [
+        {
+          "role": "section_header",
+          "size": "full",
+          "section": "technology_science",
+          "section_label": "Teknoloji"
+        },
+        {
+          "role": "main_file",
+          "size": "xl",
+          "story_id": "hindistan-ai-yetenek-donusumu",
+          "image_required": true,
+          "title_variant": "medium"
+        },
+        {
+          "role": "analysis_column",
+          "size": "m",
+          "story_id": "openai-gpt55-guvenlik-testi",
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_1",
+          "size": "s",
+          "story_id": "space-etf-ilgisi",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_2",
+          "size": "s",
+          "story_id": "samsung-ucret-anlasmasi",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_3",
+          "size": "s",
+          "story_id": "ai-haberlerin-gelecegi",
+          "image_required": false,
+          "title_variant": "short"
+        },
+        {
+          "role": "data_box",
+          "size": "s",
+          "data_type": "technology_science"
+        }
       ]
     },
     {
@@ -1224,6 +1812,54 @@
           ],
           "verification_note": "Başlık TRT Haber ana sayfasındaki çevre akışına dayanmaktadır.",
           "image_prompt": "Modern geri dönüşüm tesisi ve İstanbul silueti"
+        }
+      ],
+      "layout": "technology_science_newspaper",
+      "layout_blocks": [
+        {
+          "role": "section_header",
+          "size": "full",
+          "section": "technology_science",
+          "section_label": "Teknoloji"
+        },
+        {
+          "role": "main_file",
+          "size": "xl",
+          "story_id": "turk-gencleri-robotik-yolunda",
+          "image_required": true,
+          "title_variant": "medium"
+        },
+        {
+          "role": "analysis_column",
+          "size": "m",
+          "story_id": "robotikte-takim-calismasi",
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_1",
+          "size": "s",
+          "story_id": "cozulebilir-ag-projesi",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_2",
+          "size": "s",
+          "story_id": "sari-benekli-semender",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_3",
+          "size": "s",
+          "story_id": "sifir-atik-istanbul",
+          "image_required": false,
+          "title_variant": "short"
+        },
+        {
+          "role": "data_box",
+          "size": "s",
+          "data_type": "technology_science"
         }
       ]
     },
@@ -1338,6 +1974,54 @@
           "verification_note": "Başlık TRT Haber kültür sanat akışından alınmıştır.",
           "image_prompt": "Tarihi müze odasında eski telgraf ve Atatürk dönemi belgeleri"
         }
+      ],
+      "layout": "culture_arts_newspaper",
+      "layout_blocks": [
+        {
+          "role": "section_header",
+          "size": "full",
+          "section": "culture_arts",
+          "section_label": "Kultur"
+        },
+        {
+          "role": "main_file",
+          "size": "xl",
+          "story_id": "rami-cocuk-ve-sanat-bienali",
+          "image_required": true,
+          "title_variant": "medium"
+        },
+        {
+          "role": "analysis_column",
+          "size": "m",
+          "story_id": "resimli-cocuk-edebiyati",
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_1",
+          "size": "s",
+          "story_id": "rami-gonullu-basvurulari",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_2",
+          "size": "s",
+          "story_id": "turk-mutfagi-cakartada",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_3",
+          "size": "s",
+          "story_id": "havza-ataturk-evi",
+          "image_required": false,
+          "title_variant": "short"
+        },
+        {
+          "role": "data_box",
+          "size": "s",
+          "data_type": "culture_arts"
+        }
       ]
     },
     {
@@ -1451,6 +2135,54 @@
           "verification_note": "Editoryal analiz günün haber yoğunluğundan üretilmiştir.",
           "image_prompt": "Telefon ekranında haber bildirimleri ve sakin çalışma masası"
         }
+      ],
+      "layout": "lifestyle_newspaper",
+      "layout_blocks": [
+        {
+          "role": "section_header",
+          "size": "full",
+          "section": "lifestyle",
+          "section_label": "Yasam"
+        },
+        {
+          "role": "main_file",
+          "size": "xl",
+          "story_id": "istanbul-trafiginde-bayram-sakinligi",
+          "image_required": true,
+          "title_variant": "medium"
+        },
+        {
+          "role": "analysis_column",
+          "size": "m",
+          "story_id": "kent-yasaminda-tatil-etkisi",
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_1",
+          "size": "s",
+          "story_id": "new-york-gastroshow",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_2",
+          "size": "s",
+          "story_id": "etnospor-son-gun",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_3",
+          "size": "s",
+          "story_id": "saglikli-haber-tuketimi",
+          "image_required": false,
+          "title_variant": "short"
+        },
+        {
+          "role": "data_box",
+          "size": "s",
+          "data_type": "lifestyle"
+        }
       ]
     },
     {
@@ -1559,6 +2291,54 @@
           "verification_note": "Analiz resmi final sonucuna dayanmaktadır.",
           "image_prompt": "Sezon değerlendirme panosu ve kupa görseli"
         }
+      ],
+      "layout": "sports_newspaper",
+      "layout_blocks": [
+        {
+          "role": "section_header",
+          "size": "full",
+          "section": "sports",
+          "section_label": "Spor"
+        },
+        {
+          "role": "main_file",
+          "size": "xl",
+          "story_id": "trabzonspor-turkiye-kupasi-sampiyonu",
+          "image_required": true,
+          "title_variant": "medium"
+        },
+        {
+          "role": "analysis_column",
+          "size": "m",
+          "story_id": "konyaspor-finalde-kaybetti",
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_1",
+          "size": "s",
+          "story_id": "kupada-avrupa-bileti",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_2",
+          "size": "s",
+          "story_id": "bahceliden-trabzonspor-tebrigi",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_3",
+          "size": "s",
+          "story_id": "kupada-sezon-degeri",
+          "image_required": false,
+          "title_variant": "short"
+        },
+        {
+          "role": "data_box",
+          "size": "s",
+          "data_type": "sports"
+        }
       ]
     },
     {
@@ -1666,6 +2446,54 @@
           ],
           "verification_note": "Vize süreci Reuters haberinden doğrulanmıştır.",
           "image_prompt": "Ankara'da konsolosluk önünde spor kafilesi ve pasaport dosyaları"
+        }
+      ],
+      "layout": "sports_newspaper",
+      "layout_blocks": [
+        {
+          "role": "section_header",
+          "size": "full",
+          "section": "sports",
+          "section_label": "Spor"
+        },
+        {
+          "role": "main_file",
+          "size": "xl",
+          "story_id": "milli-takim-dunya-kupasi-hazirligi",
+          "image_required": true,
+          "title_variant": "medium"
+        },
+        {
+          "role": "analysis_column",
+          "size": "m",
+          "story_id": "turkiye-grup-d",
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_1",
+          "size": "s",
+          "story_id": "kamp-surecinde-fiziksel-hazirlik",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_2",
+          "size": "s",
+          "story_id": "iran-antalya-kampi",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_3",
+          "size": "s",
+          "story_id": "iran-vize-sureci",
+          "image_required": false,
+          "title_variant": "short"
+        },
+        {
+          "role": "data_box",
+          "size": "s",
+          "data_type": "sports"
         }
       ]
     },
@@ -1790,6 +2618,54 @@
           "verification_note": "Editoryal not, resmi sonuç ve transfer akışı arasındaki kaynak farkına dayanmaktadır.",
           "image_prompt": "Gazete spor editörü, resmi açıklama ve söylenti dosyalarını ayırıyor"
         }
+      ],
+      "layout": "sports_newspaper",
+      "layout_blocks": [
+        {
+          "role": "section_header",
+          "size": "full",
+          "section": "sports",
+          "section_label": "Spor"
+        },
+        {
+          "role": "main_file",
+          "size": "xl",
+          "story_id": "super-ligde-sezon-sonu-gundemi",
+          "image_required": true,
+          "title_variant": "medium"
+        },
+        {
+          "role": "analysis_column",
+          "size": "m",
+          "story_id": "galatasaray-sampiyonluk-bilgisi",
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_1",
+          "size": "s",
+          "story_id": "transfer-donemi-temkinli-basliyor",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_2",
+          "size": "s",
+          "story_id": "dunya-kupasi-takvimi-yaklasiyor",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_3",
+          "size": "s",
+          "story_id": "spor-haberlerinde-kaynak-ayrimi",
+          "image_required": false,
+          "title_variant": "short"
+        },
+        {
+          "role": "data_box",
+          "size": "s",
+          "data_type": "sports"
+        }
       ]
     },
     {
@@ -1902,6 +2778,54 @@
           ],
           "verification_note": "Günlük transfer akışı resmi imza doğrulaması sayılmadığı için rumor statüsünde değerlendirildi.",
           "image_prompt": "Spor haber ekranında transfer bülteni ve oyuncu siluetleri"
+        }
+      ],
+      "layout": "transfer_file_newspaper",
+      "layout_blocks": [
+        {
+          "role": "section_header",
+          "size": "full",
+          "section": "transfer_file",
+          "section_label": "Transfer"
+        },
+        {
+          "role": "main_file",
+          "size": "xl",
+          "story_id": "transfer-dosyasinda-resmi-ve-soylenti-ayrimi",
+          "image_required": true,
+          "title_variant": "medium"
+        },
+        {
+          "role": "analysis_column",
+          "size": "m",
+          "story_id": "galatasaray-bertug-yildirim-iddiasi",
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_1",
+          "size": "s",
+          "story_id": "fenerbahce-livakovic-karari-iddiasi",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_2",
+          "size": "s",
+          "story_id": "fenerbahce-eski-yildiz-iddiasi",
+          "image_required": true,
+          "title_variant": "short"
+        },
+        {
+          "role": "supporting_story_3",
+          "size": "s",
+          "story_id": "bein-gunun-transfer-haberleri",
+          "image_required": false,
+          "title_variant": "short"
+        },
+        {
+          "role": "data_box",
+          "size": "s",
+          "data_type": "transfer_file"
         }
       ]
     }
