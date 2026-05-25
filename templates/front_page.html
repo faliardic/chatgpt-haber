@@ -11,24 +11,37 @@
 <div class="newspaper-page front-page">
 
     <header class="front-header">
-        <div class="front-kicker">GÜNLÜK GAZETE</div>
-        <h1>{{ newspaper.issue.newspaper_name }}</h1>
-        <div class="front-meta">
+        <div class="front-info-strip">
+            <span>GÜNLÜK BAĞIMSIZ GAZETE</span>
             <span>{{ newspaper.issue.date }} - {{ newspaper.issue.day }}</span>
             <span>Sayı: {{ newspaper.issue.issue_number }}</span>
-            <span>16 sayfa</span>
+            <span>Fiyatı: 15 TL</span>
         </div>
+
+        <div class="front-masthead-row">
+            <div class="front-market-box">
+                <b>BIST 100</b>
+                <span>9.428,61</span>
+            </div>
+            <h1>{{ newspaper.issue.newspaper_name }}</h1>
+            <div class="front-market-box right">
+                <b>16 SAYFA</b>
+                <span>Tarafsız • Doğru • Güncel</span>
+            </div>
+        </div>
+
+        <div class="front-redline">MAHKEME KARARININ ARDINDAN GERGİN GÜN</div>
     </header>
 
-    <main class="front-lead">
+    <main class="front-news-grid">
         <section class="front-hero-card">
             <div class="story-label">MANŞET</div>
             <h2>{{ page.headline.title }}</h2>
             <h3>{{ page.headline.subtitle }}</h3>
-            <div class="front-hero-image">
-                <span>CHATGPT HABER</span>
-            </div>
             <p>{{ page.headline.summary }} {{ page.headline.body }}</p>
+            <div class="front-hero-image">
+                <span>{{ newspaper.issue.newspaper_name }}</span>
+            </div>
         </section>
 
         <aside class="front-side-grid">
@@ -36,7 +49,7 @@
             {% if loop.index <= 2 %}
             <article class="front-side-card">
                 <div class="side-image"></div>
-                <div class="story-label">
+                <div class="story-label small">
                     {% if news.category == 'politics' %}SİYASET
                     {% elif news.category == 'economy' %}EKONOMİ
                     {% elif news.category == 'sports' %}SPOR
@@ -53,6 +66,16 @@
             {% endfor %}
         </aside>
     </main>
+
+    <section class="front-brief-grid">
+        {% for brief in page.briefs[:6] %}
+        <article class="front-brief-card">
+            <div class="brief-image"></div>
+            <b>{{ brief.title }}</b>
+            <p>{{ brief.summary }}</p>
+        </article>
+        {% endfor %}
+    </section>
 
     <section class="page-preview-grid">
         {% for preview_page in newspaper.pages[1:] %}
