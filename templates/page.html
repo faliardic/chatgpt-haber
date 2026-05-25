@@ -4,6 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../static/style.css">
+    <style>
+        /* PDF overflow safety: keep inner content clear of the fixed footer. */
+        .inner-page .inner-content {
+            height: 232mm;
+            grid-template-rows: 86mm 1fr;
+            gap: 5mm;
+        }
+
+        .inner-page .main-story-block {
+            min-height: 0;
+        }
+
+        .inner-page .main-story-image {
+            height: 72mm;
+        }
+
+        .inner-page .stories-grid {
+            height: 141mm;
+            min-height: 0;
+        }
+
+        .inner-page .story-card,
+        .inner-page .main-story-text {
+            min-height: 0;
+        }
+
+        .inner-page .main-story-title,
+        .inner-page .main-story-subtitle,
+        .inner-page .main-story-summary,
+        .inner-page .main-story-body,
+        .inner-page .story-title,
+        .inner-page .story-summary,
+        .inner-page .story-body {
+            overflow: hidden;
+        }
+
+        .inner-page .story-title {
+            max-height: 19mm;
+        }
+
+        .inner-page .story-summary {
+            max-height: 15mm;
+        }
+
+        .inner-page .story-body {
+            max-height: 18mm;
+        }
+    </style>
 </head>
 
 <body>
