@@ -11,7 +11,7 @@
         "issue_date": { "type": "string" },
         "edition_name": { "type": "string" },
         "language": { "type": "string", "const": "tr-TR" },
-        "page_count": { "type": "integer", "const": 3 },
+        "page_count": { "type": "integer", "enum": [3, 4] },
         "paper_size": { "type": "string", "enum": ["A3", "A4"] },
         "title": { "type": "string" },
         "timezone": { "type": "string" },
@@ -22,12 +22,12 @@
     "pages": {
       "type": "array",
       "minItems": 3,
-      "maxItems": 3,
+      "maxItems": 4,
       "items": {
         "type": "object",
         "required": ["page_no", "template", "name", "articles"],
         "properties": {
-          "page_no": { "type": "integer", "minimum": 1, "maximum": 3 },
+          "page_no": { "type": "integer", "minimum": 1, "maximum": 4 },
           "template": { "type": "string", "enum": ["front_page", "news_page", "radar_page"] },
           "name": { "type": "string" },
           "articles": { "type": "array", "items": { "$ref": "#/$defs/article" } },
