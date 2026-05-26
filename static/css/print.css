@@ -72,18 +72,18 @@ body {
 
 .masthead__row {
   display: flex;
-  align-items: end;
+  align-items: center;
   justify-content: space-between;
   gap: 6mm;
 }
 
-.masthead__title {
-  margin: 2mm 0 0;
-  font-family: var(--sans);
-  font-size: 30pt;
-  line-height: 1;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.masthead__logo {
+  display: block;
+  height: 24mm;
+  margin-top: 1.5mm;
+  object-fit: contain;
+  object-position: left center;
+  width: 34mm;
 }
 
 .masthead__note {
@@ -635,8 +635,9 @@ body {
     height: 90px;
   }
 
-  .masthead__title {
-    font-size: 26pt;
+  .masthead__logo {
+    height: 86px;
+    width: 122px;
   }
 
   .story--hero .story__headline {

@@ -52,6 +52,7 @@ def render_html(issue_data: dict[str, Any], html_path: Path) -> None:
         issue=issue_data["issue"],
         pages=issue_data["pages"],
         css_href=(BASE_DIR / "static" / "css" / "print.css").resolve().as_uri(),
+        logo_href=(BASE_DIR / "static" / "img" / "chatgpt-haber-logo-cropped.png").resolve().as_uri(),
     )
     html_path.parent.mkdir(parents=True, exist_ok=True)
     html_path.write_text(rendered_html, encoding="utf-8")
