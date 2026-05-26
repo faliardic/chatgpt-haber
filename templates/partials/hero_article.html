@@ -1,0 +1,23 @@
+<article class="story story--hero span-5">
+  <div class="story__copy">
+    <div class="story__kicker">{{ article.kicker }}</div>
+    <h2 class="story__headline">{{ article.headline }}</h2>
+    <p class="story__dek">{{ article.dek }}</p>
+    {% if article.pullquote %}
+      <blockquote>{{ article.pullquote }}</blockquote>
+    {% endif %}
+    <div class="story__body">
+      {% for paragraph in article.body %}
+        <p>{{ paragraph }}</p>
+      {% endfor %}
+    </div>
+  </div>
+  {% if article.image and article.image.path %}
+    {% include "partials/figure.html" %}
+  {% else %}
+    <div class="hero-rule">
+      <span>{{ article.source_bundle[0].name }}</span>
+      <strong>{{ article.verification.status }}</strong>
+    </div>
+  {% endif %}
+</article>

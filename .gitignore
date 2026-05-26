@@ -7,9 +7,13 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 
+*.egg-info/
+dist/
+
 debug_json_error.txt
 debug_repaired_json.txt
 output/temp.html
 
 .env
 .env.*
+!.env.example

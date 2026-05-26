@@ -1,29 +1,60 @@
-# CHATGPT HABER
+# ChatGPT Haber
 
-AI tarafindan uretilen haber JSON verisinden 16 sayfalik PDF gazete ureten Python/Jinja/Playwright projesi.
+Tek komutla çalışan, baskıya hazır, üç sayfalık Türkçe gazete üreticisi.
 
-## Akis
+## Kurulum
 
-1. `raw_ai_output.txt` icindeki AI ciktisi `clean_ai_output.py` ile temizlenir.
-2. `data/issue.json` `repair_issue.py` ile normalize edilir.
-3. `validate_issue.py` JSON semasini kontrol eder.
-4. `main.py` Jinja template'leriyle HTML uretir ve Playwright ile PDF'e cevirir.
-
-## Calistirma
-
-```powershell
-.\venv\Scripts\python.exe main.py
+```bash
+python -m pip install -e .
+playwright install --with-deps chromium
 ```
 
-PDF ciktisi:
+Windows'ta `--with-deps` gerekli değilse şu komut yeterlidir:
+
+```bash
+playwright install chromium
+```
+
+## Kullanım
+
+```bash
+chatgpt-haber build --date 2026-05-26 --paper-size A3 --out dist/gazete-2026-05-26.pdf
+```
+
+Komut sırasıyla resmi RSS akışlarını dener, yeterli veri alamazsa `data/issue.json` dosyasını yeni üç sayfalık sözleşmeye dönüştürür, doğrular, tek HTML belge üretir ve Playwright ile PDF alır.
+
+Yerel JSON ile çalıştırmak için:
+
+```bash
+chatgpt-haber build --no-live --input-json examples/issue.sample.json --out dist/ornek.pdf
+```
+
+## Mimari
+
+Akış:
 
 ```text
-output/CHATGPT_HABER.pdf
+kaynak toplama -> normalize -> doğrulama -> tek HTML render -> PDF render
 ```
 
-## Son Durum
+Yeni şablon yapısı:
 
-- PDF 16 sayfa olarak uretiliyor.
-- Ana sayfa yeniden dizayn edildi.
-- Ic sayfalarda tasma kontrolu ve gorsel placeholder alanlari var.
-- Sanal ortam ve gecici ciktillar Git disinda tutulur.
+```text
+templates/
+  base.html
+  pages/
+    front_page.html
+    news_page.html
+    radar_page.html
+  partials/
+    masthead.html
+    article.html
+    hero_article.html
+    briefs_strip.html
+    figure.html
+static/css/print.css
+schemas/issue.schema.json
+prompts/editorial_main_prompt.txt
+```
+
+`main.py` geriye dönük kısa yol olarak durur ve `data/issue.json` dosyasından `output/CHATGPT_HABER.pdf` üretir.

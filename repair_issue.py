@@ -307,33 +307,16 @@ def save_issue(issue_data: dict) -> None:
 
 def main() -> None:
     issue_data = load_issue()
+    try:
+        from chatgpt_haber.issue import normalize_issue
 
-    if "issue" not in issue_data:
-        issue_data["issue"] = {}
-
-    if "editorial_policy" not in issue_data:
-        issue_data["editorial_policy"] = {}
-
-    if "pages" not in issue_data or not isinstance(issue_data["pages"], list):
-        fail("pages alanı yok veya liste değil. Bu dosya otomatik tamir edilemez.")
-
-    issue_data["issue"]["newspaper_name"] = issue_data["issue"].get(
-        "newspaper_name",
-        "CHATGPT HABER",
-    )
-    issue_data["issue"]["language"] = issue_data["issue"].gset("language", "tr")
-    issue_data["issue"]["page_count"] = 16
-
-    normalized_pages = []
-
-    for index, page in enumerate(issue_data["pages"], start=1):
-        normalized_pages.append(normalize_page(page, index))
-
-    issue_data["pages"] = normalized_pages
+        issue_data = normalize_issue(issue_data)
+    except Exception as error:
+        fail(f"issue.json otomatik tamir edilemedi: {error}")
 
     save_issue(issue_data)
 
-    print("OK: issue.json normalize edildi.")
+    print("OK: issue.json 3 sayfalık sözleşmeye normalize edildi.")
     print(f"OK: Dosya: {ISSUE_PATH}")
 
 

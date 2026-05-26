@@ -1,0 +1,75 @@
+{
+  "issue": {
+    "issue_date": "2026-05-26",
+    "edition_name": "Sabah Baskısı",
+    "language": "tr-TR",
+    "page_count": 3,
+    "paper_size": "A3",
+    "title": "CHATGPT HABER",
+    "timezone": "Europe/Istanbul",
+    "generated_at": "2026-05-26T06:15:00+03:00",
+    "edition_note": "Otomatik derlenmiş sabah baskısı"
+  },
+  "pages": [
+    {
+      "page_no": 1,
+      "template": "front_page",
+      "name": "Manşet",
+      "articles": [
+        {
+          "id": "a1",
+          "section": "gundem",
+          "kicker": "ANKARA",
+          "headline": "Ankara'da kritik zirve için güvenlik hattı kuruldu",
+          "dek": "Başkentte yapılacak üst düzey toplantı öncesinde hazırlıklar sıkılaştırıldı.",
+          "body": ["Yetkililer, ulaşım akışı ve kurumlar arası koordinasyon başlıklarının ayrı ayrı ele alındığını belirtti."],
+          "image": {},
+          "source_bundle": [{"name": "TRT Haber", "url": "https://www.trthaber.com/", "published_at": "2026-05-26T06:00:00+03:00", "source_type": "publisher", "is_primary": false}],
+          "verification": {"status": "single_source", "checked_at": "2026-05-26T06:05:00+03:00", "method": ["primary_source"], "note": "Örnek veri."},
+          "layout_hint": {"story_size": "hero", "column_span": 5, "preferred_position": "top"}
+        }
+      ],
+      "briefs": []
+    },
+    {
+      "page_no": 2,
+      "template": "news_page",
+      "name": "Gündem ve Ekonomi",
+      "articles": [
+        {
+          "id": "a2",
+          "section": "ekonomi",
+          "kicker": "EKONOMİ",
+          "headline": "Piyasalarda veri gündemi izleniyor",
+          "dek": "Kurum duyuruları ve küresel takvim fiyatlamalarda belirleyici oluyor.",
+          "body": ["Ekonomi masası, resmi veri akışını ve kurum açıklamalarını gün boyunca izliyor."],
+          "image": {},
+          "source_bundle": [{"name": "TCMB", "url": "https://www.tcmb.gov.tr/", "published_at": "2026-05-26T06:00:00+03:00", "source_type": "institution", "is_primary": true}],
+          "verification": {"status": "verified", "checked_at": "2026-05-26T06:05:00+03:00", "method": ["primary_source"], "note": "Örnek veri."},
+          "layout_hint": {"story_size": "lead", "column_span": 4, "preferred_position": "top"}
+        }
+      ],
+      "briefs": []
+    },
+    {
+      "page_no": 3,
+      "template": "radar_page",
+      "name": "Fatih'in Radarı",
+      "articles": [
+        {
+          "id": "a3",
+          "section": "radar",
+          "kicker": "RADAR",
+          "headline": "Bugün izlenecek başlıklar",
+          "dek": "Teknoloji, ekonomi ve ajanda notları kısa dosyada toplandı.",
+          "body": ["Günün radarında resmi açıklamalar, şirket duyuruları ve takvim başlıkları var."],
+          "image": {},
+          "source_bundle": [{"name": "Anadolu Ajansı", "url": "https://www.aa.com.tr/", "published_at": "2026-05-26T06:00:00+03:00", "source_type": "agency", "is_primary": false}],
+          "verification": {"status": "single_source", "checked_at": "2026-05-26T06:05:00+03:00", "method": ["primary_source"], "note": "Örnek veri."},
+          "layout_hint": {"story_size": "radar", "column_span": 2, "preferred_position": "top"}
+        }
+      ],
+      "briefs": []
+    }
+  ]
+}

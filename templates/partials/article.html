@@ -1,0 +1,16 @@
+<article class="story story--{{ article.layout_hint.story_size }} span-{{ article.layout_hint.column_span }}">
+  <div class="story__kicker">{{ article.kicker }}</div>
+  <h2 class="story__headline">{{ article.headline }}</h2>
+  <p class="story__dek">{{ article.dek }}</p>
+  {% if article.image and article.image.path %}
+    {% include "partials/figure.html" %}
+  {% endif %}
+  <div class="story__body">
+    {% for paragraph in article.body %}
+      <p>{{ paragraph }}</p>
+    {% endfor %}
+  </div>
+  <footer class="story__source">
+    {{ article.source_bundle[0].name }} | {{ article.verification.status }}
+  </footer>
+</article>

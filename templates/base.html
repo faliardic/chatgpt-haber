@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ issue.title }} - {{ issue.issue_date }}</title>
+  <link rel="stylesheet" href="{{ css_href }}">
+  <style>
+    @page {
+      size: {{ issue.paper_size }} portrait;
+      margin: 10mm 12mm 12mm 12mm;
+    }
+  </style>
+</head>
+<body>
+  <main class="issue issue--{{ issue.paper_size|lower }}">
+    {% for page in pages %}
+      {% include "pages/" ~ page.template ~ ".html" %}
+    {% endfor %}
+  </main>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<section class="briefs-strip">
+  {% for article in page.briefs %}
+    <article class="brief">
+      <strong>{{ article.headline }}</strong>
+      <p>{{ article.dek }}</p>
+    </article>
+  {% endfor %}
+</section>

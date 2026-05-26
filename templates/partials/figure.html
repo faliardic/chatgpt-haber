@@ -1,0 +1,7 @@
+<figure class="figure figure--{{ article.image.crop|default('landscape') }}">
+  <img src="{{ article.image.path }}" alt="{{ article.image.alt }}">
+  <figcaption>
+    {{ article.image.caption }}
+    <span class="credit">{{ article.image.credit }}</span>
+  </figcaption>
+</figure>

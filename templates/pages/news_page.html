@@ -1,0 +1,12 @@
+<section class="page page--inside" data-page-no="{{ page.page_no }}">
+  {% include "partials/masthead.html" %}
+  <div class="section-bar">
+    <strong>{{ page.name }}</strong>
+    <span>Sayfa {{ page.page_no }}</span>
+  </div>
+  <div class="inside-grid">
+    {% for article in page.articles %}
+      {% include "partials/article.html" %}
+    {% endfor %}
+  </div>
+</section>
