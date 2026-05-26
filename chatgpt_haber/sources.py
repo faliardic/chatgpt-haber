@@ -61,6 +61,37 @@ def make_id(source: str, index: int) -> str:
     return f"{text}-{index + 1}"
 
 
+def image_url_from_entry(entry: Any) -> str:
+    for attr_name in ("media_content", "media_thumbnail"):
+        values = getattr(entry, attr_name, None) or []
+        for value in values:
+            if isinstance(value, dict):
+                url = value.get("url") or value.get("href")
+                if url:
+                    return str(url)
+
+    links = getattr(entry, "links", None) or []
+    for link in links:
+        if not isinstance(link, dict):
+            continue
+        rel = str(link.get("rel", "")).lower()
+        mime = str(link.get("type", "")).lower()
+        href = link.get("href")
+        if href and ("image" in mime or rel in {"enclosure", "thumbnail"}):
+            return str(href)
+
+    enclosures = getattr(entry, "enclosures", None) or []
+    for enclosure in enclosures:
+        if isinstance(enclosure, dict):
+            href = enclosure.get("href") or enclosure.get("url")
+            if href:
+                return str(href)
+
+    summary = str(getattr(entry, "summary", "") or getattr(entry, "description", ""))
+    match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', summary, flags=re.IGNORECASE)
+    return str(match.group(1)) if match else ""
+
+
 def fetch_map(feed_map: dict[str, tuple[str, str]], per_feed: int = 8) -> list[dict[str, Any]]:
     try:
         import feedparser
@@ -79,6 +110,17 @@ def fetch_map(feed_map: dict[str, tuple[str, str]], per_feed: int = 8) -> list[d
             title = clean(getattr(entry, "title", ""), "Başlık")
             summary = clean(getattr(entry, "summary", "") or getattr(entry, "description", ""), title)
             published = getattr(entry, "published", None) or getattr(entry, "updated", None) or datetime.now(timezone.utc).isoformat()
+            image_url = image_url_from_entry(entry)
+            image = {
+                "path": image_url,
+                "source_url": image_url or link,
+                "alt": title,
+                "caption": summary,
+                "credit": source,
+                "width": 0,
+                "height": 0,
+                "crop": "landscape",
+            } if image_url else {}
             items.append({
                 "id": make_id(source, len(items)),
                 "section": section,
@@ -89,7 +131,7 @@ def fetch_map(feed_map: dict[str, tuple[str, str]], per_feed: int = 8) -> list[d
                 "source_bundle": [{"name": source, "url": link, "published_at": str(published), "source_type": "rss", "is_primary": False}],
                 "verification": {"status": "single_source", "checked_at": datetime.now(timezone.utc).isoformat(), "method": ["rss_fetch"], "note": f"{source} RSS akışından alındı."},
                 "layout_hint": {"story_size": "secondary", "column_span": 1, "preferred_position": "mid"},
-                "image": {},
+                "image": image,
             })
     return items
 
