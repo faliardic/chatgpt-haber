@@ -119,21 +119,22 @@ def story_to_article(story: dict[str, Any], section: str, story_size: str, colum
 def normalize_issue(raw: dict[str, Any], issue_date: str | None = None, paper_size: str = "A3") -> dict[str, Any]:
     if looks_like_modern_issue(raw):
         raw.setdefault("issue", {})
-        raw["issue"]["page_count"] = 3
+        raw["issue"]["page_count"] = len(raw.get("pages", []))
         raw["issue"]["language"] = "tr-TR"
         raw["issue"]["paper_size"] = paper_size
         return raw
 
     meta = raw.get("issue", {}) if isinstance(raw.get("issue"), dict) else {}
     pages = raw.get("pages", []) if isinstance(raw.get("pages"), list) else []
-    selected = pages[:3]
-    while len(selected) < 3:
+    selected = pages[:4]
+    while len(selected) < 4:
         selected.append({})
 
     normalized_pages = [
         normalize_front_page(selected[0]),
         normalize_news_page(selected[1], page_no=2, name="Gündem ve Ekonomi"),
-        normalize_news_page(selected[2], page_no=3, name="Fatih'in Radarı", template="radar_page"),
+        normalize_news_page(selected[2], page_no=3, name="Ankara Özel Bülteni"),
+        normalize_news_page(selected[3], page_no=4, name="Fatih'in Radarı", template="radar_page"),
     ]
 
     return {
@@ -141,12 +142,12 @@ def normalize_issue(raw: dict[str, Any], issue_date: str | None = None, paper_si
             "issue_date": issue_date or str(meta.get("issue_date") or meta.get("date") or datetime.now().date().isoformat()),
             "edition_name": str(meta.get("edition_name") or "Sabah Baskısı"),
             "language": "tr-TR",
-            "page_count": 3,
+            "page_count": 4,
             "paper_size": paper_size,
             "title": str(meta.get("title") or meta.get("newspaper_name") or "CHATGPT HABER"),
             "timezone": "Europe/Istanbul",
             "generated_at": datetime.now(timezone.utc).isoformat(),
-            "edition_note": "Otomatik derlenmiş üç sayfalık baskı",
+            "edition_note": "Otomatik derlenmiş dört sayfalık baskı",
         },
         "pages": normalized_pages,
     }
@@ -156,7 +157,7 @@ def looks_like_modern_issue(raw: dict[str, Any]) -> bool:
     pages = raw.get("pages")
     return (
         isinstance(pages, list)
-        and len(pages) == 3
+        and len(pages) in {3, 4}
         and all(isinstance(page, dict) and page.get("template") in SUPPORTED_TEMPLATES for page in pages)
     )
 
@@ -199,8 +200,8 @@ def validate_issue_data(issue_data: dict[str, Any]) -> None:
     actual_count = len(pages)
     if page_count != actual_count:
         raise ValueError(f"issue.page_count ({page_count}) ile gerçek sayfa sayısı ({actual_count}) uyuşmuyor.")
-    if actual_count != 3:
-        raise ValueError(f"Bu sürüm 3 sayfa bekliyor; gelen sayfa sayısı: {actual_count}")
+    if actual_count not in {3, 4}:
+        raise ValueError(f"Bu sürüm 3 veya 4 sayfa bekliyor; gelen sayfa sayısı: {actual_count}")
 
     for idx, page in enumerate(pages, start=1):
         template = page.get("template")
