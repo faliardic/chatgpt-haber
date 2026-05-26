@@ -357,9 +357,42 @@ def image_dimensions(path: Path) -> tuple[int, int]:
         return 0, 0
 
 
+def fallback_font(size: int, bold: bool = False):
+    from PIL import ImageFont
+
+    candidates = [
+        Path("C:/Windows/Fonts/arialbd.ttf" if bold else "C:/Windows/Fonts/arial.ttf"),
+        Path("C:/Windows/Fonts/seguisb.ttf" if bold else "C:/Windows/Fonts/segoeui.ttf"),
+        Path("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"),
+    ]
+    for path in candidates:
+        if path.exists():
+            return ImageFont.truetype(str(path), size=size)
+    return ImageFont.load_default(size=size)
+
+
+def wrapped_lines(draw: Any, text: str, font: Any, max_width: int, max_lines: int) -> list[str]:
+    words = text.split()
+    lines: list[str] = []
+    current = ""
+    for word in words:
+        candidate = f"{current} {word}".strip()
+        bbox = draw.textbbox((0, 0), candidate, font=font)
+        if current and bbox[2] - bbox[0] > max_width:
+            lines.append(current)
+            current = word
+            if len(lines) >= max_lines:
+                break
+        else:
+            current = candidate
+    if current and len(lines) < max_lines:
+        lines.append(current)
+    return lines
+
+
 def fallback_image(article: dict[str, Any], image_dir: Path) -> dict[str, Any] | None:
     try:
-        from PIL import Image, ImageDraw, ImageFont
+        from PIL import Image, ImageDraw
     except ImportError:
         return None
 
@@ -370,38 +403,33 @@ def fallback_image(article: dict[str, Any], image_dir: Path) -> dict[str, Any] |
     path = image_dir / f"{slugify(article_id, 'story')}-fallback.jpg"
 
     palette = {
-        "EKONOMI": ("#243b53", "#d9e2ec"),
-        "GUNDEM": ("#2f3a3f", "#f0f4f8"),
-        "SPOR": ("#174a3c", "#e3f8ef"),
-        "RADAR": ("#3d2c56", "#eee8f8"),
+        "ANKARA": ("#f2efe8", "#243447", "#b14a32"),
+        "EKONOMI": ("#edf3f8", "#243b53", "#2f6f9f"),
+        "GUNDEM": ("#f0f4f8", "#2f3a3f", "#8a4f2a"),
+        "SPOR": ("#eaf6ef", "#174a3c", "#2f855a"),
+        "TEKNOLOJI": ("#eef2ff", "#243447", "#4c51bf"),
+        "DUNYA": ("#f4f1ea", "#2f3a3f", "#8c6d31"),
     }
-    bg, fg = palette.get(slugify(section, "gundem").upper(), ("#252525", "#f4f4f4"))
+    bg, fg, accent = palette.get(slugify(section, "gundem").upper(), ("#f4f4f2", "#252525", "#777777"))
     image = Image.new("RGB", (1200, 720), bg)
     draw = ImageDraw.Draw(image)
-    font_large = ImageFont.load_default(size=54)
-    font_small = ImageFont.load_default(size=28)
+    font_large = fallback_font(58, bold=True)
+    font_small = fallback_font(28, bold=True)
+    font_caption = fallback_font(24)
 
-    draw.rectangle((56, 56, 1144, 664), outline=fg, width=6)
-    draw.text((92, 92), section, fill=fg, font=font_small)
+    draw.rectangle((0, 0, 1200, 720), fill=bg)
+    draw.rectangle((0, 0, 1200, 74), fill=fg)
+    draw.rectangle((0, 646, 1200, 720), fill=fg)
+    draw.rectangle((48, 112, 1152, 608), outline=accent, width=8)
+    draw.rectangle((80, 144, 240, 154), fill=accent)
+    draw.text((80, 34), section, fill="#ffffff", font=font_small)
 
-    words = headline.split()
-    lines: list[str] = []
-    current = ""
-    for word in words:
-        candidate = f"{current} {word}".strip()
-        if len(candidate) > 28:
-            lines.append(current)
-            current = word
-        else:
-            current = candidate
-    if current:
-        lines.append(current)
-
+    lines = wrapped_lines(draw, headline, font_large, 980, 4)
     y = 250
-    for line in lines[:4]:
+    for line in lines:
         draw.text((92, y), line, fill=fg, font=font_large)
-        y += 68
-    draw.text((92, 600), "CHATGPT HABER", fill=fg, font=font_small)
+        y += 70
+    draw.text((92, 650), "CHATGPT HABER | TEMSİLİ GÖRSEL", fill="#ffffff", font=font_caption)
     image.save(path, quality=88)
     return {"path": str(path), "source_url": "", "width": 1200, "height": 720}
 
@@ -430,6 +458,9 @@ def download_image(image_url: str, image_dir: Path, article_id: str) -> dict[str
     path = image_dir / f"{safe_id}{ext}"
     path.write_bytes(response.content)
     width, height = image_dimensions(path)
+    if width <= 0 or height <= 0:
+        path.unlink(missing_ok=True)
+        return None
     return {"path": str(path), "source_url": image_url, "width": width, "height": height}
 
 
