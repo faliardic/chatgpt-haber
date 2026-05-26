@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parents[1]
 
 SUPPORTED_TEMPLATES = {"front_page", "news_page", "radar_page"}
 SUPPORTED_STORY_SIZES = {"hero", "lead", "secondary", "brief", "radar"}
-TARGET_MAIN_STORIES = 16
+TARGET_MAIN_STORIES = 14
 TARGET_BRIEFS = 30
 
 
@@ -200,7 +200,7 @@ def normalize_front_page(page: dict[str, Any]) -> dict[str, Any]:
     leads = page.get("lead_stories") if isinstance(page.get("lead_stories"), list) else []
     briefs = page.get("briefs") if isinstance(page.get("briefs"), list) else []
     articles = [story_to_article(headline, "gundem", "secondary", 1)]
-    articles.extend(story_to_article(story, str(story.get("category") or "gundem"), "secondary", 1) for story in leads[:15])
+    articles.extend(story_to_article(story, str(story.get("category") or "gundem"), "secondary", 1) for story in leads[:13])
     brief_articles = [story_to_article(story, str(story.get("category") or "gundem"), "brief", 1) for story in briefs[:30]]
     return {"page_no": 1, "template": "front_page", "name": "Manşet", "articles": articles, "briefs": brief_articles}
 
@@ -215,7 +215,7 @@ def normalize_news_page(
     main_story = page.get("main_story") if isinstance(page.get("main_story"), dict) else {}
     stories = page.get("stories") if isinstance(page.get("stories"), list) else []
     articles = [story_to_article(main_story, section, "secondary", 1)]
-    articles.extend(story_to_article(story, str(story.get("category") or section), "secondary", 1) for story in stories[:15])
+    articles.extend(story_to_article(story, str(story.get("category") or section), "secondary", 1) for story in stories[:13])
     return {"page_no": page_no, "template": template, "name": name, "articles": articles, "briefs": []}
 
 
