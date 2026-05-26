@@ -4,7 +4,7 @@ from pathlib import Path
 
 from chatgpt_haber.issue import normalize_issue, read_json
 from chatgpt_haber.render import image_src, render_html
-from chatgpt_haber.sources import dedupe_similar_articles, issue_from_rss
+from chatgpt_haber.sources import dedupe_similar_articles, issue_from_rss, prioritize_articles
 
 
 def test_single_html_document(tmp_path):
@@ -157,6 +157,41 @@ def test_similar_articles_from_different_sources_are_deduped():
         "Cumhurbaşkanı Erdoğan Pezeşkiyan ile görüştü",
         "Petrol fiyatları haftaya yükselişle başladı",
     ]
+
+
+def test_articles_are_prioritized_by_editorial_importance():
+    articles = [
+        {
+            "section": "spor",
+            "headline": "Takım yeni sezon hazırlıklarına başladı",
+            "dek": "Kulüp antrenman programını açıkladı.",
+            "image_url": "",
+            "importance": 1,
+            "source_bundle": [{"name": "Sözcü Spor", "published_at": "2026-05-26T07:00:00+00:00"}],
+        },
+        {
+            "section": "ekonomi",
+            "headline": "TCMB faiz kararı açıklandı",
+            "dek": "Merkez Bankası faiz kararını ve enflasyon görünümünü duyurdu.",
+            "image_url": "",
+            "importance": 2,
+            "source_bundle": [{"name": "NTV Ekonomi", "published_at": "2026-05-26T09:00:00+00:00"}],
+        },
+        {
+            "section": "gundem",
+            "headline": "Deprem sonrası son dakika açıklaması",
+            "dek": "AFAD bölgede deprem sonrası çalışmaların sürdüğünü açıkladı.",
+            "image_url": "",
+            "importance": 3,
+            "source_bundle": [{"name": "Habertürk Gündem", "published_at": "2026-05-26T08:00:00+00:00"}],
+        },
+    ]
+
+    prioritized = prioritize_articles(articles)
+
+    assert prioritized[0]["headline"] == "Deprem sonrası son dakika açıklaması"
+    assert prioritized[1]["headline"] == "TCMB faiz kararı açıklandı"
+    assert prioritized[0]["importance_score"] > prioritized[-1]["importance_score"]
 
 
 def test_all_pages_use_shared_grid_layout(tmp_path):

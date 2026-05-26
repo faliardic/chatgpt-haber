@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from copy import deepcopy
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 import mimetypes
 import re
@@ -293,11 +294,74 @@ STOP_WORDS = {
     "den",
     "icin",
     "ile",
+    "haber",
+    "kisa",
+    "ozet",
     "son",
     "sonra",
     "ve",
     "ya",
     "yeni",
+}
+SOURCE_SCORES = {
+    "NTV Türkiye": 9,
+    "NTV Dünya": 8,
+    "NTV Ekonomi": 8,
+    "NTV Teknoloji": 6,
+    "NTV Spor": 6,
+    "Habertürk Gündem": 8,
+    "Habertürk Dünya": 7,
+    "Habertürk Ekonomi": 7,
+    "Habertürk Spor": 6,
+    "Habertürk Teknoloji": 6,
+    "Sözcü Gündem": 7,
+    "Sözcü Dünya": 6,
+    "Sözcü Ekonomi": 7,
+    "Sözcü Spor": 5,
+    "Sözcü Teknoloji": 5,
+    "Evrim Ağacı": 4,
+    "Haberci06 Ankara": 7,
+    "Başkent Gazete Ankara": 7,
+    "Redaktör Haber Yerel": 6,
+    "Ankara Haber Gündemi": 7,
+}
+SECTION_SCORES = {
+    "gundem": 12,
+    "ekonomi": 11,
+    "dunya": 10,
+    "ankara": 9,
+    "teknoloji": 7,
+    "spor": 6,
+}
+KEYWORD_SCORES = {
+    "son dakika": 34,
+    "deprem": 34,
+    "afet": 22,
+    "yangin": 18,
+    "kaza": 15,
+    "cumhurbaskani": 24,
+    "bakan": 18,
+    "meclis": 16,
+    "yargitay": 18,
+    "mahkeme": 16,
+    "dava": 12,
+    "tcmb": 22,
+    "faiz": 20,
+    "enflasyon": 20,
+    "kredi": 14,
+    "dolar": 14,
+    "petrol": 13,
+    "savas": 22,
+    "iran": 12,
+    "abd": 10,
+    "rusya": 10,
+    "israil": 14,
+    "ankara": 10,
+    "ulasim": 9,
+    "toki": 9,
+    "yapay zeka": 12,
+    "google": 8,
+    "avrupa": 8,
 }
 
 
@@ -585,24 +649,116 @@ def article_similarity(left: dict[str, Any], right: dict[str, Any]) -> float:
 
 
 def is_duplicate_article(candidate: dict[str, Any], selected: list[dict[str, Any]]) -> bool:
-    candidate_image = image_match_key(str(candidate.get("image_url") or ""))
     for article in selected:
-        if candidate_image and candidate_image == image_match_key(str(article.get("image_url") or "")):
-            return True
-        same_section = candidate.get("section") == article.get("section")
-        threshold = 0.58 if same_section else 0.68
-        if article_similarity(candidate, article) >= threshold:
+        if duplicate_match(candidate, article):
             return True
     return False
+
+
+def duplicate_match(candidate: dict[str, Any], article: dict[str, Any]) -> bool:
+    candidate_image = image_match_key(str(candidate.get("image_url") or ""))
+    if candidate_image and candidate_image == image_match_key(str(article.get("image_url") or "")):
+        return True
+    same_section = candidate.get("section") == article.get("section")
+    threshold = 0.58 if same_section else 0.68
+    return article_similarity(candidate, article) >= threshold
+
+
+def source_name(article: dict[str, Any]) -> str:
+    sources = article.get("source_bundle") if isinstance(article.get("source_bundle"), list) else []
+    source = sources[0] if sources and isinstance(sources[0], dict) else {}
+    return str(source.get("name") or "")
+
+
+def published_datetime(article: dict[str, Any]) -> datetime | None:
+    sources = article.get("source_bundle") if isinstance(article.get("source_bundle"), list) else []
+    source = sources[0] if sources and isinstance(sources[0], dict) else {}
+    value = str(source.get("published_at") or "")
+    if not value:
+        return None
+    try:
+        dt = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        try:
+            dt = parsedate_to_datetime(value)
+        except (TypeError, ValueError):
+            return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(timezone.utc)
+
+
+def recency_score(article: dict[str, Any]) -> int:
+    dt = published_datetime(article)
+    if not dt:
+        return 0
+    hours = max(0, (datetime.now(timezone.utc) - dt).total_seconds() / 3600)
+    if hours <= 2:
+        return 18
+    if hours <= 6:
+        return 14
+    if hours <= 12:
+        return 10
+    if hours <= 24:
+        return 6
+    return 0
+
+
+def keyword_importance(article: dict[str, Any]) -> int:
+    text = normalize_for_match(f"{article.get('headline', '')} {article.get('dek', '')}")
+    score = 0
+    for keyword, points in KEYWORD_SCORES.items():
+        if normalize_for_match(keyword) in text:
+            score += points
+    return min(score, 75)
+
+
+def score_article(article: dict[str, Any]) -> int:
+    source = source_name(article)
+    section = str(article.get("section") or "")
+    duplicate_bonus = min(int(article.get("duplicate_count") or 1) - 1, 4) * 12
+    score = 20
+    score += SOURCE_SCORES.get(source, 4)
+    score += SECTION_SCORES.get(section, 4)
+    score += keyword_importance(article)
+    score += recency_score(article)
+    score += duplicate_bonus
+    if article.get("image_url"):
+        score += 4
+    return score
+
+
+def sort_by_importance(articles: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    scored = sorted(
+        articles,
+        key=lambda article: (
+            score_article(article),
+            -int(article.get("importance") or 9999),
+            source_name(article),
+        ),
+        reverse=True,
+    )
+    for idx, article in enumerate(scored, start=1):
+        article["importance"] = idx
+        article["importance_score"] = score_article(article)
+    return scored
 
 
 def dedupe_similar_articles(articles: list[dict[str, Any]]) -> list[dict[str, Any]]:
     selected: list[dict[str, Any]] = []
     for article in articles:
-        if not is_duplicate_article(article, selected):
-            article["importance"] = len(selected) + 1
+        for existing in selected:
+            if duplicate_match(article, existing):
+                existing["duplicate_count"] = int(existing.get("duplicate_count") or 1) + 1
+                break
+        else:
+            article["duplicate_count"] = 1
             selected.append(article)
-    return selected
+    return sort_by_importance(selected)
+
+
+def prioritize_articles(articles: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return sort_by_importance(dedupe_similar_articles(articles))
 
 
 def parse_feed_articles(feeds: dict[str, str], limit: int) -> list[dict[str, Any]]:
@@ -861,15 +1017,16 @@ def personal_radar_page_articles(
 
 
 def issue_from_rss(issue_date: str, paper_size: str, image_dir: Path | None = None) -> dict[str, Any] | None:
-    articles = fetch_rss_articles()
+    articles = prioritize_articles(fetch_rss_articles())
     if len(articles) < 3:
         return None
 
     front_articles, front_briefs = page_articles(articles, 0)
     inside_articles, inside_briefs = page_articles(articles, 32)
-    ankara_source = fetch_ankara_local_articles()
+    ankara_source = prioritize_articles(fetch_ankara_local_articles())
     if len(ankara_source) < 32:
         ankara_source.extend(article for article in ankara_articles(articles) if article not in ankara_source)
+        ankara_source = prioritize_articles(ankara_source)
     ankara_main, ankara_briefs = page_articles(ankara_source, 0)
     for article in ankara_main + ankara_briefs:
         article["section"] = "ankara"
