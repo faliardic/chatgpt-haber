@@ -119,11 +119,13 @@ body {
 .story {
   border: var(--thin-rule);
   break-inside: avoid;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 31mm minmax(0, 1fr);
+  grid-template-rows: auto auto 1fr auto;
+  column-gap: 1.6mm;
   min-height: 0;
-  padding: 1.4mm;
+  overflow: hidden;
+  padding: 1.2mm;
 }
 
 .story--hero,
@@ -133,52 +135,81 @@ body {
 }
 
 .story__kicker {
-  font-size: 6.7pt;
+  font-size: 6.4pt;
   font-weight: 700;
+  grid-column: 2;
   letter-spacing: 0.08em;
-  margin-bottom: 0.6mm;
+  margin-bottom: 0.5mm;
   text-transform: uppercase;
 }
 
 .story__headline {
   font-family: var(--serif);
-  font-size: 12.3pt;
-  line-height: 1.02;
-  margin: 0 0 0.8mm;
+  font-size: 10.6pt;
+  grid-column: 2;
+  line-height: 1.01;
+  margin: 0 0 0.6mm;
 }
 
 .story--hero .story__headline,
 .story--lead .story__headline {
-  font-size: 12.3pt;
-  line-height: 1.02;
+  font-size: 10.6pt;
+  line-height: 1.01;
 }
 
 .story__dek {
   font-family: var(--sans);
-  font-size: 7.2pt;
-  line-height: 1.18;
-  margin: 0 0 0.8mm;
+  font-size: 6.45pt;
+  grid-column: 2;
+  line-height: 1.13;
+  margin: 0 0 0.55mm;
 }
 
 .story__body {
   font-family: var(--serif);
-  font-size: 6.8pt;
-  line-height: 1.13;
+  font-size: 6.15pt;
+  grid-column: 2;
+  line-height: 1.08;
+  overflow: hidden;
 }
 
 .story--hero .story__body { columns: auto; }
-.story__body p { margin: 0 0 0.8mm; }
+.story__body p { margin: 0 0 0.5mm; }
 .story__body p:nth-child(n+2) { display: none; }
 
 .story__source {
   color: var(--muted);
-  font-size: 5.8pt;
-  margin-top: auto;
-  padding-top: 0.6mm;
+  font-size: 5.4pt;
+  grid-column: 2;
+  margin-top: 0.45mm;
   text-transform: uppercase;
 }
 
-.figure { display: none; }
+.figure {
+  align-self: stretch;
+  display: block;
+  grid-column: 1;
+  grid-row: 1 / -1;
+  margin: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.figure img {
+  display: block;
+  height: 100%;
+  min-height: 22mm;
+  object-fit: cover;
+  width: 100%;
+}
+
+.figure figcaption { display: none; }
+
+.story:not(:has(.figure)) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .hero-rule { display: none; }
 
