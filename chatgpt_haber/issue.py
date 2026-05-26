@@ -11,8 +11,8 @@ BASE_DIR = Path(__file__).resolve().parents[1]
 
 SUPPORTED_TEMPLATES = {"front_page", "news_page", "radar_page"}
 SUPPORTED_STORY_SIZES = {"hero", "lead", "secondary", "brief", "radar"}
-TARGET_MAIN_STORIES = 14
-TARGET_BRIEFS = 30
+TARGET_MAIN_STORIES = 12
+TARGET_BRIEFS = 20
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -142,10 +142,6 @@ def enforce_page_density(issue_data: dict[str, Any]) -> dict[str, Any]:
         while len(briefs) < TARGET_BRIEFS:
             briefs.append(clone_article(brief_pool[len(briefs) % len(brief_pool)], len(briefs), "brief"))
         page["briefs"] = briefs[:TARGET_BRIEFS]
-        for article in page["articles"]:
-            article.setdefault("layout_hint", {})
-            article["layout_hint"]["story_size"] = "secondary"
-            article["layout_hint"]["column_span"] = 1
     return issue_data
 
 
@@ -199,9 +195,9 @@ def normalize_front_page(page: dict[str, Any]) -> dict[str, Any]:
     headline = page.get("headline") if isinstance(page.get("headline"), dict) else {}
     leads = page.get("lead_stories") if isinstance(page.get("lead_stories"), list) else []
     briefs = page.get("briefs") if isinstance(page.get("briefs"), list) else []
-    articles = [story_to_article(headline, "gundem", "secondary", 1)]
-    articles.extend(story_to_article(story, str(story.get("category") or "gundem"), "secondary", 1) for story in leads[:13])
-    brief_articles = [story_to_article(story, str(story.get("category") or "gundem"), "brief", 1) for story in briefs[:30]]
+    articles = [story_to_article(headline, "gundem", "hero", 5)]
+    articles.extend(story_to_article(story, str(story.get("category") or "gundem"), "secondary", 1) for story in leads[:11])
+    brief_articles = [story_to_article(story, str(story.get("category") or "gundem"), "brief", 1) for story in briefs[:20]]
     return {"page_no": 1, "template": "front_page", "name": "Manşet", "articles": articles, "briefs": brief_articles}
 
 
@@ -214,8 +210,8 @@ def normalize_news_page(
     section = str(page.get("section") or ("radar" if template == "radar_page" else "gundem"))
     main_story = page.get("main_story") if isinstance(page.get("main_story"), dict) else {}
     stories = page.get("stories") if isinstance(page.get("stories"), list) else []
-    articles = [story_to_article(main_story, section, "secondary", 1)]
-    articles.extend(story_to_article(story, str(story.get("category") or section), "secondary", 1) for story in stories[:13])
+    articles = [story_to_article(main_story, section, "lead" if template == "news_page" else "radar", 1)]
+    articles.extend(story_to_article(story, str(story.get("category") or section), "secondary", 1) for story in stories[:11])
     return {"page_no": page_no, "template": template, "name": name, "articles": articles, "briefs": []}
 
 
