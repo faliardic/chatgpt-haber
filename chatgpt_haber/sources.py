@@ -31,7 +31,7 @@ ANKARA_FEEDS = {
     "Ankara Haber Gündemi": ("ankara", "https://ankarahabergundemi.com/feed/"),
 }
 
-MAIN_STORY_COUNT = 16
+MAIN_STORY_COUNT = 14
 RAIL_STORY_COUNT = 30
 PAGE_POOL_COUNT = MAIN_STORY_COUNT + RAIL_STORY_COUNT
 PER_FEED = 12
@@ -51,8 +51,6 @@ RADAR = [
     ("ÜRETİM MASASI", "Gazete motoru, sosyal medya, AI üretim ve GitHub çalışma sistemi için fikir verebilir.", ("teknoloji", "bilim", "ekonomi")),
     ("FİNANS NOTU", "Faiz, kredi kartı, enflasyon veya fiyat hareketi açısından takip edilmeli.", ("ekonomi",)),
     ("YEREL ETKİ", "Ankara, Mamak, ulaşım, belediye veya günlük yaşam hattına temas edebilir.", ("ankara", "gundem")),
-    ("SAHA GÜVENLİĞİ", "Şantiyede güvenlik, sorumluluk ve risk algısı için küçük uyarı değeri taşır.", ("gundem", "ankara", "bilim")),
-    ("MİKRO AKSİYON", "Bugünden tek küçük görev çıkarılabilecek kişisel takip başlığı.", ("teknoloji", "bilim", "ekonomi", "ankara")),
 ]
 
 
