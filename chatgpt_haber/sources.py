@@ -147,10 +147,7 @@ def by_section(pool: list[dict[str, Any]], sections: tuple[str, ...]) -> list[di
 
 def standard_page(page_no: int, name: str, pool: list[dict[str, Any]], start: int, template: str) -> dict[str, Any]:
     selected = pick(pool, start, PAGE_POOL_COUNT)
-    articles = [layout(selected[0], "hero", 5)] if selected else []
-    if len(selected) > 1:
-        articles.append(layout(selected[1], "lead", 1))
-    articles.extend(layout(item, "secondary", 1) for item in selected[2:MAIN_STORY_COUNT])
+    articles = [layout(item, "secondary", 1) for item in selected[:MAIN_STORY_COUNT]]
     briefs = [layout(item, "brief", 1) for item in selected[MAIN_STORY_COUNT:PAGE_POOL_COUNT]]
     return {"page_no": page_no, "template": template, "name": name, "articles": articles, "briefs": briefs}
 
@@ -169,7 +166,7 @@ def radar_page(page_no: int, general: list[dict[str, Any]], ankara: list[dict[st
         item["kicker"] = kicker
         item["dek"] = f"{effect} Kaynak notu: {summary}"
         item["body"] = [f"Fatih etkisi: {effect}", "Günün aksiyonu: Bu başlığı tek satır karar notuna indir.", summary]
-        articles.append(layout(item, "hero" if idx == 0 else "secondary", 5 if idx == 0 else 1, kicker))
+        articles.append(layout(item, "secondary", 1, kicker))
     briefs = [layout(item, "brief", 1) for item in pick([a for a in combined if a.get("id") not in used] or combined, 0, RAIL_STORY_COUNT)]
     return {"page_no": page_no, "template": "radar_page", "name": "Fatih'in Radarı", "articles": articles, "briefs": briefs}
 
