@@ -31,6 +31,11 @@ ANKARA_FEEDS = {
     "Ankara Haber Gündemi": ("ankara", "https://ankarahabergundemi.com/feed/"),
 }
 
+MAIN_STORY_COUNT = 16
+RAIL_STORY_COUNT = 30
+PAGE_POOL_COUNT = MAIN_STORY_COUNT + RAIL_STORY_COUNT
+PER_FEED = 12
+
 RADAR = [
     ("ANA KARAR", "Bugünün ana karar sinyali: zamanı, parayı veya iş planını etkileyebilecek başlık.", ("ekonomi", "teknoloji", "gundem")),
     ("ŞANTİYE RADAR", "Şantiye şefliği, saha kontrolü, risk yönetimi veya mesleki değer açısından izlenmeli.", ("ankara", "gundem", "ekonomi")),
@@ -44,6 +49,10 @@ RADAR = [
     ("KÜLTÜR VE ZİHİN", "Okuma, film, tarih, bilim ve kişisel akademi hattını besleyebilecek içerik.", ("bilim", "ankara", "gundem")),
     ("ANKARA YAŞAM", "Günlük hayatı, iş yolunu, aile planını veya yerel gündemi etkileyebilir.", ("ankara",)),
     ("ÜRETİM MASASI", "Gazete motoru, sosyal medya, AI üretim ve GitHub çalışma sistemi için fikir verebilir.", ("teknoloji", "bilim", "ekonomi")),
+    ("FİNANS NOTU", "Faiz, kredi kartı, enflasyon veya fiyat hareketi açısından takip edilmeli.", ("ekonomi",)),
+    ("YEREL ETKİ", "Ankara, Mamak, ulaşım, belediye veya günlük yaşam hattına temas edebilir.", ("ankara", "gundem")),
+    ("SAHA GÜVENLİĞİ", "Şantiyede güvenlik, sorumluluk ve risk algısı için küçük uyarı değeri taşır.", ("gundem", "ankara", "bilim")),
+    ("MİKRO AKSİYON", "Bugünden tek küçük görev çıkarılabilecek kişisel takip başlığı.", ("teknoloji", "bilim", "ekonomi", "ankara")),
 ]
 
 
@@ -69,7 +78,6 @@ def image_url_from_entry(entry: Any) -> str:
                 url = value.get("url") or value.get("href")
                 if url:
                     return str(url)
-
     links = getattr(entry, "links", None) or []
     for link in links:
         if not isinstance(link, dict):
@@ -79,25 +87,22 @@ def image_url_from_entry(entry: Any) -> str:
         href = link.get("href")
         if href and ("image" in mime or rel in {"enclosure", "thumbnail"}):
             return str(href)
-
     enclosures = getattr(entry, "enclosures", None) or []
     for enclosure in enclosures:
         if isinstance(enclosure, dict):
             href = enclosure.get("href") or enclosure.get("url")
             if href:
                 return str(href)
-
     summary = str(getattr(entry, "summary", "") or getattr(entry, "description", ""))
     match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', summary, flags=re.IGNORECASE)
     return str(match.group(1)) if match else ""
 
 
-def fetch_map(feed_map: dict[str, tuple[str, str]], per_feed: int = 8) -> list[dict[str, Any]]:
+def fetch_map(feed_map: dict[str, tuple[str, str]], per_feed: int = PER_FEED) -> list[dict[str, Any]]:
     try:
         import feedparser
     except ImportError:
         return []
-
     items = []
     seen = set()
     for source, (section, url) in feed_map.items():
@@ -111,27 +116,13 @@ def fetch_map(feed_map: dict[str, tuple[str, str]], per_feed: int = 8) -> list[d
             summary = clean(getattr(entry, "summary", "") or getattr(entry, "description", ""), title)
             published = getattr(entry, "published", None) or getattr(entry, "updated", None) or datetime.now(timezone.utc).isoformat()
             image_url = image_url_from_entry(entry)
-            image = {
-                "path": image_url,
-                "source_url": image_url or link,
-                "alt": title,
-                "caption": summary,
-                "credit": source,
-                "width": 0,
-                "height": 0,
-                "crop": "landscape",
-            } if image_url else {}
+            image = {"path": image_url, "source_url": image_url or link, "alt": title, "caption": summary, "credit": source, "width": 0, "height": 0, "crop": "landscape"} if image_url else {}
             items.append({
-                "id": make_id(source, len(items)),
-                "section": section,
-                "kicker": section.upper(),
-                "headline": title,
-                "dek": summary,
-                "body": [summary],
+                "id": make_id(source, len(items)), "section": section, "kicker": section.upper(), "headline": title,
+                "dek": summary, "body": [summary],
                 "source_bundle": [{"name": source, "url": link, "published_at": str(published), "source_type": "rss", "is_primary": False}],
                 "verification": {"status": "single_source", "checked_at": datetime.now(timezone.utc).isoformat(), "method": ["rss_fetch"], "note": f"{source} RSS akışından alındı."},
-                "layout_hint": {"story_size": "secondary", "column_span": 1, "preferred_position": "mid"},
-                "image": image,
+                "layout_hint": {"story_size": "secondary", "column_span": 1, "preferred_position": "mid"}, "image": image,
             })
     return items
 
@@ -155,12 +146,12 @@ def by_section(pool: list[dict[str, Any]], sections: tuple[str, ...]) -> list[di
 
 
 def standard_page(page_no: int, name: str, pool: list[dict[str, Any]], start: int, template: str) -> dict[str, Any]:
-    selected = pick(pool, start, 32)
+    selected = pick(pool, start, PAGE_POOL_COUNT)
     articles = [layout(selected[0], "hero", 5)] if selected else []
     if len(selected) > 1:
         articles.append(layout(selected[1], "lead", 1))
-    articles.extend(layout(item, "secondary", 1) for item in selected[2:12])
-    briefs = [layout(item, "brief", 1) for item in selected[12:32]]
+    articles.extend(layout(item, "secondary", 1) for item in selected[2:MAIN_STORY_COUNT])
+    briefs = [layout(item, "brief", 1) for item in selected[MAIN_STORY_COUNT:PAGE_POOL_COUNT]]
     return {"page_no": page_no, "template": template, "name": name, "articles": articles, "briefs": briefs}
 
 
@@ -168,7 +159,7 @@ def radar_page(page_no: int, general: list[dict[str, Any]], ankara: list[dict[st
     combined = general + ankara
     used = set()
     articles = []
-    for idx, (kicker, effect, sections) in enumerate(RADAR):
+    for idx, (kicker, effect, sections) in enumerate(RADAR[:MAIN_STORY_COUNT]):
         candidates = [a for a in by_section(combined, sections) if a.get("id") not in used] or [a for a in combined if a.get("id") not in used] or combined
         source = candidates[idx % len(candidates)]
         used.add(source.get("id"))
@@ -179,36 +170,26 @@ def radar_page(page_no: int, general: list[dict[str, Any]], ankara: list[dict[st
         item["dek"] = f"{effect} Kaynak notu: {summary}"
         item["body"] = [f"Fatih etkisi: {effect}", "Günün aksiyonu: Bu başlığı tek satır karar notuna indir.", summary]
         articles.append(layout(item, "hero" if idx == 0 else "secondary", 5 if idx == 0 else 1, kicker))
-    briefs = [layout(item, "brief", 1) for item in pick([a for a in combined if a.get("id") not in used] or combined, 0, 20)]
+    briefs = [layout(item, "brief", 1) for item in pick([a for a in combined if a.get("id") not in used] or combined, 0, RAIL_STORY_COUNT)]
     return {"page_no": page_no, "template": "radar_page", "name": "Fatih'in Radarı", "articles": articles, "briefs": briefs}
 
 
-def fetch_rss_articles(limit: int = 96) -> list[dict[str, Any]]:
-    return fetch_map(GENERAL_FEEDS, per_feed=8)[:limit]
+def fetch_rss_articles(limit: int = 160) -> list[dict[str, Any]]:
+    return fetch_map(GENERAL_FEEDS, per_feed=PER_FEED)[:limit]
 
 
 def issue_from_rss(issue_date: str, paper_size: str) -> dict[str, Any] | None:
-    general = fetch_map(GENERAL_FEEDS, per_feed=8)
-    ankara = fetch_map(ANKARA_FEEDS, per_feed=8)
+    general = fetch_map(GENERAL_FEEDS, per_feed=PER_FEED)
+    ankara = fetch_map(ANKARA_FEEDS, per_feed=PER_FEED)
     if len(general) < 8:
         return None
     if not ankara:
         ankara = by_section(general, ("gundem", "ekonomi"))
     return {
-        "issue": {
-            "issue_date": issue_date,
-            "edition_name": "Sabah Baskısı",
-            "language": "tr-TR",
-            "page_count": 4,
-            "paper_size": paper_size,
-            "title": "CHATGPT HABER",
-            "timezone": "Europe/Istanbul",
-            "generated_at": datetime.now(timezone.utc).isoformat(),
-            "edition_note": "NTV, Habertürk, Sözcü, Evrim Ağacı ve yerel Ankara RSS akışlarından otomatik derlendi",
-        },
+        "issue": {"issue_date": issue_date, "edition_name": "Sabah Baskısı", "language": "tr-TR", "page_count": 4, "paper_size": paper_size, "title": "CHATGPT HABER", "timezone": "Europe/Istanbul", "generated_at": datetime.now(timezone.utc).isoformat(), "edition_note": "NTV, Habertürk, Sözcü, Evrim Ağacı ve yerel Ankara RSS akışlarından otomatik derlendi"},
         "pages": [
             standard_page(1, "Manşet", general, 0, "front_page"),
-            standard_page(2, "Gündem ve Ekonomi", general, 12, "news_page"),
+            standard_page(2, "Gündem ve Ekonomi", general, PAGE_POOL_COUNT, "news_page"),
             standard_page(3, "Ankara Özel Bülteni", ankara, 0, "news_page"),
             radar_page(4, general, ankara),
         ],
