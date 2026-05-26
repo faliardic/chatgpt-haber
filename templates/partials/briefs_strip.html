@@ -1,8 +1,12 @@
-<section class="briefs-strip">
-  {% for article in page.briefs %}
-    <article class="brief">
-      <strong>{{ article.headline }}</strong>
-      <p>{{ article.dek }}</p>
-    </article>
-  {% endfor %}
-</section>
+<aside class="news-rail" aria-label="Son haberler">
+  <div class="news-rail__title">Son Haberler</div>
+  <ol class="news-rail__list">
+    {% for article in page.briefs %}
+      <li class="news-rail__item">
+        <strong>{{ "%02d"|format(loop.index) }}</strong>
+        <span>{{ article.headline }}</span>
+        <em>{{ article.source_bundle[0].name }}</em>
+      </li>
+    {% endfor %}
+  </ol>
+</aside>
