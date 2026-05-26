@@ -1,192 +1,794 @@
 from __future__ import annotations
 
+from copy import deepcopy
 from datetime import datetime, timezone
-from html import unescape
-import re
+from pathlib import Path
+import mimetypes
+from urllib.parse import urljoin, urlparse
 from typing import Any
 
-GENERAL_FEEDS = {
-    "NTV Türkiye": ("gundem", "https://www.ntv.com.tr/turkiye.rss"),
-    "NTV Dünya": ("dunya", "https://www.ntv.com.tr/dunya.rss"),
-    "NTV Ekonomi": ("ekonomi", "https://www.ntv.com.tr/ekonomi.rss"),
-    "NTV Teknoloji": ("teknoloji", "https://www.ntv.com.tr/teknoloji.rss"),
-    "NTV Spor": ("spor", "https://www.ntv.com.tr/spor.rss"),
-    "Habertürk Gündem": ("gundem", "https://www.haberturk.com/rss/gundem.xml"),
-    "Habertürk Dünya": ("dunya", "https://www.haberturk.com/rss/dunya.xml"),
-    "Habertürk Ekonomi": ("ekonomi", "https://www.haberturk.com/rss/ekonomi.xml"),
-    "Habertürk Spor": ("spor", "https://www.haberturk.com/rss/spor.xml"),
-    "Habertürk Teknoloji": ("teknoloji", "https://www.haberturk.com/rss/teknoloji.xml"),
-    "Sözcü Gündem": ("gundem", "https://www.sozcu.com.tr/rss/gundem.xml"),
-    "Sözcü Dünya": ("dunya", "https://www.sozcu.com.tr/rss/dunya.xml"),
-    "Sözcü Ekonomi": ("ekonomi", "https://www.sozcu.com.tr/rss/ekonomi.xml"),
-    "Sözcü Spor": ("spor", "https://www.sozcu.com.tr/rss/spor.xml"),
-    "Sözcü Teknoloji": ("teknoloji", "https://www.sozcu.com.tr/rss/teknoloji.xml"),
-    "Evrim Ağacı": ("bilim", "https://evrimagaci.org/rss.xml"),
+from .issue import slugify
+
+
+DEFAULT_FEEDS = {
+    "NTV Türkiye": "https://www.ntv.com.tr/turkiye.rss",
+    "NTV Dünya": "https://www.ntv.com.tr/dunya.rss",
+    "NTV Ekonomi": "https://www.ntv.com.tr/ekonomi.rss",
+    "NTV Teknoloji": "https://www.ntv.com.tr/teknoloji.rss",
+    "NTV Spor": "https://www.ntv.com.tr/sporskor.rss",
+    "Habertürk Gündem": "https://www.haberturk.com/rss/kategori/gundem.xml",
+    "Habertürk Dünya": "https://www.haberturk.com/rss/kategori/dunya.xml",
+    "Habertürk Ekonomi": "https://www.haberturk.com/rss/ekonomi.xml",
+    "Habertürk Spor": "https://www.haberturk.com/rss/spor.xml",
+    "Habertürk Teknoloji": "https://www.haberturk.com/rss/kategori/teknoloji.xml",
+    "Sözcü Gündem": "https://www.sozcu.com.tr/feeds-rss-category-gundem",
+    "Sözcü Dünya": "https://www.sozcu.com.tr/feeds-rss-category-dunya",
+    "Sözcü Ekonomi": "https://www.sozcu.com.tr/feeds-rss-category-ekonomi",
+    "Sözcü Spor": "https://www.sozcu.com.tr/feeds-rss-category-spor",
+    "Sözcü Teknoloji": "https://www.sozcu.com.tr/feeds-rss-category-bilim-teknoloji",
+    "Evrim Ağacı": "https://evrimagaci.org/rss.xml",
 }
 
-ANKARA_FEEDS = {
-    "Haberci06 Ankara": ("ankara", "https://haberci06.com/rss"),
-    "Başkent Gazete Ankara": ("ankara", "https://www.baskentgazete.com.tr/rss"),
-    "Redaktör Haber Yerel": ("ankara", "https://www.redaktorhaber.com/rss"),
-    "Ankara Haber Gündemi": ("ankara", "https://ankarahabergundemi.com/feed/"),
+ANKARA_LOCAL_FEEDS = {
+    "Haberci06 Ankara": "https://haberci06.com/rss/category/ankara",
+    "Başkent Gazete Ankara": "https://www.baskentgazete.com.tr/rss/ankara",
+    "Redaktör Haber Yerel": "https://www.redaktorhaber.com/rss/yerel-haberler",
+    "Ankara Haber Gündemi": "https://ankarahabergundemi.com/rss",
 }
 
-MAIN_STORY_COUNT = 12
-RAIL_STORY_COUNT = 20
-PAGE_POOL_COUNT = MAIN_STORY_COUNT + RAIL_STORY_COUNT
-PER_FEED = 12
-
-RADAR = [
-    ("ANA KARAR", "Bugünün ana karar sinyali: zamanı, parayı veya iş planını etkileyebilecek başlık.", ("ekonomi", "teknoloji", "gundem")),
-    ("ŞANTİYE RADAR", "Şantiye şefliği, saha kontrolü, risk yönetimi veya mesleki değer açısından izlenmeli.", ("ankara", "gundem", "ekonomi")),
-    ("STATİK RADAR", "Structural Design Engineer hedefi için teknik sezgi ve yapı güvenliği odağı taşır.", ("bilim", "ankara", "teknoloji")),
-    ("YAZILIM + AI", "Mühendislik yazılımları, raporlama ve otomasyon hedeflerini hızlandırabilir.", ("teknoloji", "bilim")),
-    ("PARA VE NAKİT", "Borç sıfırlama planı, nakit akışı veya harcama disiplinini etkileyebilir.", ("ekonomi", "gundem")),
-    ("ARAÇ VE YOL", "Günlük ulaşım, araç maliyeti, EV planı veya Ankara güzergahı açısından değerli.", ("teknoloji", "ekonomi", "ankara")),
-    ("CİHAZ VE ÜRETİM", "İş, öğrenme, çıktı alma veya üretim sistemini kolaylaştırabilecek araç sinyali.", ("teknoloji", "bilim")),
-    ("ENERJİ VE DENGE", "Şantiye temposu, kilo hedefi, uyku ve sürdürülebilir çalışma dengesiyle ilişkili.", ("bilim", "teknoloji", "gundem")),
-    ("ODAK SİSTEMİ", "Aşırı yüklenmeden düzenli ilerleme, hedef sistemi ve karar kalitesi için izlenmeli.", ("bilim", "teknoloji", "ekonomi")),
-    ("KÜLTÜR VE ZİHİN", "Okuma, film, tarih, bilim ve kişisel akademi hattını besleyebilecek içerik.", ("bilim", "ankara", "gundem")),
-    ("ANKARA YAŞAM", "Günlük hayatı, iş yolunu, aile planını veya yerel gündemi etkileyebilir.", ("ankara",)),
-    ("ÜRETİM MASASI", "Gazete motoru, sosyal medya, AI üretim ve GitHub çalışma sistemi için fikir verebilir.", ("teknoloji", "bilim", "ekonomi")),
+PERSONAL_RADAR_CATEGORIES = [
+    {
+        "kicker": "ANA KARAR",
+        "keywords": ("faiz", "kredi", "ankara", "yapay zeka", "inşaat", "deprem", "ulaşım", "ekonomi"),
+        "impact": "Bugünün ana karar sinyali: zamanı, parayı veya iş planını etkileyebilecek başlık.",
+        "action": "Bugün tek karar notu çıkar: ertele, takip et veya aksiyona çevir.",
+    },
+    {
+        "kicker": "ŞANTİYE RADAR",
+        "keywords": (
+            "inşaat",
+            "şantiye",
+            "yapı",
+            "ruhsat",
+            "iskan",
+            "iskân",
+            "yapı denetim",
+            "toki",
+            "kentsel dönüşüm",
+            "konut",
+            "beton",
+            "demir",
+            "iş güvenliği",
+            "deprem",
+            "müteahhit",
+        ),
+        "preferred_sections": ("ankara", "ekonomi"),
+        "impact": "Şantiye şefliği, saha kontrolü, risk yönetimi veya mesleki değer açısından izlenmeli.",
+        "action": "Mevzuat, maliyet veya saha riski doğuruyorsa kısa kontrol listene ekle.",
+    },
+    {
+        "kicker": "STATİK RADAR",
+        "keywords": (
+            "deprem",
+            "afet",
+            "betonarme",
+            "güçlendirme",
+            "kolon",
+            "kiriş",
+            "temel",
+            "yapı güvenliği",
+            "hasar",
+            "mühendislik",
+            "yönetmelik",
+            "denetim",
+        ),
+        "preferred_sections": ("ankara", "gundem"),
+        "impact": "Structural Design Engineer hedefi için teknik sezgi ve güvenli tasarım odağı taşır.",
+        "action": "Teknik terim veya hata örneği varsa not al; ileride statik çalışma dosyana taşı.",
+    },
+    {
+        "kicker": "YAZILIM + AI",
+        "keywords": (
+            "python",
+            "yapay zeka",
+            "ai",
+            "github",
+            "copilot",
+            "chatgpt",
+            "gemini",
+            "claude",
+            "android",
+            "vscode",
+            "api",
+            "veri",
+            "otomasyon",
+            "uygulama",
+        ),
+        "preferred_sections": ("teknoloji",),
+        "impact": "Kendi mühendislik yazılımlarını, raporlama ve otomasyon hedeflerini hızlandırabilir.",
+        "action": "Araç veya yöntem tekrar kullanılabiliyorsa proje fikirleri listene bir satır ekle.",
+    },
+    {
+        "kicker": "PARA VE NAKİT",
+        "keywords": (
+            "faiz",
+            "kredi",
+            "kart",
+            "borç",
+            "tcmb",
+            "bdkk",
+            "enflasyon",
+            "mevduat",
+            "altın",
+            "döviz",
+            "yakıt",
+            "kira",
+            "maaş",
+            "ekonomi",
+        ),
+        "preferred_sections": ("ekonomi",),
+        "impact": "Haziran-Ekim borç sıfırlama planı, nakit akışı veya harcama disiplini etkilenebilir.",
+        "action": "Bu haber ödeme planını etkiliyorsa bütçe dosyanda tek kalemi güncelle.",
+    },
+    {
+        "kicker": "ARAÇ VE YOL",
+        "keywords": (
+            "otomobil",
+            "elektrikli araç",
+            "şarj",
+            "ötv",
+            "mtv",
+            "kasko",
+            "sigorta",
+            "yakıt",
+            "trafik",
+            "ulaşım",
+            "metro",
+            "ankara yolu",
+            "motosiklet",
+        ),
+        "preferred_sections": ("ekonomi", "ankara"),
+        "impact": "Günlük ulaşım, araç maliyeti, gelecek EV planı veya Ankara güzergahı açısından değerli.",
+        "action": "Maliyet veya güzergah etkisi varsa araç/yol radarına işaret koy.",
+    },
+    {
+        "kicker": "CİHAZ VE ÜRETİM",
+        "keywords": (
+            "tablet",
+            "telefon",
+            "android",
+            "dex",
+            "laptop",
+            "asus",
+            "samsung",
+            "logitech",
+            "yazıcı",
+            "pdf",
+            "canva",
+            "not",
+            "github",
+            "vscode",
+        ),
+        "preferred_sections": ("teknoloji",),
+        "impact": "İş, öğrenme, çıktı alma veya üretim sistemini kolaylaştırabilecek araç sinyali.",
+        "action": "Gerçek verim katkısı varsa ekipman/araç notlarına ekle; sadece tüketimse ele.",
+    },
+    {
+        "kicker": "ENERJİ VE DENGE",
+        "keywords": (
+            "sağlık",
+            "uyku",
+            "beslenme",
+            "kilo",
+            "protein",
+            "diz",
+            "ortopedi",
+            "yorgunluk",
+            "egzersiz",
+            "antrenman",
+            "iş güvenliği",
+            "baret",
+            "stres",
+        ),
+        "preferred_sections": ("teknoloji", "ankara"),
+        "impact": "Şantiye temposu, kilo hedefi, uyku ve sürdürülebilir çalışma dengesiyle ilişkili.",
+        "action": "Bugün uygulanabilir tek sağlık davranışı seç: uyku, yürüyüş, su veya protein.",
+    },
+    {
+        "kicker": "ODAK SİSTEMİ",
+        "keywords": (
+            "alışkanlık",
+            "odak",
+            "verimlilik",
+            "planlama",
+            "proje",
+            "motivasyon",
+            "strateji",
+            "karar",
+            "öğrenme",
+        ),
+        "impact": "Aşırı yüklenmeden düzenli ilerlemek için sistem, dikkat ve karar kalitesine dokunur.",
+        "action": "Bir sonraki çalışma bloğu için en küçük net hedefi yaz.",
+    },
+    {
+        "kicker": "KÜLTÜR VE ZİHİN",
+        "keywords": (
+            "kitap",
+            "edebiyat",
+            "roman",
+            "çeviri",
+            "sinema",
+            "film",
+            "tarih",
+            "felsefe",
+            "psikoloji",
+            "kültür",
+            "sanat",
+            "ankara konser",
+        ),
+        "preferred_sections": ("ankara", "teknoloji"),
+        "impact": "Kişisel akademi, okuma hattı ve zihinsel derinlik için takip edilebilir.",
+        "action": "Okuma/izleme listene girecekse tek cümlelik gerekçeyle kaydet.",
+    },
+    {
+        "kicker": "ANKARA YAŞAM",
+        "keywords": (
+            "ankara",
+            "sincan",
+            "mamak",
+            "kızılay",
+            "çankaya",
+            "keçiören",
+            "ulaşım",
+            "trafik",
+            "toki",
+            "konut",
+            "belediye",
+            "etkinlik",
+            "altyapı",
+        ),
+        "preferred_sections": ("ankara",),
+        "impact": "Günlük hayat, iş yolu, aile düzeni veya Ankara gelecek planı açısından temas edebilir.",
+        "action": "Güzergah, zaman veya aile planına etkisi varsa takvime/kısa nota geçir.",
+    },
+    {
+        "kicker": "ÜRETİM MASASI",
+        "keywords": (
+            "gazete",
+            "sosyal medya",
+            "canva",
+            "içerik",
+            "tiktok",
+            "algoritma",
+            "editör",
+            "görsel",
+            "otomasyon",
+            "yapay zeka",
+        ),
+        "preferred_sections": ("teknoloji",),
+        "impact": "Gazete motoru, içerik üretimi, mizanpaj veya tek komutla üretim sistemine ilham verebilir.",
+        "action": "Gazete motoruna dönüştürülebilecek fikir varsa backlog'a bir madde aç.",
+    },
 ]
 
-
-def clean(value: Any, fallback: str = "") -> str:
-    text = unescape(str(value or fallback or ""))
-    text = re.sub(r"<[^>]+>", " ", text)
-    return re.sub(r"\s+", " ", text).strip() or fallback
-
-
-def make_id(source: str, index: int) -> str:
-    text = source.lower()
-    for old, new in {"ç": "c", "ğ": "g", "ı": "i", "ö": "o", "ş": "s", "ü": "u"}.items():
-        text = text.replace(old, new)
-    text = re.sub(r"[^a-z0-9]+", "-", text).strip("-")
-    return f"{text}-{index + 1}"
+IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
+REQUEST_HEADERS = {
+    "User-Agent": "ChatGPT-Haber/0.2 (+https://example.com; print issue builder)",
+}
 
 
-def image_url_from_entry(entry: Any) -> str:
-    for attr_name in ("media_content", "media_thumbnail"):
-        values = getattr(entry, attr_name, None) or []
-        for value in values:
-            if isinstance(value, dict):
-                url = value.get("url") or value.get("href")
-                if url:
-                    return str(url)
-    links = getattr(entry, "links", None) or []
-    for link in links:
+def entry_image_url(entry: Any) -> str:
+    for attr in ("media_content", "media_thumbnail"):
+        values = getattr(entry, attr, None)
+        if isinstance(values, list):
+            for item in values:
+                if isinstance(item, dict) and item.get("url"):
+                    return str(item["url"])
+
+    for link in getattr(entry, "links", []) or []:
         if not isinstance(link, dict):
             continue
-        rel = str(link.get("rel", "")).lower()
-        mime = str(link.get("type", "")).lower()
-        href = link.get("href")
-        if href and ("image" in mime or rel in {"enclosure", "thumbnail"}):
-            return str(href)
-    enclosures = getattr(entry, "enclosures", None) or []
-    for enclosure in enclosures:
-        if isinstance(enclosure, dict):
-            href = enclosure.get("href") or enclosure.get("url")
-            if href:
-                return str(href)
-    summary = str(getattr(entry, "summary", "") or getattr(entry, "description", ""))
-    match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', summary, flags=re.IGNORECASE)
-    return str(match.group(1)) if match else ""
+        href = str(link.get("href") or "")
+        mime_type = str(link.get("type") or "")
+        rel = str(link.get("rel") or "")
+        if href and (mime_type.startswith("image/") or rel in {"enclosure", "image"}):
+            return href
+
+    image = getattr(entry, "image", None)
+    if isinstance(image, dict) and image.get("href"):
+        return str(image["href"])
+    if isinstance(image, dict) and image.get("url"):
+        return str(image["url"])
+    return ""
 
 
-def fetch_map(feed_map: dict[str, tuple[str, str]], per_feed: int = PER_FEED) -> list[dict[str, Any]]:
+def page_image_url(page_url: str) -> str:
+    if not page_url:
+        return ""
+    try:
+        import requests
+        from bs4 import BeautifulSoup
+    except ImportError:
+        return ""
+
+    try:
+        response = requests.get(page_url, headers=REQUEST_HEADERS, timeout=8)
+        response.raise_for_status()
+    except Exception:
+        return ""
+
+    soup = BeautifulSoup(response.text, "html.parser")
+    selectors = [
+        ("meta", {"property": "og:image"}, "content"),
+        ("meta", {"name": "twitter:image"}, "content"),
+        ("meta", {"property": "twitter:image"}, "content"),
+        ("link", {"rel": "image_src"}, "href"),
+    ]
+    for tag_name, attrs, value_attr in selectors:
+        tag = soup.find(tag_name, attrs=attrs)
+        value = tag.get(value_attr) if tag else ""
+        if value:
+            return urljoin(page_url, str(value))
+    return ""
+
+
+def extension_from_response(url: str, content_type: str) -> str:
+    parsed_ext = Path(urlparse(url).path).suffix.lower()
+    if parsed_ext in IMAGE_EXTENSIONS:
+        return ".jpg" if parsed_ext == ".jpeg" else parsed_ext
+
+    mime = content_type.split(";", 1)[0].strip().lower()
+    guessed = mimetypes.guess_extension(mime) or ".jpg"
+    if guessed == ".jpe":
+        return ".jpg"
+    return guessed if guessed in IMAGE_EXTENSIONS else ".jpg"
+
+
+def image_dimensions(path: Path) -> tuple[int, int]:
+    try:
+        from PIL import Image
+    except ImportError:
+        return 0, 0
+
+    try:
+        with Image.open(path) as image:
+            return image.size
+    except Exception:
+        return 0, 0
+
+
+def fallback_image(article: dict[str, Any], image_dir: Path) -> dict[str, Any] | None:
+    try:
+        from PIL import Image, ImageDraw, ImageFont
+    except ImportError:
+        return None
+
+    headline = str(article.get("headline") or "Haber")
+    section = str(article.get("section") or "gundem").upper()
+    article_id = str(article.get("id") or headline)
+    image_dir.mkdir(parents=True, exist_ok=True)
+    path = image_dir / f"{slugify(article_id, 'story')}-fallback.jpg"
+
+    palette = {
+        "EKONOMI": ("#243b53", "#d9e2ec"),
+        "GUNDEM": ("#2f3a3f", "#f0f4f8"),
+        "SPOR": ("#174a3c", "#e3f8ef"),
+        "RADAR": ("#3d2c56", "#eee8f8"),
+    }
+    bg, fg = palette.get(slugify(section, "gundem").upper(), ("#252525", "#f4f4f4"))
+    image = Image.new("RGB", (1200, 720), bg)
+    draw = ImageDraw.Draw(image)
+    font_large = ImageFont.load_default(size=54)
+    font_small = ImageFont.load_default(size=28)
+
+    draw.rectangle((56, 56, 1144, 664), outline=fg, width=6)
+    draw.text((92, 92), section, fill=fg, font=font_small)
+
+    words = headline.split()
+    lines: list[str] = []
+    current = ""
+    for word in words:
+        candidate = f"{current} {word}".strip()
+        if len(candidate) > 28:
+            lines.append(current)
+            current = word
+        else:
+            current = candidate
+    if current:
+        lines.append(current)
+
+    y = 250
+    for line in lines[:4]:
+        draw.text((92, y), line, fill=fg, font=font_large)
+        y += 68
+    draw.text((92, 600), "CHATGPT HABER", fill=fg, font=font_small)
+    image.save(path, quality=88)
+    return {"path": str(path), "source_url": "", "width": 1200, "height": 720}
+
+
+def download_image(image_url: str, image_dir: Path, article_id: str) -> dict[str, Any] | None:
+    if not image_url:
+        return None
+    try:
+        import requests
+    except ImportError:
+        return None
+
+    try:
+        response = requests.get(image_url, headers=REQUEST_HEADERS, timeout=12)
+        response.raise_for_status()
+    except Exception:
+        return None
+
+    content_type = response.headers.get("content-type", "")
+    if content_type and not content_type.lower().startswith("image/"):
+        return None
+
+    image_dir.mkdir(parents=True, exist_ok=True)
+    safe_id = slugify(article_id, "story")
+    ext = extension_from_response(image_url, content_type)
+    path = image_dir / f"{safe_id}{ext}"
+    path.write_bytes(response.content)
+    width, height = image_dimensions(path)
+    return {"path": str(path), "source_url": image_url, "width": width, "height": height}
+
+
+def ensure_article_image(article: dict[str, Any], image_dir: Path) -> None:
+    image = article.get("image")
+    if isinstance(image, dict) and image.get("path"):
+        return
+
+    source_bundle = article.get("source_bundle") if isinstance(article.get("source_bundle"), list) else []
+    source = source_bundle[0] if source_bundle and isinstance(source_bundle[0], dict) else {}
+    source_url = str(source.get("url") or "")
+    image_url = str(article.get("image_url") or "")
+    if not image_url:
+        image_url = page_image_url(source_url)
+
+    downloaded = download_image(image_url, image_dir, str(article.get("id") or article.get("headline") or "story"))
+    if not downloaded:
+        downloaded = fallback_image(article, image_dir)
+    if not downloaded:
+        return
+
+    article["image"] = {
+        "path": downloaded["path"],
+        "source_url": downloaded["source_url"] or source_url,
+        "alt": str(article.get("headline") or "Haber fotoğrafı"),
+        "caption": str(article.get("dek") or article.get("headline") or "Haber fotoğrafı"),
+        "credit": str(source.get("name") or "Kaynak"),
+        "width": downloaded["width"],
+        "height": downloaded["height"],
+        "crop": "landscape",
+    }
+
+
+def enrich_issue_images(issue_data: dict[str, Any], image_dir: Path) -> dict[str, Any]:
+    seen: set[int] = set()
+    for page in issue_data.get("pages", []):
+        if not isinstance(page, dict):
+            continue
+        for collection_name in ("articles", "briefs"):
+            collection = page.get(collection_name, [])
+            if not isinstance(collection, list):
+                continue
+            for article in collection:
+                if not isinstance(article, dict):
+                    continue
+                if article.get("layout_hint", {}).get("story_size") == "brief":
+                    continue
+                object_id = id(article)
+                if object_id in seen:
+                    continue
+                seen.add(object_id)
+                ensure_article_image(article, image_dir)
+    return issue_data
+
+
+def section_for_source(source_name: str) -> str:
+    source_key = source_name.lower()
+    if "ankara" in source_key or "yerel" in source_key:
+        return "ankara"
+    if any(value in source_key for value in ("ekonomi", "tcmb")):
+        return "ekonomi"
+    if "spor" in source_key:
+        return "spor"
+    if any(value in source_key for value in ("teknoloji", "evrim")):
+        return "teknoloji"
+    if "dünya" in source_key or "dunya" in source_key:
+        return "dunya"
+    return "gundem"
+
+
+def parse_feed_articles(feeds: dict[str, str], limit: int) -> list[dict[str, Any]]:
     try:
         import feedparser
     except ImportError:
         return []
-    items = []
-    seen = set()
-    for source, (section, url) in feed_map.items():
+
+    by_source: list[list[dict[str, Any]]] = []
+    seen_links: set[str] = set()
+    per_feed_limit = max(5, limit // max(1, len(feeds)))
+    for source_name, url in feeds.items():
         parsed = feedparser.parse(url)
-        for entry in parsed.entries[:per_feed]:
-            link = str(getattr(entry, "link", url) or url)
-            if link in seen:
+        source_articles: list[dict[str, Any]] = []
+        for entry in parsed.entries[:per_feed_limit]:
+            published = (
+                getattr(entry, "published", None)
+                or getattr(entry, "updated", None)
+                or datetime.now(timezone.utc).isoformat()
+            )
+            title = str(getattr(entry, "title", "Başlık"))
+            summary = str(getattr(entry, "summary", title))
+            link = str(getattr(entry, "link", url))
+            if link in seen_links:
                 continue
-            seen.add(link)
-            title = clean(getattr(entry, "title", ""), "Başlık")
-            summary = clean(getattr(entry, "summary", "") or getattr(entry, "description", ""), title)
-            published = getattr(entry, "published", None) or getattr(entry, "updated", None) or datetime.now(timezone.utc).isoformat()
-            image_url = image_url_from_entry(entry)
-            image = {"path": image_url, "source_url": image_url or link, "alt": title, "caption": summary, "credit": source, "width": 0, "height": 0, "crop": "landscape"} if image_url else {}
-            items.append({
-                "id": make_id(source, len(items)), "section": section, "kicker": section.upper(), "headline": title,
-                "dek": summary, "body": [summary],
-                "source_bundle": [{"name": source, "url": link, "published_at": str(published), "source_type": "rss", "is_primary": False}],
-                "verification": {"status": "single_source", "checked_at": datetime.now(timezone.utc).isoformat(), "method": ["rss_fetch"], "note": f"{source} RSS akışından alındı."},
-                "layout_hint": {"story_size": "secondary", "column_span": 1, "preferred_position": "mid"}, "image": image,
-            })
-    return items
+            seen_links.add(link)
+            image_url = entry_image_url(entry)
+            section = section_for_source(source_name)
+            source_articles.append(
+                {
+                    "id": f"{source_name.lower().replace(' ', '-')}-{len(source_articles) + 1}",
+                    "section": section,
+                    "headline": title,
+                    "importance": len(source_articles) + 1,
+                    "dek": summary,
+                    "body": [summary],
+                    "source_bundle": [
+                        {
+                            "name": source_name,
+                            "url": link,
+                            "published_at": published,
+                            "source_type": "institution" if source_name == "TCMB" else "rss",
+                            "is_primary": source_name == "TCMB",
+                        }
+                    ],
+                    "verification": {
+                        "status": "single_source",
+                        "checked_at": datetime.now(timezone.utc).isoformat(),
+                        "method": ["primary_source"],
+                        "note": f"{source_name} RSS akışından alındı.",
+                    },
+                    "layout_hint": {"story_size": "secondary", "column_span": 2, "preferred_position": "mid"},
+                    "image": {},
+                    "image_url": image_url,
+                }
+            )
+        if source_articles:
+            by_source.append(source_articles)
+
+    articles: list[dict[str, Any]] = []
+    max_source_len = max((len(items) for items in by_source), default=0)
+    for idx in range(max_source_len):
+        for source_articles in by_source:
+            if idx < len(source_articles):
+                source_articles[idx]["importance"] = len(articles) + 1
+                articles.append(source_articles[idx])
+                if len(articles) >= limit:
+                    return articles
+    return articles[:limit]
 
 
-def layout(article: dict[str, Any], size: str, span: int = 1, kicker: str | None = None) -> dict[str, Any]:
-    item = {**article}
-    if kicker is not None:
-        item["kicker"] = kicker
-    item["layout_hint"] = {"story_size": size, "column_span": span, "preferred_position": "top" if size in {"hero", "lead"} else "mid"}
-    return item
+def fetch_rss_articles(limit: int = 120) -> list[dict[str, Any]]:
+    return parse_feed_articles(DEFAULT_FEEDS, limit)
 
 
-def pick(pool: list[dict[str, Any]], start: int, count: int) -> list[dict[str, Any]]:
+def fetch_ankara_local_articles(limit: int = 60) -> list[dict[str, Any]]:
+    return parse_feed_articles(ANKARA_LOCAL_FEEDS, limit)
+
+
+def page_articles(source_articles: list[dict[str, Any]], start: int = 0) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    layouts = [
+        {"story_size": "hero", "column_span": 1, "preferred_position": "top"},
+        {"story_size": "lead", "column_span": 1, "preferred_position": "top"},
+    ] + [{"story_size": "secondary", "column_span": 1, "preferred_position": "mid"} for _ in range(10)]
+
+    main_articles = deepcopy(source_articles[start : start + 12])
+    if len(main_articles) < 12:
+        main_articles.extend(deepcopy(source_articles[: 12 - len(main_articles)]))
+    for offset, (article, layout_hint) in enumerate(zip(main_articles, layouts)):
+        article["importance"] = offset + 1
+        article["layout_hint"] = layout_hint
+
+    rail_articles = deepcopy(source_articles[start + 12 : start + 32])
+    if len(rail_articles) < 20:
+        rail_articles.extend(deepcopy(source_articles[: 20 - len(rail_articles)]))
+    for offset, article in enumerate(rail_articles[:20]):
+        article["importance"] = offset + 1
+        article["layout_hint"] = {"story_size": "brief", "column_span": 1, "preferred_position": "rail"}
+        article["image"] = {}
+    return main_articles[:12], rail_articles[:20]
+
+
+def ankara_articles(source_articles: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    keywords = (
+        "ankara",
+        "başkent",
+        "baskent",
+        "altındağ",
+        "cankaya",
+        "çankaya",
+        "keçiören",
+        "mamak",
+        "yenimahalle",
+        "sincan",
+        "etimesgut",
+        "pursaklar",
+        "gölbaşı",
+        "polatlı",
+        "kızılcahamam",
+        "beypazarı",
+        "nallıhan",
+        "ayaş",
+        "çubuk",
+        "elmadag",
+        "elmadag",
+        "mahalle",
+        "ulaşım",
+        "metro",
+        "ego",
+        "askı",
+        "park",
+        "pazar",
+        "esnaf",
+        "etkinlik",
+        "konser",
+        "kültür",
+        "okul",
+        "trafik",
+        "yangın",
+        "kaza",
+        "belediye",
+    )
+    selected = []
+    fallback = []
+    for article in source_articles:
+        text = f"{article.get('headline', '')} {article.get('dek', '')} {article.get('section', '')}".lower()
+        if any(keyword in text for keyword in keywords):
+            selected.append(article)
+        elif article.get("section") in {"gundem", "ankara"}:
+            fallback.append(article)
+    selected.extend(article for article in fallback if article not in selected)
+    selected.extend(article for article in source_articles if article not in selected)
+    return selected
+
+
+def article_text(article: dict[str, Any]) -> str:
+    return " ".join(
+        [
+            str(article.get("headline") or ""),
+            str(article.get("dek") or ""),
+            str(article.get("section") or ""),
+            str(article.get("source_bundle", [{}])[0].get("name") if article.get("source_bundle") else ""),
+        ]
+    ).lower()
+
+
+def keyword_score(article: dict[str, Any], keywords: tuple[str, ...]) -> int:
+    text = article_text(article)
+    return sum(3 if keyword in text else 0 for keyword in keywords) + sum(
+        1 for word in text.split() if any(keyword in word for keyword in keywords)
+    )
+
+
+def category_score(article: dict[str, Any], category: dict[str, Any]) -> int:
+    score = keyword_score(article, category["keywords"])
+    preferred_sections = category.get("preferred_sections", ())
+    if article.get("section") in preferred_sections:
+        score += 8
+    return score
+
+
+def best_article_for_category(
+    articles: list[dict[str, Any]],
+    category: dict[str, Any],
+    used_links: set[str],
+) -> dict[str, Any]:
+    available = [
+        article
+        for article in articles
+        if article.get("source_bundle")
+        and article["source_bundle"][0].get("url")
+        and article["source_bundle"][0]["url"] not in used_links
+    ]
+    if not available:
+        available = articles
+
+    scored = sorted(
+        available,
+        key=lambda article: (category_score(article, category), -int(article.get("importance", 999))),
+        reverse=True,
+    )
+    return deepcopy(scored[0])
+
+
+def personalize_article(article: dict[str, Any], category: dict[str, Any], importance: int) -> dict[str, Any]:
+    original_dek = str(article.get("dek") or article.get("headline") or "")
+    article["id"] = f"fatih-radar-{importance}-{slugify(category['kicker'], 'radar')}"
+    article["section"] = "radar"
+    article["kicker"] = category["kicker"]
+    article["importance"] = importance
+    article["dek"] = f"{category['impact']} Kaynak notu: {original_dek}"
+    article["body"] = [
+        f"Fatih etkisi: {category['impact']}",
+        f"Günün aksiyonu: {category['action']}",
+        original_dek,
+    ]
+    article["layout_hint"] = {
+        "story_size": "hero" if importance == 1 else "lead" if importance == 2 else "secondary",
+        "column_span": 1,
+        "preferred_position": "top" if importance <= 2 else "mid",
+    }
+    return article
+
+
+def personal_radar_page_articles(
+    general_articles: list[dict[str, Any]],
+    ankara_local: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    pool = general_articles + ankara_local
     if not pool:
-        return []
-    return [pool[(start + i) % len(pool)] for i in range(count)]
+        return [], []
+
+    used_links: set[str] = set()
+    main_articles: list[dict[str, Any]] = []
+    for idx, category in enumerate(PERSONAL_RADAR_CATEGORIES, start=1):
+        article = best_article_for_category(pool, category, used_links)
+        if article.get("source_bundle"):
+            used_links.add(article["source_bundle"][0].get("url", ""))
+        main_articles.append(personalize_article(article, category, idx))
+
+    all_keywords = tuple(keyword for category in PERSONAL_RADAR_CATEGORIES for keyword in category["keywords"])
+    rail_candidates = [
+        deepcopy(article)
+        for article in sorted(pool, key=lambda article: keyword_score(article, all_keywords), reverse=True)
+        if article.get("source_bundle") and article["source_bundle"][0].get("url") not in used_links
+    ]
+    if len(rail_candidates) < 20:
+        rail_candidates.extend(deepcopy(article) for article in pool if article not in rail_candidates)
+
+    rail_articles = rail_candidates[:20]
+    for idx, article in enumerate(rail_articles, start=1):
+        article["section"] = "radar"
+        article["kicker"] = "FATİH RADARI"
+        article["importance"] = idx
+        article["layout_hint"] = {"story_size": "brief", "column_span": 1, "preferred_position": "rail"}
+        article["image"] = {}
+    return main_articles, rail_articles
 
 
-def by_section(pool: list[dict[str, Any]], sections: tuple[str, ...]) -> list[dict[str, Any]]:
-    return [item for item in pool if item.get("section") in sections]
-
-
-def standard_page(page_no: int, name: str, pool: list[dict[str, Any]], start: int, template: str) -> dict[str, Any]:
-    selected = pick(pool, start, PAGE_POOL_COUNT)
-    articles = [layout(selected[0], "hero", 5)] if selected else []
-    if len(selected) > 1:
-        articles.append(layout(selected[1], "lead", 1))
-    articles.extend(layout(item, "secondary", 1) for item in selected[2:MAIN_STORY_COUNT])
-    briefs = [layout(item, "brief", 1) for item in selected[MAIN_STORY_COUNT:PAGE_POOL_COUNT]]
-    return {"page_no": page_no, "template": template, "name": name, "articles": articles, "briefs": briefs}
-
-
-def radar_page(page_no: int, general: list[dict[str, Any]], ankara: list[dict[str, Any]]) -> dict[str, Any]:
-    combined = general + ankara
-    used = set()
-    articles = []
-    for idx, (kicker, effect, sections) in enumerate(RADAR[:MAIN_STORY_COUNT]):
-        candidates = [a for a in by_section(combined, sections) if a.get("id") not in used] or [a for a in combined if a.get("id") not in used] or combined
-        source = candidates[idx % len(candidates)]
-        used.add(source.get("id"))
-        summary = clean(source.get("dek"), source.get("headline", ""))
-        item = {**source}
-        item["id"] = f"fatih-radar-{idx + 1}"
-        item["kicker"] = kicker
-        item["dek"] = f"{effect} Kaynak notu: {summary}"
-        item["body"] = [f"Fatih etkisi: {effect}", "Günün aksiyonu: Bu başlığı tek satır karar notuna indir.", summary]
-        articles.append(layout(item, "hero" if idx == 0 else "secondary", 5 if idx == 0 else 1, kicker))
-    briefs = [layout(item, "brief", 1) for item in pick([a for a in combined if a.get("id") not in used] or combined, 0, RAIL_STORY_COUNT)]
-    return {"page_no": page_no, "template": "radar_page", "name": "Fatih'in Radarı", "articles": articles, "briefs": briefs}
-
-
-def fetch_rss_articles(limit: int = 96) -> list[dict[str, Any]]:
-    return fetch_map(GENERAL_FEEDS, per_feed=PER_FEED)[:limit]
-
-
-def issue_from_rss(issue_date: str, paper_size: str) -> dict[str, Any] | None:
-    general = fetch_map(GENERAL_FEEDS, per_feed=PER_FEED)
-    ankara = fetch_map(ANKARA_FEEDS, per_feed=PER_FEED)
-    if len(general) < 8:
+def issue_from_rss(issue_date: str, paper_size: str, image_dir: Path | None = None) -> dict[str, Any] | None:
+    articles = fetch_rss_articles()
+    if len(articles) < 3:
         return None
-    if not ankara:
-        ankara = by_section(general, ("gundem", "ekonomi"))
-    return {
-        "issue": {"issue_date": issue_date, "edition_name": "Sabah Baskısı", "language": "tr-TR", "page_count": 4, "paper_size": paper_size, "title": "CHATGPT HABER", "timezone": "Europe/Istanbul", "generated_at": datetime.now(timezone.utc).isoformat(), "edition_note": "NTV, Habertürk, Sözcü, Evrim Ağacı ve yerel Ankara RSS akışlarından otomatik derlendi"},
+
+    front_articles, front_briefs = page_articles(articles, 0)
+    inside_articles, inside_briefs = page_articles(articles, 32)
+    ankara_source = fetch_ankara_local_articles()
+    if len(ankara_source) < 32:
+        ankara_source.extend(article for article in ankara_articles(articles) if article not in ankara_source)
+    ankara_main, ankara_briefs = page_articles(ankara_source, 0)
+    for article in ankara_main + ankara_briefs:
+        article["section"] = "ankara"
+        article["kicker"] = "ANKARA"
+    issue_data = {
+        "issue": {
+            "issue_date": issue_date,
+            "edition_name": "Sabah Baskısı",
+            "language": "tr-TR",
+            "page_count": 3,
+            "paper_size": paper_size,
+            "title": "CHATGPT HABER",
+            "timezone": "Europe/Istanbul",
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "edition_note": "NTV, Habertürk, Sözcü ve Evrim Ağacı RSS akışlarından otomatik derlendi",
+        },
         "pages": [
-            standard_page(1, "Manşet", general, 0, "front_page"),
-            standard_page(2, "Gündem ve Ekonomi", general, PAGE_POOL_COUNT, "news_page"),
-            standard_page(3, "Ankara Özel Bülteni", ankara, 0, "news_page"),
-            radar_page(4, general, ankara),
+            {"page_no": 1, "template": "front_page", "name": "Manşet", "articles": front_articles, "briefs": front_briefs},
+            {"page_no": 2, "template": "news_page", "name": "Gündem ve Ekonomi", "articles": inside_articles, "briefs": inside_briefs},
+            {"page_no": 3, "template": "news_page", "name": "Ankara Özel Bülteni", "articles": ankara_main, "briefs": ankara_briefs},
         ],
     }
+    if image_dir is not None:
+        enrich_issue_images(issue_data, image_dir)
+    return issue_data

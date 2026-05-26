@@ -1,5 +1,5 @@
 <figure class="figure figure--{{ article.image.crop|default('landscape') }}">
-  <img src="{{ article.image.path }}" alt="{{ article.image.alt }}">
+  <img src="{{ article.image.path|image_src }}" alt="{{ article.image.alt }}">
   <figcaption>
     {{ article.image.caption }}
     <span class="credit">{{ article.image.credit }}</span>

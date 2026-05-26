@@ -1,7 +1,9 @@
 <article class="story story--hero span-5">
   <div class="story__copy">
     <div class="story__kicker">{{ article.kicker }}</div>
-    <h2 class="story__headline">{{ article.headline }}</h2>
+    <h2 class="story__headline">
+      <a href="{{ article.source_bundle[0].url }}" target="_blank" rel="noopener noreferrer">{{ article.headline }}</a>
+    </h2>
     <p class="story__dek">{{ article.dek }}</p>
     {% if article.pullquote %}
       <blockquote>{{ article.pullquote }}</blockquote>
@@ -16,7 +18,7 @@
     {% include "partials/figure.html" %}
   {% else %}
     <div class="hero-rule">
-      <span>{{ article.source_bundle[0].name }}</span>
+      <a href="{{ article.source_bundle[0].url }}" target="_blank" rel="noopener noreferrer">{{ article.source_bundle[0].name }}</a>
       <strong>{{ article.verification.status }}</strong>
     </div>
   {% endif %}

@@ -1,19 +1,8 @@
-<section class="page page--radar" data-page-no="{{ page.page_no }}">
+<section class="page page--front page--radar" data-page-no="{{ page.page_no }}">
   {% include "partials/masthead.html" %}
   <div class="section-bar">
     <strong>{{ page.name }}</strong>
     <span>Sayfa {{ page.page_no }}</span>
   </div>
-  <div class="page-layout">
-    <div class="page-main radar-grid">
-      {% for article in page.articles %}
-        <div class="radar-box">
-          {% include "partials/article.html" %}
-        </div>
-      {% endfor %}
-    </div>
-    {% if page.briefs %}
-      {% include "partials/briefs_strip.html" %}
-    {% endif %}
-  </div>
+  {% include "partials/page_grid.html" %}
 </section>

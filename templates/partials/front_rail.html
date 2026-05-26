@@ -1,0 +1,11 @@
+<aside class="front-rail" aria-label="Kısa haberler">
+  <div class="front-rail__title">Son Haberler</div>
+  <ol class="front-rail__list">
+    {% for article in page.briefs[:20] %}
+      <li class="front-rail__item">
+        <a href="{{ article.source_bundle[0].url }}" target="_blank" rel="noopener noreferrer">{{ article.headline }}</a>
+        <span>{{ article.source_bundle[0].name }}</span>
+      </li>
+    {% endfor %}
+  </ol>
+</aside>

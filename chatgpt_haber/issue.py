@@ -8,11 +8,10 @@ from typing import Any
 
 
 BASE_DIR = Path(__file__).resolve().parents[1]
+PAGE_COUNT = 3
 
-SUPPORTED_TEMPLATES = {"front_page", "news_page", "radar_page"}
+SUPPORTED_TEMPLATES = {"front_page", "news_page"}
 SUPPORTED_STORY_SIZES = {"hero", "lead", "secondary", "brief", "radar"}
-TARGET_MAIN_STORIES = 12
-TARGET_BRIEFS = 20
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -90,6 +89,7 @@ def story_to_article(story: dict[str, Any], section: str, story_size: str, colum
         "dek": dek or title,
         "byline": str(story.get("byline") or "Haber Merkezi"),
         "dateline": str(story.get("dateline") or "İstanbul"),
+        "importance": int(story.get("importance") or story.get("priority") or 100),
         "body": split_body(story.get("body"), dek or str(story.get("summary") or title)),
         "pullquote": str(story.get("pullquote") or ""),
         "tags": story.get("tags") if isinstance(story.get("tags"), list) else [section],
@@ -118,75 +118,47 @@ def story_to_article(story: dict[str, Any], section: str, story_size: str, colum
     }
 
 
-def clone_article(article: dict[str, Any], suffix: int, story_size: str = "secondary") -> dict[str, Any]:
-    cloned = json.loads(json.dumps(article, ensure_ascii=False))
-    cloned["id"] = f"{cloned.get('id', 'story')}-repeat-{suffix}"
-    cloned.setdefault("layout_hint", {})
-    cloned["layout_hint"]["story_size"] = story_size
-    cloned["layout_hint"]["column_span"] = 1
-    cloned["layout_hint"]["preferred_position"] = "mid"
-    return cloned
-
-
-def enforce_page_density(issue_data: dict[str, Any]) -> dict[str, Any]:
-    for page in issue_data.get("pages", []):
-        articles = page.get("articles") if isinstance(page.get("articles"), list) else []
-        briefs = page.get("briefs") if isinstance(page.get("briefs"), list) else []
-        source_pool = articles + briefs
-        if not source_pool:
-            continue
-        while len(articles) < TARGET_MAIN_STORIES:
-            articles.append(clone_article(source_pool[len(articles) % len(source_pool)], len(articles), "secondary"))
-        page["articles"] = articles[:TARGET_MAIN_STORIES]
-        brief_pool = briefs + articles
-        while len(briefs) < TARGET_BRIEFS:
-            briefs.append(clone_article(brief_pool[len(briefs) % len(brief_pool)], len(briefs), "brief"))
-        page["briefs"] = briefs[:TARGET_BRIEFS]
-    return issue_data
-
-
 def normalize_issue(raw: dict[str, Any], issue_date: str | None = None, paper_size: str = "A3") -> dict[str, Any]:
     if looks_like_modern_issue(raw):
         raw.setdefault("issue", {})
-        raw["issue"]["page_count"] = len(raw.get("pages", []))
+        raw["issue"]["page_count"] = PAGE_COUNT
         raw["issue"]["language"] = "tr-TR"
         raw["issue"]["paper_size"] = paper_size
-        return enforce_page_density(raw)
+        return raw
 
     meta = raw.get("issue", {}) if isinstance(raw.get("issue"), dict) else {}
     pages = raw.get("pages", []) if isinstance(raw.get("pages"), list) else []
-    selected = pages[:4]
-    while len(selected) < 4:
+    selected = pages[:PAGE_COUNT]
+    while len(selected) < PAGE_COUNT:
         selected.append({})
 
     normalized_pages = [
         normalize_front_page(selected[0]),
         normalize_news_page(selected[1], page_no=2, name="Gündem ve Ekonomi"),
         normalize_news_page(selected[2], page_no=3, name="Ankara Özel Bülteni"),
-        normalize_news_page(selected[3], page_no=4, name="Fatih'in Radarı", template="radar_page"),
     ]
 
-    return enforce_page_density({
+    return {
         "issue": {
             "issue_date": issue_date or str(meta.get("issue_date") or meta.get("date") or datetime.now().date().isoformat()),
             "edition_name": str(meta.get("edition_name") or "Sabah Baskısı"),
             "language": "tr-TR",
-            "page_count": 4,
+            "page_count": PAGE_COUNT,
             "paper_size": paper_size,
             "title": str(meta.get("title") or meta.get("newspaper_name") or "CHATGPT HABER"),
             "timezone": "Europe/Istanbul",
             "generated_at": datetime.now(timezone.utc).isoformat(),
-            "edition_note": "Otomatik derlenmiş dört sayfalık baskı",
+            "edition_note": "Otomatik derlenmiş üç sayfalık baskı",
         },
         "pages": normalized_pages,
-    })
+    }
 
 
 def looks_like_modern_issue(raw: dict[str, Any]) -> bool:
     pages = raw.get("pages")
     return (
         isinstance(pages, list)
-        and len(pages) in {3, 4}
+        and len(pages) == PAGE_COUNT
         and all(isinstance(page, dict) and page.get("template") in SUPPORTED_TEMPLATES for page in pages)
     )
 
@@ -195,10 +167,24 @@ def normalize_front_page(page: dict[str, Any]) -> dict[str, Any]:
     headline = page.get("headline") if isinstance(page.get("headline"), dict) else {}
     leads = page.get("lead_stories") if isinstance(page.get("lead_stories"), list) else []
     briefs = page.get("briefs") if isinstance(page.get("briefs"), list) else []
-    articles = [story_to_article(headline, "gundem", "hero", 5)]
+    articles = [story_to_article(headline, "gundem", "hero", 1)]
     articles.extend(story_to_article(story, str(story.get("category") or "gundem"), "secondary", 1) for story in leads[:11])
+    articles.sort(key=lambda article: article.get("importance", 100))
     brief_articles = [story_to_article(story, str(story.get("category") or "gundem"), "brief", 1) for story in briefs[:20]]
     return {"page_no": 1, "template": "front_page", "name": "Manşet", "articles": articles, "briefs": brief_articles}
+
+
+def fill_to_count(articles: list[dict[str, Any]], count: int) -> list[dict[str, Any]]:
+    if not articles:
+        return articles
+    idx = 0
+    while len(articles) < count:
+        clone = dict(articles[idx % len(articles)])
+        clone["id"] = f"{clone.get('id', 'story')}-copy-{len(articles) + 1}"
+        clone["importance"] = len(articles) + 1
+        articles.append(clone)
+        idx += 1
+    return articles[:count]
 
 
 def normalize_news_page(
@@ -207,12 +193,22 @@ def normalize_news_page(
     name: str,
     template: str = "news_page",
 ) -> dict[str, Any]:
-    section = str(page.get("section") or ("radar" if template == "radar_page" else "gundem"))
+    section = str(page.get("section") or "gundem")
     main_story = page.get("main_story") if isinstance(page.get("main_story"), dict) else {}
     stories = page.get("stories") if isinstance(page.get("stories"), list) else []
-    articles = [story_to_article(main_story, section, "lead" if template == "news_page" else "radar", 1)]
+    briefs = page.get("briefs") if isinstance(page.get("briefs"), list) else []
+    articles = [story_to_article(main_story, section, "lead", 1)]
     articles.extend(story_to_article(story, str(story.get("category") or section), "secondary", 1) for story in stories[:11])
-    return {"page_no": page_no, "template": template, "name": name, "articles": articles, "briefs": []}
+    articles = fill_to_count(articles, 12)
+    for idx, article in enumerate(articles):
+        article["importance"] = idx + 1
+        article["layout_hint"]["story_size"] = "hero" if idx == 0 else "lead" if idx == 1 else "secondary"
+        article["layout_hint"]["column_span"] = 1
+
+    brief_source = briefs or stories or [main_story]
+    brief_articles = [story_to_article(story, str(story.get("category") or section), "brief", 1) for story in brief_source[:20]]
+    brief_articles = fill_to_count(brief_articles, 20)
+    return {"page_no": page_no, "template": template, "name": name, "articles": articles, "briefs": brief_articles}
 
 
 def validate_issue_data(issue_data: dict[str, Any]) -> None:
@@ -229,8 +225,8 @@ def validate_issue_data(issue_data: dict[str, Any]) -> None:
     actual_count = len(pages)
     if page_count != actual_count:
         raise ValueError(f"issue.page_count ({page_count}) ile gerçek sayfa sayısı ({actual_count}) uyuşmuyor.")
-    if actual_count not in {3, 4}:
-        raise ValueError(f"Bu sürüm 3 veya 4 sayfa bekliyor; gelen sayfa sayısı: {actual_count}")
+    if actual_count != PAGE_COUNT:
+        raise ValueError(f"Bu sürüm {PAGE_COUNT} sayfa bekliyor; gelen sayfa sayısı: {actual_count}")
 
     for idx, page in enumerate(pages, start=1):
         template = page.get("template")
@@ -239,8 +235,6 @@ def validate_issue_data(issue_data: dict[str, Any]) -> None:
         articles = page.get("articles", [])
         if not isinstance(articles, list) or not articles:
             raise ValueError(f"pages[{idx}] articles boş olamaz")
-        if len(articles) != TARGET_MAIN_STORIES:
-            raise ValueError(f"pages[{idx}] için {TARGET_MAIN_STORIES} ana haber bekleniyor; gelen: {len(articles)}")
         for a_idx, article in enumerate(articles, start=1):
             if not article.get("headline"):
                 raise ValueError(f"pages[{idx}].articles[{a_idx}] headline boş")
@@ -250,5 +244,5 @@ def validate_issue_data(issue_data: dict[str, Any]) -> None:
             if story_size not in SUPPORTED_STORY_SIZES:
                 raise ValueError(f"pages[{idx}].articles[{a_idx}] story_size geçersiz")
             image_path = article.get("image", {}).get("path")
-            if image_path and not str(image_path).startswith(("http://", "https://", "data:")) and not Path(image_path).exists():
+            if image_path and not Path(image_path).exists():
                 raise ValueError(f"pages[{idx}].articles[{a_idx}] image.path bulunamadı: {image_path}")

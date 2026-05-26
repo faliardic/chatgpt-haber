@@ -1,0 +1,14 @@
+<div class="front-layout">
+  <div class="front-main">
+    {% for article in page.articles|sort(attribute="importance") %}
+      {% if article.layout_hint.story_size == "hero" %}
+        {% include "partials/hero_article.html" %}
+      {% else %}
+        {% include "partials/article.html" %}
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% if page.briefs %}
+    {% include "partials/front_rail.html" %}
+  {% endif %}
+</div>

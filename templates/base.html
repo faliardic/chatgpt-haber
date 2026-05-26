@@ -4,13 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ issue.title }} - {{ issue.issue_date }}</title>
-  {% if inline_css %}
-  <style>
-{{ inline_css }}
-  </style>
-  {% elif css_href %}
   <link rel="stylesheet" href="{{ css_href }}">
-  {% endif %}
   <style>
     @page {
       size: {{ issue.paper_size }} portrait;
@@ -24,5 +18,57 @@
       {% include "pages/" ~ page.template ~ ".html" %}
     {% endfor %}
   </main>
+  <script>
+    (() => {
+      const targets = [
+        [".story__headline", 7.2],
+        [".story__dek", 5.2],
+        [".story__body", 5.2],
+        [".story__kicker", 4.8],
+        [".story__source", 4.5]
+      ];
+
+      const pt = (value) => Number.parseFloat(value || "0");
+
+      const shrink = (element, minSize) => {
+        const style = window.getComputedStyle(element);
+        const next = Math.max(minSize, pt(style.fontSize) * 0.92);
+        element.style.fontSize = `${next}px`;
+        element.style.lineHeight = "1.05";
+      };
+
+      const overflowing = (element) =>
+        element.scrollHeight > element.clientHeight + 1 ||
+        element.scrollWidth > element.clientWidth + 1;
+
+      const fitStory = (story) => {
+        for (let step = 0; step < 28 && overflowing(story); step += 1) {
+          for (const [selector, minSize] of targets) {
+            story.querySelectorAll(selector).forEach((element) => shrink(element, minSize));
+          }
+        }
+      };
+
+      const fitRailItem = (item) => {
+        const title = item.querySelector("a");
+        if (!title) return;
+        for (let step = 0; step < 18 && overflowing(item); step += 1) {
+          shrink(title, 5.2);
+        }
+      };
+
+      const fitAll = () => {
+        document.querySelectorAll(".story").forEach(fitStory);
+        document.querySelectorAll(".front-rail__item").forEach(fitRailItem);
+        window.__chatgptHaberFitDone = true;
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", fitAll);
+      } else {
+        fitAll();
+      }
+    })();
+  </script>
 </body>
 </html>

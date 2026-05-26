@@ -1,12 +1,14 @@
-<aside class="news-rail" aria-label="Son haberler">
-  <div class="news-rail__title">Son Haberler</div>
-  <ol class="news-rail__list">
-    {% for article in page.briefs %}
-      <li class="news-rail__item">
-        <strong>{{ "%02d"|format(loop.index) }}</strong>
-        <span>{{ article.headline }}</span>
-        <em>{{ article.source_bundle[0].name }}</em>
-      </li>
-    {% endfor %}
-  </ol>
-</aside>
+<section class="briefs-strip">
+  {% for article in page.briefs %}
+    <article class="brief">
+      {% if article.image and article.image.path %}
+        {% include "partials/figure.html" %}
+      {% endif %}
+      <strong>
+        <a href="{{ article.source_bundle[0].url }}" target="_blank" rel="noopener noreferrer">{{ article.headline }}</a>
+      </strong>
+      <p>{{ article.dek }}</p>
+      <a class="brief__link" href="{{ article.source_bundle[0].url }}" target="_blank" rel="noopener noreferrer">{{ article.source_bundle[0].name }}</a>
+    </article>
+  {% endfor %}
+</section>

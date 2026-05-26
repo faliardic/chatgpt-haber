@@ -45,7 +45,6 @@ templates/
   pages/
     front_page.html
     news_page.html
-    radar_page.html
   partials/
     masthead.html
     article.html

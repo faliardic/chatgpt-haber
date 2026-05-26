@@ -1,17 +1,8 @@
-<section class="page page--inside" data-page-no="{{ page.page_no }}">
+<section class="page page--front page--inside" data-page-no="{{ page.page_no }}">
   {% include "partials/masthead.html" %}
   <div class="section-bar">
     <strong>{{ page.name }}</strong>
     <span>Sayfa {{ page.page_no }}</span>
   </div>
-  <div class="page-layout">
-    <div class="page-main inside-grid">
-      {% for article in page.articles %}
-        {% include "partials/article.html" %}
-      {% endfor %}
-    </div>
-    {% if page.briefs %}
-      {% include "partials/briefs_strip.html" %}
-    {% endif %}
-  </div>
+  {% include "partials/page_grid.html" %}
 </section>

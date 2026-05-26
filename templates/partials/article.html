@@ -1,6 +1,8 @@
 <article class="story story--{{ article.layout_hint.story_size }} span-{{ article.layout_hint.column_span }}">
   <div class="story__kicker">{{ article.kicker }}</div>
-  <h2 class="story__headline">{{ article.headline }}</h2>
+  <h2 class="story__headline">
+    <a href="{{ article.source_bundle[0].url }}" target="_blank" rel="noopener noreferrer">{{ article.headline }}</a>
+  </h2>
   <p class="story__dek">{{ article.dek }}</p>
   {% if article.image and article.image.path %}
     {% include "partials/figure.html" %}
@@ -11,6 +13,7 @@
     {% endfor %}
   </div>
   <footer class="story__source">
-    {{ article.source_bundle[0].name }} | {{ article.verification.status }}
+    <a href="{{ article.source_bundle[0].url }}" target="_blank" rel="noopener noreferrer">{{ article.source_bundle[0].name }}</a>
+    | {{ article.verification.status }}
   </footer>
 </article>

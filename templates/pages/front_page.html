@@ -1,17 +1,4 @@
 <section class="page page--front" data-page-no="{{ page.page_no }}">
   {% include "partials/masthead.html" %}
-  <div class="page-layout">
-    <div class="page-main front-grid">
-      {% for article in page.articles %}
-        {% if article.layout_hint.story_size == "hero" %}
-          {% include "partials/hero_article.html" %}
-        {% else %}
-          {% include "partials/article.html" %}
-        {% endif %}
-      {% endfor %}
-    </div>
-    {% if page.briefs %}
-      {% include "partials/briefs_strip.html" %}
-    {% endif %}
-  </div>
+  {% include "partials/page_grid.html" %}
 </section>
