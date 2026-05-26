@@ -13,6 +13,13 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 BASE_DIR = Path(__file__).resolve().parents[1]
 TEMPLATE_DIR = BASE_DIR / "templates"
 PRINT_CSS = BASE_DIR / "static" / "css" / "print.css"
+MAX_EMBED_IMAGE_BYTES = 1_500_000
+
+
+def _windows_drive_path(path: str) -> str | None:
+    if len(path) >= 4 and path[0] == "/" and path[2] == ":":
+        return path[1:]
+    return None
 
 
 def _path_from_image_value(value: str, html_dir: Path) -> Path | None:
@@ -32,11 +39,7 @@ def _path_from_image_value(value: str, html_dir: Path) -> Path | None:
     if path.is_absolute():
         candidates.append(path)
     else:
-        candidates.extend([
-            html_dir / normalized,
-            BASE_DIR / normalized,
-            BASE_DIR / "dist" / normalized,
-        ])
+        candidates.extend([html_dir / normalized, BASE_DIR / normalized, BASE_DIR / "dist" / normalized])
 
     for candidate in candidates:
         try:
@@ -48,33 +51,76 @@ def _path_from_image_value(value: str, html_dir: Path) -> Path | None:
     return None
 
 
-def _windows_drive_path(path: str) -> str | None:
-    # urlparse(file:///V:/folder/image.jpg).path on POSIX is /V:/folder/image.jpg.
-    # Path('/V:/...') is not a valid Windows drive path in this environment, so
-    # strip the leading slash when a drive-letter pattern is present.
-    if len(path) >= 4 and path[0] == "/" and path[2] == ":":
-        return path[1:]
-    return None
+def _data_uri_from_bytes(data: bytes, mime_type: str) -> str:
+    encoded = base64.b64encode(data).decode("ascii")
+    return f"data:{mime_type};base64,{encoded}"
 
 
-def _image_data_uri(image_path: Path) -> str:
+def _local_image_data_uri(image_path: Path) -> str:
     mime_type = guess_type(image_path.name)[0] or "application/octet-stream"
-    data = base64.b64encode(image_path.read_bytes()).decode("ascii")
-    return f"data:{mime_type};base64,{data}"
+    return _data_uri_from_bytes(image_path.read_bytes(), mime_type)
 
 
-def _embed_local_images(issue_data: dict[str, Any], html_path: Path) -> dict[str, Any]:
+def _remote_image_data_uri(url: str) -> str:
+    import requests
+
+    response = requests.get(
+        url,
+        timeout=15,
+        headers={"User-Agent": "Mozilla/5.0 ChatGPT-Haber/1.0"},
+        stream=True,
+    )
+    response.raise_for_status()
+    content_type = response.headers.get("content-type", "").split(";")[0].strip().lower()
+    if not content_type.startswith("image/"):
+        content_type = guess_type(urlparse(url).path)[0] or "image/jpeg"
+
+    chunks: list[bytes] = []
+    total = 0
+    for chunk in response.iter_content(chunk_size=65536):
+        if not chunk:
+            continue
+        total += len(chunk)
+        if total > MAX_EMBED_IMAGE_BYTES:
+            raise ValueError(f"image too large to embed: {url}")
+        chunks.append(chunk)
+    return _data_uri_from_bytes(b"".join(chunks), content_type)
+
+
+def _embed_images(issue_data: dict[str, Any], html_path: Path) -> dict[str, Any]:
     standalone = deepcopy(issue_data)
     html_dir = html_path.parent
+    cache: dict[str, str] = {}
+
     for page in standalone.get("pages", []):
         for group_name in ("articles", "briefs"):
             for article in page.get(group_name, []) or []:
                 image = article.get("image")
                 if not isinstance(image, dict) or not image.get("path"):
                     continue
-                image_path = _path_from_image_value(str(image["path"]), html_dir)
-                if image_path is not None:
-                    image["path"] = _image_data_uri(image_path)
+                raw = str(image["path"]).strip()
+                if raw.startswith("data:"):
+                    continue
+                if raw in cache:
+                    image["path"] = cache[raw]
+                    continue
+
+                data_uri = ""
+                try:
+                    if raw.startswith(("http://", "https://")):
+                        data_uri = _remote_image_data_uri(raw)
+                    else:
+                        image_path = _path_from_image_value(raw, html_dir)
+                        if image_path is not None:
+                            data_uri = _local_image_data_uri(image_path)
+                except Exception:
+                    data_uri = ""
+
+                if data_uri:
+                    cache[raw] = data_uri
+                    image["path"] = data_uri
+                else:
+                    image["path"] = ""
     return standalone
 
 
@@ -86,7 +132,7 @@ def render_html(issue_data: dict[str, Any], html_path: Path) -> None:
     template = env.get_template("base.html")
     html_path.parent.mkdir(parents=True, exist_ok=True)
 
-    standalone_issue_data = _embed_local_images(issue_data, html_path)
+    standalone_issue_data = _embed_images(issue_data, html_path)
     css_text = PRINT_CSS.read_text(encoding="utf-8")
     rendered_html = template.render(
         issue=standalone_issue_data["issue"],
