@@ -21,20 +21,20 @@
   <script>
     (() => {
       const targets = [
-        [".story__headline", 7.2],
-        [".story__dek", 5.2],
-        [".story__body", 5.2],
-        [".story__kicker", 4.8],
-        [".story__source", 4.5]
+        [".story__headline", 7.2, "1.08"],
+        [".story__dek", 5.2, "1.18"],
+        [".story__body", 5.2, "1.18"],
+        [".story__kicker", 4.8, "1.12"],
+        [".story__source", 4.5, "1.12"]
       ];
 
       const pt = (value) => Number.parseFloat(value || "0");
 
-      const shrink = (element, minSize) => {
+      const shrink = (element, minSize, lineHeight) => {
         const style = window.getComputedStyle(element);
         const next = Math.max(minSize, pt(style.fontSize) * 0.92);
         element.style.fontSize = `${next}px`;
-        element.style.lineHeight = "1.05";
+        element.style.lineHeight = lineHeight;
       };
 
       const overflowing = (element) =>
@@ -43,8 +43,8 @@
 
       const fitStory = (story) => {
         for (let step = 0; step < 28 && overflowing(story); step += 1) {
-          for (const [selector, minSize] of targets) {
-            story.querySelectorAll(selector).forEach((element) => shrink(element, minSize));
+          for (const [selector, minSize, lineHeight] of targets) {
+            story.querySelectorAll(selector).forEach((element) => shrink(element, minSize, lineHeight));
           }
         }
       };
@@ -53,7 +53,7 @@
         const title = item.querySelector("a");
         if (!title) return;
         for (let step = 0; step < 18 && overflowing(item); step += 1) {
-          shrink(title, 5.2);
+          shrink(title, 5.2, "1.12");
         }
       };
 

@@ -362,13 +362,6 @@ body {
 }
 
 .page--front .story__body {
-  display: block;
-  font-size: 7.2pt;
-  line-height: 1.14;
-  overflow: hidden;
-}
-
-.page--front .story__body p:not(:first-child) {
   display: none;
 }
 
