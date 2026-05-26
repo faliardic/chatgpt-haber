@@ -495,7 +495,6 @@ body {
 }
 
 .front-rail__list {
-  counter-reset: rail;
   display: grid;
   grid-template-rows: repeat(20, minmax(0, 1fr));
   height: calc(100% - 11mm);
@@ -508,16 +507,14 @@ body {
 .front-rail__item {
   border-bottom: 0.2mm solid var(--soft-rule);
   break-inside: avoid;
-  counter-increment: rail;
   display: grid;
   gap: 0.6mm;
   grid-template-columns: 5mm 1fr;
   padding: 1.15mm 0;
 }
 
-.front-rail__item::before {
+.front-rail__number {
   color: var(--muted);
-  content: counter(rail, decimal-leading-zero);
   font-size: 6.6pt;
   font-weight: 700;
   line-height: 1.15;
@@ -537,7 +534,7 @@ body {
   text-decoration: underline;
 }
 
-.front-rail__item span {
+.front-rail__source {
   color: var(--muted);
   font-size: 5.9pt;
   grid-column: 2;

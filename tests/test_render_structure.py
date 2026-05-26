@@ -60,7 +60,29 @@ def test_front_page_rail_lists_twenty_text_only_items(tmp_path):
 
     rail_items = soup.select(".page[data-page-no='1'] .front-rail__item")
     assert len(rail_items) == 20
+    assert [item.select_one(".front-rail__number").get_text(strip=True) for item in rail_items[:3]] == ["01", "02", "03"]
     assert not soup.select(".page[data-page-no='1'] .front-rail img")
+
+
+def test_rail_numbering_continues_across_pages(tmp_path):
+    issue = normalize_issue(read_json(Path("examples/issue.sample.json")))
+    source_article = deepcopy(issue["pages"][0]["articles"][0])
+    for page in issue["pages"]:
+        page["briefs"] = []
+        for index in range(20):
+            article = deepcopy(source_article)
+            article["id"] = f"page-{page['page_no']}-rail-{index}"
+            article["headline"] = f"Kısa haber {index + 1}"
+            article["layout_hint"] = {"story_size": "brief", "column_span": 1, "preferred_position": "rail"}
+            page["briefs"].append(article)
+
+    html_path = tmp_path / "issue.html"
+    render_html(issue, html_path)
+    soup = BeautifulSoup(html_path.read_text(encoding="utf-8"), "lxml")
+
+    assert soup.select_one(".page[data-page-no='1'] .front-rail__number").get_text(strip=True) == "01"
+    assert soup.select_one(".page[data-page-no='2'] .front-rail__number").get_text(strip=True) == "21"
+    assert soup.select_one(".page[data-page-no='3'] .front-rail__number").get_text(strip=True) == "41"
 
 
 def test_live_issue_front_page_has_twelve_main_blocks_and_twenty_rail_items(monkeypatch):
