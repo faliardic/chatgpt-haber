@@ -48,7 +48,7 @@ body {
   border-top: var(--thick-rule);
   border-bottom: var(--thin-rule);
   margin-bottom: 3mm;
-  padding: 2.5mm 0;
+  padding: 2mm 0;
 }
 
 .masthead__meta,
@@ -70,6 +70,99 @@ body {
   text-transform: uppercase;
 }
 
+.masthead__band {
+  background:
+    radial-gradient(circle at 82% 48%, rgba(198, 24, 38, 0.95) 0 20%, rgba(127, 15, 25, 0.88) 32%, transparent 45%),
+    linear-gradient(100deg, #f7f7f7 0 16%, #c4c8cd 16% 17.5%, #b4001f 17.5% 21%, #ffffff 21% 22.3%, #071a35 22.3% 67%, #7b0e17 100%);
+  border: 0.2mm solid #d8d8d8;
+  box-shadow: 0 0.8mm 2mm rgba(0, 0, 0, 0.08);
+  display: grid;
+  grid-template-columns: 38mm 21mm minmax(0, 1fr) 38mm 46mm;
+  height: 39mm;
+  margin-top: 3mm;
+  overflow: hidden;
+  position: relative;
+}
+
+.masthead__band::before {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 9mm 9mm;
+  content: "";
+  grid-column: 3 / 5;
+  inset: 0;
+  opacity: 0.35;
+  position: absolute;
+}
+
+.masthead__brand {
+  align-items: center;
+  background: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+  padding: 3mm 2mm;
+  position: relative;
+  z-index: 1;
+}
+
+.masthead__chevrons {
+  background:
+    linear-gradient(58deg, transparent 0 43%, rgba(255, 255, 255, 0.88) 43% 46%, transparent 46%),
+    linear-gradient(58deg, transparent 0 57%, rgba(255, 255, 255, 0.72) 57% 60%, transparent 60%);
+  position: relative;
+  z-index: 1;
+}
+
+.masthead__slogan {
+  align-items: center;
+  color: #fff;
+  display: flex;
+  font-family: var(--sans);
+  font-size: 18pt;
+  font-weight: 800;
+  gap: 3mm;
+  justify-content: center;
+  letter-spacing: 0.03em;
+  min-width: 0;
+  position: relative;
+  text-shadow: 0 0.4mm 1mm rgba(0, 0, 0, 0.38);
+  z-index: 1;
+}
+
+.masthead__slogan span {
+  background: #d30023;
+  border-radius: 50%;
+  display: inline-block;
+  height: 2.3mm;
+  width: 2.3mm;
+}
+
+.masthead__globe {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 20, 40, 0.55), rgba(145, 0, 16, 0.12) 62%, transparent 63%),
+    repeating-radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.18) 0 0.3mm, transparent 0.3mm 4mm),
+    repeating-linear-gradient(80deg, rgba(255, 255, 255, 0.14) 0 0.2mm, transparent 0.2mm 4mm);
+  opacity: 0.8;
+  position: relative;
+  z-index: 1;
+}
+
+.masthead__band .masthead__note {
+  align-self: center;
+  color: #fff;
+  font-size: 8.6pt;
+  font-weight: 700;
+  line-height: 1.24;
+  max-width: none;
+  padding: 0 4mm 0 1mm;
+  position: relative;
+  text-align: right;
+  text-shadow: 0 0.4mm 1mm rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
 .masthead__row {
   display: flex;
   align-items: center;
@@ -79,11 +172,10 @@ body {
 
 .masthead__logo {
   display: block;
-  height: 24mm;
-  margin-top: 1.5mm;
+  height: 30mm;
   object-fit: contain;
-  object-position: left center;
-  width: 34mm;
+  object-position: center;
+  width: 30mm;
 }
 
 .masthead__note {

@@ -3,8 +3,13 @@
     <span>Üretim: {{ issue.generated_at|datetime_tr }}</span>
     <span>{{ issue.paper_size }} / {{ issue.page_count }} sayfa</span>
   </div>
-  <div class="masthead__row">
-    <img class="masthead__logo" src="{{ logo_href }}" alt="{{ issue.title }}">
+  <div class="masthead__band">
+    <div class="masthead__brand">
+      <img class="masthead__logo" src="{{ logo_href }}" alt="{{ issue.title }}">
+    </div>
+    <div class="masthead__chevrons" aria-hidden="true"></div>
+    <div class="masthead__slogan">GÜVENİLİR <span></span> HIZLI <span></span> TARAFSIZ</div>
+    <div class="masthead__globe" aria-hidden="true"></div>
     <div class="masthead__note">{{ issue.edition_note }}</div>
   </div>
 </header>
