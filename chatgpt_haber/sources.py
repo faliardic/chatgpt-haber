@@ -774,7 +774,7 @@ def issue_from_rss(issue_date: str, paper_size: str, image_dir: Path | None = No
     issue_data = {
         "issue": {
             "issue_date": issue_date,
-            "edition_name": "Sabah Baskısı",
+            "edition_name": "Anlık Baskı",
             "language": "tr-TR",
             "page_count": 3,
             "paper_size": paper_size,

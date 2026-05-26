@@ -2,12 +2,14 @@ from __future__ import annotations
 
 from pathlib import Path
 from typing import Any
+from datetime import datetime, timedelta, timezone
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 TEMPLATE_DIR = BASE_DIR / "templates"
+TR_TIMEZONE = timezone(timedelta(hours=3))
 
 
 def image_src(path_value: str) -> str:
@@ -22,12 +24,29 @@ def image_src(path_value: str) -> str:
     return path_value
 
 
+def datetime_tr(value: str) -> str:
+    if not value:
+        dt = datetime.now(TR_TIMEZONE)
+    else:
+        normalized = str(value).replace("Z", "+00:00")
+        try:
+            dt = datetime.fromisoformat(normalized)
+        except ValueError:
+            return str(value)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=TR_TIMEZONE)
+        else:
+            dt = dt.astimezone(TR_TIMEZONE)
+    return dt.strftime("%d.%m.%Y %H:%M")
+
+
 def render_html(issue_data: dict[str, Any], html_path: Path) -> None:
     env = Environment(
         loader=FileSystemLoader(TEMPLATE_DIR),
         autoescape=select_autoescape(["html", "xml"]),
     )
     env.filters["image_src"] = image_src
+    env.filters["datetime_tr"] = datetime_tr
     template = env.get_template("base.html")
     rendered_html = template.render(
         issue=issue_data["issue"],

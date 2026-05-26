@@ -1,7 +1,6 @@
 <header class="masthead">
   <div class="masthead__meta">
-    <span>{{ issue.edition_name }}</span>
-    <span>{{ issue.issue_date }}</span>
+    <span>Üretim: {{ issue.generated_at|datetime_tr }}</span>
     <span>{{ issue.paper_size }} / {{ issue.page_count }} sayfa</span>
   </div>
   <div class="masthead__row">

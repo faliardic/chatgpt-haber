@@ -141,7 +141,7 @@ def normalize_issue(raw: dict[str, Any], issue_date: str | None = None, paper_si
     return {
         "issue": {
             "issue_date": issue_date or str(meta.get("issue_date") or meta.get("date") or datetime.now().date().isoformat()),
-            "edition_name": str(meta.get("edition_name") or "Sabah Baskısı"),
+            "edition_name": str(meta.get("edition_name") or "Anlık Baskı"),
             "language": "tr-TR",
             "page_count": PAGE_COUNT,
             "paper_size": paper_size,
