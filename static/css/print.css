@@ -1,6 +1,6 @@
 @page {
   size: A3 portrait;
-  margin: 8mm 9mm 9mm 9mm;
+  margin: 7mm 8mm 8mm 8mm;
 }
 
 :root {
@@ -11,6 +11,10 @@
   --thick-rule: 0.6mm solid #111;
   --serif: Georgia, "Times New Roman", serif;
   --sans: Arial, Helvetica, sans-serif;
+  --page-h: 405mm;
+  --masthead-h: 26mm;
+  --section-h: 8mm;
+  --content-h: calc(var(--page-h) - var(--masthead-h) - var(--section-h));
 }
 
 * { box-sizing: border-box; }
@@ -26,21 +30,28 @@ body {
 }
 
 .page {
-  min-height: calc(420mm - 17mm);
+  block-size: var(--page-h);
   break-after: page;
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
-.issue--a4 .page { min-height: calc(297mm - 17mm); }
+.issue--a4 {
+  --page-h: 282mm;
+  --masthead-h: 22mm;
+  --section-h: 7mm;
+}
+
 .page:last-child { break-after: auto; }
 
 .masthead {
+  block-size: var(--masthead-h);
   border-top: var(--thick-rule);
   border-bottom: var(--thin-rule);
-  margin-bottom: 3mm;
-  padding: 2mm 0;
+  margin: 0 0 2mm;
+  overflow: hidden;
+  padding: 1.4mm 0;
 }
 
 .masthead__meta,
@@ -56,7 +67,7 @@ body {
   display: flex;
   justify-content: space-between;
   gap: 5mm;
-  font-size: 7.5pt;
+  font-size: 7pt;
   text-transform: uppercase;
 }
 
@@ -64,37 +75,42 @@ body {
   display: flex;
   align-items: end;
   justify-content: space-between;
-  gap: 6mm;
+  gap: 5mm;
 }
 
 .masthead__title {
-  margin: 1.5mm 0 0;
+  margin: 1mm 0 0;
   font-family: var(--sans);
-  font-size: 31pt;
-  line-height: 1;
-  letter-spacing: 0.07em;
+  font-size: 28pt;
+  line-height: 0.95;
+  letter-spacing: 0.065em;
   text-transform: uppercase;
 }
 
 .masthead__note {
-  max-width: 70mm;
+  max-width: 68mm;
   color: var(--muted);
-  font-size: 7.2pt;
+  font-size: 6.8pt;
+  line-height: 1.1;
   text-align: right;
 }
 
 .section-bar {
+  block-size: var(--section-h);
   border-bottom: var(--thin-rule);
-  margin-bottom: 2.5mm;
-  padding-bottom: 1.2mm;
+  flex: 0 0 var(--section-h);
+  margin: 0;
+  overflow: hidden;
+  padding-bottom: 1mm;
 }
 
 .page-layout {
-  align-items: center;
+  align-items: stretch;
   display: grid;
-  flex: 1;
-  gap: 4mm;
-  grid-template-columns: minmax(0, 1fr) 45mm;
+  flex: 0 0 var(--content-h);
+  gap: 3mm;
+  grid-template-columns: minmax(0, 1fr) 42mm;
+  min-height: 0;
 }
 
 .page-main { min-width: 0; }
@@ -102,12 +118,12 @@ body {
 .front-grid,
 .inside-grid,
 .radar-grid {
-  align-content: center;
   display: grid;
-  gap: 2.2mm 3mm;
+  gap: 1.25mm 2mm;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(8, minmax(0, 1fr));
+  grid-template-rows: repeat(8, 1fr);
   height: 100%;
+  min-height: 0;
 }
 
 .span-1,
@@ -120,12 +136,12 @@ body {
   border: var(--thin-rule);
   break-inside: avoid;
   display: grid;
-  grid-template-columns: 31mm minmax(0, 1fr);
+  grid-template-columns: 24mm minmax(0, 1fr);
   grid-template-rows: auto auto 1fr auto;
-  column-gap: 1.6mm;
+  column-gap: 1.2mm;
   min-height: 0;
   overflow: hidden;
-  padding: 1.2mm;
+  padding: 0.85mm;
 }
 
 .story--hero,
@@ -135,53 +151,64 @@ body {
 }
 
 .story__kicker {
-  font-size: 6.4pt;
+  font-size: 5.8pt;
   font-weight: 700;
   grid-column: 2;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.5mm;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  margin-bottom: 0.35mm;
+  max-height: 6.2pt;
+  overflow: hidden;
   text-transform: uppercase;
 }
 
 .story__headline {
   font-family: var(--serif);
-  font-size: 10.6pt;
+  font-size: 9.2pt;
   grid-column: 2;
-  line-height: 1.01;
-  margin: 0 0 0.6mm;
+  line-height: 0.98;
+  margin: 0 0 0.45mm;
+  max-height: 18.2pt;
+  overflow: hidden;
 }
 
 .story--hero .story__headline,
 .story--lead .story__headline {
-  font-size: 10.6pt;
-  line-height: 1.01;
+  font-size: 9.2pt;
+  line-height: 0.98;
 }
 
 .story__dek {
   font-family: var(--sans);
-  font-size: 6.45pt;
+  font-size: 5.85pt;
   grid-column: 2;
-  line-height: 1.13;
-  margin: 0 0 0.55mm;
+  line-height: 1.08;
+  margin: 0 0 0.35mm;
+  max-height: 19pt;
+  overflow: hidden;
 }
 
 .story__body {
   font-family: var(--serif);
-  font-size: 6.15pt;
+  font-size: 5.7pt;
   grid-column: 2;
-  line-height: 1.08;
+  line-height: 1.05;
+  max-height: 18pt;
   overflow: hidden;
 }
 
 .story--hero .story__body { columns: auto; }
-.story__body p { margin: 0 0 0.5mm; }
+.story__body p { margin: 0; }
 .story__body p:nth-child(n+2) { display: none; }
 
 .story__source {
   color: var(--muted);
-  font-size: 5.4pt;
+  font-size: 4.9pt;
   grid-column: 2;
-  margin-top: 0.45mm;
+  line-height: 1;
+  margin-top: 0.3mm;
+  max-height: 5.2pt;
+  overflow: hidden;
   text-transform: uppercase;
 }
 
@@ -198,7 +225,7 @@ body {
 .figure img {
   display: block;
   height: 100%;
-  min-height: 22mm;
+  min-height: 0;
   object-fit: cover;
   width: 100%;
 }
@@ -215,6 +242,7 @@ body {
 
 .radar-box {
   border: 0;
+  min-height: 0;
   padding: 0;
 }
 
@@ -223,53 +251,64 @@ body {
   border-left: var(--thick-rule);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-left: 2.5mm;
+  justify-content: stretch;
+  min-height: 0;
+  overflow: hidden;
+  padding-left: 2mm;
 }
 
 .news-rail__title {
   border-bottom: var(--thick-rule);
-  font-size: 10pt;
+  flex: 0 0 auto;
+  font-size: 9.2pt;
   font-weight: 800;
-  letter-spacing: 0.08em;
-  margin-bottom: 1.4mm;
-  padding-bottom: 0.9mm;
+  letter-spacing: 0.07em;
+  margin-bottom: 1mm;
+  padding-bottom: 0.7mm;
   text-transform: uppercase;
 }
 
 .news-rail__list {
+  display: grid;
+  grid-template-rows: repeat(30, 1fr);
   list-style: none;
   margin: 0;
+  min-height: 0;
   padding: 0;
 }
 
 .news-rail__item {
   border-bottom: var(--thin-rule);
   break-inside: avoid;
-  column-gap: 1.2mm;
+  column-gap: 1mm;
   display: grid;
-  grid-template-columns: 7mm 1fr;
-  padding: 0.72mm 0;
+  grid-template-columns: 6mm 1fr;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0.25mm 0;
 }
 
 .news-rail__item strong {
-  font-size: 6.8pt;
-  line-height: 1.05;
+  font-size: 6pt;
+  line-height: 1;
 }
 
 .news-rail__item span {
   font-family: var(--serif);
-  font-size: 6.75pt;
+  font-size: 6pt;
   font-weight: 700;
-  line-height: 1.06;
+  line-height: 1;
+  max-height: 12pt;
+  overflow: hidden;
 }
 
 .news-rail__item em {
   color: var(--muted);
-  font-size: 5.3pt;
+  display: none;
+  font-size: 4.8pt;
   font-style: normal;
   grid-column: 2;
-  line-height: 1.05;
-  margin-top: 0.3mm;
+  line-height: 1;
+  margin-top: 0.2mm;
   text-transform: uppercase;
 }
