@@ -72,13 +72,13 @@ body {
 
 .masthead__band {
   background:
-    radial-gradient(circle at 82% 48%, rgba(198, 24, 38, 0.95) 0 20%, rgba(127, 15, 25, 0.88) 32%, transparent 45%),
-    linear-gradient(100deg, #f7f7f7 0 16%, #c4c8cd 16% 17.5%, #b4001f 17.5% 21%, #ffffff 21% 22.3%, #071a35 22.3% 67%, #7b0e17 100%);
+    radial-gradient(circle at 84% 48%, rgba(213, 25, 38, 0.95) 0 19%, rgba(132, 12, 22, 0.9) 32%, transparent 47%),
+    linear-gradient(90deg, #071a35 0 66%, #8b1019 100%);
   border: 0.2mm solid #d8d8d8;
   box-shadow: 0 0.8mm 2mm rgba(0, 0, 0, 0.08);
   display: grid;
-  grid-template-columns: 38mm 21mm minmax(0, 1fr) 38mm 46mm;
-  height: 39mm;
+  grid-template-columns: 64mm 36mm minmax(0, 1fr) 42mm 52mm;
+  height: 41mm;
   margin-top: 3mm;
   overflow: hidden;
   position: relative;
@@ -98,21 +98,40 @@ body {
 
 .masthead__brand {
   align-items: center;
-  background: #f7f7f7;
+  background:
+    linear-gradient(120deg, #f8f8f8 0 74%, #eceff2 74% 100%);
   display: flex;
   justify-content: center;
   min-width: 0;
-  padding: 3mm 2mm;
+  padding: 3mm 5mm 3mm 4mm;
   position: relative;
   z-index: 1;
 }
 
 .masthead__chevrons {
   background:
-    linear-gradient(58deg, transparent 0 43%, rgba(255, 255, 255, 0.88) 43% 46%, transparent 46%),
-    linear-gradient(58deg, transparent 0 57%, rgba(255, 255, 255, 0.72) 57% 60%, transparent 60%);
+    linear-gradient(120deg, #eceff2 0 24%, #c3c9cf 24% 35%, #ffffff 35% 42%, #071a35 42% 100%);
+  overflow: hidden;
   position: relative;
   z-index: 1;
+}
+
+.masthead__chevrons::before,
+.masthead__chevrons::after {
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.masthead__chevrons::before {
+  background: #c40020;
+  clip-path: polygon(18% 0, 58% 0, 34% 100%, 0 100%);
+}
+
+.masthead__chevrons::after {
+  background:
+    linear-gradient(120deg, transparent 0 30%, rgba(255, 255, 255, 0.95) 30% 36%, transparent 36% 52%, rgba(255, 255, 255, 0.86) 52% 58%, transparent 58% 100%);
+  clip-path: inset(0);
 }
 
 .masthead__slogan {
@@ -120,7 +139,7 @@ body {
   color: #fff;
   display: flex;
   font-family: var(--sans);
-  font-size: 18pt;
+  font-size: 20pt;
   font-weight: 800;
   gap: 3mm;
   justify-content: center;
@@ -152,7 +171,7 @@ body {
 .masthead__band .masthead__note {
   align-self: center;
   color: #fff;
-  font-size: 8.6pt;
+  font-size: 9pt;
   font-weight: 700;
   line-height: 1.24;
   max-width: none;
@@ -172,10 +191,10 @@ body {
 
 .masthead__logo {
   display: block;
-  height: 30mm;
+  height: 33mm;
   object-fit: contain;
   object-position: center;
-  width: 30mm;
+  width: 46mm;
 }
 
 .masthead__note {
