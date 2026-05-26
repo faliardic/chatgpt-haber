@@ -4,6 +4,8 @@ from copy import deepcopy
 from datetime import datetime, timezone
 from pathlib import Path
 import mimetypes
+import re
+import unicodedata
 from urllib.parse import urljoin, urlparse
 from typing import Any
 
@@ -275,6 +277,28 @@ IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
 REQUEST_HEADERS = {
     "User-Agent": "ChatGPT-Haber/0.2 (+https://example.com; print issue builder)",
 }
+STOP_WORDS = {
+    "aciklandi",
+    "ardindan",
+    "baskan",
+    "baskani",
+    "belli",
+    "bir",
+    "bugun",
+    "cumhurbaskani",
+    "dakika",
+    "de",
+    "da",
+    "dedi",
+    "den",
+    "icin",
+    "ile",
+    "son",
+    "sonra",
+    "ve",
+    "ya",
+    "yeni",
+}
 
 
 def entry_image_url(entry: Any) -> str:
@@ -531,6 +555,56 @@ def section_for_source(source_name: str) -> str:
     return "gundem"
 
 
+def normalize_for_match(value: str) -> str:
+    text = unicodedata.normalize("NFKD", value.casefold())
+    text = "".join(ch for ch in text if not unicodedata.combining(ch))
+    for old, new in {"ı": "i", "ğ": "g", "ü": "u", "ş": "s", "ö": "o", "ç": "c"}.items():
+        text = text.replace(old, new)
+    return re.sub(r"[^a-z0-9]+", " ", text).strip()
+
+
+def match_tokens(article: dict[str, Any]) -> set[str]:
+    text = normalize_for_match(f"{article.get('headline', '')} {article.get('dek', '')}")
+    return {token for token in text.split() if len(token) > 2 and token not in STOP_WORDS}
+
+
+def image_match_key(value: str) -> str:
+    if not value:
+        return ""
+    parsed = urlparse(value)
+    return normalize_for_match(Path(parsed.path).stem)
+
+
+def article_similarity(left: dict[str, Any], right: dict[str, Any]) -> float:
+    left_tokens = match_tokens(left)
+    right_tokens = match_tokens(right)
+    if not left_tokens or not right_tokens:
+        return 0
+    overlap = len(left_tokens & right_tokens)
+    return overlap / max(1, min(len(left_tokens), len(right_tokens)))
+
+
+def is_duplicate_article(candidate: dict[str, Any], selected: list[dict[str, Any]]) -> bool:
+    candidate_image = image_match_key(str(candidate.get("image_url") or ""))
+    for article in selected:
+        if candidate_image and candidate_image == image_match_key(str(article.get("image_url") or "")):
+            return True
+        same_section = candidate.get("section") == article.get("section")
+        threshold = 0.58 if same_section else 0.68
+        if article_similarity(candidate, article) >= threshold:
+            return True
+    return False
+
+
+def dedupe_similar_articles(articles: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    selected: list[dict[str, Any]] = []
+    for article in articles:
+        if not is_duplicate_article(article, selected):
+            article["importance"] = len(selected) + 1
+            selected.append(article)
+    return selected
+
+
 def parse_feed_articles(feeds: dict[str, str], limit: int) -> list[dict[str, Any]]:
     try:
         import feedparser
@@ -595,9 +669,7 @@ def parse_feed_articles(feeds: dict[str, str], limit: int) -> list[dict[str, Any
             if idx < len(source_articles):
                 source_articles[idx]["importance"] = len(articles) + 1
                 articles.append(source_articles[idx])
-                if len(articles) >= limit:
-                    return articles
-    return articles[:limit]
+    return dedupe_similar_articles(articles)[:limit]
 
 
 def fetch_rss_articles(limit: int = 120) -> list[dict[str, Any]]:

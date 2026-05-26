@@ -4,7 +4,7 @@ from pathlib import Path
 
 from chatgpt_haber.issue import normalize_issue, read_json
 from chatgpt_haber.render import image_src, render_html
-from chatgpt_haber.sources import issue_from_rss
+from chatgpt_haber.sources import dedupe_similar_articles, issue_from_rss
 
 
 def test_single_html_document(tmp_path):
@@ -127,6 +127,36 @@ def test_live_issue_front_page_has_twelve_main_blocks_and_twenty_rail_items(monk
         assert len(page["articles"]) == 12
         assert len(page["briefs"]) == 20
         assert all(article["layout_hint"]["story_size"] == "brief" for article in page["briefs"])
+
+
+def test_similar_articles_from_different_sources_are_deduped():
+    articles = [
+        {
+            "section": "dunya",
+            "headline": "Cumhurbaşkanı Erdoğan Pezeşkiyan ile görüştü",
+            "dek": "Cumhurbaşkanı Erdoğan, İran Cumhurbaşkanı Pezeşkiyan ile telefonda görüştü.",
+            "image_url": "https://example.com/erdogan-pezeskiyan.jpg",
+        },
+        {
+            "section": "dunya",
+            "headline": "Cumhurbaşkanı Erdoğan, İranlı mevkidaşı Pezeşkiyan'la görüştü",
+            "dek": "Cumhurbaşkanı Erdoğan, İranlı mevkidaşı Mesud Pezeşkiyan ile telefonda görüştü.",
+            "image_url": "https://cdn.example.com/erdogan-pezeskiyan.jpg",
+        },
+        {
+            "section": "ekonomi",
+            "headline": "Petrol fiyatları haftaya yükselişle başladı",
+            "dek": "Küresel piyasalarda petrol fiyatları yeni haftaya yükselişle girdi.",
+            "image_url": "",
+        },
+    ]
+
+    deduped = dedupe_similar_articles(articles)
+
+    assert [article["headline"] for article in deduped] == [
+        "Cumhurbaşkanı Erdoğan Pezeşkiyan ile görüştü",
+        "Petrol fiyatları haftaya yükselişle başladı",
+    ]
 
 
 def test_all_pages_use_shared_grid_layout(tmp_path):
