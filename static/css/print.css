@@ -119,9 +119,9 @@ body {
 .inside-grid,
 .radar-grid {
   display: grid;
-  gap: 1.25mm 2mm;
+  gap: 1.45mm 2mm;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(8, 1fr);
+  grid-template-rows: repeat(7, 1fr);
   height: 100%;
   min-height: 0;
 }
@@ -136,12 +136,12 @@ body {
   border: var(--thin-rule);
   break-inside: avoid;
   display: grid;
-  grid-template-columns: 24mm minmax(0, 1fr);
+  grid-template-columns: 28mm minmax(0, 1fr);
   grid-template-rows: auto auto 1fr auto;
-  column-gap: 1.2mm;
+  column-gap: 1.35mm;
   min-height: 0;
   overflow: hidden;
-  padding: 0.85mm;
+  padding: 1mm;
 }
 
 .story--hero,
@@ -151,49 +151,49 @@ body {
 }
 
 .story__kicker {
-  font-size: 5.8pt;
+  font-size: 6pt;
   font-weight: 700;
   grid-column: 2;
   letter-spacing: 0.06em;
   line-height: 1;
-  margin-bottom: 0.35mm;
-  max-height: 6.2pt;
+  margin-bottom: 0.4mm;
+  max-height: 6.6pt;
   overflow: hidden;
   text-transform: uppercase;
 }
 
 .story__headline {
   font-family: var(--serif);
-  font-size: 9.2pt;
+  font-size: 9.7pt;
   grid-column: 2;
-  line-height: 0.98;
-  margin: 0 0 0.45mm;
-  max-height: 18.2pt;
+  line-height: 1;
+  margin: 0 0 0.5mm;
+  max-height: 20pt;
   overflow: hidden;
 }
 
 .story--hero .story__headline,
 .story--lead .story__headline {
-  font-size: 9.2pt;
-  line-height: 0.98;
+  font-size: 9.7pt;
+  line-height: 1;
 }
 
 .story__dek {
   font-family: var(--sans);
-  font-size: 5.85pt;
+  font-size: 6.15pt;
   grid-column: 2;
-  line-height: 1.08;
-  margin: 0 0 0.35mm;
-  max-height: 19pt;
+  line-height: 1.1;
+  margin: 0 0 0.4mm;
+  max-height: 22pt;
   overflow: hidden;
 }
 
 .story__body {
   font-family: var(--serif);
-  font-size: 5.7pt;
+  font-size: 5.9pt;
   grid-column: 2;
-  line-height: 1.05;
-  max-height: 18pt;
+  line-height: 1.08;
+  max-height: 22pt;
   overflow: hidden;
 }
 
@@ -203,11 +203,11 @@ body {
 
 .story__source {
   color: var(--muted);
-  font-size: 4.9pt;
+  font-size: 5pt;
   grid-column: 2;
   line-height: 1;
-  margin-top: 0.3mm;
-  max-height: 5.2pt;
+  margin-top: 0.35mm;
+  max-height: 5.5pt;
   overflow: hidden;
   text-transform: uppercase;
 }
