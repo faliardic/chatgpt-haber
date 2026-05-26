@@ -4,9 +4,14 @@
     <strong>{{ page.name }}</strong>
     <span>Sayfa {{ page.page_no }}</span>
   </div>
-  <div class="inside-grid">
-    {% for article in page.articles %}
-      {% include "partials/article.html" %}
-    {% endfor %}
+  <div class="page-layout">
+    <div class="page-main inside-grid">
+      {% for article in page.articles %}
+        {% include "partials/article.html" %}
+      {% endfor %}
+    </div>
+    {% if page.briefs %}
+      {% include "partials/briefs_strip.html" %}
+    {% endif %}
   </div>
 </section>
