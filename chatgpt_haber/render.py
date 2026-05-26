@@ -1,9 +1,9 @@
 from __future__ import annotations
 
+import base64
 from copy import deepcopy
+from mimetypes import guess_type
 from pathlib import Path
-import posixpath
-import shutil
 from typing import Any
 from urllib.parse import unquote, urlparse
 
@@ -15,51 +15,67 @@ TEMPLATE_DIR = BASE_DIR / "templates"
 PRINT_CSS = BASE_DIR / "static" / "css" / "print.css"
 
 
-def _portable_asset_path(value: str, html_dir: Path) -> str:
-    """Return a browser-portable relative path for images in rendered HTML.
-
-    Playwright can render local absolute paths, but a saved HTML file opened on a
-    phone cannot resolve paths such as file:///V:/.../dist/assets/image.jpg.
-    The exported HTML should therefore reference assets relatively, e.g.
-    assets/image.jpg, while the PDF renderer still opens the HTML from disk.
-    """
+def _path_from_image_value(value: str, html_dir: Path) -> Path | None:
     raw = str(value or "").strip()
     if not raw or raw.startswith(("http://", "https://", "data:")):
-        return raw
+        return None
 
     normalized = raw.replace("\\", "/")
-    lower = normalized.lower()
-    marker = "/dist/assets/"
-    if marker in lower:
-        idx = lower.index(marker) + len("/dist/")
-        return normalized[idx:]
-    if lower.startswith("assets/"):
-        return normalized
-
     if normalized.startswith("file:"):
         parsed = urlparse(normalized)
-        normalized = unquote(parsed.path).lstrip("/")
+        normalized = unquote(parsed.path)
+        if re_drive := _windows_drive_path(normalized):
+            normalized = re_drive
 
-    try:
-        path = Path(normalized)
-        if path.is_absolute():
-            return posixpath.relpath(path.resolve().as_posix(), html_dir.resolve().as_posix())
-    except OSError:
-        pass
+    candidates: list[Path] = []
+    path = Path(normalized)
+    if path.is_absolute():
+        candidates.append(path)
+    else:
+        candidates.extend([
+            html_dir / normalized,
+            BASE_DIR / normalized,
+            BASE_DIR / "dist" / normalized,
+        ])
 
-    return normalized
+    for candidate in candidates:
+        try:
+            resolved = candidate.resolve()
+        except OSError:
+            continue
+        if resolved.exists() and resolved.is_file():
+            return resolved
+    return None
 
 
-def _make_html_portable(issue_data: dict[str, Any], html_path: Path) -> dict[str, Any]:
-    portable = deepcopy(issue_data)
+def _windows_drive_path(path: str) -> str | None:
+    # urlparse(file:///V:/folder/image.jpg).path on POSIX is /V:/folder/image.jpg.
+    # Path('/V:/...') is not a valid Windows drive path in this environment, so
+    # strip the leading slash when a drive-letter pattern is present.
+    if len(path) >= 4 and path[0] == "/" and path[2] == ":":
+        return path[1:]
+    return None
+
+
+def _image_data_uri(image_path: Path) -> str:
+    mime_type = guess_type(image_path.name)[0] or "application/octet-stream"
+    data = base64.b64encode(image_path.read_bytes()).decode("ascii")
+    return f"data:{mime_type};base64,{data}"
+
+
+def _embed_local_images(issue_data: dict[str, Any], html_path: Path) -> dict[str, Any]:
+    standalone = deepcopy(issue_data)
     html_dir = html_path.parent
-    for page in portable.get("pages", []):
+    for page in standalone.get("pages", []):
         for group_name in ("articles", "briefs"):
             for article in page.get(group_name, []) or []:
                 image = article.get("image")
-                if isinstance(image, dict) and image.get("path"):
-                    image["path"] = _portable_asset_path(str(image["path"]), html_dir)
-    return portable
+                if not isinstance(image, dict) or not image.get("path"):
+                    continue
+                image_path = _path_from_image_value(str(image["path"]), html_dir)
+                if image_path is not None:
+                    image["path"] = _image_data_uri(image_path)
+    return standalone
 
 
 def render_html(issue_data: dict[str, Any], html_path: Path) -> None:
@@ -70,14 +86,13 @@ def render_html(issue_data: dict[str, Any], html_path: Path) -> None:
     template = env.get_template("base.html")
     html_path.parent.mkdir(parents=True, exist_ok=True)
 
-    css_target = html_path.parent / "print.css"
-    shutil.copyfile(PRINT_CSS, css_target)
-
-    portable_issue_data = _make_html_portable(issue_data, html_path)
+    standalone_issue_data = _embed_local_images(issue_data, html_path)
+    css_text = PRINT_CSS.read_text(encoding="utf-8")
     rendered_html = template.render(
-        issue=portable_issue_data["issue"],
-        pages=portable_issue_data["pages"],
-        css_href="print.css",
+        issue=standalone_issue_data["issue"],
+        pages=standalone_issue_data["pages"],
+        css_href=None,
+        inline_css=css_text,
     )
     html_path.write_text(rendered_html, encoding="utf-8")
 
