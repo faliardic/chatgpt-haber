@@ -2,7 +2,7 @@
   <div class="story__copy">
     <div class="story__kicker">{{ article.kicker }}</div>
     <h2 class="story__headline">
-      <a href="{{ article.source_bundle[0].url }}" target="_blank" rel="noopener noreferrer">{{ article.headline }}</a>
+      <a href="{{ article.pdf_detail_url|default(article.detail_url|default(article.source_bundle[0].url)) }}">{{ article.headline }}</a>
     </h2>
     <p class="story__dek">{{ article.dek }}</p>
     {% if article.pullquote %}

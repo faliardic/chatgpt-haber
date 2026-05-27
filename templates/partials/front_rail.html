@@ -4,7 +4,7 @@
     {% for article in page.briefs[:20] %}
       <li class="front-rail__item">
         <span class="front-rail__number">{{ "%02d"|format(((page.page_no - 1) * 20) + loop.index) }}</span>
-        <a href="{{ article.source_bundle[0].url }}" target="_blank" rel="noopener noreferrer">{{ article.headline }}</a>
+        <a href="{{ article.pdf_detail_url|default(article.detail_url|default(article.source_bundle[0].url)) }}">{{ article.headline }}</a>
         <span class="front-rail__source">{{ article.source_bundle[0].name }}</span>
       </li>
     {% endfor %}

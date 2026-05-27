@@ -15,7 +15,7 @@ def main() -> None:
     enrich_issue_images(issue_data, output_dir / "assets")
     validate_issue_data(issue_data)
     write_json(output_dir / "issue.json", issue_data)
-    render_html(issue_data, html_path)
+    render_html(issue_data, html_path, portable_pdf_links=True)
     render_pdf(html_path, pdf_path)
 
     print("PDF oluşturuldu:")

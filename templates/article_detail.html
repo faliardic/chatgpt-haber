@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ article.headline }} - {{ issue.title }}</title>
+  <link rel="stylesheet" href="{{ css_href }}">
+</head>
+<body>
+  <header class="detail-masthead">
+    <a class="detail-brand" href="{{ back_href }}">
+      <img src="{{ logo_href }}" alt="{{ issue.title }}">
+    </a>
+    <nav class="detail-nav" aria-label="Sayfa bağlantıları">
+      <a href="{{ back_href }}">Gazeteye dön</a>
+      <a href="{{ source_url }}" target="_blank" rel="noopener noreferrer">Kaynağı aç</a>
+    </nav>
+  </header>
+
+  <main class="detail-shell">
+    <article class="detail-article">
+      <div class="detail-kicker">{{ article.kicker }}</div>
+      <h1>{{ article.headline }}</h1>
+      <p class="detail-dek">{{ article.dek }}</p>
+
+      {% if article.image and article.image.path %}
+        <figure class="detail-figure">
+          <img src="{{ article.image.path|image_src }}" alt="{{ article.image.alt }}">
+          <figcaption>{{ article.image.caption }} <span>{{ article.image.credit }}</span></figcaption>
+        </figure>
+      {% endif %}
+
+      <div class="detail-meta">
+        <span>{{ article.byline|default("Haber Merkezi") }}</span>
+        <span>{{ source_name }}</span>
+        {% if article.source_bundle[0].published_at %}
+          <time datetime="{{ article.source_bundle[0].published_at }}">{{ article.source_bundle[0].published_at|datetime_tr }}</time>
+        {% endif %}
+      </div>
+
+      <div class="detail-body">
+        {% for paragraph in article.body %}
+          <p>{{ paragraph }}</p>
+        {% endfor %}
+      </div>
+
+      <footer class="detail-source">
+        <strong>Kaynak:</strong>
+        <a href="{{ source_url }}" target="_blank" rel="noopener noreferrer">{{ source_name }}</a>
+        <span>{{ article.verification.status }}</span>
+      </footer>
+    </article>
+  </main>
+</body>
+</html>

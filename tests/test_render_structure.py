@@ -31,14 +31,39 @@ def test_local_image_paths_render_as_file_uri(tmp_path):
     assert image_src(str(image_path)).startswith("file:///")
 
 
-def test_article_headlines_link_to_sources(tmp_path):
+def test_article_headlines_link_to_local_detail_pages(tmp_path):
     html_path = tmp_path / "issue.html"
     render_html(normalize_issue(read_json(Path("examples/issue.sample.json"))), html_path)
     soup = BeautifulSoup(html_path.read_text(encoding="utf-8"), "lxml")
 
     headline_links = soup.select(".story__headline a[href]")
     assert headline_links
-    assert all(link["href"].startswith("https://") for link in headline_links)
+    assert all(link["href"].startswith("articles/") for link in headline_links)
+    assert (tmp_path / headline_links[0]["href"]).exists()
+
+
+def test_portable_pdf_mode_links_to_embedded_detail_pages(tmp_path):
+    html_path = tmp_path / "issue.html"
+    render_html(normalize_issue(read_json(Path("examples/issue.sample.json"))), html_path, portable_pdf_links=True)
+    soup = BeautifulSoup(html_path.read_text(encoding="utf-8"), "lxml")
+
+    headline_link = soup.select_one(".story__headline a[href]")
+    assert headline_link
+    assert headline_link["href"].startswith("#article-detail-")
+    assert soup.select_one(headline_link["href"])
+
+
+def test_detail_page_keeps_original_source_link(tmp_path):
+    html_path = tmp_path / "issue.html"
+    render_html(normalize_issue(read_json(Path("examples/issue.sample.json"))), html_path)
+    soup = BeautifulSoup(html_path.read_text(encoding="utf-8"), "lxml")
+
+    detail_path = tmp_path / soup.select_one(".story__headline a[href]")["href"]
+    detail_soup = BeautifulSoup(detail_path.read_text(encoding="utf-8"), "lxml")
+
+    source_link = detail_soup.select_one(".detail-source a[href]")
+    assert source_link
+    assert source_link["href"].startswith("https://")
 
 
 def test_front_page_rail_lists_twenty_text_only_items(tmp_path):

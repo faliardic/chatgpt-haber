@@ -653,6 +653,124 @@ body {
   text-transform: uppercase;
 }
 
+.detail-page {
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto;
+  gap: 4mm;
+}
+
+.detail-page__header {
+  border-bottom: var(--thick-rule);
+  display: grid;
+  gap: 8mm;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding-bottom: 3mm;
+}
+
+.detail-page__kicker,
+.detail-page__meta,
+.detail-page__source,
+.detail-page__back,
+.detail-page__figure figcaption {
+  font-family: var(--sans);
+}
+
+.detail-page__kicker {
+  color: var(--muted);
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5mm;
+  text-transform: uppercase;
+}
+
+.detail-page h1 {
+  font-family: var(--serif);
+  font-size: 34pt;
+  line-height: 1.02;
+  margin: 0 0 2mm;
+}
+
+.detail-page__header p {
+  font-family: var(--sans);
+  font-size: 13pt;
+  line-height: 1.28;
+  margin: 0;
+  max-width: 190mm;
+}
+
+.detail-page__back {
+  align-self: start;
+  background: #111;
+  border: 0.45mm solid #111;
+  color: #fff;
+  font-size: 11pt;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 3mm 5mm;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.detail-page__figure {
+  border-bottom: var(--thin-rule);
+  margin: 0;
+  padding-bottom: 3mm;
+}
+
+.detail-page__figure img {
+  aspect-ratio: 16 / 7;
+  border: 0.2mm solid var(--soft-rule);
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+
+.detail-page__figure figcaption {
+  color: var(--muted);
+  font-size: 8pt;
+  margin-top: 1.2mm;
+}
+
+.detail-page__meta {
+  border-bottom: var(--thin-rule);
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 8pt;
+  font-weight: 700;
+  gap: 2mm 5mm;
+  padding-bottom: 2mm;
+  text-transform: uppercase;
+}
+
+.detail-page__body {
+  columns: 2 70mm;
+  column-gap: 8mm;
+  column-rule: var(--thin-rule);
+  font-family: var(--serif);
+  font-size: 12.2pt;
+  line-height: 1.38;
+}
+
+.detail-page__body p {
+  margin: 0 0 2.5mm;
+}
+
+.detail-page__source {
+  border-top: var(--thin-rule);
+  color: var(--muted);
+  font-size: 8pt;
+  padding-top: 2mm;
+  text-transform: uppercase;
+}
+
+.detail-page__source a {
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
 @media screen {
   body {
     background: #e8e8e8;

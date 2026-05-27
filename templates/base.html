@@ -13,9 +13,12 @@
   </style>
 </head>
 <body>
-  <main class="issue issue--{{ issue.paper_size|lower }}">
+  <main class="issue issue--{{ issue.paper_size|lower }}" id="top">
     {% for page in pages %}
       {% include "pages/" ~ page.template ~ ".html" %}
+    {% endfor %}
+    {% for article in pdf_detail_articles %}
+      {% include "pdf_article_detail.html" %}
     {% endfor %}
   </main>
   <script>

@@ -8,7 +8,7 @@ import typer
 
 from .issue import BASE_DIR, normalize_issue, read_json, validate_issue_data, write_json
 from .render import render_html, render_pdf
-from .sources import enrich_issue_images, issue_from_rss
+from .sources import enrich_article_details, enrich_issue_images, issue_from_rss
 
 
 app = typer.Typer(help="Tek komutla 3 sayfalık baskıya hazır gazete üretir.")
@@ -41,7 +41,8 @@ def build(
     if issue_data is None:
         source = input_json or BASE_DIR / "data" / "issue.json"
         issue_data = normalize_issue(read_json(source), issue_date=issue_date, paper_size=paper_size)
-        enrich_issue_images(issue_data, image_dir)
+    enrich_article_details(issue_data)
+    enrich_issue_images(issue_data, image_dir)
 
     validate_issue_data(issue_data)
 
@@ -49,7 +50,7 @@ def build(
     json_path = dist_dir / "issue.json"
 
     write_json(json_path, issue_data)
-    render_html(issue_data, html_path)
+    render_html(issue_data, html_path, portable_pdf_links=True)
     render_pdf(html_path, out)
 
     typer.echo(f"OK: issue JSON: {json_path}")

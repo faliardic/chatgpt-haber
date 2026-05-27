@@ -1,0 +1,38 @@
+<section class="page detail-page" id="{{ article.detail_anchor }}">
+  <header class="detail-page__header">
+    <div>
+      <div class="detail-page__kicker">{{ article.kicker }}</div>
+      <h1>{{ article.headline }}</h1>
+      <p>{{ article.dek }}</p>
+    </div>
+    <a class="detail-page__back" href="#top">Gazeteye dön</a>
+  </header>
+
+  {% if article.image and article.image.path %}
+    <figure class="detail-page__figure">
+      <img src="{{ article.image.path|image_src }}" alt="{{ article.image.alt|default(article.headline) }}">
+      {% if article.image.caption %}
+        <figcaption>{{ article.image.caption }}</figcaption>
+      {% endif %}
+    </figure>
+  {% endif %}
+
+  <div class="detail-page__meta">
+    <span>{{ article.section }}</span>
+    <span>{{ article.verification.status }}</span>
+    {% if article.source_bundle and article.source_bundle[0].published_at %}
+      <span>{{ article.source_bundle[0].published_at|datetime_tr }}</span>
+    {% endif %}
+  </div>
+
+  <div class="detail-page__body">
+    {% for paragraph in article.body %}
+      <p>{{ paragraph }}</p>
+    {% endfor %}
+  </div>
+
+  <footer class="detail-page__source">
+    Kaynak:
+    <a href="{{ article.source_bundle[0].url }}" target="_blank" rel="noopener noreferrer">{{ article.source_bundle[0].name }}</a>
+  </footer>
+</section>

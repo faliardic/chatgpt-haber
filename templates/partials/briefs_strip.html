@@ -5,7 +5,7 @@
         {% include "partials/figure.html" %}
       {% endif %}
       <strong>
-        <a href="{{ article.source_bundle[0].url }}" target="_blank" rel="noopener noreferrer">{{ article.headline }}</a>
+        <a href="{{ article.pdf_detail_url|default(article.detail_url|default(article.source_bundle[0].url)) }}">{{ article.headline }}</a>
       </strong>
       <p>{{ article.dek }}</p>
       <a class="brief__link" href="{{ article.source_bundle[0].url }}" target="_blank" rel="noopener noreferrer">{{ article.source_bundle[0].name }}</a>
