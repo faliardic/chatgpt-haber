@@ -9,6 +9,8 @@ __pycache__/
 
 *.egg-info/
 dist/
+build/
+*.spec
 
 debug_json_error.txt
 debug_repaired_json.txt

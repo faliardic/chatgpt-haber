@@ -4,10 +4,17 @@ from datetime import datetime, timezone
 from pathlib import Path
 import json
 import re
+import sys
 from typing import Any
 
 
-BASE_DIR = Path(__file__).resolve().parents[1]
+def app_base_dir() -> Path:
+    if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS"):
+        return Path(sys._MEIPASS)
+    return Path(__file__).resolve().parents[1]
+
+
+BASE_DIR = app_base_dir()
 PAGE_COUNT = 3
 
 SUPPORTED_TEMPLATES = {"front_page", "news_page"}

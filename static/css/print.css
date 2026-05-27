@@ -702,12 +702,14 @@ body {
 .detail-page__back {
   align-self: start;
   background: #111;
-  border: 0.45mm solid #111;
+  border: 0.8mm solid #111;
   color: #fff;
-  font-size: 11pt;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  padding: 3mm 5mm;
+  font-size: 18pt;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  min-width: 54mm;
+  padding: 5mm 8mm;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
 }

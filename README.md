@@ -57,3 +57,25 @@ prompts/editorial_main_prompt.txt
 ```
 
 `main.py` geriye dönük kısa yol olarak durur ve `data/issue.json` dosyasından `output/CHATGPT_HABER.pdf` üretir.
+
+## Windows EXE
+
+Tek tıklamalık Windows sürümü üretmek için:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\build_exe.ps1
+```
+
+Çıktı:
+
+```text
+dist\ChatGPTHaber\ChatGPTHaber.exe
+```
+
+Exe çalışınca bugünün tarihiyle masaüstünde şu dosyayı üretir:
+
+```text
+Desktop\ChatGPT Haber\gazete-YYYY-MM-DD.pdf
+```
+
+Not: Playwright/Chromium nedeniyle `dist\ChatGPTHaber` klasörünü komple taşıyın; sadece `.exe` dosyasını tek başına kopyalamayın.

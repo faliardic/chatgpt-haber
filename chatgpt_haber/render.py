@@ -6,10 +6,9 @@ from datetime import datetime, timedelta, timezone
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
-from .issue import slugify
+from .issue import BASE_DIR, slugify
 
 
-BASE_DIR = Path(__file__).resolve().parents[1]
 TEMPLATE_DIR = BASE_DIR / "templates"
 TR_TIMEZONE = timezone(timedelta(hours=3))
 
