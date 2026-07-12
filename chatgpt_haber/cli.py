@@ -9,7 +9,6 @@ from typing import Optional
 import typer
 
 import services.news_quality_filters as nqf
-from services.news_quality_filters import assert_no_forbidden_rendered_text
 from services.gazette_reports import archive_outputs, write_reports
 from services.random_news_service import appdata_news_cache_path, copy_gazette_outputs_to_desktop
 
@@ -24,28 +23,60 @@ from .technology_page import ensure_technology_third_page
 app = typer.Typer(help="Tek komutla 3 sayfalık baskıya hazır gazete üretir.")
 
 
-def cleanup_forbidden_render_artifacts() -> None:
-    scanned = 0
-    removed = 0
-    for root_name in ("dist", "output", "cache"):
-        root = Path(root_name)
-        if not root.exists():
-            continue
-        for path in root.rglob("*"):
-            if not path.is_file() or path.suffix.lower() not in {".html", ".json", ".pdf"}:
-                continue
-            if path.suffix.lower() == ".pdf":
-                continue
-            try:
-                text = path.read_text(encoding="utf-8", errors="ignore")
-                scanned += 1
-                assert_no_forbidden_rendered_text(text, f"stale_output_scan:{path}", quiet=True)
-            except RuntimeError:
-                path.unlink(missing_ok=True)
-                removed += 1
-                print("[GAZETTE CLEANUP] removed forbidden stale output =", path)
-    if scanned or removed:
-        print(f"[GAZETTE CLEANUP] stale_output_scan scanned={scanned} removed={removed}")
+def is_junction(path: Path) -> bool:
+    checker = getattr(path, "is_junction", None)
+    return bool(checker and checker())
+
+
+def remove_generated_file(path: Path) -> bool:
+    if not path.exists() and not path.is_symlink():
+        return False
+    if path.is_dir() and not path.is_symlink():
+        return False
+    try:
+        path.unlink()
+    except OSError as exc:
+        raise RuntimeError(f"[GAZETTE CLEANUP] generated dosya silinemedi: {path}") from exc
+    return True
+
+
+def cleanup_current_build_outputs(
+    *,
+    dist_dir: Path,
+    pdf_path: Path,
+    html_path: Path,
+    json_path: Path,
+) -> dict[str, int]:
+    generated_files = [
+        pdf_path,
+        html_path,
+        json_path,
+        dist_dir / "build_timing.json",
+        dist_dir / "source_report.json",
+        dist_dir / "quality_report.json",
+        dist_dir / "earthquake_report.json",
+        dist_dir / "image_report.json",
+        dist_dir / "source_report.html",
+    ]
+    removed_files = sum(1 for path in generated_files if remove_generated_file(path))
+
+    removed_detail_files = 0
+    articles_dir = dist_dir / "articles"
+    if articles_dir.exists():
+        if articles_dir.is_symlink() or is_junction(articles_dir):
+            print(f"[GAZETTE CLEANUP] skipped generated articles link = {articles_dir}")
+        elif articles_dir.is_dir():
+            for path in articles_dir.iterdir():
+                if path.is_file() and path.suffix.lower() == ".html":
+                    if remove_generated_file(path):
+                        removed_detail_files += 1
+
+    result = {"removed_files": removed_files, "removed_detail_files": removed_detail_files}
+    print(
+        "[GAZETTE CLEANUP] "
+        f"removed_files={result['removed_files']} removed_detail_files={result['removed_detail_files']}"
+    )
+    return result
 
 
 def write_random_news_cache(issue_data: dict) -> Path:
@@ -102,11 +133,18 @@ def build(
         raise typer.BadParameter("paper-size A3 veya A4 olmalı.")
 
     dist_dir = out.parent
+    html_path = dist_dir / f"{out.stem}.html"
+    json_path = dist_dir / "issue.json"
     image_dir = dist_dir / "assets"
     timing_path = dist_dir / "build_timing.json"
     timer = BuildTimer(mode)
     with timer.stage("cleanup"):
-        cleanup_forbidden_render_artifacts()
+        cleanup_current_build_outputs(
+            dist_dir=dist_dir,
+            pdf_path=out,
+            html_path=html_path,
+            json_path=json_path,
+        )
     print("[GAZETTE DEBUG] cwd =", os.getcwd())
     print("[GAZETTE DEBUG] main file =", __file__)
     print("[GAZETTE DEBUG] sys.path[0] =", sys.path[0])
@@ -131,9 +169,6 @@ def build(
 
     with timer.stage("validate"):
         validate_issue_data(issue_data)
-
-    html_path = dist_dir / f"{out.stem}.html"
-    json_path = dist_dir / "issue.json"
 
     with timer.stage("write_issue_json"):
         write_json(json_path, issue_data)
