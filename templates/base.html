@@ -14,9 +14,68 @@
       size: {{ issue.paper_size }} portrait;
       margin: 10mm 12mm 12mm 12mm;
     }
+    {% if web_publish %}
+    .web-toolbar {
+      align-items: center;
+      background: #111;
+      color: #fff;
+      display: flex;
+      flex-wrap: wrap;
+      font-family: Arial, Helvetica, sans-serif;
+      gap: 10px 16px;
+      justify-content: center;
+      padding: 10px 14px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .web-toolbar__brand {
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      margin-right: 8px;
+    }
+    .web-toolbar a,
+    .web-toolbar time {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .web-toolbar a:hover {
+      text-decoration: underline;
+    }
+    @media screen and (max-width: 560px) {
+      .web-toolbar {
+        gap: 8px 10px;
+        justify-content: flex-start;
+      }
+      .web-toolbar__brand {
+        flex-basis: 100%;
+      }
+      .web-toolbar a,
+      .web-toolbar time {
+        font-size: 12px;
+      }
+    }
+    @media print {
+      .web-toolbar {
+        display: none !important;
+      }
+    }
+    {% endif %}
   </style>
 </head>
 <body>
+  {% if web_publish %}
+  <nav class="web-toolbar" aria-label="Web gazetesi araçları">
+    <span class="web-toolbar__brand">CHATGPT HABER</span>
+    <a href="{{ web_toolbar.pdf_href|default('gazete.pdf') }}">PDF İNDİR</a>
+    <a href="{{ web_toolbar.archive_href|default('archive/') }}">ARŞİV</a>
+    <a href="{{ web_toolbar.github_href|default('https://github.com/faliardic/chatgpt-haber') }}">GITHUB</a>
+    <time datetime="{{ issue.generated_at|default(issue.issue_date) }}">SON GÜNCELLEME {{ issue.generated_at|default(issue.issue_date)|datetime_tr }}</time>
+  </nav>
+  {% endif %}
   <main class="issue issue--{{ issue.paper_size|lower }}" id="top">
     {% for page in pages %}
       {% include "pages/" ~ page.template ~ ".html" %}

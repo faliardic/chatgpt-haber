@@ -114,16 +114,16 @@ def callback() -> None:
     """ChatGPT Haber komutları."""
 
 
-@app.command()
-def build(
-    issue_date: str | None = typer.Option(None, "--date", help="Baskı tarihi, YYYY-MM-DD."),
-    paper_size: str = typer.Option("A3", "--paper-size", help="A3 veya A4."),
-    out: Path = typer.Option(Path("dist/gazete.pdf"), "--out", help="Üretilecek PDF yolu."),
-    input_json: Optional[Path] = typer.Option(None, "--input-json", help="Var olan issue JSON dosyası."),
-    live: bool = typer.Option(True, "--live/--no-live", help="Resmi RSS akışlarını dene; olmazsa yerel veriye düş."),
-    portable_html: bool = typer.Option(True, "--portable-html/--linked-html", help="HTML'i tek başına paylaşılabilir üret."),
-    mode: str = typer.Option("fast", "--mode", help="Build modu: fast veya full."),
-) -> None:
+def run_build(
+    *,
+    issue_date: str | None = None,
+    paper_size: str = "A3",
+    out: Path = Path("dist/gazete.pdf"),
+    input_json: Optional[Path] = None,
+    live: bool = True,
+    portable_html: bool = True,
+    mode: str = "fast",
+) -> dict[str, object]:
     mode = normalize_build_mode(mode)
     if issue_date is None:
         issue_date = date.today().isoformat()
@@ -220,16 +220,75 @@ def build(
     timing_data = timer.write(timing_path)
     timer.print_summary(timing_data)
 
-    typer.echo(f"OK: issue JSON: {json_path}")
-    typer.echo(f"OK: random news cache: {random_cache_path}")
-    typer.echo(f"OK: source report: {report_paths['source_report']}")
-    if archive_path is not None:
-        typer.echo(f"OK: archive: {archive_path}")
-    if desktop_copy_path is not None:
-        typer.echo(f"OK: desktop copy: {desktop_copy_path}")
-    typer.echo(f"OK: timing: {timing_path}")
-    typer.echo(f"OK: HTML: {html_path}")
-    typer.echo(f"OK: PDF: {out}")
+    return {
+        "issue_json": json_path,
+        "random_cache": random_cache_path,
+        "source_report": report_paths["source_report"],
+        "archive": archive_path,
+        "desktop_copy": desktop_copy_path,
+        "timing": timing_path,
+        "html": html_path,
+        "pdf": out,
+        "issue_data": issue_data,
+    }
+
+
+def echo_build_result(result: dict[str, object]) -> None:
+    typer.echo(f"OK: issue JSON: {result['issue_json']}")
+    typer.echo(f"OK: random news cache: {result['random_cache']}")
+    typer.echo(f"OK: source report: {result['source_report']}")
+    if result["archive"] is not None:
+        typer.echo(f"OK: archive: {result['archive']}")
+    if result["desktop_copy"] is not None:
+        typer.echo(f"OK: desktop copy: {result['desktop_copy']}")
+    typer.echo(f"OK: timing: {result['timing']}")
+    typer.echo(f"OK: HTML: {result['html']}")
+    typer.echo(f"OK: PDF: {result['pdf']}")
+
+
+@app.command()
+def build(
+    issue_date: str | None = typer.Option(None, "--date", help="Baskı tarihi, YYYY-MM-DD."),
+    paper_size: str = typer.Option("A3", "--paper-size", help="A3 veya A4."),
+    out: Path = typer.Option(Path("dist/gazete.pdf"), "--out", help="Üretilecek PDF yolu."),
+    input_json: Optional[Path] = typer.Option(None, "--input-json", help="Var olan issue JSON dosyası."),
+    live: bool = typer.Option(True, "--live/--no-live", help="Resmi RSS akışlarını dene; olmazsa yerel veriye düş."),
+    portable_html: bool = typer.Option(True, "--portable-html/--linked-html", help="HTML'i tek başına paylaşılabilir üret."),
+    mode: str = typer.Option("fast", "--mode", help="Build modu: fast veya full."),
+) -> None:
+    result = run_build(
+        issue_date=issue_date,
+        paper_size=paper_size,
+        out=out,
+        input_json=input_json,
+        live=live,
+        portable_html=portable_html,
+        mode=mode,
+    )
+    echo_build_result(result)
+
+
+@app.command("publish-pages")
+def publish_pages(
+    issue_date: str | None = typer.Option(None, "--date", help="Yayın tarihi, YYYY-MM-DD."),
+    live: bool = typer.Option(True, "--live/--no-live", help="Resmi RSS akışlarını dene; olmazsa yerel veriye düş."),
+    input_json: Optional[Path] = typer.Option(None, "--input-json", help="Var olan issue JSON dosyası."),
+    docs_dir: Path = typer.Option(Path("docs"), "--docs-dir", help="GitHub Pages yayın klasörü."),
+) -> None:
+    from .pages_publish import publish_pages_site
+
+    result = publish_pages_site(
+        docs_dir=docs_dir,
+        staging_dir=Path("dist/pages-publish-staging"),
+        issue_date=issue_date,
+        live=live,
+        input_json=input_json,
+    )
+    typer.echo(f"OK: Pages index: {result['index_html']}")
+    typer.echo(f"OK: Pages PDF: {result['pdf']}")
+    typer.echo(f"OK: Pages issue JSON: {result['issue_json']}")
+    typer.echo(f"OK: Pages archive index: {result['archive_index']}")
+    typer.echo(f"OK: Pages archive issue: {result['archive_issue_dir']}")
 
 
 if __name__ == "__main__":

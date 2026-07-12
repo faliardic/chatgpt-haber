@@ -1,0 +1,3860 @@
+{
+  "issue": {
+    "issue_date": "2026-07-12",
+    "edition_name": "Anlık Baskı",
+    "language": "tr-TR",
+    "page_count": 3,
+    "paper_size": "A3",
+    "title": "CHATGPT HABER",
+    "timezone": "Europe/Istanbul",
+    "generated_at": "2026-07-12T09:18:54.759872+00:00",
+    "edition_note": "Otomatik derlenmiş üç sayfalık baskı"
+  },
+  "pages": [
+    {
+      "page_no": 1,
+      "template": "front_page",
+      "name": "Manşet",
+      "articles": [
+        {
+          "id": "ntv-dünya-7",
+          "section": "dunya",
+          "headline": "Venezuela'da can kaybı 4 bin 330'u aştı",
+          "importance": 1,
+          "dek": "Venezuela'da, 24 Haziran'da peş peşe meydana gelen iki büyük depremde hayatını kaybedenlerin sayısı 4 bin 333'e yükseldi.",
+          "body": [
+            "Venezuela'da, 24 Haziran'da peş peşe meydana gelen iki büyük depremde hayatını kaybedenlerin sayısı 4 bin 333'e yükseldi."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Dünya",
+              "url": "https://www.ntv.com.tr/dunya/venezuelada-can-kaybi-4-bin-330u-asti-1732464",
+              "published_at": "2026-07-12T03:15:38+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:45.593345+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Dünya RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "hero",
+            "column_span": 1,
+            "preferred_position": "top"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\ntv-dunya-7.png",
+            "source_url": "https://images.ntv.com.tr/images/Ekrangörüntüsü2026-07-12031430-915287.png",
+            "alt": "Venezuela'da can kaybı 4 bin 330'u aştı",
+            "caption": "Venezuela'da, 24 Haziran'da peş peşe meydana gelen iki büyük depremde hayatını kaybedenlerin sayısı 4 bin 333'e yükseldi.",
+            "credit": "NTV Dünya",
+            "width": 1386,
+            "height": 830,
+            "crop": "landscape"
+          },
+          "image_url": "https://images.ntv.com.tr/images/Ekrangörüntüsü2026-07-12031430-915287.png",
+          "earthquake_classification": "serious_earthquake_event",
+          "location": "",
+          "official_source_detected": false,
+          "impact_detected": true,
+          "reject_reason": "",
+          "importance_cap_applied": false,
+          "duplicate_count": 1,
+          "importance_score": 140
+        },
+        {
+          "id": "sözcü-gündem-2",
+          "section": "gundem",
+          "headline": "Erdoğan bu kez silah değil o liderin dedesini hediye etti",
+          "importance": 2,
+          "dek": "Cumhurbaşkanı Recep Tayyip Erdoğan, Türkiye'yi ziyaret eden Lübnan Başbakanı Nevvaf Selam’a, Osmanlı Meclis-i Mebusan'da...",
+          "body": [
+            "Cumhurbaşkanı Recep Tayyip Erdoğan, Türkiye'yi ziyaret eden Lübnan Başbakanı Nevvaf Selam’a, Osmanlı Meclis-i Mebusan'da..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Gündem",
+              "url": "https://www.sozcu.com.tr/erdogan-bu-kez-silah-degil-o-liderin-dedesini-hediye-etti-p335791",
+              "published_at": "Sun, 12 Jul 2026 11:52:59 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:47.309447+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Gündem RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "lead",
+            "column_span": 1,
+            "preferred_position": "top"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\sozcu-gundem-2.jpg",
+            "source_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/yeni-proje-20260712t114938038jpg-F0xTCMFJDU6QYsa72oWlkg.jpg",
+            "alt": "Erdoğan bu kez silah değil o liderin dedesini hediye etti",
+            "caption": "Cumhurbaşkanı Recep Tayyip Erdoğan, Türkiye'yi ziyaret eden Lübnan Başbakanı Nevvaf Selam’a, Osmanlı Meclis-i Mebusan'da...",
+            "credit": "Sözcü Gündem",
+            "width": 1280,
+            "height": 720,
+            "crop": "landscape"
+          },
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/yeni-proje-20260712t114938038jpg-F0xTCMFJDU6QYsa72oWlkg.jpg",
+          "duplicate_count": 1,
+          "importance_score": 119
+        },
+        {
+          "id": "anka-haber-ajansi-12",
+          "section": "gundem",
+          "headline": "Almanya’nın Saksonya Eyaleti Eğitim Bakanı, hız sınırı ihlal nedeniyle hakim karşısında Almanya’nın Saksonya Eyaleti Eğitim Bakanı Conrad Clemens, hız sınırı ihlali nedeniyle görülen davada hakim karşısına çıktı. 30 kilometre hız sınırı olan bölgede 81 kilometre hızla araç kullanmakla s… 12 Temmuz 2026 - 12:00",
+          "importance": 3,
+          "dek": "Almanya’nın Saksonya Eyaleti Eğitim Bakanı, hız sınırı ihlal nedeniyle hakim karşısında Almanya’nın Saksonya Eyaleti Eğitim Bakanı Conrad Clemens, hız sınırı ihlali nedeniyle görülen davada hakim karşısına çıktı. 30 kilometre hız sınırı olan bölgede 81 kilometre hızla araç kullanmakla s… 12 Temmuz 2026 - 12:00",
+          "body": [
+            "Almanya’nın Saksonya Eyaleti Eğitim Bakanı, hız sınırı ihlal nedeniyle hakim karşısında Almanya’nın Saksonya Eyaleti Eğitim Bakanı Conrad Clemens, hız sınırı ihlali nedeniyle görülen davada hakim karşısına çıktı. 30 kilometre hız sınırı olan bölgede 81 kilometre hızla araç kullanmakla s… 12 Temmuz 2026 - 12:00"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/almanya-nin-saksonya-eyaleti-egitim-bakani-hiz-siniri-ihlal-nedeniyle-hakim-karsisinda-959c7dca",
+              "published_at": "2026-07-12T09:18:50.171240+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.171240+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\anka-haber-ajansi-12.jpg",
+            "source_url": "https://cdn.ankahaber.net/media/images/388fd60664db7bbb0807045b2b0e23f6a990c1ea543f9a8ff82863dcda20211d.jpg",
+            "alt": "Almanya’nın Saksonya Eyaleti Eğitim Bakanı, hız sınırı ihlal nedeniyle hakim karşısında Almanya’nın Saksonya Eyaleti Eğitim Bakanı Conrad Clemens, hız sınırı ihlali nedeniyle görülen davada hakim karşısına çıktı. 30 kilometre hız sınırı olan bölgede 81 kilometre hızla araç kullanmakla s… 12 Temmuz 2026 - 12:00",
+            "caption": "Almanya’nın Saksonya Eyaleti Eğitim Bakanı, hız sınırı ihlal nedeniyle hakim karşısında Almanya’nın Saksonya Eyaleti Eğitim Bakanı Conrad Clemens, hız sınırı ihlali nedeniyle görülen davada hakim karşısına çıktı. 30 kilometre hız sınırı olan bölgede 81 kilometre hızla araç kullanmakla s… 12 Temmuz 2026 - 12:00",
+            "credit": "ANKA Haber Ajansı",
+            "width": 447,
+            "height": 439,
+            "crop": "landscape"
+          },
+          "image_url": "https://cdn.ankahaber.net/media/images/388fd60664db7bbb0807045b2b0e23f6a990c1ea543f9a8ff82863dcda20211d.jpg",
+          "duplicate_count": 1,
+          "importance_score": 95
+        },
+        {
+          "id": "anka-haber-ajansi-22",
+          "section": "gundem",
+          "headline": "İBB ve Büyükçekmece Belediyesi iş birliğinde ilçeye spor tesisleri, sosyal tesis, kent lokantası ve Engelli Hizmetleri Şube Müdürlüğü kazandırılacak. 4 proje için gerekli tahsis kararları belediye meclisinde görüşülerek süreç başlatıldı. 06.07.2026 - 14:57",
+          "importance": 4,
+          "dek": "İBB ve Büyükçekmece Belediyesi iş birliğinde ilçeye spor tesisleri, sosyal tesis, kent lokantası ve Engelli Hizmetleri Şube Müdürlüğü kazandırılacak. 4 proje için gerekli tahsis kararları belediye meclisinde görüşülerek süreç başlatıldı. 06.07.2026 - 14:57",
+          "body": [
+            "İBB ve Büyükçekmece Belediyesi iş birliğinde ilçeye spor tesisleri, sosyal tesis, kent lokantası ve Engelli Hizmetleri Şube Müdürlüğü kazandırılacak. 4 proje için gerekli tahsis kararları belediye meclisinde görüşülerek süreç başlatıldı. 06.07.2026 - 14:57"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/ibb-ve-buyukcekmece-belediyesi-nden-ortak-yatirim-hamlesi-ilceye-4-yeni-proje-kazandirilacak-803a1f73",
+              "published_at": "2026-07-12T09:18:50.180758+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.180758+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\anka-haber-ajansi-22.jpg",
+            "source_url": "https://cdn.ankahaber.net/media/images/dbc870fdb7eea608e8d11dadaca77b1c97d7ca217cd223fd5823c84857c89ebb.jpg",
+            "alt": "İBB ve Büyükçekmece Belediyesi iş birliğinde ilçeye spor tesisleri, sosyal tesis, kent lokantası ve Engelli Hizmetleri Şube Müdürlüğü kazandırılacak. 4 proje için gerekli tahsis kararları belediye meclisinde görüşülerek süreç başlatıldı. 06.07.2026 - 14:57",
+            "caption": "İBB ve Büyükçekmece Belediyesi iş birliğinde ilçeye spor tesisleri, sosyal tesis, kent lokantası ve Engelli Hizmetleri Şube Müdürlüğü kazandırılacak. 4 proje için gerekli tahsis kararları belediye meclisinde görüşülerek süreç başlatıldı. 06.07.2026 - 14:57",
+            "credit": "ANKA Haber Ajansı",
+            "width": 1757,
+            "height": 1172,
+            "crop": "landscape"
+          },
+          "image_url": "",
+          "duplicate_count": 1,
+          "importance_score": 89
+        },
+        {
+          "id": "anka-haber-ajansi-25",
+          "section": "gundem",
+          "headline": "ABD Başkanı Trump'ın Ankara programı belli oldu 06.07.2026 - 09:39",
+          "importance": 5,
+          "dek": "ABD Başkanı Trump'ın Ankara programı belli oldu 06.07.2026 - 09:39",
+          "body": [
+            "ABD Başkanı Trump'ın Ankara programı belli oldu 06.07.2026 - 09:39"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/abd-baskani-trump-in-ankara-programi-belli-oldu-2e06bddf",
+              "published_at": "2026-07-12T09:18:50.182756+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.182756+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\anka-haber-ajansi-25.png",
+            "source_url": "https://cdn.ankahaber.net/media/images/b7c8f979f1eb9548acd175eb0666edd1e837d0f52188684ca0208674cc02b7aa.png",
+            "alt": "ABD Başkanı Trump'ın Ankara programı belli oldu 06.07.2026 - 09:39",
+            "caption": "ABD Başkanı Trump'ın Ankara programı belli oldu 06.07.2026 - 09:39",
+            "credit": "ANKA Haber Ajansı",
+            "width": 1200,
+            "height": 800,
+            "crop": "landscape"
+          },
+          "image_url": "",
+          "duplicate_count": 1,
+          "importance_score": 84
+        },
+        {
+          "id": "sözcü-ekonomi-2",
+          "section": "ekonomi",
+          "headline": "31 Temmuz'a kadar ödemeyen araç sahiplerinin borcuna faiz eklenecek!",
+          "importance": 6,
+          "dek": "Milyonlarca araç sahibini ve vergi mükellefini ilgilendiren 2026 yılı Motorlu Taşıtlar Vergisi (MTV) ve 2025 yılı Yıllık...",
+          "body": [
+            "Milyonlarca araç sahibini ve vergi mükellefini ilgilendiren 2026 yılı Motorlu Taşıtlar Vergisi (MTV) ve 2025 yılı Yıllık..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Ekonomi",
+              "url": "https://www.sozcu.com.tr/31-temmuz-a-kadar-odemeyen-arac-sahiplerinin-borcuna-faiz-eklenecek-p335772",
+              "published_at": "Sun, 12 Jul 2026 10:36:56 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:47.923548+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Ekonomi RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\sozcu-ekonomi-2.jpg",
+            "source_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/odeme1jpg-wrjk8tcqbEyoLAXj7z7FKw.jpg",
+            "alt": "31 Temmuz'a kadar ödemeyen araç sahiplerinin borcuna faiz eklenecek!",
+            "caption": "Milyonlarca araç sahibini ve vergi mükellefini ilgilendiren 2026 yılı Motorlu Taşıtlar Vergisi (MTV) ve 2025 yılı Yıllık...",
+            "credit": "Sözcü Ekonomi",
+            "width": 864,
+            "height": 486,
+            "crop": "landscape"
+          },
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/odeme1jpg-wrjk8tcqbEyoLAXj7z7FKw.jpg",
+          "duplicate_count": 1,
+          "importance_score": 83
+        },
+        {
+          "id": "sözcü-dünya-4",
+          "section": "dunya",
+          "headline": "NATO'yu kurtarmak için zirveyi erteleyecekler",
+          "importance": 7,
+          "dek": "ABD Başkanı Trump'ın NATO müttefiklerine yönelik eleştirileri nedeniyle yaşanan kriz farklı bir boyut kazandı. Trump, NA...",
+          "body": [
+            "ABD Başkanı Trump'ın NATO müttefiklerine yönelik eleştirileri nedeniyle yaşanan kriz farklı bir boyut kazandı. Trump, NA..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Dünya",
+              "url": "https://www.sozcu.com.tr/nato-yu-kurtarmak-icin-kritik-plan-devreye-sokulacak-p335769",
+              "published_at": "Sun, 12 Jul 2026 11:33:36 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:47.558283+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Dünya RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\sozcu-dunya-4.png",
+            "source_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/adsasxcsddsdpng-yEA8aE3jFU6HCazYpI9abA.PNG",
+            "alt": "NATO'yu kurtarmak için zirveyi erteleyecekler",
+            "caption": "ABD Başkanı Trump'ın NATO müttefiklerine yönelik eleştirileri nedeniyle yaşanan kriz farklı bir boyut kazandı. Trump, NA...",
+            "credit": "Sözcü Dünya",
+            "width": 1271,
+            "height": 712,
+            "crop": "landscape"
+          },
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/adsasxcsddsdpng-yEA8aE3jFU6HCazYpI9abA.PNG",
+          "duplicate_count": 1,
+          "importance_score": 83
+        },
+        {
+          "id": "habertürk-dünya-1",
+          "section": "dunya",
+          "headline": "İran Devrim Muhafızları: Hürmüz kapatıldı",
+          "importance": 8,
+          "dek": "ABD-İran hattında tansiyon yeniden yükseldi. İran Devrim Muhafızları Ordusu Hürmüz Boğazı'nın ikinci bir duyuruya kadar kapatıldığını\" duyurdu, ABD Merkez Kuvvetler Komutanlığı, İran'a yönelik bu hafta üçüncü saldırı dalgasını başlattı. Anbean yaşanan tüm gelişmeler...",
+          "body": [
+            "ABD-İran hattında tansiyon yeniden yükseldi. İran Devrim Muhafızları Ordusu Hürmüz Boğazı'nın ikinci bir duyuruya kadar kapatıldığını\" duyurdu, ABD Merkez Kuvvetler Komutanlığı, İran'a yönelik bu hafta üçüncü saldırı dalgasını başlattı. Anbean yaşanan tüm gelişmeler..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Habertürk Dünya",
+              "url": "https://www.haberturk.com/son-dakika-iran-devrim-muhafizlari-hurmuz-kapatildi-3897859",
+              "published_at": "Sun, 12 Jul 2026 08:12:50 GMT",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:46.664947+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Habertürk Dünya RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\haberturk-dunya-1.jpg",
+            "source_url": "https://im.haberturk.com/l/2026/07/12/ver1783837252/3897859/jpg/1280x1280",
+            "alt": "İran Devrim Muhafızları: Hürmüz kapatıldı",
+            "caption": "ABD-İran hattında tansiyon yeniden yükseldi. İran Devrim Muhafızları Ordusu Hürmüz Boğazı'nın ikinci bir duyuruya kadar kapatıldığını\" duyurdu, ABD Merkez Kuvvetler Komutanlığı, İran'a yönelik bu hafta üçüncü saldırı dalgasını başlattı. Anbean yaşanan tüm gelişmeler...",
+            "credit": "Habertürk Dünya",
+            "width": 1280,
+            "height": 1280,
+            "crop": "landscape"
+          },
+          "image_url": "https://im.haberturk.com/l/2026/07/12/ver1783837252/3897859/jpg/1280x1280",
+          "duplicate_count": 1,
+          "importance_score": 81
+        },
+        {
+          "id": "ntv-türkiye-4",
+          "section": "gundem",
+          "headline": "Gümrükler Muhafaza ekiplerinden kaçakçılara geçit yok: 4 yaban hayvanı kurtarıldı",
+          "importance": 9,
+          "dek": "Ticaret Bakanlığı Gümrükler Muhafaza ekiplerince Edirne Hamzabeyli Gümrük Kapısı'nda gerçekleştirilen operasyonda, yasa dışı yollarla yurda sokulmaya çalışılan 2 vaşak ve 2 serval kedisi kurtarıldı.",
+          "body": [
+            "Ticaret Bakanlığı Gümrükler Muhafaza ekiplerince Edirne Hamzabeyli Gümrük Kapısı'nda gerçekleştirilen operasyonda, yasa dışı yollarla yurda sokulmaya çalışılan 2 vaşak ve 2 serval kedisi kurtarıldı."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Türkiye",
+              "url": "https://www.ntv.com.tr/turkiye/video-gumrukler-muhafaza-ekiplerinden-kacakcilara-gecit-yok-4-yaban-hayvani-kurtarildi-1732510",
+              "published_at": "2026-07-12T10:32:31+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:45.331081+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Türkiye RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\ntv-turkiye-4.jpg",
+            "source_url": "https://images.ntv.com.tr/images/AW744945_03-606768.jpg",
+            "alt": "Gümrükler Muhafaza ekiplerinden kaçakçılara geçit yok: 4 yaban hayvanı kurtarıldı",
+            "caption": "Ticaret Bakanlığı Gümrükler Muhafaza ekiplerince Edirne Hamzabeyli Gümrük Kapısı'nda gerçekleştirilen operasyonda, yasa dışı yollarla yurda sokulmaya çalışılan 2 vaşak ve 2 serval kedisi kurtarıldı.",
+            "credit": "NTV Türkiye",
+            "width": 1600,
+            "height": 1200,
+            "crop": "landscape"
+          },
+          "image_url": "https://images.ntv.com.tr/images/AW744945_03-606768.jpg",
+          "duplicate_count": 1,
+          "importance_score": 81
+        },
+        {
+          "id": "anka-haber-ajansi-1",
+          "section": "gundem",
+          "headline": "Emekli aylığı teklifi Meclis'e geliyor En düşük aylığı 23 bin 552 liraya yükselten teklif komisyonda görüşülecek",
+          "importance": 10,
+          "dek": "Emekli aylığı teklifi Meclis'e geliyor En düşük aylığı 23 bin 552 liraya yükselten teklif komisyonda görüşülecek",
+          "body": [
+            "Emekli aylığı teklifi Meclis'e geliyor En düşük aylığı 23 bin 552 liraya yükselten teklif komisyonda görüşülecek"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/tbmm-de-bu-hafta-genel-kurul-da-12-yargi-paketi-komisyonlarda-en-dusuk-emekli-ayliginin-artirilmasi-ve-ogrenci-affi-ile-ilgili-kanun-teklifleri-gorusulecek-b6ce6714",
+              "published_at": "2026-07-12T09:18:50.164400+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.164400+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\anka-haber-ajansi-1.jpg",
+            "source_url": "https://cdn.ankahaber.net/media/images/81fcb4c9-9682-40a7-8274-ca9f2c7ac8db.jpg",
+            "alt": "Emekli aylığı teklifi Meclis'e geliyor En düşük aylığı 23 bin 552 liraya yükselten teklif komisyonda görüşülecek",
+            "caption": "Emekli aylığı teklifi Meclis'e geliyor En düşük aylığı 23 bin 552 liraya yükselten teklif komisyonda görüşülecek",
+            "credit": "ANKA Haber Ajansı",
+            "width": 1200,
+            "height": 675,
+            "crop": "landscape"
+          },
+          "image_url": "https://cdn.ankahaber.net/media/images/81fcb4c9-9682-40a7-8274-ca9f2c7ac8db.jpg",
+          "duplicate_count": 1,
+          "importance_score": 78
+        },
+        {
+          "id": "anka-haber-ajansi-3",
+          "section": "gundem",
+          "headline": "Bolu'dan Ankara'ya \"78 Can İçin Adalet Yürüyüşü\" 2. gününde devam ediyor.",
+          "importance": 11,
+          "dek": "Bolu'dan Ankara'ya \"78 Can İçin Adalet Yürüyüşü\" 2. gününde devam ediyor.",
+          "body": [
+            "Bolu'dan Ankara'ya \"78 Can İçin Adalet Yürüyüşü\" 2. gününde devam ediyor."
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/78-can-icin-adalet-yuruyusu-nun-2-gunu-ankara-ya-yuruyen-akisli-bu-yolun-sonu-umarim-adalet-olur-57981cb6",
+              "published_at": "2026-07-12T09:18:50.166732+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.166732+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\anka-haber-ajansi-3.jpg",
+            "source_url": "https://cdn.ankahaber.net/media/images/9747cea4-d4ac-4b2e-96e3-b422547e110d.jpg",
+            "alt": "Bolu'dan Ankara'ya \"78 Can İçin Adalet Yürüyüşü\" 2. gününde devam ediyor.",
+            "caption": "Bolu'dan Ankara'ya \"78 Can İçin Adalet Yürüyüşü\" 2. gününde devam ediyor.",
+            "credit": "ANKA Haber Ajansı",
+            "width": 1200,
+            "height": 675,
+            "crop": "landscape"
+          },
+          "image_url": "https://cdn.ankahaber.net/media/images/9747cea4-d4ac-4b2e-96e3-b422547e110d.jpg",
+          "duplicate_count": 1,
+          "importance_score": 78
+        },
+        {
+          "id": "sözcü-gündem-6",
+          "section": "gundem",
+          "headline": "İETT otobüsü ambulansa çarptı: Yaralılar var",
+          "importance": 12,
+          "dek": "Fatih'te İETT otobüsüyle ambulans çarpıştı. Kaza sonucunda 5 kişi yaralandı.",
+          "body": [
+            "Fatih'te İETT otobüsüyle ambulans çarpıştı. Kaza sonucunda 5 kişi yaralandı."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Gündem",
+              "url": "https://www.sozcu.com.tr/iett-otobusu-ambulansa-carpti-yaralilar-var-p335781",
+              "published_at": "Sun, 12 Jul 2026 11:15:51 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:47.310455+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Gündem RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\sozcu-gundem-6.png",
+            "source_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/yeni-proje-20260712t111527968png-Cs1jHGERvkS4ZashmLyohA.png",
+            "alt": "İETT otobüsü ambulansa çarptı: Yaralılar var",
+            "caption": "Fatih'te İETT otobüsüyle ambulans çarpıştı. Kaza sonucunda 5 kişi yaralandı.",
+            "credit": "Sözcü Gündem",
+            "width": 1280,
+            "height": 720,
+            "crop": "landscape"
+          },
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/yeni-proje-20260712t111527968png-Cs1jHGERvkS4ZashmLyohA.png",
+          "duplicate_count": 1,
+          "importance_score": 76
+        }
+      ],
+      "briefs": [
+        {
+          "id": "anka-haber-ajansi-2",
+          "section": "gundem",
+          "headline": "İran, Hürmüz Boğazı'nı kapattı, CENTCOM, İran'da 300'den fazla hedefi vurdu",
+          "importance": 1,
+          "dek": "İran, Hürmüz Boğazı'nı kapattı, CENTCOM, İran'da 300'den fazla hedefi vurdu",
+          "body": [
+            "İran, Hürmüz Boğazı'nı kapattı, CENTCOM, İran'da 300'den fazla hedefi vurdu"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/iran-hurmuz-bogazi-ni-kapatti-centcom-iran-da-300-den-fazla-askeri-hedefin-vuruldugunu-bildirdi-7f68fb89",
+              "published_at": "2026-07-12T09:18:50.165723+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.165723+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://cdn.ankahaber.net/media/images/928d79927ec8107409cc4c9d09ba6c0a0ffa99ef602da0d91d3d117e257a49af.png",
+          "duplicate_count": 1,
+          "importance_score": 74
+        },
+        {
+          "id": "anka-haber-ajansi-9",
+          "section": "gundem",
+          "headline": "Çankaya Belediye Başkanı Güner, Esenboğa Havalimanı'nda gözaltına alındı",
+          "importance": 2,
+          "dek": "Çankaya Belediye Başkanı Güner, Esenboğa Havalimanı'nda gözaltına alındı",
+          "body": [
+            "Çankaya Belediye Başkanı Güner, Esenboğa Havalimanı'nda gözaltına alındı"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/cankaya-belediye-baskani-huseyin-can-guner-esenboga-havalimani-nda-gozaltina-alindi-04780b58",
+              "published_at": "2026-07-12T09:18:50.168731+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.168731+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://cdn.ankahaber.net/media/images/73a9b308-123c-4f2c-96a4-1bb9cbd36cf3.jpg",
+          "duplicate_count": 1,
+          "importance_score": 74
+        },
+        {
+          "id": "ntv-teknoloji-1",
+          "section": "teknoloji",
+          "headline": "Meta gizlilik tepkilerinin ardından yeni yapay zekayı çekti",
+          "importance": 3,
+          "dek": "Meta, Instagram için geliştirdiği yeni yapay zeka modelini, kullanıcıların otomatik olarak sisteme dahil edilmesine yönelik tepkilerin ardından yayından kaldırdı.",
+          "body": [
+            "Meta, Instagram için geliştirdiği yeni yapay zeka modelini, kullanıcıların otomatik olarak sisteme dahil edilmesine yönelik tepkilerin ardından yayından kaldırdı."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Teknoloji",
+              "url": "https://www.ntv.com.tr/teknoloji/galeri-meta-gizlilik-tepkilerinin-ardindan-yeni-yapay-zekayi-cekti-1732511",
+              "published_at": "2026-07-12T10:34:49+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:46.151410+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/instagram_20pink.jpg-887341.jpeg",
+          "duplicate_count": 1,
+          "importance_score": 73
+        },
+        {
+          "id": "anka-haber-ajansi-28",
+          "section": "gundem",
+          "headline": "İBB, kentin sosyal ve kültürel ihtiyaçlarına yönelik yatırımlarına bir yenisini ekleyerek Maltepe Çınar Yaşam Kampüsü’nü hizmete açtı. Bünyesinde İBB Kadın, Mahalle Evi, Enstitü İstanbul İSMEK ve Alzheimer Gündüz Bakımevi gibi 4 birimi barındıran kampüs, çocuklardan yaş almış bireylere kadar tüm bölge halkına çok yönlü hizmet sunacak. Açılışta konuşan İBB Başkanvekili Nuri Aslan, Ekrem İmamoğlu'nun selamlarını iletti, emeği geçenlere teşekkür etti. 10.07.2026 - 16:59",
+          "importance": 4,
+          "dek": "İBB, kentin sosyal ve kültürel ihtiyaçlarına yönelik yatırımlarına bir yenisini ekleyerek Maltepe Çınar Yaşam Kampüsü’nü hizmete açtı. Bünyesinde İBB Kadın, Mahalle Evi, Enstitü İstanbul İSMEK ve Alzheimer Gündüz Bakımevi gibi 4 birimi barındıran kampüs, çocuklardan yaş almış bireylere kadar tüm bölge halkına çok yönlü hizmet sunacak. Açılışta konuşan İBB Başkanvekili Nuri Aslan, Ekrem İmamoğlu'nun selamlarını iletti, emeği geçenlere teşekkür etti. 10.07.2026 - 16:59",
+          "body": [
+            "İBB, kentin sosyal ve kültürel ihtiyaçlarına yönelik yatırımlarına bir yenisini ekleyerek Maltepe Çınar Yaşam Kampüsü’nü hizmete açtı. Bünyesinde İBB Kadın, Mahalle Evi, Enstitü İstanbul İSMEK ve Alzheimer Gündüz Bakımevi gibi 4 birimi barındıran kampüs, çocuklardan yaş almış bireylere kadar tüm bölge halkına çok yönlü hizmet sunacak. Açılışta konuşan İBB Başkanvekili Nuri Aslan, Ekrem İmamoğlu'nun selamlarını iletti, emeği geçenlere teşekkür etti. 10.07.2026 - 16:59"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/ibb-maltepe-cinar-yasam-kampusu-acildi-32dd9230",
+              "published_at": "2026-07-12T09:18:50.184756+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.184756+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "",
+          "duplicate_count": 1,
+          "importance_score": 73
+        },
+        {
+          "id": "sözcü-teknoloji-2",
+          "section": "teknoloji",
+          "headline": "ChatGPT rekabete giremedi, dev proje sona erdi",
+          "importance": 5,
+          "dek": "OpenAI, yapay zekâ entegrasyonlu bağımsız internet tarayıcısı ChatGPT Atlas'ı beklenmedik bir kararla iptal ettiğini duy...",
+          "body": [
+            "OpenAI, yapay zekâ entegrasyonlu bağımsız internet tarayıcısı ChatGPT Atlas'ı beklenmedik bir kararla iptal ettiğini duy..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Teknoloji",
+              "url": "https://www.sozcu.com.tr/chatgpt-rekabete-giremedi-dev-proje-sona-erdi-p335779",
+              "published_at": "Sun, 12 Jul 2026 11:10:42 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:48.586786+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2025/4/20250414t175840z1267321935rc2lu7awtt1lrtrmadp3openaichatgptjpg-Z4Z7X6gV_kGnz0H6XlB6UA.JPG",
+          "duplicate_count": 1,
+          "importance_score": 72
+        },
+        {
+          "id": "ntv-dünya-2",
+          "section": "dunya",
+          "headline": "ABD Senatörü Lindsey Graham 71 yaşında hayatını kaybetti",
+          "importance": 6,
+          "dek": "ABD'de Cumhuriyetçi Parti'nin önde gelen isimlerinden ve Güney Karolina Senatörü Lindsey Graham, geçirdiği ani ve kısa süren bir hastalığın ardından cumartesi gecesi 71 yaşında yaşamını yitirdi.",
+          "body": [
+            "ABD'de Cumhuriyetçi Parti'nin önde gelen isimlerinden ve Güney Karolina Senatörü Lindsey Graham, geçirdiği ani ve kısa süren bir hastalığın ardından cumartesi gecesi 71 yaşında yaşamını yitirdi."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Dünya",
+              "url": "https://www.ntv.com.tr/dunya/abd-senatoru-lindsey-graham-71-yasinda-hayatini-kaybetti-1732494",
+              "published_at": "2026-07-12T10:44:56+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:45.591340+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Dünya RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/260711-lindsey-graham-cc-1138p-8ff010-610442.jpeg",
+          "duplicate_count": 1,
+          "importance_score": 70
+        },
+        {
+          "id": "anka-haber-ajansi-29",
+          "section": "gundem",
+          "headline": "Yozgat’ta mercimek hasadı başladı… “Verim güzel ama masrafların altından kalkamıyoruz” 12 Temmuz 2026 - 10:34",
+          "importance": 7,
+          "dek": "Yozgat’ta mercimek hasadı başladı… “Verim güzel ama masrafların altından kalkamıyoruz” 12 Temmuz 2026 - 10:34",
+          "body": [
+            "Yozgat’ta mercimek hasadı başladı… “Verim güzel ama masrafların altından kalkamıyoruz” 12 Temmuz 2026 - 10:34"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/yozgat-ta-mercimek-hasadi-basladi-verim-guzel-ama-masraflarin-altindan-kalkamiyoruz-20e93c5f",
+              "published_at": "2026-07-12T09:18:50.186756+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.186756+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://cdn.ankahaber.net/media/images/15a1c0de9c652fa56b5edaa77df01e1e1f9d85a627da6003667a49672c21b90c.jpg",
+          "duplicate_count": 1,
+          "importance_score": 68
+        },
+        {
+          "id": "sözcü-ekonomi-1",
+          "section": "ekonomi",
+          "headline": "Çin Avrupa devlerini sildi süpürdü: Üç popüler marka aynı anda çakıldı",
+          "importance": 8,
+          "dek": "Avrupa'nın en çok satan otomotiv firmalarına Çin'den büyük bir ters etki geldi. Dünyanın en büyük ekonomilerinden biri s...",
+          "body": [
+            "Avrupa'nın en çok satan otomotiv firmalarına Çin'den büyük bir ters etki geldi. Dünyanın en büyük ekonomilerinden biri s..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Ekonomi",
+              "url": "https://www.sozcu.com.tr/cin-avrupa-devlerini-sildi-supurdu-uc-populer-marka-ayni-anda-cakildi-p335793",
+              "published_at": "Sun, 12 Jul 2026 12:03:06 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:47.922548+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Ekonomi RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/cinalmanyaotomotivpng-WSSmawmug0umZhUndWILdQ.png",
+          "duplicate_count": 1,
+          "importance_score": 68
+        },
+        {
+          "id": "ntv-dünya-3",
+          "section": "dunya",
+          "headline": "İran Dışişleri: Umman ile Hürmüz'ün güvenliği konusunda anlaştık",
+          "importance": 9,
+          "dek": "İran ile Umman, Hürmüz Boğazı'nda seyrüsefer güvenliğini sağlamak amacıyla ortak anlayışa varmak üzere siyasi, teknik ve hukuki düzeyde görüşmeleri sürdürme kararı aldı.",
+          "body": [
+            "İran ile Umman, Hürmüz Boğazı'nda seyrüsefer güvenliğini sağlamak amacıyla ortak anlayışa varmak üzere siyasi, teknik ve hukuki düzeyde görüşmeleri sürdürme kararı aldı."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Dünya",
+              "url": "https://www.ntv.com.tr/dunya/iran-disisleri-umman-ile-hurmuzun-guvenligi-konusunda-anlastik-1732485",
+              "published_at": "2026-07-12T09:13:47+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:45.591340+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Dünya RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/000_63R989D-978489.jpg",
+          "duplicate_count": 1,
+          "importance_score": 68
+        },
+        {
+          "id": "sözcü-ekonomi-4",
+          "section": "ekonomi",
+          "headline": "Otomotiv Sanayii Derneği, 2026'nın ilk yarısına ilişkin verilerini açıkladı",
+          "importance": 10,
+          "dek": "Otomotiv Sanayii Derneği (OSD) pazar verilerine göre, otomotiv ihracatı adet bazında bu yılın ocak-haziran döneminde 462...",
+          "body": [
+            "Otomotiv Sanayii Derneği (OSD) pazar verilerine göre, otomotiv ihracatı adet bazında bu yılın ocak-haziran döneminde 462..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Ekonomi",
+              "url": "https://www.sozcu.com.tr/otomotiv-sanayii-dernegi-2026-nin-ilk-yarisina-iliskin-verilerini-acikladi-p335765",
+              "published_at": "Sun, 12 Jul 2026 10:17:50 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:47.924551+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Ekonomi RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/6/otomotiv-devi-100-bin-araci-geri-cagirdijpg-udxKZipriku1nZ5SSBC3WQ.jpg",
+          "duplicate_count": 1,
+          "importance_score": 68
+        },
+        {
+          "id": "sözcü-dünya-5",
+          "section": "dunya",
+          "headline": "Borcu olan milyonlarca vatandaşın yurt dışına çıkması yasaklandı",
+          "importance": 11,
+          "dek": "Rusya'da borçlulara uygulanan yurt dışı çıkış yasakları rekor seviyeye ulaştı. Süresiz hale getirilen uygulama nedeniyle...",
+          "body": [
+            "Rusya'da borçlulara uygulanan yurt dışı çıkış yasakları rekor seviyeye ulaştı. Süresiz hale getirilen uygulama nedeniyle..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Dünya",
+              "url": "https://www.sozcu.com.tr/borcu-olan-milyonlarca-vatandasin-yurt-disina-cikmasi-yasaklandi-p335768",
+              "published_at": "Sun, 12 Jul 2026 10:23:33 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:47.558283+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Dünya RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/seyhatapng-0MubuQl-qU6nj63M0hhLXA.png",
+          "duplicate_count": 1,
+          "importance_score": 68
+        },
+        {
+          "id": "sözcü-gündem-3",
+          "section": "gundem",
+          "headline": "Rahatsızlanıp girdiği tuvalette hayatını kaybetti",
+          "importance": 12,
+          "dek": "İstanbul Avcılar'da kendisini iyi hissetmeyince İBB'ye ait umumi tuvalete girerek lavaboda yüzünü yıkayan 43 yaşındaki E...",
+          "body": [
+            "İstanbul Avcılar'da kendisini iyi hissetmeyince İBB'ye ait umumi tuvalete girerek lavaboda yüzünü yıkayan 43 yaşındaki E..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Gündem",
+              "url": "https://www.sozcu.com.tr/rahatsizlanip-girdigi-tuvalette-hayatini-kaybetti-p335790",
+              "published_at": "Sun, 12 Jul 2026 11:46:52 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:47.309447+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Gündem RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/yeni-proje-20260712t114529742png-YR6f-2CpF0GDtFDpygjNVg.png",
+          "duplicate_count": 1,
+          "importance_score": 67
+        },
+        {
+          "id": "ntv-spor-6",
+          "section": "spor",
+          "headline": "Arjantin, İsviçre'yi uzatmada devirdi ve yarı finale yürüdü",
+          "importance": 13,
+          "dek": "Arjantin ile İsviçre, 2026 FIFA Dünya Kupası çeyrek finalinde karşılaştı. Kazananı uzatmalar belirledi.",
+          "body": [
+            "Arjantin ile İsviçre, 2026 FIFA Dünya Kupası çeyrek finalinde karşılaştı. Kazananı uzatmalar belirledi."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Spor",
+              "url": "https://www.ntv.com.tr/sporskor/arjantin-isvicreyi-uzatmada-devirdi-ve-yari-finale-yurudu-1732463",
+              "published_at": "2026-07-12T08:07:57+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:46.392536+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Spor RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/2026-07-12T011217Z_1279019587_UP1EM7C03CGKC_RTRMADP_3_SOCCER-WORLDCUP-ARG-SWI-752858.JPG",
+          "duplicate_count": 1,
+          "importance_score": 65
+        },
+        {
+          "id": "anka-haber-ajansi-13",
+          "section": "gundem",
+          "headline": "Bodrum’da gün batımında tarih ve sanat buluşması 12 Temmuz 2026 - 12:00",
+          "importance": 14,
+          "dek": "Bodrum’da gün batımında tarih ve sanat buluşması 12 Temmuz 2026 - 12:00",
+          "body": [
+            "Bodrum’da gün batımında tarih ve sanat buluşması 12 Temmuz 2026 - 12:00"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/bodrum-da-gun-batiminda-tarih-ve-sanat-bulusmasi-75e035ef",
+              "published_at": "2026-07-12T09:18:50.173239+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.173239+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://cdn.ankahaber.net/media/images/00269579b08eae1f980aa0853f386e46b39868509a17101d7b742bc4233910a5.jpg",
+          "duplicate_count": 1,
+          "importance_score": 65
+        },
+        {
+          "id": "ntv-teknoloji-3",
+          "section": "teknoloji",
+          "headline": "Trump'tan izin çıktı. OpenAI en gelişmiş yapay zeka modelini kullanıma açıyor",
+          "importance": 15,
+          "dek": "OpenAI, ABD hükümetinin ulusal güvenlik endişeleri nedeniyle geçen ay talep ettiği ertelemenin ardından, en gelişmiş yapay zeka modeli GPT-5.6'yı perşembe günü genel kullanıma sunacağını açıkladı.",
+          "body": [
+            "OpenAI, ABD hükümetinin ulusal güvenlik endişeleri nedeniyle geçen ay talep ettiği ertelemenin ardından, en gelişmiş yapay zeka modeli GPT-5.6'yı perşembe günü genel kullanıma sunacağını açıkladı."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Teknoloji",
+              "url": "https://www.ntv.com.tr/teknoloji/galeri-trumptan-izin-cikti-openai-en-gelismis-yapay-zeka-modelini-kullanima-aciyor-1731978",
+              "published_at": "2026-07-08T15:18:34+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:46.153417+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/images-668536.jpeg",
+          "duplicate_count": 1,
+          "importance_score": 65
+        },
+        {
+          "id": "ntv-teknoloji-2",
+          "section": "teknoloji",
+          "headline": "Apple iş görüşmelerini gösterdi, OpenAI'a dava açtı",
+          "importance": 16,
+          "dek": "Apple, çalışanlarıyla yapılan iş görüşmeleri yoluyla araçları, süreçleri ve henüz piyasaya çıkmamış ürünleri hakkında gizli bilgilere erişmeye ve bu bilgileri çalmaya çalışmakla suçladığı OpenAI'a karşı dava açtı.",
+          "body": [
+            "Apple, çalışanlarıyla yapılan iş görüşmeleri yoluyla araçları, süreçleri ve henüz piyasaya çıkmamış ürünleri hakkında gizli bilgilere erişmeye ve bu bilgileri çalmaya çalışmakla suçladığı OpenAI'a karşı dava açtı."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Teknoloji",
+              "url": "https://www.ntv.com.tr/teknoloji/galeri-apple-is-gorusmelerini-gosterdi-openaia-dava-acti-1732354",
+              "published_at": "2026-07-11T09:33:12+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:46.151410+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/GRAUXMIU6RKCFCE2TYR2UNSLDU-582662.jpeg",
+          "duplicate_count": 1,
+          "importance_score": 64
+        },
+        {
+          "id": "ntv-türkiye-1",
+          "section": "gundem",
+          "headline": "FETÖ bağlantılı 2 bin 702 sosyal medya hesabına erişim engeli",
+          "importance": 17,
+          "dek": "Cumhurbaşkanlığı İletişim Başkanı Burhanettin Duran, FETÖ ve FETÖ ile iltisaklı olduğu tespit edilen 2 bin 702 sosyal medya hesabına erişim engeli getirildiğini bildirdi.",
+          "body": [
+            "Cumhurbaşkanlığı İletişim Başkanı Burhanettin Duran, FETÖ ve FETÖ ile iltisaklı olduğu tespit edilen 2 bin 702 sosyal medya hesabına erişim engeli getirildiğini bildirdi."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Türkiye",
+              "url": "https://www.ntv.com.tr/turkiye/feto-baglantili-2-bin-702-sosyal-medya-hesabina-erisim-engeli-1732516",
+              "published_at": "2026-07-12T11:40:26+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:45.326560+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Türkiye RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/sosyalmedya-523634(3).jpg",
+          "duplicate_count": 1,
+          "importance_score": 63
+        },
+        {
+          "id": "ntv-türkiye-2",
+          "section": "gundem",
+          "headline": "Ablalarına dehşeti yaşattı: \"Şeytanı çıkarmak için öldürecektim\"",
+          "importance": 18,
+          "dek": "Antalya'da bir kişi ablalarını boğmaya kalkıştı. Polis müdahalesiyle etkisiz hale getirilen saldırgan, \"İçlerine şeytan girdi.\" dedi.",
+          "body": [
+            "Antalya'da bir kişi ablalarını boğmaya kalkıştı. Polis müdahalesiyle etkisiz hale getirilen saldırgan, \"İçlerine şeytan girdi.\" dedi."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Türkiye",
+              "url": "https://www.ntv.com.tr/turkiye/galeri-ablalarina-dehseti-yasatti-seytani-cikarmak-icin-oldurecektim-1732517",
+              "published_at": "2026-07-12T10:57:00+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:45.329566+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Türkiye RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/ICLERINE-SEYTAN-GIRDI-DEYIP-IKI-ABLAS_1407953_418299-157971.jpg",
+          "duplicate_count": 1,
+          "importance_score": 63
+        },
+        {
+          "id": "ntv-türkiye-5",
+          "section": "gundem",
+          "headline": "İki valizle evden çıktı, 11 gündür haber alınamıyor",
+          "importance": 19,
+          "dek": "Tokat'da 11 gün önce evden ayrılan 17 yaşındaki Ceren Nisa Bilen'den haber alınamıyor.",
+          "body": [
+            "Tokat'da 11 gün önce evden ayrılan 17 yaşındaki Ceren Nisa Bilen'den haber alınamıyor."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Türkiye",
+              "url": "https://www.ntv.com.tr/turkiye/galeri-iki-valizle-evden-cikti-11-gundur-haber-alinamiyor-1732506",
+              "published_at": "2026-07-12T10:29:39+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:45.331081+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Türkiye RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/TOKATTA-11-GUNDUR-HABER-ALINAMAYAN-CERE_1407102_418075-323990(2).jpg",
+          "duplicate_count": 1,
+          "importance_score": 63
+        },
+        {
+          "id": "anka-haber-ajansi-15",
+          "section": "gundem",
+          "headline": "CHP ve İYİ Parti'den \"78 Can İçin Adalet Yürüyüşü… 11 Temmuz 2026 - 15:29",
+          "importance": 20,
+          "dek": "CHP ve İYİ Parti'den \"78 Can İçin Adalet Yürüyüşü… 11 Temmuz 2026 - 15:29",
+          "body": [
+            "CHP ve İYİ Parti'den \"78 Can İçin Adalet Yürüyüşü… 11 Temmuz 2026 - 15:29"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/chp-ve-iyi-parti-den-78-can-icin-adalet-yuruyusu-ne-destek-7dea14d8",
+              "published_at": "2026-07-12T09:18:50.174239+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.174239+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://cdn.ankahaber.net/media/images/7d0509bb19836c7dcc8f1243bd1ca9b996e81f1a08611a356414100bf81c7848.jpg",
+          "duplicate_count": 1,
+          "importance_score": 62
+        }
+      ]
+    },
+    {
+      "page_no": 2,
+      "template": "news_page",
+      "name": "Gündem ve Ekonomi",
+      "articles": [
+        {
+          "id": "anka-haber-ajansi-6",
+          "section": "gundem",
+          "headline": "Meteoroloji uyardı: Sıcaklıklar artıyor, bazı bölgelerde sağanak bekleniyor",
+          "importance": 1,
+          "dek": "Meteoroloji uyardı: Sıcaklıklar artıyor, bazı bölgelerde sağanak bekleniyor",
+          "body": [
+            "Meteoroloji uyardı: Sıcaklıklar artıyor, bazı bölgelerde sağanak bekleniyor"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/meteoroloji-uyardi-sicakliklar-artiyor-bazi-bolgelerde-saganak-bekleniyor-8a882920",
+              "published_at": "2026-07-12T09:18:50.167731+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.167731+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "hero",
+            "column_span": 1,
+            "preferred_position": "top"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\anka-haber-ajansi-6.jpg",
+            "source_url": "https://cdn.ankahaber.net/media/images/5975f50319efb6fca1194b215a087d2121a159d9fbece0fa9668872918ecc32c.jpg",
+            "alt": "Meteoroloji uyardı: Sıcaklıklar artıyor, bazı bölgelerde sağanak bekleniyor",
+            "caption": "Meteoroloji uyardı: Sıcaklıklar artıyor, bazı bölgelerde sağanak bekleniyor",
+            "credit": "ANKA Haber Ajansı",
+            "width": 1920,
+            "height": 1080,
+            "crop": "landscape"
+          },
+          "image_url": "https://cdn.ankahaber.net/media/images/5975f50319efb6fca1194b215a087d2121a159d9fbece0fa9668872918ecc32c.jpg",
+          "duplicate_count": 1,
+          "importance_score": 62
+        },
+        {
+          "id": "anka-haber-ajansi-7",
+          "section": "gundem",
+          "headline": "Almanya Milli Takımı'nda Jürgen Klopp dönemi başlıyor",
+          "importance": 2,
+          "dek": "Almanya Milli Takımı'nda Jürgen Klopp dönemi başlıyor",
+          "body": [
+            "Almanya Milli Takımı'nda Jürgen Klopp dönemi başlıyor"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/almanya-milli-takimi-nda-jurgen-klopp-donemi-basliyor-7539c4e4",
+              "published_at": "2026-07-12T09:18:50.168731+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.168731+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "lead",
+            "column_span": 1,
+            "preferred_position": "top"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\anka-haber-ajansi-7.jpg",
+            "source_url": "https://cdn.ankahaber.net/media/images/5185e3b66d7a470f8838b44a367cba95401a04b0439aafb9ae8b1ccbfd381c3d.jpg",
+            "alt": "Almanya Milli Takımı'nda Jürgen Klopp dönemi başlıyor",
+            "caption": "Almanya Milli Takımı'nda Jürgen Klopp dönemi başlıyor",
+            "credit": "ANKA Haber Ajansı",
+            "width": 241,
+            "height": 192,
+            "crop": "landscape"
+          },
+          "image_url": "https://cdn.ankahaber.net/media/images/5185e3b66d7a470f8838b44a367cba95401a04b0439aafb9ae8b1ccbfd381c3d.jpg",
+          "duplicate_count": 1,
+          "importance_score": 62
+        },
+        {
+          "id": "anka-haber-ajansi-8",
+          "section": "gundem",
+          "headline": "Özgür Özel: Ya partimizi geri alacağız ya da yeni bir yol açacağız",
+          "importance": 3,
+          "dek": "Özgür Özel: Ya partimizi geri alacağız ya da yeni bir yol açacağız",
+          "body": [
+            "Özgür Özel: Ya partimizi geri alacağız ya da yeni bir yol açacağız"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/ozgur-ozel-cok-yakinda-ya-partimizi-geri-alacak-bir-yolu-bulacagiz-ya-da-yeni-bir-yol-acacagiz-1dcb0c8f",
+              "published_at": "2026-07-12T09:18:50.168731+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.168731+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\anka-haber-ajansi-8.jpg",
+            "source_url": "https://cdn.ankahaber.net/media/images/6b3e6928-54fa-4954-8f0c-a5290ab7a272.jpg",
+            "alt": "Özgür Özel: Ya partimizi geri alacağız ya da yeni bir yol açacağız",
+            "caption": "Özgür Özel: Ya partimizi geri alacağız ya da yeni bir yol açacağız",
+            "credit": "ANKA Haber Ajansı",
+            "width": 1200,
+            "height": 675,
+            "crop": "landscape"
+          },
+          "image_url": "https://cdn.ankahaber.net/media/images/6b3e6928-54fa-4954-8f0c-a5290ab7a272.jpg",
+          "duplicate_count": 1,
+          "importance_score": 62
+        },
+        {
+          "id": "anka-haber-ajansi-10",
+          "section": "gundem",
+          "headline": "Mansur Yavaş: Bir yanlış yaparsak bizim cezamızı önce Türk milleti verir",
+          "importance": 4,
+          "dek": "Mansur Yavaş: Bir yanlış yaparsak bizim cezamızı önce Türk milleti verir",
+          "body": [
+            "Mansur Yavaş: Bir yanlış yaparsak bizim cezamızı önce Türk milleti verir"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/mansur-yavas-bir-yanlis-yaparsak-bizim-cezamizi-once-turk-milleti-verir-d88a84d8",
+              "published_at": "2026-07-12T09:18:50.170237+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.170237+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\anka-haber-ajansi-10.jpg",
+            "source_url": "https://cdn.ankahaber.net/media/images/03f01d1a-0f34-48ec-a8d0-208be72f0274.jpg",
+            "alt": "Mansur Yavaş: Bir yanlış yaparsak bizim cezamızı önce Türk milleti verir",
+            "caption": "Mansur Yavaş: Bir yanlış yaparsak bizim cezamızı önce Türk milleti verir",
+            "credit": "ANKA Haber Ajansı",
+            "width": 1200,
+            "height": 675,
+            "crop": "landscape"
+          },
+          "image_url": "https://cdn.ankahaber.net/media/images/03f01d1a-0f34-48ec-a8d0-208be72f0274.jpg",
+          "duplicate_count": 1,
+          "importance_score": 62
+        },
+        {
+          "id": "anka-haber-ajansi-11",
+          "section": "gundem",
+          "headline": "Murat Emir: Önünüze mührü basacağınız parti amblemi koymak boynumuzun borcudur",
+          "importance": 5,
+          "dek": "Murat Emir: Önünüze mührü basacağınız parti amblemi koymak boynumuzun borcudur",
+          "body": [
+            "Murat Emir: Önünüze mührü basacağınız parti amblemi koymak boynumuzun borcudur"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/murat-emir-onunuze-muhru-basacaginiz-parti-amblemi-koymak-boynumuzun-borcudur-446212ab",
+              "published_at": "2026-07-12T09:18:50.171240+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.171240+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\anka-haber-ajansi-11.jpg",
+            "source_url": "https://cdn.ankahaber.net/media/images/3a27e154-6200-4c39-aae9-332badea8fb3.jpg",
+            "alt": "Murat Emir: Önünüze mührü basacağınız parti amblemi koymak boynumuzun borcudur",
+            "caption": "Murat Emir: Önünüze mührü basacağınız parti amblemi koymak boynumuzun borcudur",
+            "credit": "ANKA Haber Ajansı",
+            "width": 1200,
+            "height": 675,
+            "crop": "landscape"
+          },
+          "image_url": "https://cdn.ankahaber.net/media/images/3a27e154-6200-4c39-aae9-332badea8fb3.jpg",
+          "duplicate_count": 1,
+          "importance_score": 62
+        },
+        {
+          "id": "anka-haber-ajansi-16",
+          "section": "gundem",
+          "headline": "Eskişehir'de görev sırasında yaralanan Uzman Çavu… 11 Temmuz 2026 - 15:17",
+          "importance": 6,
+          "dek": "Eskişehir'de görev sırasında yaralanan Uzman Çavu… 11 Temmuz 2026 - 15:17",
+          "body": [
+            "Eskişehir'de görev sırasında yaralanan Uzman Çavu… 11 Temmuz 2026 - 15:17"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/eskisehir-de-gorev-sirasinda-yaralanan-uzman-cavus-hastanede-sehit-oldu-63486a72",
+              "published_at": "2026-07-12T09:18:50.175247+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.175247+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\anka-haber-ajansi-16.png",
+            "source_url": "https://cdn.ankahaber.net/media/images/2f296f79649dd6a37c21b3d52cf85bb6e89858fcba1fc853cfb1644a3b20d8c7.png",
+            "alt": "Eskişehir'de görev sırasında yaralanan Uzman Çavu… 11 Temmuz 2026 - 15:17",
+            "caption": "Eskişehir'de görev sırasında yaralanan Uzman Çavu… 11 Temmuz 2026 - 15:17",
+            "credit": "ANKA Haber Ajansı",
+            "width": 780,
+            "height": 457,
+            "crop": "landscape"
+          },
+          "image_url": "https://cdn.ankahaber.net/media/images/2f296f79649dd6a37c21b3d52cf85bb6e89858fcba1fc853cfb1644a3b20d8c7.png",
+          "duplicate_count": 1,
+          "importance_score": 62
+        },
+        {
+          "id": "anka-haber-ajansi-18",
+          "section": "gundem",
+          "headline": "Kemal Kılıçdaroğlu: \"Srebrenitsa Soykırımı’nda ya… 11 Temmuz 2026 - 16:46",
+          "importance": 7,
+          "dek": "Kemal Kılıçdaroğlu: \"Srebrenitsa Soykırımı’nda ya… 11 Temmuz 2026 - 16:46",
+          "body": [
+            "Kemal Kılıçdaroğlu: \"Srebrenitsa Soykırımı’nda ya… 11 Temmuz 2026 - 16:46"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/kemal-kilicdaroglu-srebrenitsa-soykirimi-nda-yasamini-yitiren-binlerce-masum-insani-saygi-rahmet-ve-huzunle-aniyoruz-a90a6fad",
+              "published_at": "2026-07-12T09:18:50.176248+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.176248+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\anka-haber-ajansi-18.jpg",
+            "source_url": "https://cdn.ankahaber.net/media/images/82df1ce8cbc622519d769ea84561f39368693fde549534700f7b34966e3aefcb.jpg",
+            "alt": "Kemal Kılıçdaroğlu: \"Srebrenitsa Soykırımı’nda ya… 11 Temmuz 2026 - 16:46",
+            "caption": "Kemal Kılıçdaroğlu: \"Srebrenitsa Soykırımı’nda ya… 11 Temmuz 2026 - 16:46",
+            "credit": "ANKA Haber Ajansı",
+            "width": 678,
+            "height": 452,
+            "crop": "landscape"
+          },
+          "image_url": "https://cdn.ankahaber.net/media/images/82df1ce8cbc622519d769ea84561f39368693fde549534700f7b34966e3aefcb.jpg",
+          "duplicate_count": 1,
+          "importance_score": 62
+        },
+        {
+          "id": "anka-haber-ajansi-19",
+          "section": "gundem",
+          "headline": "CHP Bilecik İlçe Başkanları: Örgüt iradesinin üzerinde hiçbir irade tanımıyoruz 12 Temmuz 2026 - 12:03 CHP'nin Bilecik'teki 8 ilçe başkanı Grup Başkanı Özgür Özel ile Bilecik İl Başkanlığı görevinden alınan Ali Özdemir'e desteklerini açıkladı.",
+          "importance": 8,
+          "dek": "CHP Bilecik İlçe Başkanları: Örgüt iradesinin üzerinde hiçbir irade tanımıyoruz 12 Temmuz 2026 - 12:03 CHP'nin Bilecik'teki 8 ilçe başkanı Grup Başkanı Özgür Özel ile Bilecik İl Başkanlığı görevinden alınan Ali Özdemir'e desteklerini açıkladı.",
+          "body": [
+            "CHP Bilecik İlçe Başkanları: Örgüt iradesinin üzerinde hiçbir irade tanımıyoruz 12 Temmuz 2026 - 12:03 CHP'nin Bilecik'teki 8 ilçe başkanı Grup Başkanı Özgür Özel ile Bilecik İl Başkanlığı görevinden alınan Ali Özdemir'e desteklerini açıkladı."
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/chp-bilecik-ilce-baskanlari-orgut-iradesinin-uzerinde-hicbir-irade-tanimiyoruz-a351f287",
+              "published_at": "2026-07-12T09:18:50.177247+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.177247+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\anka-haber-ajansi-19.jpg",
+            "source_url": "https://cdn.ankahaber.net/media/images/84089afdb8db9d4c4c88f7b7fa57bdfb6ad39b9484e743ec2c125f823ac76560.jpg",
+            "alt": "CHP Bilecik İlçe Başkanları: Örgüt iradesinin üzerinde hiçbir irade tanımıyoruz 12 Temmuz 2026 - 12:03 CHP'nin Bilecik'teki 8 ilçe başkanı Grup Başkanı Özgür Özel ile Bilecik İl Başkanlığı görevinden alınan Ali Özdemir'e desteklerini açıkladı.",
+            "caption": "CHP Bilecik İlçe Başkanları: Örgüt iradesinin üzerinde hiçbir irade tanımıyoruz 12 Temmuz 2026 - 12:03 CHP'nin Bilecik'teki 8 ilçe başkanı Grup Başkanı Özgür Özel ile Bilecik İl Başkanlığı görevinden alınan Ali Özdemir'e desteklerini açıkladı.",
+            "credit": "ANKA Haber Ajansı",
+            "width": 5120,
+            "height": 2880,
+            "crop": "landscape"
+          },
+          "image_url": "https://cdn.ankahaber.net/media/images/84089afdb8db9d4c4c88f7b7fa57bdfb6ad39b9484e743ec2c125f823ac76560.jpg",
+          "duplicate_count": 1,
+          "importance_score": 62
+        },
+        {
+          "id": "sözcü-ekonomi-6",
+          "section": "ekonomi",
+          "headline": "Savunma operasyonlarında lojistik yapının rolü",
+          "importance": 9,
+          "dek": "Savunma operasyonlarında başarıyı belirleyen en kritik unsurun lojistik ve tedarik zinciri yönetimi olduğu, modern harp ...",
+          "body": [
+            "Savunma operasyonlarında başarıyı belirleyen en kritik unsurun lojistik ve tedarik zinciri yönetimi olduğu, modern harp ..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Ekonomi",
+              "url": "https://www.sozcu.com.tr/savunma-operasyonlarinda-lojistik-yapinin-rolu-p335762",
+              "published_at": "Sun, 12 Jul 2026 10:17:39 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:47.925547+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Ekonomi RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\sozcu-ekonomi-6.png",
+            "source_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/svnpng-t0s-Sxk_vEWr70H6MBvEYg.png",
+            "alt": "Savunma operasyonlarında lojistik yapının rolü",
+            "caption": "Savunma operasyonlarında başarıyı belirleyen en kritik unsurun lojistik ve tedarik zinciri yönetimi olduğu, modern harp ...",
+            "credit": "Sözcü Ekonomi",
+            "width": 732,
+            "height": 338,
+            "crop": "landscape"
+          },
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/svnpng-t0s-Sxk_vEWr70H6MBvEYg.png",
+          "duplicate_count": 1,
+          "importance_score": 62
+        },
+        {
+          "id": "anka-haber-ajansi-30",
+          "section": "gundem",
+          "headline": "Kırıkkale'de hurda yüklü TIR devrildi: Sürücü yaralandı 12 Temmuz 2026 - 00:31",
+          "importance": 10,
+          "dek": "Kırıkkale'de hurda yüklü TIR devrildi: Sürücü yaralandı 12 Temmuz 2026 - 00:31",
+          "body": [
+            "Kırıkkale'de hurda yüklü TIR devrildi: Sürücü yaralandı 12 Temmuz 2026 - 00:31"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/kirikkale-de-hurda-yuklu-tir-devrildi-surucu-yaralandi-b193ec42",
+              "published_at": "2026-07-12T09:18:50.187757+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.187757+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\anka-haber-ajansi-30.jpg",
+            "source_url": "https://cdn.ankahaber.net/media/images/af2b099c8a00a001a618c754231668ced11bda03feb2bea72309e98a586b9dea.jpg",
+            "alt": "Kırıkkale'de hurda yüklü TIR devrildi: Sürücü yaralandı 12 Temmuz 2026 - 00:31",
+            "caption": "Kırıkkale'de hurda yüklü TIR devrildi: Sürücü yaralandı 12 Temmuz 2026 - 00:31",
+            "credit": "ANKA Haber Ajansı",
+            "width": 864,
+            "height": 486,
+            "crop": "landscape"
+          },
+          "image_url": "https://cdn.ankahaber.net/media/images/af2b099c8a00a001a618c754231668ced11bda03feb2bea72309e98a586b9dea.jpg",
+          "duplicate_count": 1,
+          "importance_score": 62
+        },
+        {
+          "id": "sözcü-gündem-1",
+          "section": "gundem",
+          "headline": "Yüzlerce hastaya şifa olan doktorun evlat çaresizliği",
+          "importance": 11,
+          "dek": "Bursa’da tıbbi onkoloji uzmanı olarak görev yapan Dr. Haluk Keskin (40) ile çocuk gelişimi öğretmeni Atifet Keskin (38),...",
+          "body": [
+            "Bursa’da tıbbi onkoloji uzmanı olarak görev yapan Dr. Haluk Keskin (40) ile çocuk gelişimi öğretmeni Atifet Keskin (38),..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Gündem",
+              "url": "https://www.sozcu.com.tr/yuzlerce-hastaya-sifa-olan-doktorun-evlat-caresizligi-p335796",
+              "published_at": "Sun, 12 Jul 2026 12:13:13 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:47.307942+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Gündem RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\sozcu-gundem-1.jpg",
+            "source_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/563jpg-qTa08F3n1ku2ZfR9TjBB1Q.jpg",
+            "alt": "Yüzlerce hastaya şifa olan doktorun evlat çaresizliği",
+            "caption": "Bursa’da tıbbi onkoloji uzmanı olarak görev yapan Dr. Haluk Keskin (40) ile çocuk gelişimi öğretmeni Atifet Keskin (38),...",
+            "credit": "Sözcü Gündem",
+            "width": 1200,
+            "height": 675,
+            "crop": "landscape"
+          },
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/563jpg-qTa08F3n1ku2ZfR9TjBB1Q.jpg",
+          "duplicate_count": 1,
+          "importance_score": 61
+        },
+        {
+          "id": "sözcü-dünya-1",
+          "section": "dunya",
+          "headline": "Evlerde güneş paneli zorunluluğu için dev bütçe: Tarih yaklaşıyor",
+          "importance": 12,
+          "dek": "Enerji maliyetleri gün geçtikçe artarken ülkeler masrafları düşürmek için yeni planları bir bir devreye alıyor. Hem elek...",
+          "body": [
+            "Enerji maliyetleri gün geçtikçe artarken ülkeler masrafları düşürmek için yeni planları bir bir devreye alıyor. Hem elek..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Dünya",
+              "url": "https://www.sozcu.com.tr/evlerde-gunes-paneli-zorunlulugu-icin-dev-plan-tarih-yaklasiyor-p335794",
+              "published_at": "Sun, 12 Jul 2026 12:09:14 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:47.556275+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Dünya RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\sozcu-dunya-1.jpg",
+            "source_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/gunes-paneli1jpg-30jCYGZqkk6MRUy89wyp2A.JPG",
+            "alt": "Evlerde güneş paneli zorunluluğu için dev bütçe: Tarih yaklaşıyor",
+            "caption": "Enerji maliyetleri gün geçtikçe artarken ülkeler masrafları düşürmek için yeni planları bir bir devreye alıyor. Hem elek...",
+            "credit": "Sözcü Dünya",
+            "width": 1242,
+            "height": 714,
+            "crop": "landscape"
+          },
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/gunes-paneli1jpg-30jCYGZqkk6MRUy89wyp2A.JPG",
+          "duplicate_count": 1,
+          "importance_score": 61
+        }
+      ],
+      "briefs": [
+        {
+          "id": "sözcü-teknoloji-1",
+          "section": "teknoloji",
+          "headline": "BYD anlaşma yaptı: Ülkeye yetecek piller yapacaklar",
+          "importance": 1,
+          "dek": "Çinli teknoloji ve otomotiv devi BYD, elektrikli otomobillerde edindiği batarya üretim tecrübesini şebeke ölçekli enerji...",
+          "body": [
+            "Çinli teknoloji ve otomotiv devi BYD, elektrikli otomobillerde edindiği batarya üretim tecrübesini şebeke ölçekli enerji..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Teknoloji",
+              "url": "https://www.sozcu.com.tr/byd-anlasma-yapti-ulkeye-yetecek-piller-yapacaklar-p335784",
+              "published_at": "Sun, 12 Jul 2026 11:25:31 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:48.585787+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/baratarjpg-SQClG7e81k2Ls4-BJ3FPYg.JPG",
+          "duplicate_count": 1,
+          "importance_score": 60
+        },
+        {
+          "id": "ntv-türkiye-3",
+          "section": "gundem",
+          "headline": "Asfaltı istila ettiler! Tokat'ta dikkat çeken doğa olayı",
+          "importance": 2,
+          "dek": "Tokat’ın Yeşilyurt ilçesi ile Sulusaray ilçesi arasındaki yaklaşık 3 kilometrelik kara yolunda binlerce kurbağa aynı anda yoldan geçmeye çalıştı. İlginç doğa olayı nedeniyle çok sayıda kurbağa araçların altında kalarak telef oldu.",
+          "body": [
+            "Tokat’ın Yeşilyurt ilçesi ile Sulusaray ilçesi arasındaki yaklaşık 3 kilometrelik kara yolunda binlerce kurbağa aynı anda yoldan geçmeye çalıştı. İlginç doğa olayı nedeniyle çok sayıda kurbağa araçların altında kalarak telef oldu."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Türkiye",
+              "url": "https://www.ntv.com.tr/turkiye/video-asfalti-istila-ettiler-tokatta-dikkat-ceken-doga-olayi-1732512",
+              "published_at": "2026-07-12T10:48:23+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:45.330077+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Türkiye RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/AW744948_03-588445.jpg",
+          "duplicate_count": 1,
+          "importance_score": 60
+        },
+        {
+          "id": "sözcü-ekonomi-5",
+          "section": "ekonomi",
+          "headline": "Dijital ödeme sistemlerinde güvenlik önlemi",
+          "importance": 3,
+          "dek": "Dijital ödeme sistemlerinde artan işlem hacminin riskleri beraberinde getirdiğini belirten uzmanlar, asıl büyük tehliken...",
+          "body": [
+            "Dijital ödeme sistemlerinde artan işlem hacminin riskleri beraberinde getirdiğini belirten uzmanlar, asıl büyük tehliken..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Ekonomi",
+              "url": "https://www.sozcu.com.tr/dijital-odeme-sistemlerinde-guvenlik-onlemi-p335763",
+              "published_at": "Sun, 12 Jul 2026 12:15:47 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:47.925547+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Ekonomi RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/werpng-D7nhVig0r02ONVF9E349ZQ.png",
+          "duplicate_count": 1,
+          "importance_score": 60
+        },
+        {
+          "id": "ntv-dünya-6",
+          "section": "dunya",
+          "headline": "Aşırı sıcaklar Tour de France'ı kısalttı",
+          "importance": 4,
+          "dek": "Avrupa'yı kavuran aşırı sıcaklar nedeniyle 113'üncü Fransa Bisiklet Turu'nun (Tour de France) 9'uncu etap parkuru 30 kilometre kısaltıldı.",
+          "body": [
+            "Avrupa'yı kavuran aşırı sıcaklar nedeniyle 113'üncü Fransa Bisiklet Turu'nun (Tour de France) 9'uncu etap parkuru 30 kilometre kısaltıldı."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Dünya",
+              "url": "https://www.ntv.com.tr/dunya/asiri-sicaklar-tour-de-francei-kisaltti-1732471",
+              "published_at": "2026-07-12T06:06:47+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:45.593345+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Dünya RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/AFP__20260711__B9WZ8VQ__v1__MidRes__CyclingTdf2026Stage8-353211.jpg",
+          "duplicate_count": 1,
+          "importance_score": 60
+        },
+        {
+          "id": "anka-haber-ajansi-21",
+          "section": "gundem",
+          "headline": "Kara Kuvvetleri Komutanlığı, 9'uncu Tugay Komutanlığı'nda görev yapan ve \"Tarihi geçmiş ve eksik ilaç kullanıldığı, erbaş ve erlere ilaç reçete edilemediği, eczane protokolünün bulunmadığı, içme suyu yetersizliği nedeniyle enfeksiyon vakalarının arttığı ve tıbbi malzeme eksikliklerine karşı tedbir alınmadığını\" iddia eden doktor Efran Usul'ün aday memurluğuna son verdi. 09.07.2026 - 16:54",
+          "importance": 5,
+          "dek": "Kara Kuvvetleri Komutanlığı, 9'uncu Tugay Komutanlığı'nda görev yapan ve \"Tarihi geçmiş ve eksik ilaç kullanıldığı, erbaş ve erlere ilaç reçete edilemediği, eczane protokolünün bulunmadığı, içme suyu yetersizliği nedeniyle enfeksiyon vakalarının arttığı ve tıbbi malzeme eksikliklerine karşı tedbir alınmadığını\" iddia eden doktor Efran Usul'ün aday memurluğuna son verdi. 09.07.2026 - 16:54",
+          "body": [
+            "Kara Kuvvetleri Komutanlığı, 9'uncu Tugay Komutanlığı'nda görev yapan ve \"Tarihi geçmiş ve eksik ilaç kullanıldığı, erbaş ve erlere ilaç reçete edilemediği, eczane protokolünün bulunmadığı, içme suyu yetersizliği nedeniyle enfeksiyon vakalarının arttığı ve tıbbi malzeme eksikliklerine karşı tedbir alınmadığını\" iddia eden doktor Efran Usul'ün aday memurluğuna son verdi. 09.07.2026 - 16:54"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/erlere-tarihi-gecmis-ilac-verildigi-iddiasinda-bulunan-doktor-efran-usul-un-aday-memurluguna-son-verildi-52f3d019",
+              "published_at": "2026-07-12T09:18:50.178247+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.178247+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "",
+          "duplicate_count": 1,
+          "importance_score": 58
+        },
+        {
+          "id": "anka-haber-ajansi-23",
+          "section": "gundem",
+          "headline": "Yarış Atı Binicileri Yardımlaşma ve Dayanışma Derneği Başkanı Onur Öztürk, jokey ve aprantilerin,2018 yılında düşürülen prim oranlarının yeniden eski seviyesine çıkarılması gerektiğini söyledi. 06.07.2026 - 13:59",
+          "importance": 6,
+          "dek": "Yarış Atı Binicileri Yardımlaşma ve Dayanışma Derneği Başkanı Onur Öztürk, jokey ve aprantilerin,2018 yılında düşürülen prim oranlarının yeniden eski seviyesine çıkarılması gerektiğini söyledi. 06.07.2026 - 13:59",
+          "body": [
+            "Yarış Atı Binicileri Yardımlaşma ve Dayanışma Derneği Başkanı Onur Öztürk, jokey ve aprantilerin,2018 yılında düşürülen prim oranlarının yeniden eski seviyesine çıkarılması gerektiğini söyledi. 06.07.2026 - 13:59"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/jokeylerden-prim-cagrisi-2018-de-verilen-soz-yerine-getirilsin-4cd3e54d",
+              "published_at": "2026-07-12T09:18:50.181757+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.181757+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "",
+          "duplicate_count": 1,
+          "importance_score": 58
+        },
+        {
+          "id": "anka-haber-ajansi-24",
+          "section": "gundem",
+          "headline": "Motorine bir haftada üçüncü zam 09.07.2026 - 09:57",
+          "importance": 7,
+          "dek": "Motorine bir haftada üçüncü zam 09.07.2026 - 09:57",
+          "body": [
+            "Motorine bir haftada üçüncü zam 09.07.2026 - 09:57"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/motorine-bir-haftada-ucuncu-zam-bu-gece-yarisi-3-08-tl-zam-bekleniyor-daa73ec0",
+              "published_at": "2026-07-12T09:18:50.182756+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.182756+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "",
+          "duplicate_count": 1,
+          "importance_score": 58
+        },
+        {
+          "id": "anka-haber-ajansi-26",
+          "section": "gundem",
+          "headline": "Tekirdağ Büyükşehir Belediyesi, Şarköy Eriklice Sahil Yolu'nu baştan sona yenileyerek vatandaşların kullanımına sundu. Yenilenen sahil yolu; bisiklet yolu, kaldırım, peyzaj ve çevre düzenlemeleriyle modern, güvenli ve konforlu bir yaşam alanına dönüştürüldü. 09.07.2026 - 15:01",
+          "importance": 8,
+          "dek": "Tekirdağ Büyükşehir Belediyesi, Şarköy Eriklice Sahil Yolu'nu baştan sona yenileyerek vatandaşların kullanımına sundu. Yenilenen sahil yolu; bisiklet yolu, kaldırım, peyzaj ve çevre düzenlemeleriyle modern, güvenli ve konforlu bir yaşam alanına dönüştürüldü. 09.07.2026 - 15:01",
+          "body": [
+            "Tekirdağ Büyükşehir Belediyesi, Şarköy Eriklice Sahil Yolu'nu baştan sona yenileyerek vatandaşların kullanımına sundu. Yenilenen sahil yolu; bisiklet yolu, kaldırım, peyzaj ve çevre düzenlemeleriyle modern, güvenli ve konforlu bir yaşam alanına dönüştürüldü. 09.07.2026 - 15:01"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/tekirdag-buyuksehir-belediyesi-nden-sarkoy-eriklice-sahili-ne-modern-dokunus-9d011758",
+              "published_at": "2026-07-12T09:18:50.183756+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.183756+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "",
+          "duplicate_count": 1,
+          "importance_score": 58
+        },
+        {
+          "id": "anka-haber-ajansi-27",
+          "section": "gundem",
+          "headline": "Cemil Tugay: \"Uzundere Cemevi için üzerimize düşeni yapmaya hazırız\" 06.07.2026 - 09:59",
+          "importance": 9,
+          "dek": "Cemil Tugay: \"Uzundere Cemevi için üzerimize düşeni yapmaya hazırız\" 06.07.2026 - 09:59",
+          "body": [
+            "Cemil Tugay: \"Uzundere Cemevi için üzerimize düşeni yapmaya hazırız\" 06.07.2026 - 09:59"
+          ],
+          "source_bundle": [
+            {
+              "name": "ANKA Haber Ajansı",
+              "url": "https://ankahaber.net/haber/izmir-buyuksehir-belediye-baskani-tugay-uzundere-cemevi-icin-uzerimize-duseni-yapmaya-haziriz-1a8015e7",
+              "published_at": "2026-07-12T09:18:50.184756+00:00",
+              "source_type": "agency",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:50.184756+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "ANKA Haber Ajansı ana sayfa akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "",
+          "duplicate_count": 1,
+          "importance_score": 58
+        },
+        {
+          "id": "sözcü-dünya-2",
+          "section": "dunya",
+          "headline": "Kağıttan yaptıkları dev uçağı uçurup rekor kırdılar",
+          "importance": 10,
+          "dek": "İtalya'da bir grup havacılık ve uzay mühendisliği öğrencisi, yalnızca kağıt ve tutkalla ürettikleri 20 metrelik dev uçağ...",
+          "body": [
+            "İtalya'da bir grup havacılık ve uzay mühendisliği öğrencisi, yalnızca kağıt ve tutkalla ürettikleri 20 metrelik dev uçağ..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Dünya",
+              "url": "https://www.sozcu.com.tr/kagittan-yaptiklari-dev-ucagi-ucurup-rekor-kirdilar-p335789",
+              "published_at": "Sun, 12 Jul 2026 11:41:08 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:47.557283+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Dünya RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/kagit-2png-_aYO5NjjjUWWxN8FS7Ly-Q.png",
+          "duplicate_count": 1,
+          "importance_score": 58
+        },
+        {
+          "id": "sözcü-dünya-3",
+          "section": "dunya",
+          "headline": "Oynamaktan vazgeçemediği için 14 erkekle evlendi",
+          "importance": 11,
+          "dek": "Bir kadın toplamda 14 evlilik yaptı. Her evliliğinde sahte kimlik kullanan ve farklı bir yalanla sözde eşlerini dolandır...",
+          "body": [
+            "Bir kadın toplamda 14 evlilik yaptı. Her evliliğinde sahte kimlik kullanan ve farklı bir yalanla sözde eşlerini dolandır..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Dünya",
+              "url": "https://www.sozcu.com.tr/oynamaktan-vazgecemedigi-icin-14-erkekle-evlendi-p335776",
+              "published_at": "Sun, 12 Jul 2026 11:02:34 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:47.558283+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Dünya RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/kadinkumarbazpng-he0wVSD6bkm9i50FA2MqNg.png",
+          "duplicate_count": 1,
+          "importance_score": 58
+        },
+        {
+          "id": "ntv-dünya-1",
+          "section": "dunya",
+          "headline": "Bavi Tayfunu Çin'in doğusunu vurdu: 2 milyon tahliye",
+          "importance": 12,
+          "dek": "Yılın en güçlü fırtınası olarak kayda geçen Bavi Tayfunu, Çin'in doğu kıyılarını fırtına, heyelan ve sellerle vurdu.",
+          "body": [
+            "Yılın en güçlü fırtınası olarak kayda geçen Bavi Tayfunu, Çin'in doğu kıyılarını fırtına, heyelan ve sellerle vurdu."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Dünya",
+              "url": "https://www.ntv.com.tr/dunya/galeri-bavi-tayfunu-cinin-dogusunu-vurdu-2-milyon-tahliye-1732502",
+              "published_at": "2026-07-12T10:05:49+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:45.590339+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Dünya RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/LHDQUO4CV5JENHOPVOD46EOBO4-766462.jpeg",
+          "duplicate_count": 1,
+          "importance_score": 56
+        },
+        {
+          "id": "sözcü-ekonomi-3",
+          "section": "ekonomi",
+          "headline": "Günlük elektrik üretim ve tüketim verileri -12 temmuz 2026",
+          "importance": 13,
+          "dek": "Türkiye'de dün günlük bazda 1 milyon 73 bin 5 megavatsaat elektrik üretildi, tüketim ise 1 milyon 72 bin 236 megavatsaat...",
+          "body": [
+            "Türkiye'de dün günlük bazda 1 milyon 73 bin 5 megavatsaat elektrik üretildi, tüketim ise 1 milyon 72 bin 236 megavatsaat..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Ekonomi",
+              "url": "https://www.sozcu.com.tr/gunluk-elektrik-uretim-ve-tuketim-verileri-12-temmuz-2026-p335766",
+              "published_at": "Sun, 12 Jul 2026 10:17:53 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:47.923548+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Ekonomi RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/6/elektrikjpg-VkTyOlY6NEO7iLZloUVliQ.jpg",
+          "duplicate_count": 1,
+          "importance_score": 56
+        },
+        {
+          "id": "ntv-dünya-4",
+          "section": "dunya",
+          "headline": "Katar Emiri El Sani'nin babası yaşamını yitirdi",
+          "importance": 14,
+          "dek": "Katar Emiri Şeyh Temim bin Hamad Al Sani'nin babası ve aynı zamanda ülkenin eski emiri yaşamını yitirdi.",
+          "body": [
+            "Katar Emiri Şeyh Temim bin Hamad Al Sani'nin babası ve aynı zamanda ülkenin eski emiri yaşamını yitirdi."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Dünya",
+              "url": "https://www.ntv.com.tr/dunya/katar-emiri-el-saninin-babasi-yasamini-yitirdi-1732476",
+              "published_at": "2026-07-12T09:33:45+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:45.592345+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Dünya RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/HJIBA42V7FP7VNKUCM6OGE223A-501461(2).jpeg",
+          "duplicate_count": 1,
+          "importance_score": 56
+        },
+        {
+          "id": "ntv-dünya-5",
+          "section": "dunya",
+          "headline": "Toronto'da festivale silahlı saldırı. 2 kişi öldü",
+          "importance": 15,
+          "dek": "Toronto'da sokak festivali yakınlarında düzenlenen silahlı saldırıda 2 kişi öldü, 5 kişi de yaralandı.",
+          "body": [
+            "Toronto'da sokak festivali yakınlarında düzenlenen silahlı saldırıda 2 kişi öldü, 5 kişi de yaralandı."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Dünya",
+              "url": "https://www.ntv.com.tr/dunya/torontoda-festivale-silahli-saldiri-2-kisi-oldu-1732473",
+              "published_at": "2026-07-12T07:47:39+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:45.592345+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Dünya RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/2026-07-12T020259Z_1678962712_RC21CMA3FWCC_RTRMADP_3_CANADA-TORONTO-SHOOTING-944879.JPG",
+          "duplicate_count": 1,
+          "importance_score": 56
+        },
+        {
+          "id": "sözcü-teknoloji-5",
+          "section": "teknoloji",
+          "headline": "LFB bataryalarda vergi sıfırlandı: Fiyatlar düşecek",
+          "importance": 16,
+          "dek": "Elektrikli araç ve enerji depolama sektörünü yakından ilgilendiren kritik bir vergi hamlesi geldi. Resmi Gazete'de yayım...",
+          "body": [
+            "Elektrikli araç ve enerji depolama sektörünü yakından ilgilendiren kritik bir vergi hamlesi geldi. Resmi Gazete'de yayım..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Teknoloji",
+              "url": "https://www.sozcu.com.tr/lfb-bataryalarda-vergi-sifirlandi-fiyatlar-dusecek-p335739",
+              "published_at": "Sun, 12 Jul 2026 09:19:50 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:48.588291+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/8d37682f1b17402f985762d60a91b7bd-1jfif-jg4GbNeHp0eq-CSUIVgclw.jfif",
+          "duplicate_count": 1,
+          "importance_score": 56
+        },
+        {
+          "id": "ntv-spor-1",
+          "section": "spor",
+          "headline": "Uçan tekmeyle başladı, sonu hüsran oldu",
+          "importance": 17,
+          "dek": "Hayranlarının 5 yıldır beklediği Conor McGregor ile Max Holloway karşı karşıya geldi. Maç sadece 1 dakika sürdü.",
+          "body": [
+            "Hayranlarının 5 yıldır beklediği Conor McGregor ile Max Holloway karşı karşıya geldi. Maç sadece 1 dakika sürdü."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Spor",
+              "url": "https://www.ntv.com.tr/sporskor/galeri-ucan-tekmeyle-basladi-sonu-husran-oldu-1732507",
+              "published_at": "2026-07-12T10:57:03+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:46.390530+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Spor RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/2026-07-12T035806Z_363786035_MT1USATODAY29373747_RTRMADP_3_MMA-UFC-329-CONOR-MCGREGOR-V-MAX-HOLLOWAY-105452.JPG",
+          "duplicate_count": 1,
+          "importance_score": 54
+        },
+        {
+          "id": "ntv-spor-3",
+          "section": "spor",
+          "headline": "Dünya Kupası'nda yarı final eşleşmeleri belli oldu",
+          "importance": 18,
+          "dek": "2026 FIFA Dünya Kupası'nda çeyrek final etabı tamamlandı ve yarı final eşleşmeleri belli oldu.",
+          "body": [
+            "2026 FIFA Dünya Kupası'nda çeyrek final etabı tamamlandı ve yarı final eşleşmeleri belli oldu."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Spor",
+              "url": "https://www.ntv.com.tr/sporskor/galeri-dunya-kupasinda-yari-final-eslesmeleri-belli-oldu-1732468",
+              "published_at": "2026-07-12T11:39:49+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:46.391535+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Spor RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/wc1-965328(2).jpg",
+          "duplicate_count": 1,
+          "importance_score": 54
+        },
+        {
+          "id": "sözcü-teknoloji-3",
+          "section": "teknoloji",
+          "headline": "Geceyi gündüze çevirme gücüne sahip uydu onaylandı",
+          "importance": 19,
+          "dek": "Federal İletişim Komisyonu (FCC), gece saatlerinde güneş ışığını yeryüzüne yansıtarak adeta geceyi gündüze çevirmeyi hed...",
+          "body": [
+            "Federal İletişim Komisyonu (FCC), gece saatlerinde güneş ışığını yeryüzüne yansıtarak adeta geceyi gündüze çevirmeyi hed..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Teknoloji",
+              "url": "https://www.sozcu.com.tr/geceyi-gunduze-cevirme-gucune-sahip-uydu-onaylandi-p335777",
+              "published_at": "Sun, 12 Jul 2026 11:03:39 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:48.586786+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/uydujpg-scAt3ITVAkePxd9IZ3EfwQ.JPG",
+          "duplicate_count": 1,
+          "importance_score": 54
+        },
+        {
+          "id": "sözcü-dünya-6",
+          "section": "dunya",
+          "headline": "SpaceX'e rakip çıktı: Elon Musk endişeyle takip ediyor",
+          "importance": 20,
+          "dek": "Japonya Uzay Araştırma Ajansı (JAXA), uzay taşımacılığı maliyetlerini düşürmek ve Elon Musk’ın şirketi SpaceX’in bu alan...",
+          "body": [
+            "Japonya Uzay Araştırma Ajansı (JAXA), uzay taşımacılığı maliyetlerini düşürmek ve Elon Musk’ın şirketi SpaceX’in bu alan..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Dünya",
+              "url": "https://www.sozcu.com.tr/spacex-e-rakip-cikti-elon-musk-endiseyle-takip-ediyor-p335757",
+              "published_at": "Sun, 12 Jul 2026 10:05:03 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:47.559283+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Dünya RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/yeni-proje-20260712t100236649jpg-nc8__zo89k2HYG4fhwihdA.jpg",
+          "duplicate_count": 1,
+          "importance_score": 54
+        }
+      ]
+    },
+    {
+      "page_no": 3,
+      "template": "news_page",
+      "name": "Teknoloji",
+      "articles": [
+        {
+          "id": "ntv-teknoloji-10",
+          "section": "teknoloji",
+          "headline": "İsveç'ten Google'a 1,5 milyar dolarlık ceza",
+          "importance": 1,
+          "dek": "İsveç'teki bir mahkeme, teknoloji devi Google'ın, ödeme platformu Klarna'ya ait fiyat karşılaştırma şirketi PriceRunner'a yaklaşık 1,5 milyar dolar tazminat ödemesine hükmetti.",
+          "body": [
+            "İsveç'teki bir mahkeme, teknoloji devi Google'ın, ödeme platformu Klarna'ya ait fiyat karşılaştırma şirketi PriceRunner'a yaklaşık 1,5 milyar dolar tazminat ödemesine hükmetti."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Teknoloji",
+              "url": "https://www.ntv.com.tr/teknoloji/isvecten-googlea-15-milyar-dolarlik-ceza-1730990",
+              "published_at": "2026-07-01T16:18:13+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.463943+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "hero",
+            "column_span": 1,
+            "preferred_position": "top"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\ntv-teknoloji-10.jpg",
+            "source_url": "https://images.ntv.com.tr/images/JUBVR3CC3BKRVMDJHYX42WQDJ4-280218.jpeg",
+            "alt": "İsveç'ten Google'a 1,5 milyar dolarlık ceza",
+            "caption": "İsveç'teki bir mahkeme, teknoloji devi Google'ın, ödeme platformu Klarna'ya ait fiyat karşılaştırma şirketi PriceRunner'a yaklaşık 1,5 milyar dolar tazminat ödemesine hükmetti.",
+            "credit": "NTV Teknoloji",
+            "width": 5000,
+            "height": 3335,
+            "crop": "landscape"
+          },
+          "image_url": "https://images.ntv.com.tr/images/JUBVR3CC3BKRVMDJHYX42WQDJ4-280218.jpeg",
+          "duplicate_count": 1,
+          "importance_score": 87,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "habertürk-teknoloji-1",
+          "section": "teknoloji",
+          "headline": "OpenAI'a 'ticari sır çalma' davası",
+          "importance": 2,
+          "dek": "ABD'li teknoloji devi Apple, iki eski çalışanı ile yapay zeka şirketi OpenAI'a yeni tüketici donanımları geliştirmek amacıyla şirketin \"ticari sırlarını ve gizli bilgilerini çaldıkları\" gerekçesiyle dava açtı",
+          "body": [
+            "ABD'li teknoloji devi Apple, iki eski çalışanı ile yapay zeka şirketi OpenAI'a yeni tüketici donanımları geliştirmek amacıyla şirketin \"ticari sırlarını ve gizli bilgilerini çaldıkları\" gerekçesiyle dava açtı"
+          ],
+          "source_bundle": [
+            {
+              "name": "Habertürk Teknoloji",
+              "url": "https://www.haberturk.com/apple-ticari-sirlarini-caldigi-iddiasiyla-iki-eski-calisani-ve-openai-a-dava-acti-3897799-teknoloji",
+              "published_at": "Sat, 11 Jul 2026 12:18:23 GMT",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.609867+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Habertürk Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "lead",
+            "column_span": 1,
+            "preferred_position": "top"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\haberturk-teknoloji-1.jpg",
+            "source_url": "https://im.haberturk.com/l/2026/07/11/ver1783772261/3897799/jpg/1280x1280",
+            "alt": "OpenAI'a 'ticari sır çalma' davası",
+            "caption": "ABD'li teknoloji devi Apple, iki eski çalışanı ile yapay zeka şirketi OpenAI'a yeni tüketici donanımları geliştirmek amacıyla şirketin \"ticari sırlarını ve gizli bilgilerini çaldıkları\" gerekçesiyle dava açtı",
+            "credit": "Habertürk Teknoloji",
+            "width": 1280,
+            "height": 1280,
+            "crop": "landscape"
+          },
+          "image_url": "https://im.haberturk.com/l/2026/07/11/ver1783772261/3897799/jpg/1280x1280",
+          "duplicate_count": 1,
+          "importance_score": 83,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "ntv-teknoloji-1",
+          "section": "teknoloji",
+          "headline": "Meta gizlilik tepkilerinin ardından yeni yapay zekayı çekti",
+          "importance": 3,
+          "dek": "Meta, Instagram için geliştirdiği yeni yapay zeka modelini, kullanıcıların otomatik olarak sisteme dahil edilmesine yönelik tepkilerin ardından yayından kaldırdı.",
+          "body": [
+            "Meta, Instagram için geliştirdiği yeni yapay zeka modelini, kullanıcıların otomatik olarak sisteme dahil edilmesine yönelik tepkilerin ardından yayından kaldırdı."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Teknoloji",
+              "url": "https://www.ntv.com.tr/teknoloji/galeri-meta-gizlilik-tepkilerinin-ardindan-yeni-yapay-zekayi-cekti-1732511",
+              "published_at": "2026-07-12T10:34:49+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.458436+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\ntv-teknoloji-1.jpg",
+            "source_url": "https://images.ntv.com.tr/images/instagram_20pink.jpg-887341.jpeg",
+            "alt": "Meta gizlilik tepkilerinin ardından yeni yapay zekayı çekti",
+            "caption": "Meta, Instagram için geliştirdiği yeni yapay zeka modelini, kullanıcıların otomatik olarak sisteme dahil edilmesine yönelik tepkilerin ardından yayından kaldırdı.",
+            "credit": "NTV Teknoloji",
+            "width": 1920,
+            "height": 1080,
+            "crop": "landscape"
+          },
+          "image_url": "https://images.ntv.com.tr/images/instagram_20pink.jpg-887341.jpeg",
+          "duplicate_count": 1,
+          "importance_score": 73,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "sözcü-bilim-teknoloji-2",
+          "section": "teknoloji",
+          "headline": "ChatGPT rekabete giremedi, dev proje sona erdi",
+          "importance": 4,
+          "dek": "OpenAI, yapay zekâ entegrasyonlu bağımsız internet tarayıcısı ChatGPT Atlas'ı beklenmedik bir kararla iptal ettiğini duy...",
+          "body": [
+            "OpenAI, yapay zekâ entegrasyonlu bağımsız internet tarayıcısı ChatGPT Atlas'ı beklenmedik bir kararla iptal ettiğini duy..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Bilim-Teknoloji",
+              "url": "https://www.sozcu.com.tr/chatgpt-rekabete-giremedi-dev-proje-sona-erdi-p335779",
+              "published_at": "Sun, 12 Jul 2026 11:10:42 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.864111+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Bilim-Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\sozcu-bilim-teknoloji-2.jpg",
+            "source_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2025/4/20250414t175840z1267321935rc2lu7awtt1lrtrmadp3openaichatgptjpg-Z4Z7X6gV_kGnz0H6XlB6UA.JPG",
+            "alt": "ChatGPT rekabete giremedi, dev proje sona erdi",
+            "caption": "OpenAI, yapay zekâ entegrasyonlu bağımsız internet tarayıcısı ChatGPT Atlas'ı beklenmedik bir kararla iptal ettiğini duy...",
+            "credit": "Sözcü Bilim-Teknoloji",
+            "width": 3500,
+            "height": 2138,
+            "crop": "landscape"
+          },
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2025/4/20250414t175840z1267321935rc2lu7awtt1lrtrmadp3openaichatgptjpg-Z4Z7X6gV_kGnz0H6XlB6UA.JPG",
+          "duplicate_count": 1,
+          "importance_score": 71,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "ntv-teknoloji-3",
+          "section": "teknoloji",
+          "headline": "Trump'tan izin çıktı. OpenAI en gelişmiş yapay zeka modelini kullanıma açıyor",
+          "importance": 5,
+          "dek": "OpenAI, ABD hükümetinin ulusal güvenlik endişeleri nedeniyle geçen ay talep ettiği ertelemenin ardından, en gelişmiş yapay zeka modeli GPT-5.6'yı perşembe günü genel kullanıma sunacağını açıkladı.",
+          "body": [
+            "OpenAI, ABD hükümetinin ulusal güvenlik endişeleri nedeniyle geçen ay talep ettiği ertelemenin ardından, en gelişmiş yapay zeka modeli GPT-5.6'yı perşembe günü genel kullanıma sunacağını açıkladı."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Teknoloji",
+              "url": "https://www.ntv.com.tr/teknoloji/galeri-trumptan-izin-cikti-openai-en-gelismis-yapay-zeka-modelini-kullanima-aciyor-1731978",
+              "published_at": "2026-07-08T15:18:34+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.459942+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\ntv-teknoloji-3.jpg",
+            "source_url": "https://images.ntv.com.tr/images/images-668536.jpeg",
+            "alt": "Trump'tan izin çıktı. OpenAI en gelişmiş yapay zeka modelini kullanıma açıyor",
+            "caption": "OpenAI, ABD hükümetinin ulusal güvenlik endişeleri nedeniyle geçen ay talep ettiği ertelemenin ardından, en gelişmiş yapay zeka modeli GPT-5.6'yı perşembe günü genel kullanıma sunacağını açıkladı.",
+            "credit": "NTV Teknoloji",
+            "width": 678,
+            "height": 452,
+            "crop": "landscape"
+          },
+          "image_url": "https://images.ntv.com.tr/images/images-668536.jpeg",
+          "duplicate_count": 1,
+          "importance_score": 65,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "ntv-teknoloji-12",
+          "section": "teknoloji",
+          "headline": "ABD'de denetim tamamlandı. Anthropic modelleri geri dönüyor",
+          "importance": 6,
+          "dek": "Yapay zeka girişimi Anthropic, ABD yönetiminin yapay zeka modelleri \"Claude Fable 5\" ve \"Mythos 5\" üzerindeki ihracat kontrollerini kaldırdığını bildirdi.",
+          "body": [
+            "Yapay zeka girişimi Anthropic, ABD yönetiminin yapay zeka modelleri \"Claude Fable 5\" ve \"Mythos 5\" üzerindeki ihracat kontrollerini kaldırdığını bildirdi."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Teknoloji",
+              "url": "https://www.ntv.com.tr/teknoloji/abdde-denetim-tamamlandi-anthropic-modelleri-geri-donuyor-1730851",
+              "published_at": "2026-07-01T04:01:30+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.465943+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\ntv-teknoloji-12.jpg",
+            "source_url": "https://images.ntv.com.tr/images/Anthropic-777405.jpeg",
+            "alt": "ABD'de denetim tamamlandı. Anthropic modelleri geri dönüyor",
+            "caption": "Yapay zeka girişimi Anthropic, ABD yönetiminin yapay zeka modelleri \"Claude Fable 5\" ve \"Mythos 5\" üzerindeki ihracat kontrollerini kaldırdığını bildirdi.",
+            "credit": "NTV Teknoloji",
+            "width": 1600,
+            "height": 992,
+            "crop": "landscape"
+          },
+          "image_url": "https://images.ntv.com.tr/images/Anthropic-777405.jpeg",
+          "duplicate_count": 1,
+          "importance_score": 65,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "ntv-teknoloji-2",
+          "section": "teknoloji",
+          "headline": "Apple iş görüşmelerini gösterdi, OpenAI'a dava açtı",
+          "importance": 7,
+          "dek": "Apple, çalışanlarıyla yapılan iş görüşmeleri yoluyla araçları, süreçleri ve henüz piyasaya çıkmamış ürünleri hakkında gizli bilgilere erişmeye ve bu bilgileri çalmaya çalışmakla suçladığı OpenAI'a karşı dava açtı.",
+          "body": [
+            "Apple, çalışanlarıyla yapılan iş görüşmeleri yoluyla araçları, süreçleri ve henüz piyasaya çıkmamış ürünleri hakkında gizli bilgilere erişmeye ve bu bilgileri çalmaya çalışmakla suçladığı OpenAI'a karşı dava açtı."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Teknoloji",
+              "url": "https://www.ntv.com.tr/teknoloji/galeri-apple-is-gorusmelerini-gosterdi-openaia-dava-acti-1732354",
+              "published_at": "2026-07-11T09:33:12+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.459437+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\ntv-teknoloji-2.jpg",
+            "source_url": "https://images.ntv.com.tr/images/GRAUXMIU6RKCFCE2TYR2UNSLDU-582662.jpeg",
+            "alt": "Apple iş görüşmelerini gösterdi, OpenAI'a dava açtı",
+            "caption": "Apple, çalışanlarıyla yapılan iş görüşmeleri yoluyla araçları, süreçleri ve henüz piyasaya çıkmamış ürünleri hakkında gizli bilgilere erişmeye ve bu bilgileri çalmaya çalışmakla suçladığı OpenAI'a karşı dava açtı.",
+            "credit": "NTV Teknoloji",
+            "width": 1920,
+            "height": 1280,
+            "crop": "landscape"
+          },
+          "image_url": "https://images.ntv.com.tr/images/GRAUXMIU6RKCFCE2TYR2UNSLDU-582662.jpeg",
+          "duplicate_count": 1,
+          "importance_score": 64,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "ntv-teknoloji-18",
+          "section": "teknoloji",
+          "headline": "Apple bazı popüler uygulamaları kaldırdı, Kremlin tepki gösterdi",
+          "importance": 8,
+          "dek": "ABD merkezli teknoloji devi Apple; Rusya’nın en popüler sosyal ağlarından VK’yı ve şirkete ait Zen, VK Video, VK Messenger, VK Music, VK Dating, Odnoklassniki gibi uygulamaları App Store'dan kaldırdı. Kremlin Sözcüsü Peskov, resmi açıklama talep edeceklerini bildirdi.",
+          "body": [
+            "ABD merkezli teknoloji devi Apple; Rusya’nın en popüler sosyal ağlarından VK’yı ve şirkete ait Zen, VK Video, VK Messenger, VK Music, VK Dating, Odnoklassniki gibi uygulamaları App Store'dan kaldırdı. Kremlin Sözcüsü Peskov, resmi açıklama talep edeceklerini bildirdi."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Teknoloji",
+              "url": "https://www.ntv.com.tr/teknoloji/apple-bazi-populer-uygulamalari-kaldirdi-kremlin-tepki-gosterdi-1730093",
+              "published_at": "2026-06-25T14:05:23+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.467943+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\ntv-teknoloji-18.jpg",
+            "source_url": "https://images.ntv.com.tr/images/apple-838672.jpg",
+            "alt": "Apple bazı popüler uygulamaları kaldırdı, Kremlin tepki gösterdi",
+            "caption": "ABD merkezli teknoloji devi Apple; Rusya’nın en popüler sosyal ağlarından VK’yı ve şirkete ait Zen, VK Video, VK Messenger, VK Music, VK Dating, Odnoklassniki gibi uygulamaları App Store'dan kaldırdı. Kremlin Sözcüsü Peskov, resmi açıklama talep edeceklerini bildirdi.",
+            "credit": "NTV Teknoloji",
+            "width": 864,
+            "height": 486,
+            "crop": "landscape"
+          },
+          "image_url": "https://images.ntv.com.tr/images/apple-838672.jpg",
+          "duplicate_count": 1,
+          "importance_score": 63,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "evrim-ağacı-10",
+          "section": "teknoloji",
+          "headline": "Kumun Altında Gizlenen Elektrikli Avcı: Beyaz Kenarlı Tiryaki Balığı",
+          "importance": 9,
+          "dek": "Beyaz kenarlı tiryaki balığının (İng: \"Whitemargin stargazer\", Lat: Uranoscopus sulphureus) yüzüne atacağınız tek bir bakış, muhtemelen istenmeyen davetsiz misafirleri korkutup kaçırmak için yeterli olacaktır. Yukarıya doğru bakan şişkin gözleri ve korkutucu dişlerle dolu o kocaman, somurtkan ağızları,…",
+          "body": [
+            "Beyaz kenarlı tiryaki balığının (İng: \"Whitemargin stargazer\", Lat: Uranoscopus sulphureus) yüzüne atacağınız tek bir bakış, muhtemelen istenmeyen davetsiz misafirleri korkutup kaçırmak için yeterli olacaktır. Yukarıya doğru bakan şişkin gözleri ve korkutucu dişlerle dolu o kocaman, somurtkan ağızları,…"
+          ],
+          "source_bundle": [
+            {
+              "name": "Evrim Ağacı",
+              "url": "https://evrimagaci.org/kumun-altinda-gizlenen-elektrikli-avci-beyaz-kenarli-tiryaki-baligi-23319",
+              "published_at": "Wed, 01 Jul 2026 16:29:00 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:53.147013+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Evrim Ağacı RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\evrim-agaci-10.jpg",
+            "source_url": "https://storage.evrimagaci.org/content/3b0a5abd-a288-4e1c-9821-52aef0a7975e.jpeg",
+            "alt": "Kumun Altında Gizlenen Elektrikli Avcı: Beyaz Kenarlı Tiryaki Balığı",
+            "caption": "Beyaz kenarlı tiryaki balığının (İng: \"Whitemargin stargazer\", Lat: Uranoscopus sulphureus) yüzüne atacağınız tek bir bakış, muhtemelen istenmeyen davetsiz misafirleri korkutup kaçırmak için yeterli olacaktır. Yukarıya doğru bakan şişkin gözleri ve korkutucu dişlerle dolu o kocaman, somurtkan ağızları,…",
+            "credit": "Evrim Ağacı",
+            "width": 1200,
+            "height": 675,
+            "crop": "landscape"
+          },
+          "image_url": "https://storage.evrimagaci.org/content/3b0a5abd-a288-4e1c-9821-52aef0a7975e.jpeg",
+          "duplicate_count": 1,
+          "importance_score": 62,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "sözcü-bilim-teknoloji-1",
+          "section": "teknoloji",
+          "headline": "BYD anlaşma yaptı: Ülkeye yetecek piller yapacaklar",
+          "importance": 10,
+          "dek": "Çinli teknoloji ve otomotiv devi BYD, elektrikli otomobillerde edindiği batarya üretim tecrübesini şebeke ölçekli enerji...",
+          "body": [
+            "Çinli teknoloji ve otomotiv devi BYD, elektrikli otomobillerde edindiği batarya üretim tecrübesini şebeke ölçekli enerji..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Bilim-Teknoloji",
+              "url": "https://www.sozcu.com.tr/byd-anlasma-yapti-ulkeye-yetecek-piller-yapacaklar-p335784",
+              "published_at": "Sun, 12 Jul 2026 11:25:31 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.863111+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Bilim-Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\sozcu-bilim-teknoloji-1.jpg",
+            "source_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/baratarjpg-SQClG7e81k2Ls4-BJ3FPYg.JPG",
+            "alt": "BYD anlaşma yaptı: Ülkeye yetecek piller yapacaklar",
+            "caption": "Çinli teknoloji ve otomotiv devi BYD, elektrikli otomobillerde edindiği batarya üretim tecrübesini şebeke ölçekli enerji...",
+            "credit": "Sözcü Bilim-Teknoloji",
+            "width": 1537,
+            "height": 818,
+            "crop": "landscape"
+          },
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/baratarjpg-SQClG7e81k2Ls4-BJ3FPYg.JPG",
+          "duplicate_count": 1,
+          "importance_score": 59,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "ntv-teknoloji-15",
+          "section": "teknoloji",
+          "headline": "Türk gibi düşünecek yerli yapay zeka BİLGE için geri sayım",
+          "importance": 11,
+          "dek": "Türkiye'nin yerli ve milli yapay zeka modeli BİLGE, genel kullanıma açılmaya hazırlanıyor. Yerli yapay zeka, varsayılan kültür yerine Türkiye'yi merkeze alacak.",
+          "body": [
+            "Türkiye'nin yerli ve milli yapay zeka modeli BİLGE, genel kullanıma açılmaya hazırlanıyor. Yerli yapay zeka, varsayılan kültür yerine Türkiye'yi merkeze alacak."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Teknoloji",
+              "url": "https://www.ntv.com.tr/teknoloji/turk-gibi-dusunecek-yerli-yapay-zeka-bilge-icin-geri-sayim-1730640",
+              "published_at": "2026-06-29T13:39:41+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.466943+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\ntv-teknoloji-15.jpg",
+            "source_url": "https://images.ntv.com.tr/images/yapayzekabilge-448645.jpg",
+            "alt": "Türk gibi düşünecek yerli yapay zeka BİLGE için geri sayım",
+            "caption": "Türkiye'nin yerli ve milli yapay zeka modeli BİLGE, genel kullanıma açılmaya hazırlanıyor. Yerli yapay zeka, varsayılan kültür yerine Türkiye'yi merkeze alacak.",
+            "credit": "NTV Teknoloji",
+            "width": 864,
+            "height": 486,
+            "crop": "landscape"
+          },
+          "image_url": "https://images.ntv.com.tr/images/yapayzekabilge-448645.jpg",
+          "duplicate_count": 1,
+          "importance_score": 58,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "sözcü-bilim-teknoloji-5",
+          "section": "teknoloji",
+          "headline": "LFB bataryalarda vergi sıfırlandı: Fiyatlar düşecek",
+          "importance": 12,
+          "dek": "Elektrikli araç ve enerji depolama sektörünü yakından ilgilendiren kritik bir vergi hamlesi geldi. Resmi Gazete'de yayım...",
+          "body": [
+            "Elektrikli araç ve enerji depolama sektörünü yakından ilgilendiren kritik bir vergi hamlesi geldi. Resmi Gazete'de yayım..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Bilim-Teknoloji",
+              "url": "https://www.sozcu.com.tr/lfb-bataryalarda-vergi-sifirlandi-fiyatlar-dusecek-p335739",
+              "published_at": "Sun, 12 Jul 2026 09:19:50 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.866111+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Bilim-Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "secondary",
+            "column_span": 1,
+            "preferred_position": "mid"
+          },
+          "image": {
+            "path": "dist\\pages-publish-staging\\assets\\sozcu-bilim-teknoloji-5.jpg",
+            "source_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/8d37682f1b17402f985762d60a91b7bd-1jfif-jg4GbNeHp0eq-CSUIVgclw.jfif",
+            "alt": "LFB bataryalarda vergi sıfırlandı: Fiyatlar düşecek",
+            "caption": "Elektrikli araç ve enerji depolama sektörünü yakından ilgilendiren kritik bir vergi hamlesi geldi. Resmi Gazete'de yayım...",
+            "credit": "Sözcü Bilim-Teknoloji",
+            "width": 1024,
+            "height": 559,
+            "crop": "landscape"
+          },
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/8d37682f1b17402f985762d60a91b7bd-1jfif-jg4GbNeHp0eq-CSUIVgclw.jfif",
+          "duplicate_count": 1,
+          "importance_score": 55,
+          "kicker": "TEKNOLOJİ"
+        }
+      ],
+      "briefs": [
+        {
+          "id": "ntv-teknoloji-17",
+          "section": "teknoloji",
+          "headline": "Apple, MacBook ve iPad fiyatlarına zam yaptı",
+          "importance": 1,
+          "dek": "Apple, yapay zeka sektöründeki veri merkezi yatırımlarının tetiklediği yüksek bellek ve depolama çipi maliyetleri nedeniyle MacBook ve iPad fiyatlarını yükseltti.",
+          "body": [
+            "Apple, yapay zeka sektöründeki veri merkezi yatırımlarının tetiklediği yüksek bellek ve depolama çipi maliyetleri nedeniyle MacBook ve iPad fiyatlarını yükseltti."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Teknoloji",
+              "url": "https://www.ntv.com.tr/teknoloji/galeri-apple-macbook-ve-ipad-fiyatlarina-zam-yapti-1730135",
+              "published_at": "2026-06-25T16:25:15+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.467943+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/images-156949.jpeg",
+          "duplicate_count": 1,
+          "importance_score": 55,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "sözcü-bilim-teknoloji-3",
+          "section": "teknoloji",
+          "headline": "Geceyi gündüze çevirme gücüne sahip uydu onaylandı",
+          "importance": 2,
+          "dek": "Federal İletişim Komisyonu (FCC), gece saatlerinde güneş ışığını yeryüzüne yansıtarak adeta geceyi gündüze çevirmeyi hed...",
+          "body": [
+            "Federal İletişim Komisyonu (FCC), gece saatlerinde güneş ışığını yeryüzüne yansıtarak adeta geceyi gündüze çevirmeyi hed..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Bilim-Teknoloji",
+              "url": "https://www.sozcu.com.tr/geceyi-gunduze-cevirme-gucune-sahip-uydu-onaylandi-p335777",
+              "published_at": "Sun, 12 Jul 2026 11:03:39 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.865111+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Bilim-Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/uydujpg-scAt3ITVAkePxd9IZ3EfwQ.JPG",
+          "duplicate_count": 1,
+          "importance_score": 53,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "sözcü-bilim-teknoloji-4",
+          "section": "teknoloji",
+          "headline": "Proje başarılı olsa da dev şirket 51 kişiyi işten kovdu",
+          "importance": 3,
+          "dek": "Ubisoft, yeni oyunu Assassin’s Creed Black Flag Resynced ile dünya çapında büyük bir satış başarısı yakalayıp yüksek inc...",
+          "body": [
+            "Ubisoft, yeni oyunu Assassin’s Creed Black Flag Resynced ile dünya çapında büyük bir satış başarısı yakalayıp yüksek inc..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Bilim-Teknoloji",
+              "url": "https://www.sozcu.com.tr/proje-basarili-olsa-da-dev-sirket-51-kisiyi-isten-kovdu-p335759",
+              "published_at": "Sun, 12 Jul 2026 10:10:47 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.865111+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Bilim-Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/1jpg-QqhPEX20AEqwHzM8yGQTzA.jpg",
+          "duplicate_count": 1,
+          "importance_score": 49,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "ntv-teknoloji-9",
+          "section": "teknoloji",
+          "headline": "5 yeni iPhone modeli geliyor",
+          "importance": 4,
+          "dek": "Dünyada satış rekorları kıran Apple, bellek sıkıntısı nedeniyle pazar payını artırmak için 5 yeni iPhone modeli piyasaya sürecek.",
+          "body": [
+            "Dünyada satış rekorları kıran Apple, bellek sıkıntısı nedeniyle pazar payını artırmak için 5 yeni iPhone modeli piyasaya sürecek."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Teknoloji",
+              "url": "https://www.ntv.com.tr/teknoloji/5-yeni-iphone-modeli-geliyor-1731047",
+              "published_at": "2026-07-02T08:17:35+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.463943+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/iphone17-660566.jpg",
+          "duplicate_count": 1,
+          "importance_score": 49,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "evrim-ağacı-5",
+          "section": "teknoloji",
+          "headline": "Havadan Yapay Zekâ, Sığ Denizlerdeki Sualtı Mühimmatlarını Yüksek Hassasiyetle Tespit Ediyor!",
+          "importance": 5,
+          "dek": "Yeni bir havadan görüntüleme yaklaşımı, sığ kıyı sularında yatan patlamamış silahları güvenilir bir şekilde tespit edebiliyor. Bu silahlar, dünya çapında kamu güvenliği, deniz ekosistemleri ve altyapı için süregelen bir tehlike oluşturmaya devam ediyor.Gelişmiş çok tayflı (İng: \"multispectral\") algılama…",
+          "body": [
+            "Yeni bir havadan görüntüleme yaklaşımı, sığ kıyı sularında yatan patlamamış silahları güvenilir bir şekilde tespit edebiliyor. Bu silahlar, dünya çapında kamu güvenliği, deniz ekosistemleri ve altyapı için süregelen bir tehlike oluşturmaya devam ediyor.Gelişmiş çok tayflı (İng: \"multispectral\") algılama…"
+          ],
+          "source_bundle": [
+            {
+              "name": "Evrim Ağacı",
+              "url": "https://evrimagaci.org/havadan-yapay-zeka-sig-denizlerdeki-sualti-muhimmatlarini-yuksek-hassasiyetle-tespit-ediyor-23357",
+              "published_at": "Wed, 08 Jul 2026 14:34:55 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:53.136182+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Evrim Ağacı RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://storage.evrimagaci.org/content/cb7a2f12-5894-45f0-93e7-89ae711a9982.jpeg",
+          "duplicate_count": 1,
+          "importance_score": 47,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "ntv-teknoloji-8",
+          "section": "teknoloji",
+          "headline": "ABD'de yeni ev robotu tanıtıldı: Çamaşır katlıyor, yatak topluyor",
+          "importance": 6,
+          "dek": "ABD'de faaliyet gösteren bir şirket, ev işlerini kolaylaştırmayı hedefleyen yeni nesil ev robotunu tanıttı.",
+          "body": [
+            "ABD'de faaliyet gösteren bir şirket, ev işlerini kolaylaştırmayı hedefleyen yeni nesil ev robotunu tanıttı."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Teknoloji",
+              "url": "https://www.ntv.com.tr/dunya/video-abdde-yeni-ev-robotu-tanitildi-camasir-katliyor-yatak-topluyor-1731196",
+              "published_at": "2026-07-03T08:30:17+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.462943+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/sdfsdfsd-768959.jpg",
+          "duplicate_count": 1,
+          "importance_score": 47,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "sözcü-bilim-teknoloji-14",
+          "section": "teknoloji",
+          "headline": "Tüm dünyada satış rekorları kırmıştı: O ürün raflardan iniyor",
+          "importance": 7,
+          "dek": "İlk olarak piyasaya çıktığı 2017 senesi ile birlikte dünyanın e çok yerinde satış rekorları kıran oyun konsolu için son ...",
+          "body": [
+            "İlk olarak piyasaya çıktığı 2017 senesi ile birlikte dünyanın e çok yerinde satış rekorları kıran oyun konsolu için son ..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Bilim-Teknoloji",
+              "url": "https://www.sozcu.com.tr/tum-dunyada-satis-rekorlari-kirmisti-o-urun-raflardan-iniyor-p334653",
+              "published_at": "Wed, 08 Jul 2026 08:32:08 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.870625+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Bilim-Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/nintendoraflardantoplatiliyorpng-CJ5gG5VkkUy78b4QK-zTgg.png",
+          "duplicate_count": 1,
+          "importance_score": 47,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "ntv-teknoloji-16",
+          "section": "teknoloji",
+          "headline": "Xbox konsol fiyatlarına zam geliyor",
+          "importance": 8,
+          "dek": "ABD'li teknoloji şirketi Microsoft, depolama ve bellek bileşenlerinin maliyetlerindeki yükselişten ötürü Xbox oyun konsollarının fiyatlarını artıracağını duyurdu.",
+          "body": [
+            "ABD'li teknoloji şirketi Microsoft, depolama ve bellek bileşenlerinin maliyetlerindeki yükselişten ötürü Xbox oyun konsollarının fiyatlarını artıracağını duyurdu."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Teknoloji",
+              "url": "https://www.ntv.com.tr/teknoloji/xbox-konsol-fiyatlarina-zam-geliyor-1730158",
+              "published_at": "2026-06-25T23:35:55+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.467943+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/4OC24NMZLJLTDJT7FJQ7VAWNEU_20260625203335-822504.jpg",
+          "duplicate_count": 1,
+          "importance_score": 47,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "ntv-teknoloji-5",
+          "section": "teknoloji",
+          "headline": "Evrenin bebeklik döneminden gelen ışık keşfedildi",
+          "importance": 9,
+          "dek": "Avrupa Uzay Ajansı'nın Euclid Uzay Teleskobu, şimdiye kadar keşfedilen en yaşlı iki kuasarı tespit etti. Bu kuasarlardan Dünya'ya ulaşan ışığın, evren yalnızca yaklaşık 670 milyon yaşındayken yayıldığı hesaplandı.",
+          "body": [
+            "Avrupa Uzay Ajansı'nın Euclid Uzay Teleskobu, şimdiye kadar keşfedilen en yaşlı iki kuasarı tespit etti. Bu kuasarlardan Dünya'ya ulaşan ışığın, evren yalnızca yaklaşık 670 milyon yaşındayken yayıldığı hesaplandı."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Teknoloji",
+              "url": "https://www.ntv.com.tr/teknoloji/evrenin-bebeklik-doneminden-gelen-isik-kesfedildi-1731637",
+              "published_at": "2026-07-06T09:59:32+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.461943+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/iStock-667431002-108407(2).jpg",
+          "duplicate_count": 1,
+          "importance_score": 45,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "evrim-ağacı-2",
+          "section": "teknoloji",
+          "headline": "İki Boyutlu Bir Kristalde Evre Değişimlerini Tetikleyen Atomik \"Domino Etkisi\" Keşfedildi!",
+          "importance": 10,
+          "dek": "Bir malzemenin bir kristal yapıdan diğerine geçerek bambaşka özellikler kazandığı evre dönüşümleri doğada her yerde karşımıza çıkıyor. Bu dönüşümlerin mikroskobik mekanizmalarını anlamanın, malzeme özelliklerini kontrol etmek ve işlevsel cihazlar tasarlamak için büyük önem taşıdığını biliyoruz.Çin Bilimler…",
+          "body": [
+            "Bir malzemenin bir kristal yapıdan diğerine geçerek bambaşka özellikler kazandığı evre dönüşümleri doğada her yerde karşımıza çıkıyor. Bu dönüşümlerin mikroskobik mekanizmalarını anlamanın, malzeme özelliklerini kontrol etmek ve işlevsel cihazlar tasarlamak için büyük önem taşıdığını biliyoruz.Çin Bilimler…"
+          ],
+          "source_bundle": [
+            {
+              "name": "Evrim Ağacı",
+              "url": "https://evrimagaci.org/iki-boyutlu-bir-kristalde-evre-degisimlerini-tetikleyen-atomik-domino-etkisi-kesfedildi-23386",
+              "published_at": "Fri, 10 Jul 2026 12:22:15 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:53.131181+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Evrim Ağacı RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://storage.evrimagaci.org/content/cb031dfd-3fe4-4fc8-b333-d3abe1d25f56.jpeg",
+          "duplicate_count": 1,
+          "importance_score": 44,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "sözcü-bilim-teknoloji-16",
+          "section": "teknoloji",
+          "headline": "Laboratuvarda can verdiler: Beslenmeye ve büyümeye başladı",
+          "importance": 11,
+          "dek": "Laboratuvar ortasında hayat üretme çalışmaları son hız devam ediyor. Yapılan çalışmalar ile daha önce bilim insanları il...",
+          "body": [
+            "Laboratuvar ortasında hayat üretme çalışmaları son hız devam ediyor. Yapılan çalışmalar ile daha önce bilim insanları il..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Bilim-Teknoloji",
+              "url": "https://www.sozcu.com.tr/laboratuvarda-can-verdiler-yemek-yiyebiliyor-ve-buyumeye-basladi-p334486",
+              "published_at": "Tue, 07 Jul 2026 14:16:34 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.871624+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Bilim-Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/laboratuvardabiliminsanijpg-6RW7EpEBY0SwceuQUYOrVg.JPG",
+          "duplicate_count": 1,
+          "importance_score": 44,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "ntv-teknoloji-11",
+          "section": "teknoloji",
+          "headline": "NASA Ay'da üs kurmaya hazırlanıyor: 3 yeni görev açıklandı",
+          "importance": 12,
+          "dek": "NASA, Ay yüzeyinde kurulması planlanan kalıcı üs için üç yeni insansız kargo görevi başlatacağını açıkladı. Bilimsel ekipman taşıyacak görevler, gelecekte Ay'da insanlı operasyonlara altyapı hazırlamayı hedefliyor.",
+          "body": [
+            "NASA, Ay yüzeyinde kurulması planlanan kalıcı üs için üç yeni insansız kargo görevi başlatacağını açıkladı. Bilimsel ekipman taşıyacak görevler, gelecekte Ay'da insanlı operasyonlara altyapı hazırlamayı hedefliyor."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Teknoloji",
+              "url": "https://www.ntv.com.tr/teknoloji/nasa-ayda-us-kurmaya-hazirlaniyor-3-yeni-gorev-aciklandi-1730879",
+              "published_at": "2026-07-01T08:50:35+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.464943+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/AFP__20260624__B88C6F9__v2__MidRes__TopshotUsSpaceMuseumShuttle-115575.jpg",
+          "duplicate_count": 1,
+          "importance_score": 43,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "evrim-ağacı-8",
+          "section": "teknoloji",
+          "headline": "Avustralya, Sidney Plajlarında Köpekbalığı Gözlem Drone'larının Ağını Genişletiyor!",
+          "importance": 13,
+          "dek": "Yetkililerin yaptığı açıklamaya göre Avustralya, artan saldırıların ve gözlemlerin ardından 1 Temmuz'dan itibaren Sidney ve ötesindeki plajlarda köpekbalığı tespit eden drone'ların kapsamını yıl boyu sürecek şekilde genişletti.Yeni Güney Galler eyalet hükümeti, yapay zekâ ve gelişmekte olan teknolojilerden…",
+          "body": [
+            "Yetkililerin yaptığı açıklamaya göre Avustralya, artan saldırıların ve gözlemlerin ardından 1 Temmuz'dan itibaren Sidney ve ötesindeki plajlarda köpekbalığı tespit eden drone'ların kapsamını yıl boyu sürecek şekilde genişletti.Yeni Güney Galler eyalet hükümeti, yapay zekâ ve gelişmekte olan teknolojilerden…"
+          ],
+          "source_bundle": [
+            {
+              "name": "Evrim Ağacı",
+              "url": "https://evrimagaci.org/avustralya-sidney-plajlarinda-kopekbaligi-gozlem-dronelarinin-agini-genisletiyor-23328",
+              "published_at": "Mon, 06 Jul 2026 13:05:09 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:53.141731+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Evrim Ağacı RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://storage.evrimagaci.org/content/c7f4332c-16d4-4f8a-bf83-b318a0c01110.jpeg",
+          "duplicate_count": 1,
+          "importance_score": 41,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "sözcü-bilim-teknoloji-9",
+          "section": "teknoloji",
+          "headline": "GTA 6'ya mecburen kimlikle giriş yapacaklar",
+          "importance": 14,
+          "dek": "Oyun dünyasının yıllardır beklediği ve ön satışa çıktığı andan itibaren milyonlarca satışa ulaşan GTA 6'ya dair yeni det...",
+          "body": [
+            "Oyun dünyasının yıllardır beklediği ve ön satışa çıktığı andan itibaren milyonlarca satışa ulaşan GTA 6'ya dair yeni det..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Bilim-Teknoloji",
+              "url": "https://www.sozcu.com.tr/gta-6-ya-mecburen-kimlikle-giris-yapacaklar-p335268",
+              "published_at": "Fri, 10 Jul 2026 09:22:49 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.868113+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Bilim-Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/gta-6-kimlik-zorunlujpg-hFtMG2dD2Eed8LpcdiKYwQ.jpg",
+          "duplicate_count": 1,
+          "importance_score": 41,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "sözcü-bilim-teknoloji-6",
+          "section": "teknoloji",
+          "headline": "Dikkat edilmediğinde aracınızın ömrü 5 seneye düşüyor: O araçlarda buna dikkat edin",
+          "importance": 15,
+          "dek": "Elektrikli araçların kullanımı her geçen gün yaygınlaşmaya devam ediyor. Ancak elektrikli araçlar ile ilgili ortaya atıl...",
+          "body": [
+            "Elektrikli araçların kullanımı her geçen gün yaygınlaşmaya devam ediyor. Ancak elektrikli araçlar ile ilgili ortaya atıl..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Bilim-Teknoloji",
+              "url": "https://www.sozcu.com.tr/dikkat-edilmediginde-aracinizin-omru-5-eneye-dusuyor-o-araclarda-buna-dikkat-edin-p335431",
+              "published_at": "Fri, 10 Jul 2026 16:54:09 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.867111+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Bilim-Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/4/elektrikli-aracjpg-wUilpwAKr0_XqHT2IcYwyA.jpg",
+          "duplicate_count": 1,
+          "importance_score": 38,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "sözcü-bilim-teknoloji-11",
+          "section": "teknoloji",
+          "headline": "Trilyonlarcası beslenmek için harekete geçiyor: Denizin dibinden yükseliyorlar",
+          "importance": 16,
+          "dek": "Denizin dibinden başlayan hareketlenme bilim insanlarının dikkatinden kaçmadı. İlk bakışta deniz tabanının kabarması ya ...",
+          "body": [
+            "Denizin dibinden başlayan hareketlenme bilim insanlarının dikkatinden kaçmadı. İlk bakışta deniz tabanının kabarması ya ..."
+          ],
+          "source_bundle": [
+            {
+              "name": "Sözcü Bilim-Teknoloji",
+              "url": "https://www.sozcu.com.tr/trilyonlarcasi-beslenmek-icin-harekete-geciyor-denizin-dibinden-yukseliyorlar-p334954",
+              "published_at": "Thu, 09 Jul 2026 09:17:20 +0300",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.869618+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "Sözcü Bilim-Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/7/gozkalamarjpg-nlUdw1iZkkKJnTJB8V_QTg.JPG",
+          "duplicate_count": 1,
+          "importance_score": 38,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "ntv-teknoloji-4",
+          "section": "teknoloji",
+          "headline": "\"X'in katili olacak\" deniyordu. Aylık 500 milyon aboneye ulaştı",
+          "importance": 17,
+          "dek": "Meta'nın Elon Musk'ın X platformuna rakip olarak kurduğu ve ilk döneminde büyük ilgi gören Threads, aylık aktif kullanıcı sayısını 500 milyona ulaştırarak önemli bir eşiği geride bıraktı.",
+          "body": [
+            "Meta'nın Elon Musk'ın X platformuna rakip olarak kurduğu ve ilk döneminde büyük ilgi gören Threads, aylık aktif kullanıcı sayısını 500 milyona ulaştırarak önemli bir eşiği geride bıraktı."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Teknoloji",
+              "url": "https://www.ntv.com.tr/teknoloji/galeri-xin-katili-olacak-deniyordu-aylik-500-milyon-aboneye-ulasti-1731669",
+              "published_at": "2026-07-06T17:12:33+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.460944+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/Başlıksız-18Nisan202612.29.23-5-713821.jpeg",
+          "duplicate_count": 1,
+          "importance_score": 37,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "ntv-teknoloji-6",
+          "section": "teknoloji",
+          "headline": "iPhone 18'in test fotoğrafları sızdırıldı",
+          "importance": 18,
+          "dek": "Apple’ın Hindistan’daki üreticisinin hacklenmesi sonrası henüz tanıtılmamış iPhone 18 Pro’nun test fotoğrafları sızdırıldı.",
+          "body": [
+            "Apple’ın Hindistan’daki üreticisinin hacklenmesi sonrası henüz tanıtılmamış iPhone 18 Pro’nun test fotoğrafları sızdırıldı."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Teknoloji",
+              "url": "https://www.ntv.com.tr/teknoloji/iphone-18in-test-fotograflari-sizdirildi-1731284",
+              "published_at": "2026-07-03T16:31:39+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.461943+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/12321313-549872.jpg",
+          "duplicate_count": 1,
+          "importance_score": 37,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "ntv-teknoloji-7",
+          "section": "teknoloji",
+          "headline": "24 ülke hayranlıkla izledi. Tolga hedefleri tam on ikiden vurdu",
+          "importance": 19,
+          "dek": "Hava tehditlerine karşı geliştirilen \"Tolga\" Yakın Hava Savunma Sistemi'nin atışlı test faaliyetini, 24 ülkeden 64 askeri ve sivil heyet takip etti.",
+          "body": [
+            "Hava tehditlerine karşı geliştirilen \"Tolga\" Yakın Hava Savunma Sistemi'nin atışlı test faaliyetini, 24 ülkeden 64 askeri ve sivil heyet takip etti."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Teknoloji",
+              "url": "https://www.ntv.com.tr/teknoloji/galeri-24-ulke-hayranlikla-izledi-tolga-hedefleri-tam-on-ikiden-vurdu-1731236",
+              "published_at": "2026-07-03T11:21:14+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.462943+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/AA-20260703-41859236-41859231-MKENIN_HAVA_TEHDITLERINE_KARSI_GELISTIRDIGI_TOLGA_HEDEFLERI_BASARIYLA_VURDU-259054.jpg",
+          "duplicate_count": 1,
+          "importance_score": 37,
+          "kicker": "TEKNOLOJİ"
+        },
+        {
+          "id": "ntv-teknoloji-13",
+          "section": "teknoloji",
+          "headline": "WhatsApp'a dev güncelleme. Yeni dönemde numara şartı kalkıyor",
+          "importance": 20,
+          "dek": "Dünyanın en popüler mesajlaşma uygulaması WhatsApp, bütün kullanıcılarını yakından ilgilendiren yeni bir özellik getiriyor.",
+          "body": [
+            "Dünyanın en popüler mesajlaşma uygulaması WhatsApp, bütün kullanıcılarını yakından ilgilendiren yeni bir özellik getiriyor."
+          ],
+          "source_bundle": [
+            {
+              "name": "NTV Teknoloji",
+              "url": "https://www.ntv.com.tr/teknoloji/galeri-whatsappa-dev-guncelleme-yeni-donemde-numara-sarti-kalkiyor-1730802",
+              "published_at": "2026-06-30T15:46:37+03:00",
+              "source_type": "rss",
+              "is_primary": false
+            }
+          ],
+          "verification": {
+            "status": "single_source",
+            "checked_at": "2026-07-12T09:18:52.465943+00:00",
+            "method": [
+              "primary_source"
+            ],
+            "note": "NTV Teknoloji RSS akışından alındı."
+          },
+          "layout_hint": {
+            "story_size": "brief",
+            "column_span": 1,
+            "preferred_position": "rail"
+          },
+          "image": {},
+          "image_url": "https://images.ntv.com.tr/images/Whatsapp-373862.jpg",
+          "duplicate_count": 1,
+          "importance_score": 37,
+          "kicker": "TEKNOLOJİ"
+        }
+      ]
+    }
+  ]
+}

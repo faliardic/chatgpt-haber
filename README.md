@@ -1,87 +1,151 @@
-# ChatGPT Haber
+# ChatGPT Haber v1.0
 
-Tek komutla çalışan, baskıya hazır, üç sayfalık Türkçe gazete üreticisi. Sayfalar sırasıyla manşet, gündem-ekonomi ve teknoloji olarak hazırlanır.
+## Durum: Tamamlandı / Bakım Modu
 
-## Kurulum
+ChatGPT Haber, üç sayfalık Türkçe gazete üreten, PDF ve statik web çıktısı hazırlayan yerel bir yayın aracıdır.
 
-```bash
+v1.0 hedefleri tamamlanmıştır. Yeni özellik geliştirmesi planlanmamaktadır. Proje yalnız kritik hata, kaynak kırılması ve güvenlik düzeltmeleri için bakım modundadır.
+
+## Canlı Site
+
+Canlı gazete:
+
+https://faliardic.github.io/chatgpt-haber/
+
+## Özellikler
+
+- Üç sayfalık Türkçe gazete: manşet, gündem-ekonomi ve teknoloji.
+- RSS toplama, editoryal filtreleme ve kaynak doğrulama raporları.
+- Fast ve full üretim modları.
+- PDF içinde haber detayları ve `GAZETEYE DÖNÜŞ` bağlantıları.
+- GitHub Pages için statik web gazetesi.
+- Web üzerinde PDF indirme bağlantısı ve tarih arşivi.
+- Windows Gazette Studio arayüzü.
+- Build timing ölçümleri ve hedef odaklı hızlı cleanup.
+
+## Hızlı Kullanım
+
+Kurulum:
+
+```powershell
 python -m pip install -e .
-playwright install --with-deps chromium
+python -m playwright install chromium
 ```
 
-Windows'ta `--with-deps` gerekli değilse şu komut yeterlidir:
+Yerel örnek veriyle hızlı gazete üretimi:
 
-```bash
-playwright install chromium
+```powershell
+python -m chatgpt_haber.cli build --mode fast --no-live --input-json examples\issue.sample.json --out dist\gazete.pdf
 ```
 
-## Kullanım
+Canlı RSS akışlarıyla üretim:
 
-```bash
-chatgpt-haber build --date 2026-05-26 --paper-size A3 --out dist/gazete-2026-05-26.pdf
+```powershell
+python -m chatgpt_haber.cli build --mode fast --out dist\gazete.pdf
 ```
 
-Komut sırasıyla resmi RSS akışlarını dener, yeterli veri alamazsa `data/issue.json` dosyasını yeni üç sayfalık sözleşmeye dönüştürür, doğrular, tek HTML belge üretir ve Playwright ile PDF alır.
+## Gazette Studio
 
-Üçüncü sayfa yalnız teknoloji ve bilim haberlerinden oluşturulur. Ankara yerel haber sayfası artık gazete üretiminde kullanılmaz.
+Gazette Studio, Windows üzerinde temel üretim komutlarını tek pencerede sunar.
 
-Üretilen HTML varsayılan olarak tek başına paylaşılabilir formattadır: CSS, logo, yerel görseller ve detay sayfaları ana dosyaya gömülür. Eski klasör bağlantılı HTML çıktısı istenirse `--linked-html` kullanın.
+- `Gazete Üret`: `--mode fast`
+- `Tam Üretim`: `--mode full`
+- son PDF/HTML açma
+- kaynak raporu açma
+- testleri çalıştırma
 
-PDF içinde bir haber başlığına tıklandığında açılan detay sayfasının hem üstünde hem sonunda büyük `GAZETEYE DÖNÜŞ` bağlantısı bulunur.
+Uygulama kaynak kodu: `apps/gazette_studio.py`
 
-Yerel JSON ile çalıştırmak için:
+## Fast ve Full Modları
 
-```bash
-chatgpt-haber build --no-live --input-json examples/issue.sample.json --out dist/ornek.pdf
+Fast mod günlük üretim içindir:
+
+```powershell
+python -m chatgpt_haber.cli build --mode fast
 ```
 
-## Mimari
+Full mod detay zenginleştirme, portable HTML, arşiv ve masaüstü kopyasını da çalıştırır:
 
-Akış:
-
-```text
-kaynak toplama -> normalize -> doğrulama -> tek HTML render -> PDF render
+```powershell
+python -m chatgpt_haber.cli build --mode full
 ```
 
-Yeni şablon yapısı:
+## Web Sitesini Güncelleme
 
-```text
-templates/
-  base.html
-  pages/
-    front_page.html
-    news_page.html
-  partials/
-    masthead.html
-    article.html
-    hero_article.html
-    briefs_strip.html
-    figure.html
-static/css/print.css
-schemas/issue.schema.json
-prompts/editorial_main_prompt.txt
+GitHub Pages çıktısı `main` dalındaki `docs/` klasöründen yayınlanır.
+
+Offline test yayını:
+
+```powershell
+python -m chatgpt_haber.cli publish-pages --no-live --input-json examples\issue.sample.json
 ```
 
-`main.py` geriye dönük kısa yol olarak durur ve `data/issue.json` dosyasından `output/CHATGPT_HABER.pdf` üretir.
+Canlı site çıktısını güncelleme:
 
-## Windows EXE
+```powershell
+python -m chatgpt_haber.cli publish-pages
+```
 
-Tek tıklamalık Windows sürümü üretmek için:
+Bu komut `docs/index.html`, `docs/gazete.pdf`, `docs/issue.json` ve `docs/archive/` tarih arşivini günceller.
+
+## Testler
+
+Tam test ve compile:
+
+```powershell
+python -m pytest -q
+python -m compileall chatgpt_haber services apps
+git diff --check
+```
+
+## Windows Paketi
+
+Windows dağıtım klasörünü üretmek için:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\build_exe.ps1
 ```
 
-Çıktı:
+Beklenen çıktı:
 
 ```text
 dist\ChatGPTHaber\ChatGPTHaber.exe
 ```
 
-Exe çalışınca bugünün tarihiyle masaüstünde şu dosyayı üretir:
+Release paketi:
 
 ```text
-Desktop\ChatGPT Haber\gazete-YYYY-MM-DD.pdf
+release\ChatGPTHaber-v1.0.0-windows.zip
 ```
 
-Not: Playwright/Chromium nedeniyle `dist\ChatGPTHaber` klasörünü komple taşıyın; sadece `.exe` dosyasını tek başına kopyalamayın.
+Playwright/Chromium bağımlılıkları nedeniyle `dist\ChatGPTHaber` klasörü bütün olarak taşınmalıdır.
+
+## Mimari
+
+Ana akış:
+
+```text
+RSS veya issue JSON -> normalize -> teknoloji sayfası garantisi -> editoryal filtre -> görsel zenginleştirme -> doğrulama -> HTML -> PDF
+```
+
+Önemli modüller:
+
+- `chatgpt_haber/cli.py`: komut satırı girişleri.
+- `chatgpt_haber/pages_publish.py`: GitHub Pages statik site yayını.
+- `chatgpt_haber/render.py`: HTML ve PDF render.
+- `chatgpt_haber/builder.py`: RSS tabanlı sayı üretimi.
+- `chatgpt_haber/technology_page.py`: üçüncü sayfa teknoloji garantisi.
+- `services/news_quality_filters.py`: final güvenlik ve kalite filtreleri.
+
+## Bilinen Sınırlar
+
+- Canlı üretim RSS kaynaklarının erişilebilirliğine bağlıdır.
+- PDF üretimi için Playwright Chromium gerekir.
+- Windows EXE klasörü tek dosya değildir; bağımlılık klasörüyle birlikte dağıtılır.
+- Statik site kullanıcı hesabı, backend veya veritabanı içermez.
+
+## Bakım Politikası
+
+Bu repository v1.0 itibarıyla bakım modundadır. Kabul edilen değişiklikler kritik hata, bozuk RSS kaynağı, güvenlik sorunu, işletim sistemi veya bağımlılık uyumluluk hatası ve GitHub Pages yayın hatası ile sınırlıdır.
+
+Yeni özellik geliştirmesi planlanmamaktadır.

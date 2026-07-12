@@ -2,25 +2,59 @@ $ErrorActionPreference = "Stop"
 
 $projectRoot = Split-Path -Parent $PSScriptRoot
 Set-Location $projectRoot
+$distOutput = Join-Path $projectRoot "dist\ChatGPTHaber"
+$distRoot = Join-Path $projectRoot "dist"
+if (Test-Path $distOutput) {
+  $resolvedDistRoot = (Resolve-Path $distRoot).Path
+  $resolvedDistOutput = (Resolve-Path $distOutput).Path
+  if (-not $resolvedDistOutput.StartsWith($resolvedDistRoot, [System.StringComparison]::OrdinalIgnoreCase)) {
+    throw "Refusing to remove unexpected path: $resolvedDistOutput"
+  }
+  Remove-Item -LiteralPath $resolvedDistOutput -Recurse -Force
+}
 
-python -m pip install --upgrade pip
-python -m pip install -e .
-python -m pip install pyinstaller
+function Invoke-Checked {
+  param(
+    [Parameter(Mandatory = $true)]
+    [string] $FilePath,
+    [string[]] $Arguments
+  )
+  & $FilePath @Arguments
+  if ($LASTEXITCODE -ne 0) {
+    throw "Command failed with exit code ${LASTEXITCODE}: $FilePath $($Arguments -join ' ')"
+  }
+}
+
+Invoke-Checked python @("-m", "pip", "install", "--upgrade", "pip")
+Invoke-Checked python @("-m", "pip", "install", "-e", ".")
+Invoke-Checked python @("-m", "pip", "install", "pyinstaller")
 
 $env:PLAYWRIGHT_BROWSERS_PATH = "0"
-python -m playwright install chromium
+Invoke-Checked python @("-m", "playwright", "install", "chromium")
 
-python -m PyInstaller `
-  --clean `
-  --noconfirm `
-  --noconsole `
-  --name ChatGPTHaber `
-  --collect-all playwright `
-  --add-data "templates;templates" `
-  --add-data "static;static" `
-  --add-data "data;data" `
-  --add-data "schemas;schemas" `
-  chatgpt_haber\one_click.py
+$pyinstallerWorkPath = Join-Path $env:TEMP "ChatGPTHaber-pyinstaller-build"
+$pyinstallerSpecPath = Join-Path $projectRoot "build\pyinstaller-spec"
+New-Item -ItemType Directory -Force -Path $pyinstallerSpecPath | Out-Null
+$templatesData = "$projectRoot\templates;templates"
+$staticData = "$projectRoot\static;static"
+$dataData = "$projectRoot\data;data"
+$schemasData = "$projectRoot\schemas;schemas"
+
+Invoke-Checked python @(
+  "-m", "PyInstaller",
+  "--clean",
+  "--noconfirm",
+  "--noconsole",
+  "--name", "ChatGPTHaber",
+  "--workpath", $pyinstallerWorkPath,
+  "--specpath", $pyinstallerSpecPath,
+  "--collect-all", "playwright",
+  "--add-data", $templatesData,
+  "--add-data", $staticData,
+  "--add-data", $dataData,
+  "--add-data", $schemasData,
+  "chatgpt_haber\one_click.py"
+)
 
 Write-Host ""
 Write-Host "Hazir: $projectRoot\dist\ChatGPTHaber\ChatGPTHaber.exe"

@@ -88,6 +88,8 @@ def render_html(
     portable_pdf_links: bool = False,
     portable_assets: bool = False,
     include_brief_details: bool = True,
+    web_publish: bool = False,
+    web_toolbar: dict[str, str] | None = None,
 ) -> None:
     sanitize_render_issue(issue_data)
     env = Environment(
@@ -116,10 +118,15 @@ def render_html(
         css_href=css_href(print_css, portable_assets),
         css_content=linked_or_embedded_css(print_css, portable_assets),
         logo_href=linked_or_embedded_asset(logo_path, portable_assets),
+        web_publish=web_publish,
+        web_toolbar=web_toolbar or {},
     )
     html_path.parent.mkdir(parents=True, exist_ok=True)
     html_path.write_text(rendered_html, encoding="utf-8")
     assert_no_forbidden_rendered_text(rendered_html, "final_html_before_pdf")
+
+    if web_publish:
+        return
 
     detail_template = env.get_template("article_detail.html")
     for article in detail_articles:
