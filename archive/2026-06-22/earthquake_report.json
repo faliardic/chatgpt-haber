@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-06-22T06:42:19.728365",
+  "earthquake_items": [
+    {
+      "id": "haberci06-ankara-1",
+      "headline": "Altındağ Belediyesi’nden gençlere hayat kurtaran eğitim: “Afetlere karşı bilinç bir zorunluluktur”",
+      "page_no": 3,
+      "collection": "articles",
+      "classification": "minor_earthquake_ticker",
+      "magnitude": null,
+      "location": "ankara",
+      "official_source_detected": false,
+      "impact_detected": false,
+      "reject_reason": ""
+    }
+  ]
+}

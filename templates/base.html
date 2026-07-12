@@ -4,7 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ issue.title }} - {{ issue.issue_date }}</title>
-  <link rel="stylesheet" href="{{ css_href }}">
+  {% if css_content %}
+    <style>{{ css_content }}</style>
+  {% else %}
+    <link rel="stylesheet" href="{{ css_href }}">
+  {% endif %}
   <style>
     @page {
       size: {{ issue.paper_size }} portrait;

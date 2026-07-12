@@ -4,6 +4,7 @@ from copy import deepcopy
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
+from html import unescape
 import mimetypes
 import re
 import unicodedata
@@ -11,6 +12,8 @@ from urllib.parse import urljoin, urlparse
 from typing import Any
 
 from .issue import slugify
+from services.news_quality_filters import apply_hard_reject_filters, is_generic_earthquake_clickbait, sanitize_items_or_fail
+from services.user_profile import load_profile
 
 
 DEFAULT_FEEDS = {
@@ -31,6 +34,7 @@ DEFAULT_FEEDS = {
     "Sözcü Teknoloji": "https://www.sozcu.com.tr/feeds-rss-category-bilim-teknoloji",
     "Evrim Ağacı": "https://evrimagaci.org/rss.xml",
 }
+ANKA_HOMEPAGE_URL = "https://ankahaber.net/"
 
 ANKARA_LOCAL_FEEDS = {
     "Haberci06 Ankara": "https://haberci06.com/rss/category/ankara",
@@ -278,6 +282,16 @@ IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
 REQUEST_HEADERS = {
     "User-Agent": "ChatGPT-Haber/0.2 (+https://example.com; print issue builder)",
 }
+DETAIL_SELECTORS = (
+    "article p",
+    "[data-testid='article-body'] p",
+    ".article-body p",
+    ".news-detail p",
+    ".haber-detay p",
+    ".content p",
+    ".entry-content p",
+    ".post-content p",
+)
 STOP_WORDS = {
     "aciklandi",
     "ardindan",
@@ -320,6 +334,7 @@ SOURCE_SCORES = {
     "Sözcü Spor": 5,
     "Sözcü Teknoloji": 5,
     "Evrim Ağacı": 4,
+    "ANKA Haber Ajansı": 8,
     "Haberci06 Ankara": 7,
     "Başkent Gazete Ankara": 7,
     "Redaktör Haber Yerel": 6,
@@ -335,7 +350,6 @@ SECTION_SCORES = {
 }
 KEYWORD_SCORES = {
     "son dakika": 34,
-    "deprem": 34,
     "afet": 22,
     "yangin": 18,
     "kaza": 15,
@@ -363,6 +377,115 @@ KEYWORD_SCORES = {
     "google": 8,
     "avrupa": 8,
 }
+PROFILE_KEYWORDS = {
+    "ankara": ("ankara", "cankaya", "mamak", "sincan", "ulasim", "metro"),
+    "ekonomi": ("faiz", "kredi", "enflasyon", "tcmb", "dolar", "altin", "borsa"),
+    "insaat": ("insaat", "santiye", "yapi", "ruhsat", "toki", "konut", "beton"),
+    "deprem_yapi_guvenligi": ("deprem", "hasar", "guclendirme", "afet", "yapi guvenligi"),
+    "yazilim_ai": ("yapay zeka", "ai", "python", "github", "chatgpt", "otomasyon"),
+    "otomobil_ulasim": ("otomobil", "arac", "elektrikli", "trafik", "ulasim", "metro"),
+    "saglik_enerji": ("saglik", "uyku", "beslenme", "enerji", "yorgunluk"),
+    "kultur_kitap": ("kitap", "edebiyat", "sinema", "kultur", "sanat"),
+}
+CLICKBAIT_BLOCK_PATTERNS = (
+    r"\bbunu\s+(?:duyan|goren|okuyan|izleyen)\b",
+    r"\bkimse\s+(?:bunu\s+)?beklemiyordu\b",
+    r"\bgorenler\s+(?:sasti|inanamadi|donup\s+bir\s+daha\s+bakti)\b",
+    r"\bduyanlar\s+(?:sasti|inanamadi)\b",
+    r"\bagizlari\s+acik\s+birakti\b",
+    r"\bsoke\s+(?:eden|etti)\b",
+    r"\bsir\s+gibi\s+saklanan\b",
+    r"\byok\s+artik\b",
+    r"\bpes\s+dedirten\b",
+    r"\binanilmaz\s+(?:olay|goruntu|iddia|gelisme)\b",
+    r"\bolay\s+(?:yaratti|oldu)\b",
+    r"\b(?:bomba|flas)\s+(?:iddia|gelisme)\b",
+    r"\bsakin\s+(?:bunu\s+)?(?:yapmayin|kacirmayin)\b",
+    r"\bbunu\s+yapan\s+yandi\b",
+)
+CLICKBAIT_SOFT_PATTERNS = (
+    r"\biste\s+(?:o|bu)\b",
+    r"\bmerak\s+konusu\s+oldu\b",
+    r"\bgundem\s+oldu\b",
+    r"\bsosyal\s+medyayi\s+salladi\b",
+    r"\bakillara\s+su\s+soruyu\s+getirdi\b",
+    r"\bnedenini\s+duyan\b",
+    r"\bilk\s+kez\s+(?:konustu|acikladi)\b",
+)
+QUESTION_NEWS_PATTERNS = (
+    r"\b(?:mi|mu)\s+(?:oldu|edildi|geldi|basladi|bitecek|alindi|verildi|yapilacak|aciklandi)\b",
+    r"\b(?:ne|neler|nerede|nereden|nereye|neden|nasil|hangi|kim|kime|kimin|kac|ne\s+kadar)\b",
+    r"\b(?:nereden|nasil)\s+(?:alinir|alınır|yapilir|yapılır|basvurulur|başvurulur|ogrenilir|öğrenilir)\b",
+    r"\b(?:son|anlik|yakindaki)\s+.+\s+(?:nerede|neler|ne\s+kadar|mi\s+oldu)\b",
+)
+ROUTINE_EARTHQUAKE_PATTERNS = (
+    r"\bson\s+(?:depremler|deprem)\b",
+    r"\banlik\s+deprem\b",
+    r"\byakindaki\s+depremler\b",
+    r"\baz\s+once\s+deprem\b",
+    r"\bdeprem\s+(?:mi\s+oldu|nerede\s+oldu|buyuklugu\s+ne\s+kadar)\b",
+    r"\b(?:afad|kandilli).{0,45}(?:son\s+depremler|deprem\s+listesi|deprem\s+verileri)\b",
+    r"\bil\s+il\s+(?:afad|kandilli)?\s*son\s+depremler\b",
+)
+MAJOR_EARTHQUAKE_SIGNALS = (
+    "can kaybi",
+    "olu",
+    "yarali",
+    "enkaz",
+    "yikim",
+    "yikildi",
+    "hasar",
+    "agir hasar",
+    "tahliye",
+    "gocuk",
+    "tsunami",
+    "afet bolgesi",
+    "acil durum",
+    "kurtarma",
+    "artci",
+    "okul tatil",
+    "ulasim",
+    "altyapi",
+    "resmi alarm",
+)
+NO_EARTHQUAKE_IMPACT_SIGNALS = (
+    "hasar bildirilmedi",
+    "can kaybi yok",
+    "yarali yok",
+    "olumsuzluk yok",
+    "herhangi bir olumsuzluk",
+)
+OFFICIAL_EARTHQUAKE_SOURCES = (
+    "afad",
+    "kandilli",
+    "koeri",
+    "usgs",
+    "emsc",
+    "valilik",
+    "bakanlik",
+    "bakanligi",
+)
+TURKEY_EARTHQUAKE_LOCATIONS = (
+    "turkiye",
+    "marmara",
+    "ege",
+    "akdeniz",
+    "balikesir",
+    "istanbul",
+    "izmir",
+    "ankara",
+    "malatya",
+    "kahramanmaras",
+    "hatay",
+    "adiyaman",
+    "elazig",
+    "bingol",
+    "van",
+    "erzincan",
+    "erzurum",
+    "mugla",
+    "canakkale",
+)
 
 
 def entry_image_url(entry: Any) -> str:
@@ -418,6 +541,99 @@ def page_image_url(page_url: str) -> str:
         if value:
             return urljoin(page_url, str(value))
     return ""
+
+
+def clean_html_text(value: str) -> str:
+    text = re.sub(r"<[^>]+>", " ", value or "")
+    text = unescape(text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text.strip(" \t\r\n")
+
+
+def useful_detail_paragraph(text: str, headline: str) -> bool:
+    normalized = normalize_for_match(text)
+    if len(text) < 45:
+        return False
+    if normalized == normalize_for_match(headline):
+        return False
+    blocked_fragments = (
+        "abone ol",
+        "bildirimlere izin ver",
+        "cerez",
+        "cookie",
+        "facebook",
+        "instagram",
+        "reklam",
+        "son dakika haberleri",
+        "whatsapp",
+    )
+    return not any(fragment in normalized for fragment in blocked_fragments)
+
+
+def extract_article_detail(page_url: str, headline: str = "", max_paragraphs: int | None = 12) -> list[str]:
+    if not page_url:
+        return []
+    try:
+        import requests
+        from bs4 import BeautifulSoup
+    except ImportError:
+        return []
+
+    try:
+        response = requests.get(page_url, headers=REQUEST_HEADERS, timeout=9)
+        response.raise_for_status()
+    except Exception:
+        return []
+
+    soup = BeautifulSoup(response.text, "html.parser")
+    for unwanted in soup.select("script, style, noscript, iframe, nav, footer, aside, form"):
+        unwanted.decompose()
+
+    candidates: list[str] = []
+    seen: set[str] = set()
+    for selector in DETAIL_SELECTORS:
+        for paragraph in soup.select(selector):
+            text = clean_html_text(paragraph.get_text(" ", strip=True))
+            key = normalize_for_match(text)
+            if key and key not in seen and useful_detail_paragraph(text, headline):
+                candidates.append(text)
+                seen.add(key)
+        if max_paragraphs is not None and len(candidates) >= 3:
+            break
+
+    if candidates:
+        return candidates[:max_paragraphs] if max_paragraphs is not None else candidates
+
+    description = soup.find("meta", attrs={"property": "og:description"}) or soup.find("meta", attrs={"name": "description"})
+    content = clean_html_text(str(description.get("content") or "")) if description else ""
+    return [content] if useful_detail_paragraph(content, headline) else []
+
+
+def enrich_article_details(issue_data: dict[str, Any]) -> dict[str, Any]:
+    cache: dict[str, list[str]] = {}
+    for page in issue_data.get("pages", []):
+        if not isinstance(page, dict):
+            continue
+        for collection_name in ("articles", "briefs"):
+            collection = page.get(collection_name, [])
+            if not isinstance(collection, list):
+                continue
+            for article in collection:
+                if not isinstance(article, dict):
+                    continue
+                sources = article.get("source_bundle") if isinstance(article.get("source_bundle"), list) else []
+                source = sources[0] if sources and isinstance(sources[0], dict) else {}
+                source_url = str(source.get("url") or "")
+                if not source_url or source_url == "https://example.com":
+                    continue
+                if source_url not in cache:
+                    cache[source_url] = extract_article_detail(source_url, str(article.get("headline") or ""))
+                if cache[source_url]:
+                    article["body"] = cache[source_url]
+                    article["detail_status"] = "source_extracted"
+                else:
+                    article.setdefault("detail_status", "summary_only")
+    return issue_data
 
 
 def extension_from_response(url: str, content_type: str) -> str:
@@ -627,9 +843,200 @@ def normalize_for_match(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", text).strip()
 
 
+def normalize_with_decimal(value: str) -> str:
+    text = unicodedata.normalize("NFKD", value.casefold())
+    text = "".join(ch for ch in text if not unicodedata.combining(ch))
+    for old, new in {"ı": "i", "ğ": "g", "ü": "u", "ş": "s", "ö": "o", "ç": "c"}.items():
+        text = text.replace(old, new)
+    return re.sub(r"[^a-z0-9.,]+", " ", text).strip()
+
+
 def match_tokens(article: dict[str, Any]) -> set[str]:
     text = normalize_for_match(f"{article.get('headline', '')} {article.get('dek', '')}")
     return {token for token in text.split() if len(token) > 2 and token not in STOP_WORDS}
+
+
+def clickbait_score(article: dict[str, Any]) -> int:
+    headline = str(article.get("headline") or "")
+    dek = str(article.get("dek") or "")
+    text = normalize_for_match(f"{headline} {dek}")
+    score = 0
+
+    for pattern in CLICKBAIT_BLOCK_PATTERNS:
+        if re.search(pattern, text):
+            score += 45
+    for pattern in CLICKBAIT_SOFT_PATTERNS:
+        if re.search(pattern, text):
+            score += 15
+
+    stripped = headline.strip()
+    if stripped.endswith(("...", "..", "…")):
+        score += 35
+    if "!" in headline:
+        score += min(headline.count("!") * 12, 30)
+    if "?" in headline and not any(token in text for token in ("mi ", "mu ", "ne ", "neden ", "nasil ", "kac ")):
+        score += min(headline.count("?") * 10, 20)
+    if len(stripped) <= 28 and any(word in text.split() for word in ("iste", "sok", "olay", "bomba")):
+        score += 12
+    return score
+
+
+def is_question_news(article: dict[str, Any]) -> bool:
+    headline = str(article.get("headline") or "")
+    text = normalize_for_match(f"{headline} {article.get('dek', '')}")
+    if "?" in headline:
+        return True
+    return any(re.search(pattern, text) for pattern in QUESTION_NEWS_PATTERNS)
+
+
+def earthquake_text(article: dict[str, Any]) -> str:
+    return normalize_for_match(raw_article_text(article))
+
+
+def raw_article_text(article: dict[str, Any]) -> str:
+    body = article.get("body", [])
+    body_text = " ".join(str(item) for item in body) if isinstance(body, list) else str(body or "")
+    return " ".join(
+        [
+            str(article.get("headline") or ""),
+            str(article.get("dek") or ""),
+            body_text,
+            source_name(article),
+        ]
+    )
+
+
+def extract_earthquake_magnitude(text: str) -> float | None:
+    patterns = (
+        r"\b(\d{1,2}(?:[.,]\d)?)\s*buyuklugunde\b",
+        r"\b(\d{1,2}(?:[.,]\d)?)\s*buyuklugundeki\b",
+        r"\b(\d{1,2}(?:[.,]\d)?)\s*buyuklukte\b",
+        r"\b(?:mw|ml|m)\s*(\d{1,2}(?:[.,]\d)?)\b",
+    )
+    for pattern in patterns:
+        match = re.search(pattern, text)
+        if match:
+            try:
+                return float(match.group(1).replace(",", "."))
+            except ValueError:
+                return None
+    return None
+
+
+def extract_earthquake_location(text: str) -> str:
+    for location in TURKEY_EARTHQUAKE_LOCATIONS:
+        if location in text:
+            return location
+    return ""
+
+
+def earthquake_event_gate(article: dict[str, Any]) -> dict[str, Any]:
+    apply_hard_reject_filters(article)
+    if article.get("reject_reason") == "seo_generic_earthquake_clickbait":
+        return {
+            "accepted": False,
+            "earthquake_classification": "seo_generic_earthquake",
+            "magnitude": None,
+            "location": "",
+            "official_source_detected": False,
+            "impact_detected": False,
+            "reject_reason": "seo_generic_earthquake_clickbait",
+            "importance_cap_applied": False,
+        }
+    raw_text = normalize_with_decimal(raw_article_text(article))
+    text = earthquake_text(article)
+    if "deprem" not in text:
+        return {"accepted": True, "earthquake_classification": "not_earthquake"}
+
+    magnitude = extract_earthquake_magnitude(raw_text)
+    location = extract_earthquake_location(text)
+    official_source_detected = any(source in text for source in OFFICIAL_EARTHQUAKE_SOURCES)
+    no_impact_detected = any(signal in text for signal in NO_EARTHQUAKE_IMPACT_SIGNALS)
+    impact_detected = any(signal in text for signal in MAJOR_EARTHQUAKE_SIGNALS) and not no_impact_detected
+    generic_clickbait = any(re.search(pattern, text) for pattern in ROUTINE_EARTHQUAKE_PATTERNS)
+    turkey_event = not location or location in TURKEY_EARTHQUAKE_LOCATIONS
+    serious_by_magnitude = magnitude is not None and magnitude >= (5.0 if turkey_event else 6.0)
+
+    result: dict[str, Any] = {
+        "accepted": True,
+        "earthquake_classification": "minor_earthquake_ticker",
+        "magnitude": magnitude,
+        "location": location,
+        "official_source_detected": official_source_detected,
+        "impact_detected": impact_detected,
+        "reject_reason": "",
+        "importance_cap_applied": False,
+    }
+
+    if (generic_clickbait or is_generic_earthquake_clickbait(article)) and not (serious_by_magnitude or impact_detected):
+        result.update(
+            {
+                "accepted": False,
+                "earthquake_classification": "seo_generic_earthquake",
+                "reject_reason": "seo_generic_earthquake_clickbait",
+            }
+        )
+    elif serious_by_magnitude or impact_detected:
+        result["earthquake_classification"] = "serious_earthquake_event"
+    else:
+        result["importance_cap_applied"] = True
+
+    return result
+
+
+def apply_earthquake_gate(article: dict[str, Any]) -> bool:
+    result = earthquake_event_gate(article)
+    if result["earthquake_classification"] == "not_earthquake":
+        return True
+    for key in (
+        "earthquake_classification",
+        "magnitude",
+        "location",
+        "official_source_detected",
+        "impact_detected",
+        "reject_reason",
+        "importance_cap_applied",
+    ):
+        value = result.get(key)
+        if value is not None:
+            article[key] = value
+    return bool(result["accepted"])
+
+
+def is_routine_earthquake_update(article: dict[str, Any]) -> bool:
+    return not earthquake_event_gate(article)["accepted"]
+
+
+def is_clickbait_article(article: dict[str, Any]) -> bool:
+    if not apply_earthquake_gate(article):
+        return True
+    return is_question_news(article) or clickbait_score(article) >= 45
+
+
+def filter_clickbait_articles(articles: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    filtered: list[dict[str, Any]] = []
+    for article in articles:
+        if not is_clickbait_article(article):
+            filtered.append(article)
+    return filtered
+
+
+def clean_editorial_pool(articles: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return sanitize_items_or_fail(filter_clickbait_articles(articles), "editorial_pool")
+
+
+def sanitize_issue_articles(issue_data: dict[str, Any]) -> dict[str, Any]:
+    for page in issue_data.get("pages", []):
+        if not isinstance(page, dict):
+            continue
+        for collection_name in ("articles", "briefs"):
+            collection = page.get(collection_name, [])
+            if isinstance(collection, list):
+                page[collection_name] = sanitize_items_or_fail(
+                    clean_editorial_pool([article for article in collection if isinstance(article, dict)]),
+                    f"{collection_name}_final_sanitizer_page_{page.get('page_no', '?')}",
+                )
+    return issue_data
 
 
 def image_match_key(value: str) -> str:
@@ -713,6 +1120,46 @@ def keyword_importance(article: dict[str, Any]) -> int:
     return min(score, 75)
 
 
+def earthquake_severity_score(article: dict[str, Any]) -> int:
+    classification = str(article.get("earthquake_classification") or earthquake_event_gate(article).get("earthquake_classification") or "")
+    magnitude = article.get("magnitude")
+    official = bool(article.get("official_source_detected"))
+    impact = bool(article.get("impact_detected"))
+    score = 0
+    if classification == "serious_earthquake_event":
+        score += 22
+    if isinstance(magnitude, (int, float)):
+        if magnitude >= 7:
+            score += 35
+        elif magnitude >= 6:
+            score += 24
+        elif magnitude >= 5:
+            score += 14
+    if impact:
+        score += 48
+    if official:
+        score += 8
+    if classification == "minor_earthquake_ticker":
+        score -= 18
+    return score
+
+
+def profile_score(article: dict[str, Any]) -> int:
+    profile = load_profile()
+    text = normalize_for_match(f"{article.get('headline', '')} {article.get('dek', '')} {article.get('section', '')}")
+    score = 0
+    for key, keywords in PROFILE_KEYWORDS.items():
+        try:
+            weight = int(profile.get(key, 0))
+        except (TypeError, ValueError):
+            weight = 0
+        if weight <= 0:
+            continue
+        if any(keyword in text for keyword in keywords):
+            score += weight * 3
+    return min(score, 24)
+
+
 def score_article(article: dict[str, Any]) -> int:
     source = source_name(article)
     section = str(article.get("section") or "")
@@ -721,11 +1168,14 @@ def score_article(article: dict[str, Any]) -> int:
     score += SOURCE_SCORES.get(source, 4)
     score += SECTION_SCORES.get(section, 4)
     score += keyword_importance(article)
+    score += earthquake_severity_score(article)
+    score += profile_score(article)
     score += recency_score(article)
     score += duplicate_bonus
     if article.get("image_url"):
         score += 4
-    return score
+    score -= min(clickbait_score(article), 60)
+    return max(score, 0)
 
 
 def sort_by_importance(articles: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -741,10 +1191,14 @@ def sort_by_importance(articles: list[dict[str, Any]]) -> list[dict[str, Any]]:
     for idx, article in enumerate(scored, start=1):
         article["importance"] = idx
         article["importance_score"] = score_article(article)
+        if article.get("earthquake_classification") == "minor_earthquake_ticker":
+            article["importance_cap_applied"] = True
+            article["importance"] = max(article["importance"], 3)
     return scored
 
 
 def dedupe_similar_articles(articles: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    articles = sanitize_items_or_fail(articles, "dedupe_before")
     selected: list[dict[str, Any]] = []
     for article in articles:
         for existing in selected:
@@ -758,7 +1212,10 @@ def dedupe_similar_articles(articles: list[dict[str, Any]]) -> list[dict[str, An
 
 
 def prioritize_articles(articles: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    return sort_by_importance(dedupe_similar_articles(articles))
+    return sanitize_items_or_fail(
+        sort_by_importance(dedupe_similar_articles(filter_clickbait_articles(articles))),
+        "ranked_articles",
+    )
 
 
 def parse_feed_articles(feeds: dict[str, str], limit: int) -> list[dict[str, Any]]:
@@ -780,41 +1237,42 @@ def parse_feed_articles(feeds: dict[str, str], limit: int) -> list[dict[str, Any
                 or datetime.now(timezone.utc).isoformat()
             )
             title = str(getattr(entry, "title", "Başlık"))
-            summary = str(getattr(entry, "summary", title))
+            summary = clean_html_text(str(getattr(entry, "summary", title)))
             link = str(getattr(entry, "link", url))
             if link in seen_links:
                 continue
-            seen_links.add(link)
             image_url = entry_image_url(entry)
             section = section_for_source(source_name)
-            source_articles.append(
-                {
-                    "id": f"{source_name.lower().replace(' ', '-')}-{len(source_articles) + 1}",
-                    "section": section,
-                    "headline": title,
-                    "importance": len(source_articles) + 1,
-                    "dek": summary,
-                    "body": [summary],
-                    "source_bundle": [
-                        {
-                            "name": source_name,
-                            "url": link,
-                            "published_at": published,
-                            "source_type": "institution" if source_name == "TCMB" else "rss",
-                            "is_primary": source_name == "TCMB",
-                        }
-                    ],
-                    "verification": {
-                        "status": "single_source",
-                        "checked_at": datetime.now(timezone.utc).isoformat(),
-                        "method": ["primary_source"],
-                        "note": f"{source_name} RSS akışından alındı.",
-                    },
-                    "layout_hint": {"story_size": "secondary", "column_span": 2, "preferred_position": "mid"},
-                    "image": {},
-                    "image_url": image_url,
-                }
-            )
+            article = {
+                "id": f"{source_name.lower().replace(' ', '-')}-{len(source_articles) + 1}",
+                "section": section,
+                "headline": title,
+                "importance": len(source_articles) + 1,
+                "dek": summary,
+                "body": [summary],
+                "source_bundle": [
+                    {
+                        "name": source_name,
+                        "url": link,
+                        "published_at": published,
+                        "source_type": "institution" if source_name == "TCMB" else "rss",
+                        "is_primary": source_name == "TCMB",
+                    }
+                ],
+                "verification": {
+                    "status": "single_source",
+                    "checked_at": datetime.now(timezone.utc).isoformat(),
+                    "method": ["primary_source"],
+                    "note": f"{source_name} RSS akışından alındı.",
+                },
+                "layout_hint": {"story_size": "secondary", "column_span": 2, "preferred_position": "mid"},
+                "image": {},
+                "image_url": image_url,
+            }
+            if is_clickbait_article(article):
+                continue
+            seen_links.add(link)
+            source_articles.append(article)
         if source_articles:
             by_source.append(source_articles)
 
@@ -828,8 +1286,78 @@ def parse_feed_articles(feeds: dict[str, str], limit: int) -> list[dict[str, Any
     return dedupe_similar_articles(articles)[:limit]
 
 
+def extract_anka_articles(limit: int = 40) -> list[dict[str, Any]]:
+    try:
+        import requests
+        from bs4 import BeautifulSoup
+    except ImportError:
+        return []
+
+    try:
+        response = requests.get(ANKA_HOMEPAGE_URL, headers=REQUEST_HEADERS, timeout=10)
+        response.raise_for_status()
+    except Exception:
+        return []
+
+    soup = BeautifulSoup(response.text, "html.parser")
+    articles: list[dict[str, Any]] = []
+    seen_links: set[str] = set()
+    for link_tag in soup.select("a[href^='/haber/']"):
+        href = str(link_tag.get("href") or "")
+        link = urljoin(ANKA_HOMEPAGE_URL, href)
+        title = clean_html_text(link_tag.get_text(" ", strip=True))
+        if not title:
+            title = clean_html_text(str(link_tag.get("aria-label") or link_tag.get("title") or ""))
+        if not title or len(title) < 18 or link in seen_links:
+            continue
+
+        image_url = ""
+        image_tag = link_tag.find("img")
+        if image_tag:
+            image_url = str(image_tag.get("src") or image_tag.get("data-src") or "")
+            if image_url:
+                image_url = urljoin(ANKA_HOMEPAGE_URL, image_url)
+
+        article = {
+            "id": f"anka-haber-ajansi-{len(articles) + 1}",
+            "section": "gundem",
+            "headline": title,
+            "importance": len(articles) + 1,
+            "dek": title,
+            "body": [title],
+            "source_bundle": [
+                {
+                    "name": "ANKA Haber Ajansı",
+                    "url": link,
+                    "published_at": datetime.now(timezone.utc).isoformat(),
+                    "source_type": "agency",
+                    "is_primary": False,
+                }
+            ],
+            "verification": {
+                "status": "single_source",
+                "checked_at": datetime.now(timezone.utc).isoformat(),
+                "method": ["primary_source"],
+                "note": "ANKA Haber Ajansı ana sayfa akışından alındı.",
+            },
+            "layout_hint": {"story_size": "secondary", "column_span": 2, "preferred_position": "mid"},
+            "image": {},
+            "image_url": image_url,
+        }
+        if is_clickbait_article(article):
+            continue
+        seen_links.add(link)
+        articles.append(article)
+        if len(articles) >= limit:
+            break
+
+    return dedupe_similar_articles(articles)
+
+
 def fetch_rss_articles(limit: int = 120) -> list[dict[str, Any]]:
-    return parse_feed_articles(DEFAULT_FEEDS, limit)
+    articles = parse_feed_articles(DEFAULT_FEEDS, limit)
+    articles.extend(extract_anka_articles(max(15, limit // 4)))
+    return prioritize_articles(articles)[:limit]
 
 
 def fetch_ankara_local_articles(limit: int = 60) -> list[dict[str, Any]]:
@@ -837,6 +1365,7 @@ def fetch_ankara_local_articles(limit: int = 60) -> list[dict[str, Any]]:
 
 
 def page_articles(source_articles: list[dict[str, Any]], start: int = 0) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    source_articles = clean_editorial_pool(source_articles)
     layouts = [
         {"story_size": "hero", "column_span": 1, "preferred_position": "top"},
         {"story_size": "lead", "column_span": 1, "preferred_position": "top"},
@@ -856,10 +1385,14 @@ def page_articles(source_articles: list[dict[str, Any]], start: int = 0) -> tupl
         article["importance"] = offset + 1
         article["layout_hint"] = {"story_size": "brief", "column_span": 1, "preferred_position": "rail"}
         article["image"] = {}
-    return main_articles[:12], rail_articles[:20]
+    return (
+        sanitize_items_or_fail(main_articles[:12], "front_page_before_render"),
+        sanitize_items_or_fail(rail_articles[:20], "latest_before_render"),
+    )
 
 
 def ankara_articles(source_articles: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    source_articles = clean_editorial_pool(source_articles)
     keywords = (
         "ankara",
         "başkent",
@@ -985,7 +1518,7 @@ def personal_radar_page_articles(
     general_articles: list[dict[str, Any]],
     ankara_local: list[dict[str, Any]],
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    pool = general_articles + ankara_local
+    pool = clean_editorial_pool(general_articles + ankara_local)
     if not pool:
         return [], []
 
@@ -1017,13 +1550,13 @@ def personal_radar_page_articles(
 
 
 def issue_from_rss(issue_date: str, paper_size: str, image_dir: Path | None = None) -> dict[str, Any] | None:
-    articles = prioritize_articles(fetch_rss_articles())
+    articles = prioritize_articles(clean_editorial_pool(fetch_rss_articles()))
     if len(articles) < 3:
         return None
 
     front_articles, front_briefs = page_articles(articles, 0)
     inside_articles, inside_briefs = page_articles(articles, 32)
-    ankara_source = prioritize_articles(fetch_ankara_local_articles())
+    ankara_source = prioritize_articles(clean_editorial_pool(fetch_ankara_local_articles()))
     if len(ankara_source) < 32:
         ankara_source.extend(article for article in ankara_articles(articles) if article not in ankara_source)
         ankara_source = prioritize_articles(ankara_source)

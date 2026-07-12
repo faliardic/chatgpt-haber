@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Gazette Ham Metin Okuyucu",
+  "version": "0.1.0",
+  "description": "Random Haber ile açılan haber sayfalarında ana metni temiz bir panelde gösterir.",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "action": {
+    "default_title": "Gazette ham metni göster",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

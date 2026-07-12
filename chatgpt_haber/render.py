@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import base64
+import mimetypes
 from pathlib import Path
 from typing import Any
 from datetime import datetime, timedelta, timezone
@@ -7,6 +9,11 @@ from datetime import datetime, timedelta, timezone
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from .issue import BASE_DIR, slugify
+from services.news_quality_filters import (
+    assert_no_forbidden_rendered_text,
+    is_absolute_blocked_content,
+    sanitize_items_or_fail,
+)
 
 
 TEMPLATE_DIR = BASE_DIR / "templates"
@@ -14,15 +21,115 @@ TR_TIMEZONE = timezone(timedelta(hours=3))
 
 
 def image_src(path_value: str) -> str:
+    return asset_src(path_value, embed=False)
+
+
+def asset_src(path_value: str, embed: bool = False) -> str:
     if not path_value:
         return ""
-    if path_value.startswith(("http://", "https://", "file://", "data:")):
+    if path_value.startswith(("http://", "https://", "data:")):
         return path_value
 
-    path = Path(path_value)
+    if path_value.startswith("file://"):
+        path = Path(path_value.removeprefix("file:///"))
+    else:
+        path = Path(path_value)
+    if embed:
+        data_uri = file_data_uri(path)
+        if data_uri:
+            return data_uri
+    if path_value.startswith("file://"):
+        return path_value
     if path.exists():
         return path.resolve().as_uri()
     return path_value
+
+
+def file_data_uri(path: Path) -> str:
+    if not path.exists() or not path.is_file():
+        return ""
+    mime_type = mimetypes.guess_type(path.name)[0] or "application/octet-stream"
+    encoded = base64.b64encode(path.read_bytes()).decode("ascii")
+    return f"data:{mime_type};base64,{encoded}"
+
+
+def css_text(path: Path) -> str:
+    return path.read_text(encoding="utf-8") if path.exists() else ""
+
+
+def linked_or_embedded_asset(path: Path, portable_assets: bool) -> str:
+    if portable_assets:
+        return file_data_uri(path)
+    return path.resolve().as_uri()
+
+
+def linked_or_embedded_css(path: Path, portable_assets: bool) -> str:
+    if portable_assets:
+        return css_text(path)
+    return ""
+
+
+def css_href(path: Path, portable_assets: bool) -> str:
+    if portable_assets:
+        return ""
+    return path.resolve().as_uri()
+
+
+def image_src_filter(portable_assets: bool):
+    def _image_src(path_value: str) -> str:
+        return asset_src(path_value, embed=portable_assets)
+
+    return _image_src
+
+
+def render_html(issue_data: dict[str, Any], html_path: Path, portable_pdf_links: bool = False, portable_assets: bool = False) -> None:
+    sanitize_render_issue(issue_data)
+    env = Environment(
+        loader=FileSystemLoader(TEMPLATE_DIR),
+        autoescape=select_autoescape(["html", "xml"]),
+    )
+    env.filters["image_src"] = image_src_filter(portable_assets)
+    env.filters["datetime_tr"] = datetime_tr
+    detail_articles = sanitize_items_or_fail(
+        prepare_detail_links(issue_data, html_path, portable_pdf_links=portable_pdf_links),
+        "detail_pages_before_render",
+    )
+    template = env.get_template("base.html")
+    print_css = BASE_DIR / "static" / "css" / "print.css"
+    detail_css = BASE_DIR / "static" / "css" / "article_detail.css"
+    logo_path = BASE_DIR / "static" / "img" / "chatgpt-haber-logo-cropped.png"
+    rendered_html = template.render(
+        issue=issue_data["issue"],
+        pages=issue_data["pages"],
+        pdf_detail_articles=detail_articles if portable_pdf_links else [],
+        css_href=css_href(print_css, portable_assets),
+        css_content=linked_or_embedded_css(print_css, portable_assets),
+        logo_href=linked_or_embedded_asset(logo_path, portable_assets),
+    )
+    html_path.parent.mkdir(parents=True, exist_ok=True)
+    html_path.write_text(rendered_html, encoding="utf-8")
+    assert_no_forbidden_rendered_text(rendered_html, "final_html_before_pdf")
+
+    detail_template = env.get_template("article_detail.html")
+    for article in detail_articles:
+        if is_absolute_blocked_content(article):
+            raise RuntimeError("[GAZETTE BLOCKER FAILED] Forbidden earthquake SEO article reached detail renderer")
+        detail_path = Path(str(article.get("detail_path") or ""))
+        if not detail_path:
+            continue
+        detail_path.parent.mkdir(parents=True, exist_ok=True)
+        rendered_detail = detail_template.render(
+            issue=issue_data["issue"],
+            article=article,
+            source_name=source_name(article),
+            source_url=source_url(article),
+            back_href=f"../{html_path.name}",
+            css_href=css_href(detail_css, portable_assets),
+            css_content=linked_or_embedded_css(detail_css, portable_assets),
+            logo_href=linked_or_embedded_asset(logo_path, portable_assets),
+        )
+        detail_path.write_text(rendered_detail, encoding="utf-8")
+        assert_no_forbidden_rendered_text(rendered_detail, "detail_html_before_pdf")
 
 
 def datetime_tr(value: str) -> str:
@@ -103,46 +210,44 @@ def unique_detail_slug(base_slug: str, used_slugs: set[str]) -> str:
     return slug
 
 
-def render_html(issue_data: dict[str, Any], html_path: Path, portable_pdf_links: bool = False) -> None:
-    env = Environment(
-        loader=FileSystemLoader(TEMPLATE_DIR),
-        autoescape=select_autoescape(["html", "xml"]),
-    )
-    env.filters["image_src"] = image_src
-    env.filters["datetime_tr"] = datetime_tr
-    detail_articles = prepare_detail_links(issue_data, html_path, portable_pdf_links=portable_pdf_links)
-    template = env.get_template("base.html")
-    rendered_html = template.render(
-        issue=issue_data["issue"],
-        pages=issue_data["pages"],
-        pdf_detail_articles=detail_articles if portable_pdf_links else [],
-        css_href=(BASE_DIR / "static" / "css" / "print.css").resolve().as_uri(),
-        logo_href=(BASE_DIR / "static" / "img" / "chatgpt-haber-logo-cropped.png").resolve().as_uri(),
-    )
-    html_path.parent.mkdir(parents=True, exist_ok=True)
-    html_path.write_text(rendered_html, encoding="utf-8")
-
-    detail_template = env.get_template("article_detail.html")
-    for article in detail_articles:
-        detail_path = Path(str(article.get("detail_path") or ""))
-        if not detail_path:
+def sanitize_render_issue(issue_data: dict[str, Any]) -> None:
+    for page in issue_data.get("pages", []):
+        if not isinstance(page, dict):
             continue
-        detail_path.parent.mkdir(parents=True, exist_ok=True)
-        rendered_detail = detail_template.render(
-            issue=issue_data["issue"],
-            article=article,
-            source_name=source_name(article),
-            source_url=source_url(article),
-            back_href=f"../{html_path.name}",
-            css_href=(BASE_DIR / "static" / "css" / "article_detail.css").resolve().as_uri(),
-            logo_href=(BASE_DIR / "static" / "img" / "chatgpt-haber-logo-cropped.png").resolve().as_uri(),
-        )
-        detail_path.write_text(rendered_detail, encoding="utf-8")
+        for collection_name in ("articles", "briefs"):
+            collection = page.get(collection_name, [])
+            if isinstance(collection, list):
+                page[collection_name] = sanitize_items_or_fail(
+                    [article for article in collection if isinstance(article, dict)],
+                    f"{collection_name}_before_render_page_{page.get('page_no', '?')}",
+                )
+        articles = page.get("articles", [])
+        if isinstance(articles, list) and articles and is_absolute_blocked_content(articles[0]):
+            raise RuntimeError("[GAZETTE BLOCKER FAILED] Forbidden earthquake SEO article selected as top story")
+
+
+def extract_pdf_text(pdf_path: Path) -> str:
+    try:
+        from pypdf import PdfReader
+    except ImportError:
+        try:
+            import fitz
+        except ImportError:
+            print("[GAZETTE FINAL VALIDATION] PDF text extractor not installed; skipped")
+            return ""
+        doc = fitz.open(str(pdf_path))
+        return "\n".join(page.get_text("text") for page in doc)
+    reader = PdfReader(str(pdf_path))
+    return "\n".join(page.extract_text() or "" for page in reader.pages)
 
 
 def render_pdf(html_path: Path, pdf_path: Path) -> None:
     from playwright.sync_api import sync_playwright
 
+    print(f"[GAZETTE RENDER] html_path = {html_path}")
+    print(f"[GAZETTE RENDER] pdf_path = {pdf_path}")
+    html_text = html_path.read_text(encoding="utf-8", errors="ignore")
+    assert_no_forbidden_rendered_text(html_text, "final_html_before_pdf")
     pdf_path.parent.mkdir(parents=True, exist_ok=True)
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
@@ -156,3 +261,10 @@ def render_pdf(html_path: Path, pdf_path: Path) -> None:
             margin={"top": "0", "right": "0", "bottom": "0", "left": "0"},
         )
         browser.close()
+    pdf_text = extract_pdf_text(pdf_path)
+    if pdf_text:
+        try:
+            assert_no_forbidden_rendered_text(pdf_text, "final_pdf_after_render")
+        except RuntimeError:
+            pdf_path.unlink(missing_ok=True)
+            raise

@@ -5,7 +5,6 @@
       <h1>{{ article.headline }}</h1>
       <p>{{ article.dek }}</p>
     </div>
-    <a class="detail-page__back" href="#top">ANA SAYFAYA DÖN</a>
   </header>
 
   {% if article.image and article.image.path %}
@@ -34,5 +33,6 @@
   <footer class="detail-page__source">
     Kaynak:
     <a href="{{ article.source_bundle[0].url }}" target="_blank" rel="noopener noreferrer">{{ article.source_bundle[0].name }}</a>
+    <a class="detail-page__back" href="#top">ANA SAYFAYA DÖN</a>
   </footer>
 </section>

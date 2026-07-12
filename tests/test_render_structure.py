@@ -4,7 +4,17 @@ from pathlib import Path
 
 from chatgpt_haber.issue import normalize_issue, read_json
 from chatgpt_haber.render import image_src, render_html
-from chatgpt_haber.sources import dedupe_similar_articles, issue_from_rss, prioritize_articles
+from chatgpt_haber.sources import (
+    clickbait_score,
+    dedupe_similar_articles,
+    earthquake_event_gate,
+    is_clickbait_article,
+    issue_from_rss,
+    page_articles,
+    prioritize_articles,
+    sanitize_issue_articles,
+    score_article,
+)
 
 
 def test_single_html_document(tmp_path):
@@ -51,6 +61,55 @@ def test_portable_pdf_mode_links_to_embedded_detail_pages(tmp_path):
     assert headline_link
     assert headline_link["href"].startswith("#article-detail-")
     assert soup.select_one(headline_link["href"])
+
+
+def test_portable_html_embeds_assets_without_file_links(tmp_path):
+    html_path = tmp_path / "issue.html"
+    render_html(
+        normalize_issue(read_json(Path("examples/issue.sample.json"))),
+        html_path,
+        portable_pdf_links=True,
+        portable_assets=True,
+    )
+    html = html_path.read_text(encoding="utf-8")
+
+    assert "file:///" not in html
+    assert "<style>" in html
+    assert "data:image/png;base64," in html
+
+
+def test_portable_html_embeds_article_images(tmp_path):
+    image_path = tmp_path / "photo.jpg"
+    image_path.write_bytes(b"fake image bytes")
+    issue = normalize_issue(read_json(Path("examples/issue.sample.json")))
+    issue["pages"][0]["articles"][0]["image"] = {
+        "path": str(image_path),
+        "alt": "Test",
+        "caption": "Test",
+        "credit": "Test",
+        "crop": "landscape",
+    }
+    html_path = tmp_path / "issue.html"
+
+    render_html(issue, html_path, portable_pdf_links=True, portable_assets=True)
+    html = html_path.read_text(encoding="utf-8")
+
+    assert "data:image/jpeg;base64," in html
+
+
+def test_render_html_final_sanitizer_removes_generic_earthquake(tmp_path):
+    issue = normalize_issue(read_json(Path("examples/issue.sample.json")))
+    blocked = issue["pages"][0]["articles"][0].copy()
+    blocked["id"] = "blocked-earthquake"
+    blocked["headline"] = "Son dakika deprem mi oldu? Az önce deprem nerede oldu? İstanbul, Ankara, İzmir ve il il AFAD son depremler 01 Haziran 2026"
+    blocked["dek"] = "Son depremler... Artçı deprem mi oldu? Son deprem büyüklüğü ne kadar?"
+    issue["pages"][0]["articles"].insert(0, blocked)
+    html_path = tmp_path / "issue.html"
+
+    render_html(issue, html_path, portable_pdf_links=True)
+    html = html_path.read_text(encoding="utf-8")
+
+    assert "Son dakika deprem mi oldu" not in html
 
 
 def test_detail_page_keeps_original_source_link(tmp_path):
@@ -204,8 +263,8 @@ def test_articles_are_prioritized_by_editorial_importance():
         },
         {
             "section": "gundem",
-            "headline": "Deprem sonrası son dakika açıklaması",
-            "dek": "AFAD bölgede deprem sonrası çalışmaların sürdüğünü açıkladı.",
+            "headline": "Deprem sonrası ağır hasar açıklaması",
+            "dek": "AFAD bölgede deprem sonrası ağır hasar ve kurtarma çalışmalarının sürdüğünü açıkladı.",
             "image_url": "",
             "importance": 3,
             "source_bundle": [{"name": "Habertürk Gündem", "published_at": "2026-05-26T08:00:00+00:00"}],
@@ -214,9 +273,206 @@ def test_articles_are_prioritized_by_editorial_importance():
 
     prioritized = prioritize_articles(articles)
 
-    assert prioritized[0]["headline"] == "Deprem sonrası son dakika açıklaması"
+    assert prioritized[0]["headline"] == "Deprem sonrası ağır hasar açıklaması"
     assert prioritized[1]["headline"] == "TCMB faiz kararı açıklandı"
     assert prioritized[0]["importance_score"] > prioritized[-1]["importance_score"]
+
+
+def test_clickbait_articles_are_filtered_from_priority_pool():
+    articles = [
+        {
+            "section": "gundem",
+            "headline": "Bunu duyanlar inanamadı!",
+            "dek": "Sosyal medyada gündem olan iddia olay yarattı.",
+            "image_url": "",
+            "importance": 1,
+            "source_bundle": [{"name": "Habertürk Gündem", "published_at": "2026-05-26T09:00:00+00:00"}],
+        },
+        {
+            "section": "ekonomi",
+            "headline": "TCMB faiz kararını açıkladı",
+            "dek": "Merkez Bankası politika faizine ilişkin kararını duyurdu.",
+            "image_url": "",
+            "importance": 2,
+            "source_bundle": [{"name": "NTV Ekonomi", "published_at": "2026-05-26T09:00:00+00:00"}],
+        },
+    ]
+
+    prioritized = prioritize_articles(articles)
+
+    assert [article["headline"] for article in prioritized] == ["TCMB faiz kararını açıkladı"]
+
+
+def test_editorial_headlines_are_not_marked_as_clickbait():
+    article = {
+        "headline": "Deprem sonrası son dakika açıklaması",
+        "dek": "AFAD bölgede çalışmaların sürdüğünü duyurdu.",
+    }
+
+    assert not is_clickbait_article(article)
+    assert clickbait_score(article) == 0
+
+
+def test_question_style_news_is_blocked():
+    articles = [
+        {
+            "headline": "Son dakika deprem mi oldu? Az önce deprem nerede oldu?",
+            "dek": "İstanbul, Ankara, İzmir ve il il AFAD son depremler 01 Haziran 2026",
+        },
+        {
+            "headline": "Yeni destek başvurusu nereden alınır",
+            "dek": "Başvuru nasıl yapılacak ve şartları neler?",
+        },
+        {
+            "headline": "Konut satışlarında mayıs verileri açıklandı",
+            "dek": "TÜİK konut satışlarına ilişkin mayıs ayı verilerini yayımladı.",
+        },
+    ]
+
+    assert is_clickbait_article(articles[0])
+    assert is_clickbait_article(articles[1])
+    assert not is_clickbait_article(articles[2])
+
+
+def test_routine_earthquake_updates_are_blocked_but_major_damage_news_remains():
+    routine_update = {
+        "headline": "AFAD son depremler listesini yayımladı",
+        "dek": "Anlık deprem verileri ve il il son depremler güncellendi.",
+    }
+    major_news = {
+        "headline": "Depremde ağır hasar oluştu",
+        "dek": "Bölgede enkaz kaldırma ve kurtarma çalışmaları sürüyor.",
+    }
+
+    assert is_clickbait_article(routine_update)
+    assert not is_clickbait_article(major_news)
+
+
+def test_question_earthquake_update_is_removed_at_page_and_issue_level():
+    blocked = {
+        "id": "blocked",
+        "section": "gundem",
+        "headline": "Son dakika deprem mi oldu? Az önce deprem nerede oldu?",
+        "dek": "İstanbul, Ankara, İzmir ve il il AFAD son depremler 01 Haziran 2026",
+        "body": ["Son depremler listesi"],
+        "source_bundle": [{"name": "Kaynak", "url": "https://example.com/blocked"}],
+        "verification": {"status": "single_source"},
+        "layout_hint": {"story_size": "secondary"},
+        "image": {},
+    }
+    allowed = {
+        "id": "allowed",
+        "section": "gundem",
+        "headline": "Bölgede deprem sonrası ağır hasar tespit edildi",
+        "dek": "Kurtarma ekipleri enkaz alanında çalışmalarını sürdürüyor.",
+        "body": ["Hasar tespit çalışmaları sürüyor."],
+        "source_bundle": [{"name": "Kaynak", "url": "https://example.com/allowed"}],
+        "verification": {"status": "single_source"},
+        "layout_hint": {"story_size": "secondary"},
+        "image": {},
+    }
+
+    main_articles, _ = page_articles([blocked, allowed], 0)
+    issue = {"pages": [{"articles": [blocked, allowed], "briefs": [blocked]}]}
+    sanitize_issue_articles(issue)
+
+    assert all(article["id"] != "blocked" for article in main_articles)
+    assert [article["id"] for article in issue["pages"][0]["articles"]] == ["allowed"]
+    assert issue["pages"][0]["briefs"] == []
+
+
+def test_earthquake_event_gate_classifies_seo_generic_clickbait():
+    article = {
+        "headline": "Son dakika deprem mi oldu? Az önce deprem nerede oldu? İstanbul, Ankara, İzmir ve il il AFAD son depremler 01 Haziran 2026",
+        "dek": "Son depremler listesi güncellendi.",
+    }
+
+    result = earthquake_event_gate(article)
+
+    assert result["earthquake_classification"] == "seo_generic_earthquake"
+    assert result["accepted"] is False
+    assert result["reject_reason"] == "seo_generic_earthquake_clickbait"
+
+
+def test_earthquake_event_gate_classifies_minor_ticker_and_caps_importance():
+    article = {
+        "headline": "AFAD duyurdu: Ege Denizi'nde 3.2 büyüklüğünde deprem",
+        "dek": "Hasar bildirilmedi.",
+        "source_bundle": [{"name": "AFAD"}],
+    }
+
+    result = earthquake_event_gate(article)
+    prioritized = prioritize_articles([article, {"headline": "TCMB faiz kararını açıkladı", "dek": "Karar duyuruldu."}])
+
+    assert result["earthquake_classification"] == "minor_earthquake_ticker"
+    assert result["accepted"] is True
+    assert prioritized[-1]["earthquake_classification"] == "minor_earthquake_ticker"
+    assert prioritized[-1]["importance_cap_applied"] is True
+
+
+def test_earthquake_event_gate_accepts_5_1_without_auto_top():
+    article = {
+        "headline": "AFAD duyurdu: Balıkesir'de 5.1 büyüklüğünde deprem",
+        "dek": "Hasar bildirilmedi.",
+        "source_bundle": [{"name": "AFAD"}],
+    }
+
+    result = earthquake_event_gate(article)
+
+    assert result["earthquake_classification"] == "serious_earthquake_event"
+    assert result["accepted"] is True
+    assert score_article(article) < 120
+
+
+def test_earthquake_event_gate_raises_damage_event():
+    article = {
+        "headline": "AFAD: Marmara'da 4.8 büyüklüğünde deprem, bazı binalarda hasar bildirildi",
+        "dek": "Bölgede hasar tespit çalışması başlatıldı.",
+        "source_bundle": [{"name": "AFAD"}],
+    }
+
+    result = earthquake_event_gate(article)
+
+    assert result["earthquake_classification"] == "serious_earthquake_event"
+    assert result["accepted"] is True
+    assert result["impact_detected"] is True
+
+
+def test_earthquake_event_gate_allows_major_tsunami_alert():
+    article = {
+        "headline": "7.0 büyüklüğünde deprem sonrası tsunami uyarısı",
+        "dek": "USGS verilerine göre bölgede resmi alarm verildi.",
+        "source_bundle": [{"name": "USGS"}],
+    }
+
+    result = earthquake_event_gate(article)
+
+    assert result["earthquake_classification"] == "serious_earthquake_event"
+    assert result["accepted"] is True
+
+
+def test_anka_articles_are_added_to_live_pool(monkeypatch):
+    monkeypatch.setattr("chatgpt_haber.sources.parse_feed_articles", lambda feeds, limit: [])
+    monkeypatch.setattr(
+        "chatgpt_haber.sources.extract_anka_articles",
+        lambda limit: [
+            {
+                "id": "anka-1",
+                "section": "gundem",
+                "headline": "ANKA gündem haberini geçti",
+                "dek": "ANKA Haber Ajansı kaynaklı güncel haber.",
+                "image_url": "",
+                "importance": 1,
+                "source_bundle": [{"name": "ANKA Haber Ajansı", "published_at": "2026-06-01T09:00:00+00:00"}],
+            }
+        ],
+    )
+
+    from chatgpt_haber.sources import fetch_rss_articles
+
+    articles = fetch_rss_articles()
+
+    assert articles[0]["source_bundle"][0]["name"] == "ANKA Haber Ajansı"
 
 
 def test_all_pages_use_shared_grid_layout(tmp_path):

@@ -1,0 +1,161 @@
+{
+  "generated_at": "2026-07-08T09:09:26.295697",
+  "sources": [
+    {
+      "source": "ANKA Haber Ajansı",
+      "total": 28,
+      "accepted": 28,
+      "rejected": 0,
+      "clickbait_or_seo": 0,
+      "earthquake_seo_rejects": 0,
+      "with_image": 9,
+      "front_page": 9,
+      "average_importance_score": 68.82,
+      "image_rate": 0.321
+    },
+    {
+      "source": "Başkent Gazete Ankara",
+      "total": 11,
+      "accepted": 11,
+      "rejected": 0,
+      "clickbait_or_seo": 0,
+      "earthquake_seo_rejects": 0,
+      "with_image": 2,
+      "front_page": 0,
+      "average_importance_score": 61.36,
+      "image_rate": 0.182
+    },
+    {
+      "source": "Haberci06 Ankara",
+      "total": 11,
+      "accepted": 11,
+      "rejected": 0,
+      "clickbait_or_seo": 0,
+      "earthquake_seo_rejects": 0,
+      "with_image": 5,
+      "front_page": 0,
+      "average_importance_score": 64.91,
+      "image_rate": 0.455
+    },
+    {
+      "source": "Redaktör Haber Yerel",
+      "total": 10,
+      "accepted": 10,
+      "rejected": 0,
+      "clickbait_or_seo": 0,
+      "earthquake_seo_rejects": 0,
+      "with_image": 5,
+      "front_page": 0,
+      "average_importance_score": 72.6,
+      "image_rate": 0.5
+    },
+    {
+      "source": "NTV Dünya",
+      "total": 7,
+      "accepted": 7,
+      "rejected": 0,
+      "clickbait_or_seo": 0,
+      "earthquake_seo_rejects": 0,
+      "with_image": 2,
+      "front_page": 6,
+      "average_importance_score": 85.0,
+      "image_rate": 0.286
+    },
+    {
+      "source": "Sözcü Ekonomi",
+      "total": 7,
+      "accepted": 7,
+      "rejected": 0,
+      "clickbait_or_seo": 0,
+      "earthquake_seo_rejects": 0,
+      "with_image": 4,
+      "front_page": 6,
+      "average_importance_score": 91.14,
+      "image_rate": 0.571
+    },
+    {
+      "source": "Sözcü Gündem",
+      "total": 6,
+      "accepted": 6,
+      "rejected": 0,
+      "clickbait_or_seo": 0,
+      "earthquake_seo_rejects": 0,
+      "with_image": 2,
+      "front_page": 3,
+      "average_importance_score": 79.5,
+      "image_rate": 0.333
+    },
+    {
+      "source": "Sözcü Dünya",
+      "total": 6,
+      "accepted": 6,
+      "rejected": 0,
+      "clickbait_or_seo": 0,
+      "earthquake_seo_rejects": 0,
+      "with_image": 2,
+      "front_page": 3,
+      "average_importance_score": 71.5,
+      "image_rate": 0.333
+    },
+    {
+      "source": "NTV Türkiye",
+      "total": 5,
+      "accepted": 5,
+      "rejected": 0,
+      "clickbait_or_seo": 0,
+      "earthquake_seo_rejects": 0,
+      "with_image": 3,
+      "front_page": 3,
+      "average_importance_score": 80.4,
+      "image_rate": 0.6
+    },
+    {
+      "source": "NTV Spor",
+      "total": 2,
+      "accepted": 2,
+      "rejected": 0,
+      "clickbait_or_seo": 0,
+      "earthquake_seo_rejects": 0,
+      "with_image": 1,
+      "front_page": 1,
+      "average_importance_score": 66.5,
+      "image_rate": 0.5
+    },
+    {
+      "source": "NTV Teknoloji",
+      "total": 1,
+      "accepted": 1,
+      "rejected": 0,
+      "clickbait_or_seo": 0,
+      "earthquake_seo_rejects": 0,
+      "with_image": 0,
+      "front_page": 1,
+      "average_importance_score": 87.0,
+      "image_rate": 0.0
+    },
+    {
+      "source": "Sözcü Teknoloji",
+      "total": 1,
+      "accepted": 1,
+      "rejected": 0,
+      "clickbait_or_seo": 0,
+      "earthquake_seo_rejects": 0,
+      "with_image": 1,
+      "front_page": 0,
+      "average_importance_score": 66.0,
+      "image_rate": 1.0
+    },
+    {
+      "source": "Habertürk Gündem",
+      "total": 1,
+      "accepted": 1,
+      "rejected": 0,
+      "clickbait_or_seo": 0,
+      "earthquake_seo_rejects": 0,
+      "with_image": 0,
+      "front_page": 0,
+      "average_importance_score": 56.0,
+      "image_rate": 0.0
+    }
+  ]
+}

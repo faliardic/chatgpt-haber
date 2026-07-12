@@ -4,7 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ article.headline }} - {{ issue.title }}</title>
-  <link rel="stylesheet" href="{{ css_href }}">
+  {% if css_content %}
+    <style>{{ css_content }}</style>
+  {% else %}
+    <link rel="stylesheet" href="{{ css_href }}">
+  {% endif %}
 </head>
 <body>
   <header class="detail-masthead">

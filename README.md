@@ -23,6 +23,8 @@ chatgpt-haber build --date 2026-05-26 --paper-size A3 --out dist/gazete-2026-05-
 
 Komut sırasıyla resmi RSS akışlarını dener, yeterli veri alamazsa `data/issue.json` dosyasını yeni üç sayfalık sözleşmeye dönüştürür, doğrular, tek HTML belge üretir ve Playwright ile PDF alır.
 
+Üretilen HTML varsayılan olarak tek başına paylaşılabilir formattadır: CSS, logo, yerel görseller ve detay sayfaları ana dosyaya gömülür. Eski klasör bağlantılı HTML çıktısı istenirse `--linked-html` kullanın.
+
 Yerel JSON ile çalıştırmak için:
 
 ```bash

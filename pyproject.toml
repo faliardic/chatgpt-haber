@@ -20,7 +20,8 @@ dependencies = [
   "jsonschema>=4.26",
   "pydantic>=2.11",
   "tenacity>=9.1",
-  "Pillow>=11.2"
+  "Pillow>=11.2",
+  "pypdf>=5.0"
 ]
 
 [project.scripts]
@@ -30,7 +31,8 @@ chatgpt-haber = "chatgpt_haber.cli:app"
 dev = ["pytest>=8.0"]
 
 [tool.setuptools]
-packages = ["chatgpt_haber"]
+packages = ["chatgpt_haber", "services", "apps"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]
