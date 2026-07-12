@@ -15,7 +15,8 @@ from services.random_news_service import appdata_news_cache_path, copy_gazette_o
 
 from .issue import BASE_DIR, normalize_issue, read_json, validate_issue_data, write_json
 from .render import render_html, render_pdf
-from .sources import enrich_article_details, enrich_issue_images, issue_from_rss, sanitize_issue_articles
+from .sources import enrich_article_details, enrich_issue_images, sanitize_issue_articles
+from .technology_page import ensure_technology_third_page, issue_from_rss
 
 
 app = typer.Typer(help="Tek komutla 3 sayfalık baskıya hazır gazete üretir.")
@@ -84,7 +85,9 @@ def build(
     issue_data = issue_from_rss(issue_date, paper_size, image_dir=image_dir) if live else None
     if issue_data is None:
         source = input_json or BASE_DIR / "data" / "issue.json"
-        issue_data = normalize_issue(read_json(source), issue_date=issue_date, paper_size=paper_size)
+        raw_issue = read_json(source)
+        issue_data = normalize_issue(raw_issue, issue_date=issue_date, paper_size=paper_size)
+        ensure_technology_third_page(issue_data, raw_issue=raw_issue)
     sanitize_issue_articles(issue_data)
     enrich_article_details(issue_data)
     enrich_issue_images(issue_data, image_dir)

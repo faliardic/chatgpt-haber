@@ -9,6 +9,32 @@
   {% else %}
     <link rel="stylesheet" href="{{ css_href }}">
   {% endif %}
+  <style>
+    .detail-return {
+      background: #111;
+      border: 3px solid #111;
+      color: #fff;
+      display: block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(20px, 3vw, 30px);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      padding: 18px 24px;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .detail-return:hover {
+      background: #b51222;
+      border-color: #b51222;
+    }
+    .detail-return--top {
+      margin-bottom: 30px;
+    }
+    .detail-return--bottom {
+      margin-top: 34px;
+    }
+  </style>
 </head>
 <body>
   <header class="detail-masthead">
@@ -23,6 +49,7 @@
 
   <main class="detail-shell">
     <article class="detail-article">
+      <a class="detail-return detail-return--top" href="{{ back_href }}">GAZETEYE DÖNÜŞ</a>
       <div class="detail-kicker">{{ article.kicker }}</div>
       <h1>{{ article.headline }}</h1>
       <p class="detail-dek">{{ article.dek }}</p>
@@ -53,6 +80,7 @@
         <a href="{{ source_url }}" target="_blank" rel="noopener noreferrer">{{ source_name }}</a>
         <span>{{ article.verification.status }}</span>
       </footer>
+      <a class="detail-return detail-return--bottom" href="{{ back_href }}">GAZETEYE DÖNÜŞ</a>
     </article>
   </main>
 </body>
