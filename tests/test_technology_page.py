@@ -5,20 +5,22 @@ from pathlib import Path
 
 from bs4 import BeautifulSoup
 
+from chatgpt_haber.builder import issue_from_rss
 from chatgpt_haber.issue import normalize_issue, read_json
 from chatgpt_haber.render import render_html
-from chatgpt_haber.technology_page import ensure_technology_third_page, issue_from_rss
+from chatgpt_haber.technology_page import ensure_technology_third_page
 
 
 def sample_article(index: int, section: str = "gundem") -> dict:
+    topic = f"ozelkonu{index}"
     return {
         "id": f"story-{section}-{index}",
         "section": section,
         "kicker": section.upper(),
-        "headline": f"{section.title()} haberi {index}",
+        "headline": f"{topic} manset",
         "importance": index,
-        "dek": f"{section.title()} alanındaki güncel gelişme.",
-        "body": [f"{section.title()} haberinin ayrıntılı metni."],
+        "dek": f"ayrinti{index} gelisme{index}",
+        "body": [f"{topic} ayrinti{index} gelisme{index}"],
         "source_bundle": [
             {
                 "name": "Test Kaynağı",
@@ -50,8 +52,8 @@ def test_live_issue_uses_technology_as_complete_third_page(monkeypatch):
     general_articles = [sample_article(index, "gundem") for index in range(1, 97)]
     technology_articles = [sample_article(index, "teknoloji") for index in range(1, 41)]
 
-    monkeypatch.setattr("chatgpt_haber.technology_page.fetch_rss_articles", lambda: general_articles)
-    monkeypatch.setattr("chatgpt_haber.technology_page.fetch_technology_articles", lambda: technology_articles)
+    monkeypatch.setattr("chatgpt_haber.builder.fetch_rss_articles", lambda: general_articles)
+    monkeypatch.setattr("chatgpt_haber.builder.fetch_technology_articles", lambda: technology_articles)
 
     issue = issue_from_rss("2026-07-12", "A3")
 

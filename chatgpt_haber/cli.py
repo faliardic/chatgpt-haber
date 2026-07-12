@@ -13,10 +13,11 @@ from services.news_quality_filters import assert_no_forbidden_rendered_text
 from services.gazette_reports import archive_outputs, write_reports
 from services.random_news_service import appdata_news_cache_path, copy_gazette_outputs_to_desktop
 
+from .builder import issue_from_rss
 from .issue import BASE_DIR, normalize_issue, read_json, validate_issue_data, write_json
 from .render import render_html, render_pdf
 from .sources import enrich_article_details, enrich_issue_images, sanitize_issue_articles
-from .technology_page import ensure_technology_third_page, issue_from_rss
+from .technology_page import ensure_technology_third_page
 
 
 app = typer.Typer(help="Tek komutla 3 sayfalık baskıya hazır gazete üretir.")

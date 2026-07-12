@@ -4,12 +4,12 @@ from pathlib import Path
 
 from chatgpt_haber.issue import normalize_issue, read_json
 from chatgpt_haber.render import image_src, render_html
+from chatgpt_haber.builder import issue_from_rss
 from chatgpt_haber.sources import (
     clickbait_score,
     dedupe_similar_articles,
     earthquake_event_gate,
     is_clickbait_article,
-    issue_from_rss,
     page_articles,
     prioritize_articles,
     sanitize_issue_articles,
@@ -169,17 +169,17 @@ def test_rail_numbering_continues_across_pages(tmp_path):
     assert soup.select_one(".page[data-page-no='3'] .front-rail__number").get_text(strip=True) == "41"
 
 
-def test_live_issue_front_page_has_twelve_main_blocks_and_twenty_rail_items(monkeypatch):
+def test_live_issue_has_three_pages_with_technology_third_page(monkeypatch):
     articles = []
     for index in range(96):
         articles.append(
             {
                 "id": f"story-{index}",
                 "section": "gundem",
-                "headline": f"Haber {index + 1}",
+                "headline": f"Haber ozelkonu{index + 1}",
                 "importance": index + 1,
-                "dek": "Kısa özet",
-                "body": ["Kısa haber metni."],
+                "dek": f"Kısa özet ozelkonu{index + 1}",
+                "body": [f"Kısa haber metni ozelkonu{index + 1}."],
                 "source_bundle": [
                     {
                         "name": "Kaynak",
@@ -199,18 +199,28 @@ def test_live_issue_front_page_has_twelve_main_blocks_and_twenty_rail_items(monk
                 "image": {},
             }
         )
+    technology_articles = []
+    for index in range(40):
+        article = deepcopy(articles[index])
+        article["id"] = f"tech-story-{index}"
+        article["section"] = "teknoloji"
+        article["headline"] = f"Teknoloji haberi {index + 1}"
+        article["kicker"] = "TEKNOLOJİ"
+        technology_articles.append(article)
 
-    monkeypatch.setattr("chatgpt_haber.sources.fetch_rss_articles", lambda: articles)
-    monkeypatch.setattr("chatgpt_haber.sources.fetch_ankara_local_articles", lambda: articles)
+    monkeypatch.setattr("chatgpt_haber.builder.fetch_rss_articles", lambda: articles)
+    monkeypatch.setattr("chatgpt_haber.builder.fetch_technology_articles", lambda: technology_articles)
 
     issue = issue_from_rss("2026-05-26", "A3")
 
     assert issue["issue"]["page_count"] == 3
-    assert issue["pages"][2]["name"] == "Ankara Özel Bülteni"
+    assert issue["pages"][2]["name"] == "Teknoloji"
     for page in issue["pages"]:
         assert len(page["articles"]) == 12
         assert len(page["briefs"]) == 20
         assert all(article["layout_hint"]["story_size"] == "brief" for article in page["briefs"])
+    assert all(article["section"] == "teknoloji" for article in issue["pages"][2]["articles"])
+    assert all(article["section"] == "teknoloji" for article in issue["pages"][2]["briefs"])
 
 
 def test_similar_articles_from_different_sources_are_deduped():
