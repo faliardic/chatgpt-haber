@@ -82,7 +82,13 @@ def image_src_filter(portable_assets: bool):
     return _image_src
 
 
-def render_html(issue_data: dict[str, Any], html_path: Path, portable_pdf_links: bool = False, portable_assets: bool = False) -> None:
+def render_html(
+    issue_data: dict[str, Any],
+    html_path: Path,
+    portable_pdf_links: bool = False,
+    portable_assets: bool = False,
+    include_brief_details: bool = True,
+) -> None:
     sanitize_render_issue(issue_data)
     env = Environment(
         loader=FileSystemLoader(TEMPLATE_DIR),
@@ -91,7 +97,12 @@ def render_html(issue_data: dict[str, Any], html_path: Path, portable_pdf_links:
     env.filters["image_src"] = image_src_filter(portable_assets)
     env.filters["datetime_tr"] = datetime_tr
     detail_articles = sanitize_items_or_fail(
-        prepare_detail_links(issue_data, html_path, portable_pdf_links=portable_pdf_links),
+        prepare_detail_links(
+            issue_data,
+            html_path,
+            portable_pdf_links=portable_pdf_links,
+            include_briefs=include_brief_details,
+        ),
         "detail_pages_before_render",
     )
     template = env.get_template("base.html")
@@ -160,7 +171,12 @@ def source_name(article: dict[str, Any]) -> str:
     return str(source.get("name") or "Kaynak")
 
 
-def prepare_detail_links(issue_data: dict[str, Any], html_path: Path, portable_pdf_links: bool = False) -> list[dict[str, Any]]:
+def prepare_detail_links(
+    issue_data: dict[str, Any],
+    html_path: Path,
+    portable_pdf_links: bool = False,
+    include_briefs: bool = True,
+) -> list[dict[str, Any]]:
     articles_dir = html_path.parent / "articles"
     used_slugs: set[str] = set()
     detail_articles: list[dict[str, Any]] = []
@@ -168,7 +184,8 @@ def prepare_detail_links(issue_data: dict[str, Any], html_path: Path, portable_p
     for page in issue_data.get("pages", []):
         if not isinstance(page, dict):
             continue
-        for collection_name in ("articles", "briefs"):
+        collection_names = ("articles", "briefs") if include_briefs else ("articles",)
+        for collection_name in collection_names:
             collection = page.get(collection_name, [])
             if not isinstance(collection, list):
                 continue

@@ -41,6 +41,7 @@ class GazetteStudio:
         actions.pack(fill="x", pady=(0, 14))
         buttons = [
             ("Gazete Üret", self.build_issue),
+            ("Tam Üretim", self.build_full_issue),
             ("Son PDF'i Aç", lambda: self.open_path(PROJECT_ROOT / "dist" / "gazete.pdf")),
             ("Son HTML'i Aç", lambda: self.open_path(PROJECT_ROOT / "dist" / "gazete.html")),
             ("Random Haber", self.open_random_news),
@@ -75,7 +76,10 @@ class GazetteStudio:
             messagebox.showerror("Gazette Studio", f"Komut başarısız: {process.returncode}")
 
     def build_issue(self) -> None:
-        self.run_command([command_python(), "-m", "chatgpt_haber.cli", "build", "--out", "dist/gazete.pdf"])
+        self.run_command([command_python(), "-m", "chatgpt_haber.cli", "build", "--mode", "fast", "--out", "dist/gazete.pdf"])
+
+    def build_full_issue(self) -> None:
+        self.run_command([command_python(), "-m", "chatgpt_haber.cli", "build", "--mode", "full", "--out", "dist/gazete.pdf"])
 
     def run_tests(self) -> None:
         self.run_command([command_python(), "-m", "pytest", "-q"])

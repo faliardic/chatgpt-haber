@@ -491,3 +491,36 @@ def test_all_pages_use_shared_grid_layout(tmp_path):
     soup = BeautifulSoup(html_path.read_text(encoding="utf-8"), "lxml")
 
     assert len(soup.select(".page .front-layout")) == 3
+
+
+def test_fast_pdf_html_embeds_only_main_article_details(tmp_path):
+    issue = normalize_issue(read_json(Path("examples/issue.sample.json")))
+    seed = deepcopy(issue["pages"][0]["articles"][0])
+    for page in issue["pages"]:
+        article = deepcopy(seed)
+        article["id"] = f"main-{page['page_no']}"
+        article["headline"] = f"Ana haber {page['page_no']}"
+        article["source_bundle"][0]["url"] = f"https://example.com/main-{page['page_no']}"
+        brief = deepcopy(seed)
+        brief["id"] = f"brief-{page['page_no']}"
+        brief["headline"] = f"Kısa haber {page['page_no']}"
+        brief["source_bundle"][0]["url"] = f"https://example.com/brief-{page['page_no']}"
+        brief["layout_hint"] = {"story_size": "brief", "column_span": 1, "preferred_position": "rail"}
+        brief["image"] = {}
+        page["articles"] = [article]
+        page["briefs"] = [brief]
+
+    html_path = tmp_path / "issue.html"
+    render_html(issue, html_path, portable_pdf_links=True, include_brief_details=False)
+    soup = BeautifulSoup(html_path.read_text(encoding="utf-8"), "lxml")
+
+    main_link = soup.select_one(".story__headline a[href]")
+    brief_link = soup.select_one(".front-rail__item a[href]")
+    detail_pages = soup.select(".detail-page")
+
+    assert main_link["href"].startswith("#article-detail-")
+    assert brief_link["href"] == "https://example.com/brief-1"
+    assert len(detail_pages) == 3
+    assert all("Kısa haber" not in page.get_text(" ", strip=True) for page in detail_pages)
+    assert len(detail_pages[0].select(".detail-page__back")) == 2
+    assert all(button["href"] == "#top" for button in detail_pages[0].select(".detail-page__back"))
