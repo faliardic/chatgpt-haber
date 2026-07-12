@@ -1,6 +1,6 @@
 # Bakım Politikası
 
-`v1.0.0` ChatGPT Haber projesinin tamamlanmış sürümüdür.
+`v1.1.0` ChatGPT Gazette projesinin tamamlanmış sürümüdür.
 
 ## Kabul Edilen Değişiklikler
 

@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 from html import unescape
+import json
 import mimetypes
 import re
 import unicodedata
@@ -42,13 +43,20 @@ REQUEST_HEADERS = {
 }
 DETAIL_SELECTORS = (
     "article p",
+    "main article p",
+    "[itemprop='articleBody'] p",
+    "[itemprop='articleBody']",
     "[data-testid='article-body'] p",
+    ".article-content p",
     ".article-body p",
+    ".news-content p",
+    ".story-content p",
+    ".post-content p",
+    ".content-detail p",
     ".news-detail p",
     ".haber-detay p",
-    ".content p",
     ".entry-content p",
-    ".post-content p",
+    ".content p",
 )
 STOP_WORDS = {
     "aciklandi",
@@ -312,7 +320,10 @@ def useful_detail_paragraph(text: str, headline: str) -> bool:
     normalized = normalize_for_match(text)
     if len(text) < 45:
         return False
-    if normalized == normalize_for_match(headline):
+    normalized_headline = normalize_for_match(headline)
+    if normalized == normalized_headline:
+        return False
+    if normalized_headline and len(normalized) < len(normalized_headline) + 24 and normalized in normalized_headline:
         return False
     blocked_fragments = (
         "abone ol",
@@ -321,54 +332,181 @@ def useful_detail_paragraph(text: str, headline: str) -> bool:
         "cookie",
         "facebook",
         "instagram",
+        "ilgili haber",
+        "paylas",
         "reklam",
         "son dakika haberleri",
+        "sosyal medya",
         "whatsapp",
     )
     return not any(fragment in normalized for fragment in blocked_fragments)
 
 
-def extract_article_detail(page_url: str, headline: str = "", max_paragraphs: int | None = 12) -> list[str]:
-    if not page_url:
+def split_detail_paragraphs(value: str) -> list[str]:
+    text = clean_html_text(value)
+    if not text:
         return []
+    raw_parts = re.split(r"(?:\r?\n){2,}|(?<=[.!?])\s+(?=[A-ZÇĞİÖŞÜ0-9])", text)
+    parts = [part.strip() for part in raw_parts if part.strip()]
+    if len(parts) <= 1 and len(text) > 900:
+        parts = [part.strip() for part in re.split(r"\s{2,}", text) if part.strip()]
+    return parts or [text]
+
+
+def meaningful_detail(paragraphs: list[str]) -> bool:
+    total_chars = sum(len(paragraph) for paragraph in paragraphs)
+    return len(paragraphs) >= 3 or total_chars >= 500
+
+
+def unique_useful_paragraphs(paragraphs: list[str], headline: str, max_paragraphs: int | None) -> list[str]:
+    selected: list[str] = []
+    seen: set[str] = set()
+    for paragraph in paragraphs:
+        text = clean_html_text(paragraph)
+        key = normalize_for_match(text)
+        if not key or key in seen or not useful_detail_paragraph(text, headline):
+            continue
+        selected.append(text)
+        seen.add(key)
+        if max_paragraphs is not None and len(selected) >= max_paragraphs:
+            break
+    return selected
+
+
+def iter_json_ld_nodes(value: Any) -> list[dict[str, Any]]:
+    if isinstance(value, dict):
+        nodes = [value]
+        graph = value.get("@graph")
+        if isinstance(graph, list):
+            nodes.extend(node for node in graph if isinstance(node, dict))
+        return nodes
+    if isinstance(value, list):
+        nodes: list[dict[str, Any]] = []
+        for item in value:
+            nodes.extend(iter_json_ld_nodes(item))
+        return nodes
+    return []
+
+
+def json_ld_article_body(soup: Any) -> str:
+    for script in soup.find_all("script", attrs={"type": "application/ld+json"}):
+        raw = script.string or script.get_text(" ", strip=True)
+        if not raw:
+            continue
+        try:
+            data = json.loads(raw)
+        except json.JSONDecodeError:
+            continue
+        for node in iter_json_ld_nodes(data):
+            node_type = node.get("@type")
+            types = node_type if isinstance(node_type, list) else [node_type]
+            normalized_types = {str(item).lower() for item in types if item}
+            if not normalized_types.intersection({"newsarticle", "article"}):
+                continue
+            body = node.get("articleBody")
+            if body:
+                return str(body)
+    return ""
+
+
+def remove_unwanted_detail_nodes(soup: Any) -> None:
+    selectors = (
+        "script",
+        "style",
+        "noscript",
+        "iframe",
+        "nav",
+        "footer",
+        "aside",
+        "form",
+        ".advertisement",
+        ".ads",
+        ".cookie",
+        ".related",
+        ".share",
+        ".social",
+        ".subscribe",
+        "[class*='reklam']",
+        "[id*='reklam']",
+        "[class*='abon']",
+        "[id*='abon']",
+        "[class*='cookie']",
+        "[id*='cookie']",
+        "[class*='related']",
+        "[id*='related']",
+        "[class*='share']",
+        "[id*='share']",
+    )
+    for unwanted in soup.select(", ".join(selectors)):
+        unwanted.decompose()
+
+
+def extract_article_detail_with_status(
+    page_url: str,
+    headline: str = "",
+    max_paragraphs: int | None = 12,
+) -> tuple[list[str], str]:
+    if not page_url:
+        return [], "source_unavailable"
     try:
         import requests
         from bs4 import BeautifulSoup
     except ImportError:
-        return []
+        return [], "source_unavailable"
 
     try:
         response = requests.get(page_url, headers=REQUEST_HEADERS, timeout=9)
         response.raise_for_status()
     except Exception:
-        return []
+        return [], "source_unavailable"
 
     soup = BeautifulSoup(response.text, "html.parser")
-    for unwanted in soup.select("script, style, noscript, iframe, nav, footer, aside, form"):
-        unwanted.decompose()
+    json_ld_body = json_ld_article_body(soup)
+    json_ld_paragraphs = unique_useful_paragraphs(split_detail_paragraphs(json_ld_body), headline, max_paragraphs)
+    if meaningful_detail(json_ld_paragraphs):
+        return json_ld_paragraphs, "json_ld_extracted"
 
+    remove_unwanted_detail_nodes(soup)
     candidates: list[str] = []
-    seen: set[str] = set()
     for selector in DETAIL_SELECTORS:
+        selector_candidates: list[str] = []
         for paragraph in soup.select(selector):
-            text = clean_html_text(paragraph.get_text(" ", strip=True))
-            key = normalize_for_match(text)
-            if key and key not in seen and useful_detail_paragraph(text, headline):
-                candidates.append(text)
-                seen.add(key)
-        if max_paragraphs is not None and len(candidates) >= 3:
+            selector_candidates.append(paragraph.get_text(" ", strip=True))
+        candidates.extend(selector_candidates)
+        selected = unique_useful_paragraphs(candidates, headline, max_paragraphs)
+        if meaningful_detail(selected):
             break
 
-    if candidates:
-        return candidates[:max_paragraphs] if max_paragraphs is not None else candidates
+    selected = unique_useful_paragraphs(candidates, headline, max_paragraphs)
+    if meaningful_detail(selected):
+        return selected, "source_extracted"
 
     description = soup.find("meta", attrs={"property": "og:description"}) or soup.find("meta", attrs={"name": "description"})
     content = clean_html_text(str(description.get("content") or "")) if description else ""
-    return [content] if useful_detail_paragraph(content, headline) else []
+    if useful_detail_paragraph(content, headline):
+        return [content], "summary_fallback"
+    return [], "source_unavailable"
+
+
+def extract_article_detail(page_url: str, headline: str = "", max_paragraphs: int | None = 12) -> list[str]:
+    paragraphs, _status = extract_article_detail_with_status(page_url, headline, max_paragraphs)
+    return paragraphs
+
+
+def fallback_article_body(article: dict[str, Any]) -> list[str]:
+    body = article.get("body") if isinstance(article.get("body"), list) else []
+    paragraphs = [clean_html_text(str(paragraph)) for paragraph in body if clean_html_text(str(paragraph))]
+    if paragraphs:
+        return paragraphs
+    for key in ("dek", "summary", "description"):
+        text = clean_html_text(str(article.get(key) or ""))
+        if text:
+            return [text]
+    return [clean_html_text(str(article.get("headline") or "Haber detayı hazırlanıyor."))]
 
 
 def enrich_article_details(issue_data: dict[str, Any]) -> dict[str, Any]:
-    cache: dict[str, list[str]] = {}
+    cache: dict[str, tuple[list[str], str]] = {}
     for page in issue_data.get("pages", []):
         if not isinstance(page, dict):
             continue
@@ -383,14 +521,24 @@ def enrich_article_details(issue_data: dict[str, Any]) -> dict[str, Any]:
                 source = sources[0] if sources and isinstance(sources[0], dict) else {}
                 source_url = str(source.get("url") or "")
                 if not source_url or source_url == "https://example.com":
+                    paragraphs = fallback_article_body(article)
+                    article["body"] = paragraphs
+                    article["detail_status"] = "summary_fallback"
+                    article["detail_paragraph_count"] = len(paragraphs)
+                    article["detail_character_count"] = sum(len(paragraph) for paragraph in paragraphs)
                     continue
                 if source_url not in cache:
-                    cache[source_url] = extract_article_detail(source_url, str(article.get("headline") or ""))
-                if cache[source_url]:
-                    article["body"] = cache[source_url]
-                    article["detail_status"] = "source_extracted"
+                    cache[source_url] = extract_article_detail_with_status(source_url, str(article.get("headline") or ""))
+                paragraphs, status = cache[source_url]
+                if paragraphs:
+                    article["body"] = paragraphs
+                    article["detail_status"] = status
                 else:
-                    article.setdefault("detail_status", "summary_only")
+                    paragraphs = fallback_article_body(article)
+                    article["body"] = paragraphs
+                    article["detail_status"] = "summary_fallback" if paragraphs else "source_unavailable"
+                article["detail_paragraph_count"] = len(article.get("body", []))
+                article["detail_character_count"] = sum(len(str(paragraph)) for paragraph in article.get("body", []))
     return issue_data
 
 
@@ -491,7 +639,7 @@ def fallback_image(article: dict[str, Any], image_dir: Path) -> dict[str, Any] |
     for line in lines:
         draw.text((92, y), line, fill=fg, font=font_large)
         y += 70
-    draw.text((92, 650), "CHATGPT HABER | TEMSİLİ GÖRSEL", fill="#ffffff", font=font_caption)
+    draw.text((92, 650), "ChatGPT Gazette | TEMSİLİ GÖRSEL", fill="#ffffff", font=font_caption)
     image.save(path, quality=88)
     return {"path": str(path), "source_url": "", "width": 1200, "height": 720}
 

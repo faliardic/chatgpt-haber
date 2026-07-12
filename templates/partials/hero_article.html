@@ -17,9 +17,6 @@
   {% if article.image and article.image.path %}
     {% include "partials/figure.html" %}
   {% else %}
-    <div class="hero-rule">
-      <a href="{{ article.source_bundle[0].url }}" target="_blank" rel="noopener noreferrer">{{ article.source_bundle[0].name }}</a>
-      <strong>{{ article.verification.status }}</strong>
-    </div>
+    <div class="hero-rule" aria-hidden="true"></div>
   {% endif %}
 </article>

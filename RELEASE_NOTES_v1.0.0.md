@@ -1,6 +1,6 @@
-# ChatGPT Haber v1.0.0
+# ChatGPT Gazette v1.0.0
 
-ChatGPT Haber v1.0.0 tamamlanmış sürümdür.
+ChatGPT Gazette v1.0.0 tamamlanmış sürümdür.
 
 ## Öne Çıkanlar
 

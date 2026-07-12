@@ -1,5 +1,11 @@
 <figure class="figure figure--{{ article.image.crop|default('landscape') }}">
-  <img src="{{ article.image.path|image_src }}" alt="{{ article.image.alt }}">
+  <a
+    class="figure__link"
+    href="{{ article.pdf_detail_url|default(article.detail_url|default(article.source_bundle[0].url)) }}"
+    aria-label="{{ article.headline }} haberini aç"
+  >
+    <img src="{{ article.image.path|image_src }}" alt="{{ article.image.alt }}">
+  </a>
   <figcaption>
     {{ article.image.caption }}
     <span class="credit">{{ article.image.credit }}</span>

@@ -34,14 +34,14 @@ class GazetteStudio:
 
         container = tk.Frame(self.root, bg="#f3f5f7", padx=22, pady=18)
         container.pack(fill="both", expand=True)
-        tk.Label(container, text="Gazette Studio", font=("Segoe UI", 24, "bold"), bg="#f3f5f7").pack(anchor="w")
+        tk.Label(container, text="ChatGPT Gazette Studio", font=("Segoe UI", 24, "bold"), bg="#f3f5f7").pack(anchor="w")
         tk.Label(container, text="Gazete üretimi, raporlar, Random Haber ve extension kontrol merkezi.", font=("Segoe UI", 10), bg="#f3f5f7", fg="#5f6875").pack(anchor="w", pady=(2, 16))
 
         actions = tk.Frame(container, bg="#f3f5f7")
         actions.pack(fill="x", pady=(0, 14))
         buttons = [
             ("Gazete Üret", self.build_issue),
-            ("Tam Üretim", self.build_full_issue),
+            ("Hızlı Taslak", self.build_fast_issue),
             ("Son PDF'i Aç", lambda: self.open_path(PROJECT_ROOT / "dist" / "gazete.pdf")),
             ("Son HTML'i Aç", lambda: self.open_path(PROJECT_ROOT / "dist" / "gazete.html")),
             ("Random Haber", self.open_random_news),
@@ -76,10 +76,10 @@ class GazetteStudio:
             messagebox.showerror("Gazette Studio", f"Komut başarısız: {process.returncode}")
 
     def build_issue(self) -> None:
-        self.run_command([command_python(), "-m", "chatgpt_haber.cli", "build", "--mode", "fast", "--out", "dist/gazete.pdf"])
-
-    def build_full_issue(self) -> None:
         self.run_command([command_python(), "-m", "chatgpt_haber.cli", "build", "--mode", "full", "--out", "dist/gazete.pdf"])
+
+    def build_fast_issue(self) -> None:
+        self.run_command([command_python(), "-m", "chatgpt_haber.cli", "build", "--mode", "fast", "--out", "dist/gazete.pdf"])
 
     def run_tests(self) -> None:
         self.run_command([command_python(), "-m", "pytest", "-q"])

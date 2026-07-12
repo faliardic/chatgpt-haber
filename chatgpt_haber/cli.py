@@ -111,7 +111,7 @@ def should_copy_to_desktop(mode: str) -> bool:
 
 @app.callback()
 def callback() -> None:
-    """ChatGPT Haber komutları."""
+    """ChatGPT Gazette komutları."""
 
 
 def run_build(
@@ -182,7 +182,7 @@ def run_build(
             html_path,
             portable_pdf_links=True,
             portable_assets=False,
-            include_brief_details=(mode == "full"),
+            include_brief_details=True,
         )
     with timer.stage("render_pdf"):
         render_pdf(html_path, out)

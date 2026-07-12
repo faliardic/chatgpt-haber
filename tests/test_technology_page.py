@@ -106,8 +106,9 @@ def test_pdf_detail_pages_have_large_return_button_above_and_below_article(tmp_p
     assert len(buttons) == 2
     assert all(button.get_text(" ", strip=True) == "GAZETEYE DÖNÜŞ" for button in buttons)
     assert all(button["href"] == "#top" for button in buttons)
-    assert detail_page.select_one(".detail-page__header > .detail-page__back") is not None
-    assert detail_page.select(".detail-page__source + .detail-page__back")
+    assert detail_page.select_one(".detail-page__actions > .detail-page__back") is not None
+    assert detail_page.select_one(".detail-page__actions > .detail-page__open-source") is not None
+    assert detail_page.select("a.detail-page__back")[-1].parent == detail_page
 
 
 def test_linked_article_detail_has_large_return_button_above_and_below_article(tmp_path):

@@ -112,7 +112,7 @@ def test_render_html_final_sanitizer_removes_generic_earthquake(tmp_path):
     assert "Son dakika deprem mi oldu" not in html
 
 
-def test_detail_page_keeps_original_source_link(tmp_path):
+def test_detail_page_keeps_top_source_link_without_footer(tmp_path):
     html_path = tmp_path / "issue.html"
     render_html(normalize_issue(read_json(Path("examples/issue.sample.json"))), html_path)
     soup = BeautifulSoup(html_path.read_text(encoding="utf-8"), "lxml")
@@ -120,9 +120,11 @@ def test_detail_page_keeps_original_source_link(tmp_path):
     detail_path = tmp_path / soup.select_one(".story__headline a[href]")["href"]
     detail_soup = BeautifulSoup(detail_path.read_text(encoding="utf-8"), "lxml")
 
-    source_link = detail_soup.select_one(".detail-source a[href]")
+    source_link = detail_soup.select_one(".detail-nav a[href^='https://']")
     assert source_link
+    assert source_link.get_text(strip=True) == "KAYNAĞI AÇ"
     assert source_link["href"].startswith("https://")
+    assert not detail_soup.select(".detail-source")
 
 
 def test_front_page_rail_lists_twenty_text_only_items(tmp_path):
@@ -493,7 +495,7 @@ def test_all_pages_use_shared_grid_layout(tmp_path):
     assert len(soup.select(".page .front-layout")) == 3
 
 
-def test_fast_pdf_html_embeds_only_main_article_details(tmp_path):
+def test_fast_pdf_html_embeds_main_and_brief_article_details(tmp_path):
     issue = normalize_issue(read_json(Path("examples/issue.sample.json")))
     seed = deepcopy(issue["pages"][0]["articles"][0])
     for page in issue["pages"]:
@@ -511,7 +513,7 @@ def test_fast_pdf_html_embeds_only_main_article_details(tmp_path):
         page["briefs"] = [brief]
 
     html_path = tmp_path / "issue.html"
-    render_html(issue, html_path, portable_pdf_links=True, include_brief_details=False)
+    render_html(issue, html_path, portable_pdf_links=True)
     soup = BeautifulSoup(html_path.read_text(encoding="utf-8"), "lxml")
 
     main_link = soup.select_one(".story__headline a[href]")
@@ -519,8 +521,85 @@ def test_fast_pdf_html_embeds_only_main_article_details(tmp_path):
     detail_pages = soup.select(".detail-page")
 
     assert main_link["href"].startswith("#article-detail-")
-    assert brief_link["href"] == "https://example.com/brief-1"
-    assert len(detail_pages) == 3
-    assert all("Kısa haber" not in page.get_text(" ", strip=True) for page in detail_pages)
+    assert brief_link["href"].startswith("#article-detail-")
+    assert brief_link["href"] != "https://example.com/brief-1"
+    assert len(detail_pages) == 6
+    assert any("Kısa haber" in page.get_text(" ", strip=True) for page in detail_pages)
     assert len(detail_pages[0].select(".detail-page__back")) == 2
     assert all(button["href"] == "#top" for button in detail_pages[0].select(".detail-page__back"))
+
+
+def test_masthead_uses_gazette_brand_without_old_decorations(tmp_path):
+    html_path = tmp_path / "issue.html"
+    render_html(normalize_issue(read_json(Path("examples/issue.sample.json"))), html_path)
+    html = html_path.read_text(encoding="utf-8")
+    soup = BeautifulSoup(html, "lxml")
+
+    assert "ChatGPT Gazette" in html
+    assert soup.select_one(".masthead__gazette").get_text(strip=True) == "GAZETTE"
+    assert soup.select_one(".masthead__mark")
+    assert "GÜVENİLİR" not in html
+    assert "TARAFSIZ" not in html
+    assert "masthead__slogan" not in html
+    assert "masthead__chevrons" not in html
+    assert "masthead__globe" not in html
+
+
+def test_story_images_link_to_same_target_as_headlines(tmp_path):
+    issue = normalize_issue(read_json(Path("examples/issue.sample.json")))
+    issue["pages"][0]["articles"][0]["image"] = {
+        "path": "https://example.com/photo.jpg",
+        "alt": "Test görsel",
+        "caption": "Test görsel başlığı",
+        "credit": "Test",
+        "crop": "landscape",
+    }
+    html_path = tmp_path / "issue.html"
+
+    render_html(issue, html_path, portable_pdf_links=True)
+    soup = BeautifulSoup(html_path.read_text(encoding="utf-8"), "lxml")
+
+    story = soup.select_one(".story")
+    headline_link = story.select_one(".story__headline a[href]")
+    image_link = story.select_one(".figure__link[href]")
+    image = image_link.select_one("img")
+    assert image_link["href"] == headline_link["href"]
+    assert image_link["href"].startswith("#article-detail-")
+    assert image["alt"] == "Test görsel"
+
+
+def test_source_footers_are_not_rendered_on_cards_or_detail_pages(tmp_path):
+    html_path = tmp_path / "issue.html"
+    render_html(normalize_issue(read_json(Path("examples/issue.sample.json"))), html_path, portable_pdf_links=True)
+    html = html_path.read_text(encoding="utf-8")
+    soup = BeautifulSoup(html, "lxml")
+
+    assert not soup.select(".story__source")
+    assert not soup.select(".detail-source")
+    assert not soup.select(".detail-page__source")
+    assert "single_source" not in " ".join(story.get_text(" ", strip=True) for story in soup.select(".story"))
+    assert soup.select_one(".detail-page__open-source")
+
+
+def test_duplicate_main_and_brief_share_one_detail_page(tmp_path):
+    issue = normalize_issue(read_json(Path("examples/issue.sample.json")))
+    seed = deepcopy(issue["pages"][0]["articles"][0])
+    seed["source_bundle"][0]["url"] = "https://example.com/shared-detail"
+    main = deepcopy(seed)
+    main["id"] = "main-shared"
+    brief = deepcopy(seed)
+    brief["id"] = "brief-shared"
+    brief["headline"] = "Paylaşılan kısa haber"
+    brief["layout_hint"] = {"story_size": "brief", "column_span": 1, "preferred_position": "rail"}
+    issue["pages"] = [issue["pages"][0]]
+    issue["pages"][0]["articles"] = [main]
+    issue["pages"][0]["briefs"] = [brief]
+    html_path = tmp_path / "issue.html"
+
+    render_html(issue, html_path, portable_pdf_links=True)
+    soup = BeautifulSoup(html_path.read_text(encoding="utf-8"), "lxml")
+
+    headline_link = soup.select_one(".story__headline a[href]")["href"]
+    brief_link = soup.select_one(".front-rail__item a[href]")["href"]
+    assert brief_link == headline_link
+    assert len(soup.select(".detail-page")) == 1

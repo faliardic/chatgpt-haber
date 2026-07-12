@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.1.0 - 2026-07-12
+
+- Gazetenin görünür adı ChatGPT Gazette olarak güncellendi.
+- Üst bant mavi, beyaz ve kırmızı renk geçişleriyle yeniden tasarlandı.
+- Güvenilir, Hızlı, Tarafsız sloganı ve eski dekoratif bant unsurları kaldırıldı.
+- Haber görselleri başlıklarla aynı bağlantıya bağlandı.
+- Haber detay çıkarma sistemi güçlendirildi.
+- Sağ haber listesi internal detay sayfalarına bağlandı.
+- Haber kartları ve detay sayfalarındaki alt kaynak yazıları kaldırıldı.
+- Kaynak erişimi detay üstündeki KAYNAĞI AÇ bağlantısında korundu.
+- Windows tek-tıklama OptionInfo hatası düzeltildi.
+
 ## 1.0.0 - 2026-07-12
 
 - Üç sayfalık Türkçe gazete tamamlandı.

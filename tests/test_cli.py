@@ -41,7 +41,7 @@ def sample_issue() -> dict:
         "image": {},
     }
     return {
-        "issue": {"issue_date": "2026-07-12", "page_count": 3, "paper_size": "A3", "title": "CHATGPT HABER"},
+        "issue": {"issue_date": "2026-07-12", "page_count": 3, "paper_size": "A3", "title": "ChatGPT Gazette"},
         "pages": [
             {"page_no": 1, "template": "front_page", "name": "Manşet", "articles": [article.copy()], "briefs": []},
             {"page_no": 2, "template": "news_page", "name": "Gündem ve Ekonomi", "articles": [article.copy()], "briefs": []},
@@ -115,7 +115,7 @@ def test_build_default_mode_is_fast(monkeypatch, tmp_path):
     assert calls.get("archive", 0) == 0
     assert calls.get("desktop_copy", 0) == 0
     assert len(calls["render_html"]) == 1
-    assert calls["render_html"][0]["include_brief_details"] is False
+    assert calls["render_html"][0]["include_brief_details"] is True
     assert timing_path.exists()
     assert '"mode": "fast"' in timing_path.read_text(encoding="utf-8")
     assert '"skipped": true' in timing_path.read_text(encoding="utf-8")

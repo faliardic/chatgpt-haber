@@ -47,7 +47,7 @@ def sample_issue() -> dict:
             "issue_date": "2026-07-12",
             "page_count": 3,
             "paper_size": "A3",
-            "title": "CHATGPT HABER",
+            "title": "ChatGPT Gazette",
             "generated_at": "2026-07-12T09:10:00+03:00",
         },
         "pages": [
@@ -60,6 +60,7 @@ def sample_issue() -> dict:
 
 def install_fake_build(monkeypatch, issue_data: dict) -> None:
     def fake_run_build(**kwargs):
+        assert kwargs["mode"] == "full"
         staging_dir = Path(kwargs["out"]).parent
         staging_dir.mkdir(parents=True, exist_ok=True)
         pdf_path = staging_dir / "gazete.pdf"
@@ -124,10 +125,15 @@ def test_publish_pages_site_creates_portable_site_and_archive(monkeypatch, tmp_p
     main_link = soup.select_one(".story__headline a[href]")
     brief_link = soup.select_one(".front-rail__item a[href]")
     assert main_link["href"].startswith("#article-detail-")
-    assert brief_link["href"] == "https://example.com/brief"
+    assert brief_link["href"].startswith("#article-detail-")
+    assert brief_link["href"] != "https://example.com/brief"
     assert len(soup.select(".detail-page__back")) >= 2
     assert all(link["href"] == "#top" for link in soup.select(".detail-page__back"))
-    assert soup.select_one(".detail-page__source a[href='https://example.com/main']")
+    assert soup.select_one(".detail-page__open-source[href='https://example.com/main']")
+    assert not soup.select(".detail-page__source")
+    assert not soup.select(".story__source")
+    assert "ChatGPT Gazette" in html
+    assert "CHATGPT HABER" not in html
 
     assert archive_html.count("2026-07-12/") == 2
     assert archive_html.count("2026-06-06/") == 2

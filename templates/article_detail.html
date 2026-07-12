@@ -43,7 +43,7 @@
     </a>
     <nav class="detail-nav" aria-label="Sayfa bağlantıları">
       <a href="{{ back_href }}">Gazeteye dön</a>
-      <a href="{{ source_url }}" target="_blank" rel="noopener noreferrer">Kaynağı aç</a>
+      <a href="{{ source_url }}" target="_blank" rel="noopener noreferrer">KAYNAĞI AÇ</a>
     </nav>
   </header>
 
@@ -75,11 +75,6 @@
         {% endfor %}
       </div>
 
-      <footer class="detail-source">
-        <strong>Kaynak:</strong>
-        <a href="{{ source_url }}" target="_blank" rel="noopener noreferrer">{{ source_name }}</a>
-        <span>{{ article.verification.status }}</span>
-      </footer>
       <a class="detail-return detail-return--bottom" href="{{ back_href }}">GAZETEYE DÖNÜŞ</a>
     </article>
   </main>

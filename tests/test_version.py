@@ -6,8 +6,8 @@ from pathlib import Path
 import chatgpt_haber
 
 
-def test_package_version_is_1_0_0():
-    assert chatgpt_haber.__version__ == "1.0.0"
+def test_package_version_is_1_1_0():
+    assert chatgpt_haber.__version__ == "1.1.0"
 
 
 def test_pyproject_version_matches_package_version():

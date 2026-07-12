@@ -7,7 +7,7 @@ import threading
 import traceback
 from tkinter import Tk, Label, Button, StringVar, messagebox, ttk
 
-from chatgpt_haber.cli import build
+from chatgpt_haber.cli import run_build
 
 
 def desktop_dir() -> Path:
@@ -16,14 +16,22 @@ def desktop_dir() -> Path:
 
 def output_path_for_today() -> Path:
     today = date.today().isoformat()
-    return desktop_dir() / "ChatGPT Haber" / f"gazete-{today}.pdf"
+    return desktop_dir() / "ChatGPT Gazette" / f"gazete-{today}.pdf"
 
 
 def build_today_issue(status: StringVar, done: threading.Event, result: dict[str, object]) -> None:
     out = output_path_for_today()
     try:
         status.set("Haberler toplanıyor ve gazete oluşturuluyor...")
-        build(issue_date=date.today().isoformat(), paper_size="A3", out=out, input_json=None, live=True)
+        run_build(
+            issue_date=date.today().isoformat(),
+            paper_size="A3",
+            out=out,
+            input_json=None,
+            live=True,
+            portable_html=False,
+            mode="full",
+        )
         result["out"] = out
     except Exception as exc:
         log_path = out.parent / "son-hata.txt"
@@ -37,7 +45,7 @@ def build_today_issue(status: StringVar, done: threading.Event, result: dict[str
 
 def main() -> None:
     root = Tk()
-    root.title("ChatGPT Haber")
+    root.title("ChatGPT Gazette")
     root.geometry("460x180")
     root.resizable(False, False)
 
@@ -45,7 +53,7 @@ def main() -> None:
     done = threading.Event()
     result: dict[str, object] = {}
 
-    Label(root, text="ChatGPT Haber", font=("Segoe UI", 18, "bold")).pack(pady=(20, 4))
+    Label(root, text="ChatGPT Gazette", font=("Segoe UI", 18, "bold")).pack(pady=(20, 4))
     Label(root, textvariable=status, font=("Segoe UI", 11)).pack(pady=(0, 14))
 
     progress = ttk.Progressbar(root, mode="indeterminate", length=360)
@@ -67,14 +75,14 @@ def main() -> None:
             log_path = result.get("log_path")
             status.set("Gazete oluşturulamadı.")
             messagebox.showerror(
-                "ChatGPT Haber",
+                "ChatGPT Gazette",
                 f"Gazete oluşturulamadı.\n\nHata: {error}\n\nAyrıntı: {log_path}",
             )
             return
 
         out = result["out"]
         status.set(f"Gazete oluşturuldu:\n{out}")
-        messagebox.showinfo("ChatGPT Haber", f"Gazete oluşturuldu:\n\n{out}")
+        messagebox.showinfo("ChatGPT Gazette", f"Gazete oluşturuldu:\n\n{out}")
 
     worker = threading.Thread(target=build_today_issue, args=(status, done, result), daemon=True)
     worker.start()

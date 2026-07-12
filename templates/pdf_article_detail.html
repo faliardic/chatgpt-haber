@@ -5,7 +5,10 @@
       <h1>{{ article.headline }}</h1>
       <p>{{ article.dek }}</p>
     </div>
-    <a class="detail-page__back" href="#top">GAZETEYE DÖNÜŞ</a>
+    <nav class="detail-page__actions" aria-label="Haber bağlantıları">
+      <a class="detail-page__open-source" href="{{ article.source_bundle[0].url }}" target="_blank" rel="noopener noreferrer">KAYNAĞI AÇ</a>
+      <a class="detail-page__back" href="#top">GAZETEYE DÖNÜŞ</a>
+    </nav>
   </header>
 
   {% if article.image and article.image.path %}
@@ -19,7 +22,6 @@
 
   <div class="detail-page__meta">
     <span>{{ article.section }}</span>
-    <span>{{ article.verification.status }}</span>
     {% if article.source_bundle and article.source_bundle[0].published_at %}
       <span>{{ article.source_bundle[0].published_at|datetime_tr }}</span>
     {% endif %}
@@ -31,9 +33,5 @@
     {% endfor %}
   </div>
 
-  <footer class="detail-page__source">
-    Kaynak:
-    <a href="{{ article.source_bundle[0].url }}" target="_blank" rel="noopener noreferrer">{{ article.source_bundle[0].name }}</a>
-  </footer>
   <a class="detail-page__back" href="#top">GAZETEYE DÖNÜŞ</a>
 </section>

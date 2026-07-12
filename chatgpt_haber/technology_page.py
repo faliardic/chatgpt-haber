@@ -156,7 +156,7 @@ def technology_placeholder_article() -> dict[str, Any]:
         ],
         "source_bundle": [
             {
-                "name": "CHATGPT HABER Teknoloji Masası",
+                "name": "ChatGPT Gazette Teknoloji Masası",
                 "url": "https://example.com",
                 "published_at": now,
                 "source_type": "editorial_notice",

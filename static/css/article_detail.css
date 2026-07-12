@@ -71,7 +71,6 @@ a {
 
 .detail-kicker,
 .detail-meta,
-.detail-source,
 .detail-figure figcaption {
   font-family: var(--sans);
 }
@@ -143,27 +142,6 @@ h1 {
 
 .detail-body p {
   margin: 0 0 20px;
-}
-
-.detail-source {
-  border-top: 2px solid var(--text);
-  color: var(--muted);
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 14px;
-  gap: 10px;
-  margin-top: 34px;
-  padding-top: 14px;
-}
-
-.detail-source a {
-  color: var(--text);
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.detail-source a:hover {
-  text-decoration: underline;
 }
 
 @media (max-width: 640px) {

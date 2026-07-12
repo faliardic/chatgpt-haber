@@ -51,7 +51,7 @@ def publish_pages_site(
         input_json=input_json,
         live=live,
         portable_html=False,
-        mode="fast",
+        mode="full",
     )
     issue_data = read_json(Path(build_result["issue_json"]))
     archive_date = str(issue_data.get("issue", {}).get("issue_date") or issue_date)
@@ -102,7 +102,7 @@ def render_site_html(issue_data: dict, html_path: Path, *, pdf_href: str, archiv
         html_path,
         portable_pdf_links=True,
         portable_assets=True,
-        include_brief_details=False,
+        include_brief_details=True,
         web_publish=True,
         web_toolbar={
             "pdf_href": pdf_href,
@@ -134,7 +134,7 @@ def write_archive_index(archive_dir: Path) -> Path:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CHATGPT HABER Arşiv</title>
+  <title>ChatGPT Gazette Arşiv</title>
   <style>
     body {{
       background: #f3f5f7;
@@ -188,7 +188,7 @@ def write_archive_index(archive_dir: Path) -> Path:
 </head>
 <body>
   <main>
-    <h1>CHATGPT HABER Arşiv</h1>
+    <h1>ChatGPT Gazette Arşiv</h1>
     <ol class="archive-list">
 {rows}
     </ol>

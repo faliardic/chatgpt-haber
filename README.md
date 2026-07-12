@@ -1,16 +1,27 @@
-# ChatGPT Haber v1.0
+# ChatGPT Gazette v1.1
 
 ## Durum: Tamamlandı / Bakım Modu
 
-ChatGPT Haber, üç sayfalık Türkçe gazete üreten, PDF ve statik web çıktısı hazırlayan yerel bir yayın aracıdır.
+ChatGPT Gazette, üç sayfalık Türkçe gazete üreten, PDF ve statik web çıktısı hazırlayan yerel bir yayın aracıdır.
 
-v1.0 hedefleri tamamlanmıştır. Yeni özellik geliştirmesi planlanmamaktadır. Proje yalnız kritik hata, kaynak kırılması ve güvenlik düzeltmeleri için bakım modundadır.
+v1.1.0 hedefleri tamamlanmıştır. Yeni özellik geliştirmesi planlanmamaktadır. Proje yalnız kritik hata, kaynak kırılması ve güvenlik düzeltmeleri için bakım modundadır.
 
 ## Canlı Site
 
 Canlı gazete:
 
 https://faliardic.github.io/chatgpt-haber/
+
+## v1.1.0 Öne Çıkanlar
+
+- Yeni ChatGPT Gazette kimliği.
+- Mavi, beyaz ve kırmızı geçişli sade masthead.
+- Tıklanabilir haber görselleri.
+- Zenginleştirilmiş haber detayları.
+- Sağ haber listesinde internal detay navigasyonu.
+- Haber kartları ve detay sayfalarından kaldırılan alt kaynak yazıları.
+- Detay üstünde korunan `KAYNAĞI AÇ` bağlantısı.
+- Windows tek-tıklama `OptionInfo` düzeltmesi.
 
 ## Özellikler
 
@@ -38,37 +49,23 @@ Yerel örnek veriyle hızlı gazete üretimi:
 python -m chatgpt_haber.cli build --mode fast --no-live --input-json examples\issue.sample.json --out dist\gazete.pdf
 ```
 
-Canlı RSS akışlarıyla üretim:
+Canlı RSS akışlarıyla full kalite üretim:
 
 ```powershell
-python -m chatgpt_haber.cli build --mode fast --out dist\gazete.pdf
+python -m chatgpt_haber.cli build --mode full --out dist\gazete.pdf
 ```
 
 ## Gazette Studio
 
 Gazette Studio, Windows üzerinde temel üretim komutlarını tek pencerede sunar.
 
-- `Gazete Üret`: `--mode fast`
-- `Tam Üretim`: `--mode full`
+- `Gazete Üret`: `--mode full`
+- `Hızlı Taslak`: `--mode fast`
 - son PDF/HTML açma
 - kaynak raporu açma
 - testleri çalıştırma
 
 Uygulama kaynak kodu: `apps/gazette_studio.py`
-
-## Fast ve Full Modları
-
-Fast mod günlük üretim içindir:
-
-```powershell
-python -m chatgpt_haber.cli build --mode fast
-```
-
-Full mod detay zenginleştirme, portable HTML, arşiv ve masaüstü kopyasını da çalıştırır:
-
-```powershell
-python -m chatgpt_haber.cli build --mode full
-```
 
 ## Web Sitesini Güncelleme
 
@@ -115,7 +112,7 @@ dist\ChatGPTHaber\ChatGPTHaber.exe
 Release paketi:
 
 ```text
-release\ChatGPTHaber-v1.0.0-windows.zip
+release\ChatGPT-Gazette-v1.1.0-windows.zip
 ```
 
 Playwright/Chromium bağımlılıkları nedeniyle `dist\ChatGPTHaber` klasörü bütün olarak taşınmalıdır.
@@ -146,6 +143,6 @@ RSS veya issue JSON -> normalize -> teknoloji sayfası garantisi -> editoryal fi
 
 ## Bakım Politikası
 
-Bu repository v1.0 itibarıyla bakım modundadır. Kabul edilen değişiklikler kritik hata, bozuk RSS kaynağı, güvenlik sorunu, işletim sistemi veya bağımlılık uyumluluk hatası ve GitHub Pages yayın hatası ile sınırlıdır.
+Bu repository v1.1.0 itibarıyla bakım modundadır. Kabul edilen değişiklikler kritik hata, bozuk RSS kaynağı, güvenlik sorunu, işletim sistemi veya bağımlılık uyumluluk hatası ve GitHub Pages yayın hatası ile sınırlıdır.
 
 Yeni özellik geliştirmesi planlanmamaktadır.

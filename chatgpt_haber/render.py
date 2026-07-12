@@ -111,6 +111,7 @@ def render_html(
     print_css = BASE_DIR / "static" / "css" / "print.css"
     detail_css = BASE_DIR / "static" / "css" / "article_detail.css"
     logo_path = BASE_DIR / "static" / "img" / "chatgpt-haber-logo-cropped.png"
+    mark_path = BASE_DIR / "static" / "img" / "chatgpt-gazette-mark.png"
     rendered_html = template.render(
         issue=issue_data["issue"],
         pages=issue_data["pages"],
@@ -118,6 +119,7 @@ def render_html(
         css_href=css_href(print_css, portable_assets),
         css_content=linked_or_embedded_css(print_css, portable_assets),
         logo_href=linked_or_embedded_asset(logo_path, portable_assets),
+        mark_href=linked_or_embedded_asset(mark_path, portable_assets),
         web_publish=web_publish,
         web_toolbar=web_toolbar or {},
     )
@@ -145,6 +147,7 @@ def render_html(
             css_href=css_href(detail_css, portable_assets),
             css_content=linked_or_embedded_css(detail_css, portable_assets),
             logo_href=linked_or_embedded_asset(logo_path, portable_assets),
+            mark_href=linked_or_embedded_asset(mark_path, portable_assets),
         )
         detail_path.write_text(rendered_detail, encoding="utf-8")
         assert_no_forbidden_rendered_text(rendered_detail, "detail_html_before_pdf")
@@ -199,7 +202,8 @@ def prepare_detail_links(
             for article in collection:
                 if not isinstance(article, dict):
                     continue
-                key = str(article.get("id") or source_url(article) or article.get("headline") or "")
+                article_source_url = source_url(article)
+                key = str(article_source_url if article_source_url != "#" else article.get("id") or article.get("headline") or "")
                 if key in links_by_key:
                     detail_path, detail_url, detail_anchor = links_by_key[key]
                     article["detail_path"] = detail_path
