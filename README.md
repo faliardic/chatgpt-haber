@@ -1,6 +1,6 @@
 # ChatGPT Haber
 
-Tek komutla çalışan, baskıya hazır, üç sayfalık Türkçe gazete üreticisi.
+Tek komutla çalışan, baskıya hazır, üç sayfalık Türkçe gazete üreticisi. Sayfalar sırasıyla manşet, gündem-ekonomi ve teknoloji olarak hazırlanır.
 
 ## Kurulum
 
@@ -23,7 +23,11 @@ chatgpt-haber build --date 2026-05-26 --paper-size A3 --out dist/gazete-2026-05-
 
 Komut sırasıyla resmi RSS akışlarını dener, yeterli veri alamazsa `data/issue.json` dosyasını yeni üç sayfalık sözleşmeye dönüştürür, doğrular, tek HTML belge üretir ve Playwright ile PDF alır.
 
+Üçüncü sayfa yalnız teknoloji ve bilim haberlerinden oluşturulur. Ankara yerel haber sayfası artık gazete üretiminde kullanılmaz.
+
 Üretilen HTML varsayılan olarak tek başına paylaşılabilir formattadır: CSS, logo, yerel görseller ve detay sayfaları ana dosyaya gömülür. Eski klasör bağlantılı HTML çıktısı istenirse `--linked-html` kullanın.
+
+PDF içinde bir haber başlığına tıklandığında açılan detay sayfasının hem üstünde hem sonunda büyük `GAZETEYE DÖNÜŞ` bağlantısı bulunur.
 
 Yerel JSON ile çalıştırmak için:
 
